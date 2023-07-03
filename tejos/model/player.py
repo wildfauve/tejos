@@ -58,3 +58,6 @@ class Player:
         a                        fau-ten:QualifiedPlayer ;
         fau-ten:isEntryForPlayer fau-ten-ind:{self.uri_name()} .
         """
+
+    def __repr__(self):
+        return f"{self.__class__.__name__}(name={self.name}, klass_name={self.klass_name})"

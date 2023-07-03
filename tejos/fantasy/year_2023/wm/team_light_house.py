@@ -133,7 +133,7 @@ def mens_singles_round_1(mens_singles):
     TEAM.draw(mens_singles).match('1.49').winner(men.Rublev).in_sets(3)  # (  7) Rublev  OR  (   ) Purcell
     TEAM.draw(mens_singles).match('1.50').winner(men.Karatsev).in_sets(4)  # (   ) Van_Assche  OR  (   ) Karatsev
     TEAM.draw(mens_singles).match('1.51').winner(men.Baez).in_sets(3)  # (   ) Baez  OR  (  Q) Vera
-    TEAM.draw(mens_singles).match('1.52').winner(men.Kyrgios).in_sets(4)  # ( WC) Goffin  OR  ( 30) Kyrgios
+    TEAM.draw(mens_singles).match('1.52').winner(men.Goffin).in_sets(4)  # ( WC) Goffin  OR  ( 30) Marozan
     TEAM.draw(mens_singles).match('1.53').winner(men.Bublik).in_sets(4)  # ( 23) Bublik  OR  (   ) Mcdonald
     TEAM.draw(mens_singles).match('1.54').winner(men.Wolf).in_sets(3)  # (   ) Wolf  OR  (  Q) Couacaud
     TEAM.draw(mens_singles).match('1.55').winner(men.Gojo).in_sets(4)  # (  Q) Marterer  OR  (   ) Gojo

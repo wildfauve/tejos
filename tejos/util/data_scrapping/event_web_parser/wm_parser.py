@@ -28,9 +28,9 @@ round_code_map = {'1': 1,
                   'S': 6,
                   'F': 7}
 
-# draws = [("https://2023.wimbledon.com/en_GB/scores/feeds/2023/draws/LS.json", 'WM2023WomensSingles'),
-#          ('https://2023.wimbledon.com/en_GB/scores/feeds/2023/draws/MS.json', 'WM2023MensSingles')]
-draws = [('ao/util/data_scrapping/data/men_draw.json', 'WM2023MensSingles')]
+draws = [("https://2023.wimbledon.com/en_GB/scores/feeds/2023/draws/LS.json", 'WM2023WomensSingles'),
+         ('https://2023.wimbledon.com/en_GB/scores/feeds/2023/draws/MS.json', 'WM2023MensSingles')]
+# draws = [('ao/util/data_scrapping/data/men_draw.json', 'WM2023MensSingles')]
 
 match_ids = {'mens_singles': [], 'womens_singles': []}
 

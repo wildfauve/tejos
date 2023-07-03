@@ -132,11 +132,11 @@ def mens_singles_round_1(mens_singles):
     TEAM.draw(mens_singles).match('1.49').winner(men).in_sets()  # (  7) Rublev  OR  (   ) Purcell
     TEAM.draw(mens_singles).match('1.50').winner(men).in_sets()  # (   ) Van_Assche  OR  (   ) Karatsev
     TEAM.draw(mens_singles).match('1.51').winner(men).in_sets()  # (   ) Baez  OR  (  Q) Vera
-    TEAM.draw(mens_singles).match('1.52').winner(men).in_sets()  # ( WC) Goffin  OR  ( 30) Kyrgios
+    TEAM.draw(mens_singles).match('1.52').winner(men).in_sets()  # ( WC) Goffin  OR  ( LL) Marozsan
     TEAM.draw(mens_singles).match('1.53').winner(men).in_sets()  # ( 23) Bublik  OR  (   ) Mcdonald
     TEAM.draw(mens_singles).match('1.54').winner(men).in_sets()  # (   ) Wolf  OR  (  Q) Couacaud
     TEAM.draw(mens_singles).match('1.55').winner(men).in_sets()  # (  Q) Marterer  OR  (   ) Gojo
-    TEAM.draw(mens_singles).match('1.56').winner(men).in_sets()  # (   ) Krajinovic  OR  ( 11) Auger_Aliassime
+    TEAM.draw(mens_singles).match('1.56').winner(men).in_sets()  # (   ) Mmoh  OR  ( 11) Auger_Aliassime
     TEAM.draw(mens_singles).match('1.57').winner(men).in_sets()  # ( 14) Musetti  OR  (   ) Varillas
     TEAM.draw(mens_singles).match('1.58').winner(men).in_sets()  # (   ) Isner  OR  (   ) Munar
     TEAM.draw(mens_singles).match('1.59').winner(men).in_sets()  # ( WC) Choinski  OR  (   ) Lajovic

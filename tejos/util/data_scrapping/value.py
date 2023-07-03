@@ -7,7 +7,8 @@ from tejos.players import players
 from tejos import model
 from tejos.util import fn
 
-file = open('_temp/missing.py', 'a')
+missing_file_name = '_temp/missing.py'
+
 
 @dataclass
 class Player:
@@ -21,9 +22,10 @@ class Player:
     def __post_init__(self):
         self.player_klass = players.search_player_by_name(self.name, self.player_module)
         if not self.player_klass:
-            plyr_def = (f"{self.name} = Player('{self.name}', tour_symbol=TOUR, klass_name='{self.name}', alt_names=[])\n")
-            print(plyr_def)
-            file.write(plyr_def)
+            with open('_temp/missing.py', 'a') as missing_file:
+                plyr_def = (f"{self.name} = Player('{self.name}', tour_symbol=TOUR, klass_name='{self.name}', alt_names=[])\n")
+                print(plyr_def)
+                missing_file.write(plyr_def)
 
     def player_entry_klass_name(self):
         return self.player_klass.klass_name
