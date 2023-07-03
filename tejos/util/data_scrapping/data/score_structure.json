@@ -1,0 +1,89 @@
+{
+  "scores": {
+    "setsWon": [
+      2,
+      2,
+      2,
+      2,
+      0,
+      0
+    ],
+    "setDurations": [
+      "37",
+      "45",
+      "32"
+    ],
+    "sets": [
+      [
+        {
+          "score": 3,
+          "scoreDisplay": "3",
+          "tiebreak": null,
+          "tiebreakDisplay": null,
+          "challenge_total": null,
+          "challenge_won": null,
+          "challenge_lost": null,
+          "challenge_remaining": null
+        },
+        {
+          "score": 6,
+          "scoreDisplay": "6",
+          "tiebreak": null,
+          "tiebreakDisplay": null,
+          "challenge_total": null,
+          "challenge_won": null,
+          "challenge_lost": null,
+          "challenge_remaining": null
+        }
+      ],
+      [
+        {
+          "score": 4,
+          "scoreDisplay": "4",
+          "tiebreak": null,
+          "tiebreakDisplay": null,
+          "challenge_total": null,
+          "challenge_won": null,
+          "challenge_lost": null,
+          "challenge_remaining": null
+        },
+        {
+          "score": 6,
+          "scoreDisplay": "6",
+          "tiebreak": null,
+          "tiebreakDisplay": null,
+          "challenge_total": null,
+          "challenge_won": null,
+          "challenge_lost": null,
+          "challenge_remaining": null
+        }
+      ],
+      [
+        {
+          "score": 1,
+          "scoreDisplay": "1",
+          "tiebreak": null,
+          "tiebreakDisplay": null,
+          "challenge_total": null,
+          "challenge_won": null,
+          "challenge_lost": null,
+          "challenge_remaining": null
+        },
+        {
+          "score": 6,
+          "scoreDisplay": "6",
+          "tiebreak": null,
+          "tiebreakDisplay": null,
+          "challenge_total": null,
+          "challenge_won": null,
+          "challenge_lost": null,
+          "challenge_remaining": null
+        }
+      ]
+    ],
+    "gameScore": [
+      null,
+      null
+    ]
+  }
+}

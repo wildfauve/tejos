@@ -1,0 +1,18 @@
+@prefix dcterms:           <http://purl.org/dc/terms/> .
+@prefix lcc-lr:            <https://www.omg.org/spec/LCC/Languages/LanguageRepresentation/> .
+@prefix owl:               <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs:              <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf:               <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix fau-ten:           <https://fauve.io/ontology/TENNIS/> .
+@prefix fau-ten-ind:       <https://fauve.io/ontology/TENNIS/Ind/> .
+@prefix ao:                <https://fauve.io/ao/> .
+@prefix skos:              <http://www.w3.org/2004/02/skos/core#> .
+@prefix foaf:              <http://xmlns.com/foaf/0.1/> .
+@prefix xsd:               <http://www.w3.org/2001/XMLSchema#> .
+@prefix sm:                <http://www.omg.org/techprocess/ab/SpecificationMetadata/> .
+
+
+<https://fauve.io/fantasyTennis/teams/TeamClojo>
+    a                     fau-ten:FantasyTeam ;
+    skos:notation         "Team Clojo" ;
+    fau-ten:FantasyMember "Claudie", "Fyodoro" .

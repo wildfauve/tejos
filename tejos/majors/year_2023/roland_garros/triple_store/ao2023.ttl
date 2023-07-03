@@ -1,0 +1,279 @@
+@prefix dcterms:           <http://purl.org/dc/terms/> .
+@prefix lcc-lr:            <https://www.omg.org/spec/LCC/Languages/LanguageRepresentation/> .
+@prefix owl:               <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs:              <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf:               <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix fau-ten:           <https://fauve.io/ontology/TENNIS/> .
+@prefix fau-ten-ind:       <https://fauve.io/ontology/TENNIS/Ind/> .
+@prefix ao:                <https://fauve.io/ao/> .
+@prefix skos:              <http://www.w3.org/2004/02/skos/core#> .
+@prefix foaf:              <http://xmlns.com/foaf/0.1/> .
+@prefix xsd:               <http://www.w3.org/2001/XMLSchema#> .
+@prefix sm:                <http://www.omg.org/techprocess/ab/SpecificationMetadata/> .
+
+
+ao:AustralianOpen
+    a             fau-ten:GrandSlam ;
+    skos:notation "Australian Open" .
+
+ao:AustralianOpen2023
+    a                 fau-ten:Event ;
+    fau-ten:isEventOf ao:AustralianOpen ;
+    skos:notation     "Australian Open 2023" ;
+    fau-ten:hasDraw   <https://fauve.io/ao/2023/mensSingles>, <https://fauve.io/ao/2023/womensSingles> .
+
+<https://fauve.io/ao/2023/mensSingles>
+    a                          fau-ten:Draw ;
+    skos:notation              "Australian Open 2023 Mens Singles" ;
+    fau-ten:hasBestOfSets      5 ;
+    fau-ten:hasInitialDrawSize 8 ;
+    fau-ten:hasQualifiedPlayer <https://fauve/ao/2023/entries/Aliassime>, <https://fauve/ao/2023/entries/Agut>,
+                               <https://fauve/ao/2023/entries/Minaur>, <https://fauve/ao/2023/entries/Djokovic>,
+                               <https://fauve/ao/2023/entries/Hurkacz>, <https://fauve/ao/2023/entries/Khachanov>,
+                               <https://fauve/ao/2023/entries/Korda>, <https://fauve/ao/2023/entries/Lehecka>,
+                               <https://fauve/ao/2023/entries/Nishioka>, <https://fauve/ao/2023/entries/Paul>,
+                               <https://fauve/ao/2023/entries/Rublev>, <https://fauve/ao/2023/entries/Rune>,
+                               <https://fauve/ao/2023/entries/Shelton>, <https://fauve/ao/2023/entries/Sinner>,
+                               <https://fauve/ao/2023/entries/Tsitsipas>, <https://fauve/ao/2023/entries/Wolf>
+.
+
+
+
+<https://fauve.io/ao/2023/womensSingles>
+    a                          fau-ten:Draw ;
+    skos:notation              "Australian Open 2023 Women's Singles" ;
+    fau-ten:hasBestOfSets      3 ;
+    fau-ten:hasInitialDrawSize 8 ;
+    fau-ten:hasQualifiedPlayer <https://fauve/ao/2023/entries/Azarenka>, <https://fauve/ao/2023/entries/Bencic>,
+                               <https://fauve/ao/2023/entries/Fruhvirtova>, <https://fauve/ao/2023/entries/Garcia>,
+                               <https://fauve/ao/2023/entries/Gauff>, <https://fauve/ao/2023/entries/Krejcikova>,
+                               <https://fauve/ao/2023/entries/Linette>, <https://fauve/ao/2023/entries/Ostapenko>,
+                               <https://fauve/ao/2023/entries/Pegula>, <https://fauve/ao/2023/entries/Pliskova>,
+                               <https://fauve/ao/2023/entries/Rybakina>, <https://fauve/ao/2023/entries/Sabalenka>,
+                               <https://fauve/ao/2023/entries/Swiatek>, <https://fauve/ao/2023/entries/Vekic>,
+                               <https://fauve/ao/2023/entries/Zhang_Shuai>, <https://fauve/ao/2023/entries/Zhu> .
+
+
+<https://fauve.io/ao/2023/womensSingles/match/1-1>
+    a                             fau-ten:Match ;
+    fau-ten:hasMatchInDraw        1 ;
+    fau-ten:isForRound            1 ;
+    fau-ten:hasMatchPath          "1.1" ;
+    fau-ten:winnerProgressToMatch <https://fauve.io/ao/2023/womensSingles/match/2-1> ;
+    fau-ten:hasMatchPlayerEntry   <https://fauve/ao/2023/entries/Swiatek>, <https://fauve/ao/2023/entries/Rybakina> .
+
+
+<https://fauve/ao/2023/entries/Aliassime>
+    a                        fau-ten:QualifiedPlayer ;
+    fau-ten:hasSeed          6 ;
+    fau-ten:isInDraw         <https://fauve.io/ao/2023/mensSingles> ;
+    fau-ten:isEntryForPlayer fau-ten-ind:Aliassime .
+
+
+<https://fauve/ao/2023/entries/Azarenka>
+    a                        fau-ten:QualifiedPlayer ;
+    fau-ten:hasSeed          24 ;
+    fau-ten:isInDraw         <https://fauve.io/ao/2023/womensSingles> ;
+    fau-ten:isEntryForPlayer fau-ten-ind:Azarenka .
+
+
+<https://fauve/ao/2023/entries/Agut>
+    a                        fau-ten:QualifiedPlayer ;
+    fau-ten:hasSeed          24 ;
+    fau-ten:isInDraw         <https://fauve.io/ao/2023/mensSingles> ;
+    fau-ten:isEntryForPlayer fau-ten-ind:Agut .
+
+
+<https://fauve/ao/2023/entries/Bencic>
+    a                        fau-ten:QualifiedPlayer ;
+    fau-ten:hasSeed          12 ;
+    fau-ten:isInDraw         <https://fauve.io/ao/2023/womensSingles> ;
+    fau-ten:isEntryForPlayer fau-ten-ind:Bencic .
+
+
+<https://fauve/ao/2023/entries/Minaur>
+    a                        fau-ten:QualifiedPlayer ;
+    fau-ten:hasSeed          22 ;
+    fau-ten:isInDraw         <https://fauve.io/ao/2023/mensSingles> ;
+    fau-ten:isEntryForPlayer fau-ten-ind:Minaur .
+
+
+<https://fauve/ao/2023/entries/Djokovic>
+    a                        fau-ten:QualifiedPlayer ;
+    fau-ten:hasSeed          4 ;
+    fau-ten:isInDraw         <https://fauve.io/ao/2023/mensSingles> ;
+    fau-ten:isEntryForPlayer fau-ten-ind:Djokovic .
+
+
+<https://fauve/ao/2023/entries/Fruhvirtova>
+    a                        fau-ten:QualifiedPlayer ;
+    fau-ten:isInDraw         <https://fauve.io/ao/2023/womensSingles> ;
+    fau-ten:isEntryForPlayer fau-ten-ind:Fruhvirtova .
+
+
+<https://fauve/ao/2023/entries/Garcia>
+    a                        fau-ten:QualifiedPlayer ;
+    fau-ten:hasSeed          4 ;
+    fau-ten:isInDraw         <https://fauve.io/ao/2023/womensSingles> ;
+    fau-ten:isEntryForPlayer fau-ten-ind:Garcia .
+
+
+<https://fauve/ao/2023/entries/Gauff>
+    a                        fau-ten:QualifiedPlayer ;
+    fau-ten:hasSeed          7 ;
+    fau-ten:isInDraw         <https://fauve.io/ao/2023/womensSingles> ;
+    fau-ten:isEntryForPlayer fau-ten-ind:Gauff .
+
+
+<https://fauve/ao/2023/entries/Hurkacz>
+    a                        fau-ten:QualifiedPlayer ;
+    fau-ten:hasSeed          10 ;
+    fau-ten:isInDraw         <https://fauve.io/ao/2023/mensSingles> ;
+    fau-ten:isEntryForPlayer fau-ten-ind:Hurkacz .
+
+
+<https://fauve/ao/2023/entries/Khachanov>
+    a                        fau-ten:QualifiedPlayer ;
+    fau-ten:hasSeed          18 ;
+    fau-ten:isInDraw         <https://fauve.io/ao/2023/mensSingles> ;
+    fau-ten:isEntryForPlayer fau-ten-ind:Khachanov .
+
+
+<https://fauve/ao/2023/entries/Korda>
+    a                        fau-ten:QualifiedPlayer ;
+    fau-ten:hasSeed          29 ;
+    fau-ten:isInDraw         <https://fauve.io/ao/2023/mensSingles> ;
+    fau-ten:isEntryForPlayer fau-ten-ind:Korda .
+
+
+<https://fauve/ao/2023/entries/Krejcikova>
+    a                        fau-ten:QualifiedPlayer ;
+    fau-ten:hasSeed          20 ;
+    fau-ten:isInDraw         <https://fauve.io/ao/2023/womensSingles> ;
+    fau-ten:isEntryForPlayer fau-ten-ind:Krejcikova .
+
+
+<https://fauve/ao/2023/entries/Lehecka>
+    a                        fau-ten:QualifiedPlayer ;
+    fau-ten:isInDraw         <https://fauve.io/ao/2023/mensSingles> ;
+    fau-ten:isEntryForPlayer fau-ten-ind:Lehecka .
+
+
+<https://fauve/ao/2023/entries/Linette>
+    a                        fau-ten:QualifiedPlayer ;
+    fau-ten:isInDraw         <https://fauve.io/ao/2023/womensSingles> ;
+    fau-ten:isEntryForPlayer fau-ten-ind:Linette .
+
+
+<https://fauve/ao/2023/entries/Nishioka>
+    a                        fau-ten:QualifiedPlayer ;
+    fau-ten:hasSeed          31 ;
+    fau-ten:isInDraw         <https://fauve.io/ao/2023/mensSingles> ;
+    fau-ten:isEntryForPlayer fau-ten-ind:Nishioka .
+
+
+<https://fauve/ao/2023/entries/Ostapenko>
+    a                        fau-ten:QualifiedPlayer ;
+    fau-ten:hasSeed          17 ;
+    fau-ten:isInDraw         <https://fauve.io/ao/2023/womensSingles> ;
+    fau-ten:isEntryForPlayer fau-ten-ind:Ostapenko .
+
+
+<https://fauve/ao/2023/entries/Paul>
+    a                        fau-ten:QualifiedPlayer ;
+    fau-ten:isInDraw         <https://fauve.io/ao/2023/mensSingles> ;
+    fau-ten:isEntryForPlayer fau-ten-ind:Paul .
+
+
+<https://fauve/ao/2023/entries/Pegula>
+    a                        fau-ten:QualifiedPlayer ;
+    fau-ten:hasSeed          3 ;
+    fau-ten:isInDraw         <https://fauve.io/ao/2023/womensSingles> ;
+    fau-ten:isEntryForPlayer fau-ten-ind:Pegula .
+
+
+<https://fauve/ao/2023/entries/Pliskova>
+    a                        fau-ten:QualifiedPlayer ;
+    fau-ten:hasSeed          30 ;
+    fau-ten:isInDraw         <https://fauve.io/ao/2023/womensSingles> ;
+    fau-ten:isEntryForPlayer fau-ten-ind:Pliskova .
+
+
+<https://fauve/ao/2023/entries/Rublev>
+    a                        fau-ten:QualifiedPlayer ;
+    fau-ten:hasSeed          5 ;
+    fau-ten:isInDraw         <https://fauve.io/ao/2023/mensSingles> ;
+    fau-ten:isEntryForPlayer fau-ten-ind:Rublev .
+
+
+<https://fauve/ao/2023/entries/Rune>
+    a                        fau-ten:QualifiedPlayer ;
+    fau-ten:hasSeed          9 ;
+    fau-ten:isInDraw         <https://fauve.io/ao/2023/mensSingles> ;
+    fau-ten:isEntryForPlayer fau-ten-ind:Rune .
+
+
+<https://fauve/ao/2023/entries/Rybakina>
+    a                        fau-ten:QualifiedPlayer ;
+    fau-ten:hasSeed          22 ;
+    fau-ten:isInDraw         <https://fauve.io/ao/2023/womensSingles> ;
+    fau-ten:isEntryForPlayer fau-ten-ind:Rybakina .
+
+
+<https://fauve/ao/2023/entries/Sabalenka>
+    a                        fau-ten:QualifiedPlayer ;
+    fau-ten:hasSeed          5 ;
+    fau-ten:isInDraw         <https://fauve.io/ao/2023/womensSingles> ;
+    fau-ten:isEntryForPlayer fau-ten-ind:Sabalenka .
+
+
+<https://fauve/ao/2023/entries/Shelton>
+    a                        fau-ten:QualifiedPlayer ;
+    fau-ten:isInDraw         <https://fauve.io/ao/2023/mensSingles> ;
+    fau-ten:isEntryForPlayer fau-ten-ind:Shelton .
+
+
+<https://fauve/ao/2023/entries/Sinner>
+    a                        fau-ten:QualifiedPlayer ;
+    fau-ten:hasSeed          15 ;
+    fau-ten:isInDraw         <https://fauve.io/ao/2023/mensSingles> ;
+    fau-ten:isEntryForPlayer fau-ten-ind:Sinner .
+
+
+<https://fauve/ao/2023/entries/Swiatek>
+    a                        fau-ten:QualifiedPlayer ;
+    fau-ten:hasSeed          1 ;
+    fau-ten:isInDraw         <https://fauve.io/ao/2023/womensSingles> ;
+    fau-ten:isEntryForPlayer fau-ten-ind:Swiatek .
+
+
+<https://fauve/ao/2023/entries/Tsitsipas>
+    a                        fau-ten:QualifiedPlayer ;
+    fau-ten:hasSeed          3 ;
+    fau-ten:isInDraw         <https://fauve.io/ao/2023/mensSingles> ;
+    fau-ten:isEntryForPlayer fau-ten-ind:Tsitsipas .
+
+
+<https://fauve/ao/2023/entries/Vekic>
+    a                        fau-ten:QualifiedPlayer ;
+    fau-ten:isInDraw         <https://fauve.io/ao/2023/womensSingles> ;
+    fau-ten:isEntryForPlayer fau-ten-ind:Vekic .
+
+
+<https://fauve/ao/2023/entries/Wolf>
+    a                        fau-ten:QualifiedPlayer ;
+    fau-ten:isInDraw         <https://fauve.io/ao/2023/mensSingles> ;
+    fau-ten:isEntryForPlayer fau-ten-ind:Wolf .
+
+
+<https://fauve/ao/2023/entries/Zhang_Shuai>
+    a                        fau-ten:QualifiedPlayer ;
+    fau-ten:hasSeed          23 ;
+    fau-ten:isInDraw         <https://fauve.io/ao/2023/womensSingles> ;
+    fau-ten:isEntryForPlayer fau-ten-ind:Zhang_Shuai .
+
+
+<https://fauve/ao/2023/entries/Zhu>
+    a                        fau-ten:QualifiedPlayer ;
+    fau-ten:isInDraw         <https://fauve.io/ao/2023/womensSingles> ;
+    fau-ten:isEntryForPlayer fau-ten-ind:Zhu .

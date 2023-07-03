@@ -1,0 +1,56 @@
+[tool.poetry]
+name = "tejos"
+version = "0.1.0"
+description = ""
+authors = ["Col Perks <wild.fauve@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.scripts]
+fantasy = "tejos.cli.fantasy:cli"
+util = "tejos.cli.util:cli"
+
+
+[tool.poetry.dependencies]
+python = "^3.11"
+PyMonad = "^2.4.0"
+click = "^8.1.3"
+rdflib = "^6.2.0"
+requests = "^2.31.0"
+beautifulsoup4 = "^4.12.2"
+rich = "^13.3.5"
+polars = {extras = ["pyarrow"], version = "^0.18.2"}
+matplotlib = "^3.7.1"
+discord-webhook = "^1.1.0"
+python-dotenv = "^1.0.0"
+duckdb = "^0.8.0"
+
+[tool.poetry.group.dev.dependencies]
+pytest-env = "^0.8.1"
+pdbpp = "^0.10.3"
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = "-ra -q"
+python_classes = [
+    "*Test",
+    "Test*",
+    "Describe*",
+]
+python_functions = [
+    "test_*",
+    "it_*",
+]
+xfail_strict = true
+log_cli = true
+log_cli_level = 20
+env = [
+]
+testpaths = [
+    "tests",
+    "integration",
+]
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
