@@ -1,6 +1,8 @@
 from . import player, entry
 from tejos.util import error
 
+from tejos.util import fn
+
 
 class Set:
     def __init__(self, number, entry1, entry2):
@@ -9,6 +11,12 @@ class Set:
         self.entry2 = entry2
         self.games = []
         self.winner = None
+
+    def __repr__(self):
+        cls_name = self.__class__.__name__
+        components = [f"{entry.player()}, {score}" for entry, score in self.games]
+        return f"{cls_name}(number='{self.number}', games=[{', '.join(fn.remove_none(components))}]"
+
 
     def result_for_player(self, for_entry, score):
         en = entry.find_player_from_entry(for_entry, self._entries())

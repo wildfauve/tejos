@@ -99,9 +99,12 @@ def _match(draw_mapping, for_rd, scores_only, match):
                                                   winner=match.get('winner'),
                                                   status=match_status),
                                   match_id_fn=_match_id_fn)
-    if scores_only and match_bloc.has_result() and match_status == COMPLETED:
+    if scores_only and match_bloc.has_result() and _match_in_finished_state(match_status):
         return match_bloc
     return None
+
+def _match_in_finished_state(match_status):
+    return match_status in [COMPLETED, RETIRED]
 
 def _player(draw_mapping, player_content, team, scores, winner, status):
     seed = player_content.get('seed', None) if player_content.get('seed', None) else player_content.get('entryStatus',
