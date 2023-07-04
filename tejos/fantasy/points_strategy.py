@@ -51,6 +51,8 @@ class WinNumSetsLossMaxSets(PointsStrategyCalculator):
 
     def calc(self, selection: model.Selection, explain: bool = False) -> Union[int, Dict]:
         result = [strategy(selection, explain) for strategy in self.points_strategy_fns()]
+        if not selection.has_made_selection():
+            return 0
         if explain:
             return result
         return sum(result)

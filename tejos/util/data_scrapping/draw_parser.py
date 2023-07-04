@@ -118,7 +118,7 @@ def {'womens_draw_round_1()' if "WomensSingles" in name else "mens_draw_round_1(
 
 
 def _result_function(py, name, for_round):
-    defn = f"mens_singles_results_r{for_round}(draw)" if name == "FO2023MensSingles" else f"womens_singles_results_r{for_round}(draw)"
+    defn = f"womens_singles_results_r{for_round}(draw)" if "WomensSingles" in name else f"mens_singles_results_r{for_round}(draw)"
     return py + f"""
 def {defn}:
         return [

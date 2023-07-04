@@ -6,10 +6,15 @@ from tejos.util import echo
 sp = f"{'':>4}"
 
 
-def fantasy_score_template(result_fn_calls: Dict):
+def fantasy_score_template(result_fn_calls: Dict, file):
+    if file:
+        f = open(file, 'a')
     for fn_draw_symbol, fn_calls_for_draw in result_fn_calls.items():
         for result in fn_calls_for_draw:
-            echo.echo(result)
+            if file:
+                f.write(f"{result}\n")
+            else:
+                echo.echo(result)
 
 
 def format_as_csv(draw_name, round_number, results):

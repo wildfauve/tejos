@@ -97,11 +97,12 @@ def result_template(tournament, round_number, draw, template_name):
               type=click.Choice(['py', 'csv']),
               default='py',
               help="PY or CSV")
-def fantasy_score_template(tournament, round, fmt):
+@click.option('--file', '-f', required=False)
+def fantasy_score_template(tournament, round, fmt, file):
     """
     Get a result DSL template
     """
-    presenter.fantasy_score_template(command.fantasy_score_template(tournament, round))
+    presenter.fantasy_score_template(command.fantasy_score_template(tournament, round), file)
     pass
 
 

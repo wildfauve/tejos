@@ -42,6 +42,9 @@ class Team:
         for_draw.show(table, for_round)
 
     def points_per_round(self):
+        """
+        There are only ever 2 draws (mens and womens).  Get the total points for each match in the round in both draws.
+        """
         d1, d2 = [fantasy_draw.points_per_round() for fantasy_draw in self.fantasy_draws]
         return [sum(t) for t in zip(d1, d2)]
 
@@ -62,6 +65,9 @@ class Team:
 
     def __eq__(self, other):
         return self.symbolic_name == other.symbolic_name
+
+    def __repr__(self):
+        return f"{self.__class__.__name__}(name='{self.name}')"
 
 
 class FantasyDraw:
@@ -186,4 +192,8 @@ class Selection:
         self.in_number_sets = number_of_sets
         return self
 
+    def has_made_selection(self):
+        return self.selected_winner or self.in_number_sets
 
+    def __repr__(self):
+        return f"{self.__class__.__name__}(match_id='{self.match.match_id}', winner={self.selected_winner}, in_number_sets={self.in_number_sets})"

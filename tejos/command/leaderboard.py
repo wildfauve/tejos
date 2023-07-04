@@ -23,9 +23,6 @@ def current_leaderboard(tournie,
                         board_type: BoardType = BoardType.FANTASY,
                         round_number=None,
                         accum: bool = True) -> pl.DataFrame:
-    if board_type == BoardType.F1:
-        return show_f1_leaderboard(fantasy_teams)
-
     return _team_scores_df(tournie, fantasy_teams, accum)
 
 
