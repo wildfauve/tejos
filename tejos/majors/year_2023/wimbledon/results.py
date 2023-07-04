@@ -15,10 +15,6 @@ def womens_singles_results_r1(draw):
          .score(wta_players.Parry, (6, 6, 6))
          .score(wta_players.Dart, (7, 0, 4))),
 
-        (draw.for_round(1).for_match(4)
-         .score(wta_players.Fruhvirtova_Linda, (5, 7, 1))
-         .score(wta_players.Martic, (7, 6, 4))),
-
         (draw.for_round(1).for_match(5)
          .score(wta_players.Linette, (6, 6))
          .score(wta_players.Teichmann, (3, 2))),
@@ -111,11 +107,39 @@ def womens_singles_results_r1(draw):
          .score(wta_players.Volynets, (4, 3))
          .score(wta_players.Garcia, (6, 6))),
 
+        (draw.for_round(1).for_match(33)
+         .score(wta_players.Jabeur, (6, 6))
+         .score(wta_players.Frech, (3, 3))),
+
+        (draw.for_round(1).for_match(48)
+         .score(wta_players.Rogers, (6, 1, 2))
+         .score(wta_players.Rybakina, (4, 6, 6))),
+
+        (draw.for_round(1).for_match(64)
+         .score(wta_players.Udvardy, (3, 1))
+         .score(wta_players.Sabalenka, (6, 6))),
+
     ]
 
 
 def mens_singles_results_r1(draw):
     return [
+        (draw.for_round(1).for_match(1)
+         .score(atp_players.Alcaraz, (6, 6, 7))
+         .score(atp_players.Chardy, (0, 2, 5))),
+
+        (draw.for_round(1).for_match(25)
+         .score(atp_players.Norrie, (6, 4, 6, 6))
+         .score(atp_players.Machac, (3, 6, 1, 4))),
+
+        (draw.for_round(1).for_match(31)
+         .score(atp_players.Peniston, (3, 0, 1))
+         .score(atp_players.Murray_Andy, (6, 6, 6))),
+
+        (draw.for_round(1).for_match(33)
+         .score(atp_players.Sinner, (6, 6, 6))
+         .score(atp_players.Cerundolo_Juan, (2, 2, 2))),
+
         (draw.for_round(1).for_match(34)
          .score(atp_players.Kecmanovic, (0, 3, 4))
          .score(atp_players.Schwartzman, (6, 6, 6))),
@@ -123,6 +147,10 @@ def mens_singles_results_r1(draw):
         (draw.for_round(1).for_match(35)
          .score(atp_players.Vukic, (6, 7, 3, 7))
          .score(atp_players.Altmaier, (3, 6, 6, 5))),
+
+        (draw.for_round(1).for_match(36)
+         .score(atp_players.Halys, (6, 6, 6, 6))
+         .score(atp_players.Evans, (2, 3, 7, 4))),
 
         (draw.for_round(1).for_match(37)
          .score(atp_players.Nishioka, (4, 3, 3))

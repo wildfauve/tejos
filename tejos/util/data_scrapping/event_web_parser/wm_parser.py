@@ -34,6 +34,8 @@ draws = [("https://2023.wimbledon.com/en_GB/scores/feeds/2023/draws/LS.json", 'W
 
 match_ids = {'mens_singles': [], 'womens_singles': []}
 
+COMPLETED = "Completed"
+RETIRED = "Retired"
 
 def build_draw(for_rd, scores_only):
     return _assign_match_numbers(_brackets(_get_json(draws, for_rd), for_rd, scores_only))
@@ -72,6 +74,7 @@ def _singles_brackets(for_rd, scores_only, acc, draw_tuple):
 
 def _match(draw_mapping, for_rd, scores_only, match):
     match_id = match.get('match_id')
+    match_status = match.get('status')
     rd = round_code_map.get(match.get('roundCode'))
     if for_rd and rd != for_rd:
         return None
@@ -83,19 +86,32 @@ def _match(draw_mapping, for_rd, scores_only, match):
                                   json=match,
                                   round=rd,
                                   draw_attr_name=draw_mapping['name'],
-                                  player1=_player(draw_mapping, match.get('team1'), team=1, scores=match.get('scores')),
-                                  player2=_player(draw_mapping, match.get('team2'), team=2, scores=match.get('scores')),
+                                  player1=_player(draw_mapping,
+                                                  match.get('team1'),
+                                                  team=1,
+                                                  scores=match.get('scores'),
+                                                  winner=match.get('winner'),
+                                                  status=match_status),
+                                  player2=_player(draw_mapping,
+                                                  match.get('team2'),
+                                                  team=2,
+                                                  scores=match.get('scores'),
+                                                  winner=match.get('winner'),
+                                                  status=match_status),
                                   match_id_fn=_match_id_fn)
-    if scores_only and not match_bloc.has_result():
-        return None
-    return match_bloc
+    if scores_only and match_bloc.has_result() and match_status == COMPLETED:
+        return match_bloc
+    return None
 
-def _player(draw_mapping, player_content, team, scores):
+def _player(draw_mapping, player_content, team, scores, winner, status):
     seed = player_content.get('seed', None) if player_content.get('seed', None) else player_content.get('entryStatus',
                                                                                                         None)
+    print(f"Status:{status}")
+    # if player_content.get('lastNameA') == "Fruhvirtova":
+    #     breakpoint()
     return value.Player(name=f"{player_content.get('firstNameA')} {player_content.get('lastNameA')}",
                         seed=seed,
-                        match_state=_determine_match_state_exceptions(player_content),
+                        match_state=_determine_match_state_exceptions(team, winner, status),
                         player_module=draw_mapping['player_module'],
                         scores=_scores(scores, team))
 
@@ -107,7 +123,12 @@ def _scores(content, team_number):
     return [set_team_scores[team_number -1].get('score', None) for set_team_scores in sets]
 
 
-def _determine_match_state_exceptions(content):
+def _determine_match_state_exceptions(team, winner, status):
+    if not status == RETIRED:
+        return None
+    if team != int(winner):
+        return model.MatchState.RET
+    breakpoint()
     # if content('span', class_='abandon'):
     #     return model.MatchState.RET
     # if content('span', class_='forfait'):
