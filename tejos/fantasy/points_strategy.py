@@ -34,6 +34,9 @@ class PointsStrategyCalculator:
         self.pts_strategy = pts_strategy
         self.per_round_accum_strategy = per_round_accum_strategy
 
+    def calc(self):
+        return 0
+
 
 class WinNumSetsLossMaxSets(PointsStrategyCalculator):
     """
