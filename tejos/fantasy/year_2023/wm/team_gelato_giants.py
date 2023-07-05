@@ -24,7 +24,7 @@ def womens_singles_round_2(womens_singles):
     TEAM.draw(womens_singles).match('2.8').winner(Wang_Xinyu).in_sets(3)  # (   ) Wang_Xinyu  OR  (  Q) Kenin
     TEAM.draw(womens_singles).match('2.9').winner(Pegula.in_sets(3)  # (  4) Pegula  OR  (   ) Bucsa
     TEAM.draw(womens_singles).match('2.10').winner(women).in_sets()  # (   ) Masarova  OR  TBD
-    TEAM.draw(womens_singles).match('2.11').winnerSiniakova).in_sets(3)  # (   ) Siniakova  OR  (   ) Tsurenko
+    TEAM.draw(womens_singles).match('2.11').winner(Siniakova).in_sets(3)  # (   ) Siniakova  OR  (   ) Tsurenko
     TEAM.draw(womens_singles).match('2.12').winner(Parks).in_sets(3)  # (   ) Parks  OR  (   ) Bogdan
     TEAM.draw(womens_singles).match('2.13').winner(Kudermetova_Veronika).in_sets(3)  # ( 12) Kudermetova_Veronika  OR  (   ) Vondrousova
     TEAM.draw(womens_singles).match('2.14').winner(women).in_sets()  # TBD  OR  TBD
