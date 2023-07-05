@@ -59,12 +59,44 @@ def team_lighthouse(mens_singles, womens_singles):
 
 
 # womens_singles_round_3:START
-
+def womens_singles_round_3(womens_singles):
+    TEAM.draw(womens_singles).match('3.1').winner(women).in_sets()  # (  1) Swiatek  OR  TBD
+    TEAM.draw(womens_singles).match('3.2').winner(women).in_sets()  # TBD  OR  TBD
+    TEAM.draw(womens_singles).match('3.3').winner(women).in_sets()  # ( 11) Kasatkina  OR  TBD
+    TEAM.draw(womens_singles).match('3.4').winner(women).in_sets()  # TBD  OR  TBD
+    TEAM.draw(womens_singles).match('3.5').winner(women).in_sets()  # TBD  OR  TBD
+    TEAM.draw(womens_singles).match('3.6').winner(women).in_sets()  # TBD  OR  TBD
+    TEAM.draw(womens_singles).match('3.7').winner(women).in_sets()  # TBD  OR  TBD
+    TEAM.draw(womens_singles).match('3.8').winner(women).in_sets()  # TBD  OR  TBD
+    TEAM.draw(womens_singles).match('3.9').winner(women).in_sets()  # TBD  OR  TBD
+    TEAM.draw(womens_singles).match('3.10').winner(women).in_sets()  # TBD  OR  TBD
+    TEAM.draw(womens_singles).match('3.11').winner(women).in_sets()  # TBD  OR  TBD
+    TEAM.draw(womens_singles).match('3.12').winner(women).in_sets()  # TBD  OR  TBD
+    TEAM.draw(womens_singles).match('3.13').winner(women).in_sets()  # TBD  OR  TBD
+    TEAM.draw(womens_singles).match('3.14').winner(women).in_sets()  # TBD  OR  TBD
+    TEAM.draw(womens_singles).match('3.15').winner(women).in_sets()  # TBD  OR  TBD
+    TEAM.draw(womens_singles).match('3.16').winner(women).in_sets()  # TBD  OR  TBD
 # womens_singles_round_3:END
 
 
 # mens_singles_round_3:START
-
+def mens_singles_round_3(mens_singles):
+    TEAM.draw(mens_singles).match('3.1').winner(men).in_sets()  # TBD  OR  TBD
+    TEAM.draw(mens_singles).match('3.2').winner(men).in_sets()  # TBD  OR  TBD
+    TEAM.draw(mens_singles).match('3.3').winner(men).in_sets()  # TBD  OR  TBD
+    TEAM.draw(mens_singles).match('3.4').winner(men).in_sets()  # TBD  OR  TBD
+    TEAM.draw(mens_singles).match('3.5').winner(men).in_sets()  # TBD  OR  TBD
+    TEAM.draw(mens_singles).match('3.6').winner(men).in_sets()  # TBD  OR  TBD
+    TEAM.draw(mens_singles).match('3.7').winner(men).in_sets()  # TBD  OR  TBD
+    TEAM.draw(mens_singles).match('3.8').winner(men).in_sets()  # TBD  OR  TBD
+    TEAM.draw(mens_singles).match('3.9').winner(men).in_sets()  # (  8) Sinner  OR  TBD
+    TEAM.draw(mens_singles).match('3.10').winner(men).in_sets()  # TBD  OR  TBD
+    TEAM.draw(mens_singles).match('3.11').winner(men).in_sets()  # TBD  OR  TBD
+    TEAM.draw(mens_singles).match('3.12').winner(men).in_sets()  # TBD  OR  TBD
+    TEAM.draw(mens_singles).match('3.13').winner(men).in_sets()  # TBD  OR  TBD
+    TEAM.draw(mens_singles).match('3.14').winner(men).in_sets()  # TBD  OR  TBD
+    TEAM.draw(mens_singles).match('3.15').winner(men).in_sets()  # TBD  OR  TBD
+    TEAM.draw(mens_singles).match('3.16').winner(men).in_sets()  # (  2) Djokovic  OR  TBD
 # mens_singles_round_3:END
 
 
@@ -286,6 +318,7 @@ def mens_singles_round_1(mens_singles):
     TEAM.draw(mens_singles).match('1.62').winner(men.Ruusuvuori).in_sets(4)  # (   ) Ruusuvuori  OR  (   ) Wawrinka
     TEAM.draw(mens_singles).match('1.63').winner(men.Thompson).in_sets(4)  # (   ) Thompson  OR  (   ) Nakashima
     TEAM.draw(mens_singles).match('1.64').winner(men.Djokovic).in_sets(3)  # (   ) Cachin  OR  (  2) Djokovic
+
 
 
 

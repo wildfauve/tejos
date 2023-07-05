@@ -1,6 +1,32 @@
 from tejos.players import wta_players, atp_players
 
 
+def womens_singles_results_r2(draw):
+    return [
+        (draw.for_round(2).for_match(1)
+         .score(wta_players.Swiatek, (6, 6))
+         .score(wta_players.Sorribes_Tormo, (2, 0))),
+
+        (draw.for_round(2).for_match(5)
+         .score(wta_players.Kasatkina, (6, 6))
+         .score(wta_players.Burrage, (0, 2))),
+
+    ]
+
+
+def mens_singles_results_r2(draw):
+    return [
+        (draw.for_round(2).for_match(17)
+         .score(atp_players.Sinner, (7, 6, 6))
+         .score(atp_players.Schwartzman, (5, 1, 2))),
+
+        (draw.for_round(2).for_match(32)
+         .score(atp_players.Thompson, (3, 6, 5))
+         .score(atp_players.Djokovic, (6, 7, 7))),
+
+    ]
+
+
 def womens_singles_results_r1(draw):
     return [
         (draw.for_round(1).for_match(1)
