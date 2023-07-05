@@ -3,6 +3,9 @@ import sys
 from tejos.fantasy.teams import *
 from tejos.fantasy import helpers
 from tejos.players import atp_players as men, wta_players as women
+from tejos.players.wta_players import *
+from tejos.players.atp_players import *
+
 
 this = sys.modules[__name__]
 
