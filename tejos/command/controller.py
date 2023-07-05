@@ -51,14 +51,20 @@ def result_template(tournament_name, draw_name, round_number, template_name):
         echo.echo(result)
 
 
-def fantasy_score_template(tournament_name, round_number):
+def fantasy_score_template(tournament_name, round_number, trim_with="TeamFauve"):
     tournie = _find_tournament_by_name(tournament_name)
     if not tournie:
         return
-    _start(tournie)
+    if not trim_with:
+        _start(tournie)
+    else:
+        trim_team = teams.find_team_by_name(trim_with, _apply_fantasy(_start(tournie)))
     results = {}
     for for_draw in tournie.draws:
-        results[for_draw.fn_symbol] = for_draw.for_round(round_number).fantasy_score_template(for_draw.fn_symbol)
+        trim_team_draw = trim_team.draw(for_draw) if trim_team else None
+        results[for_draw.fn_symbol] = (for_draw.for_round(round_number)
+                                       .fantasy_score_template(for_draw.fn_symbol,
+                                                               trim_team_draw=trim_team_draw))
     return results
 
 
@@ -73,7 +79,7 @@ def explain_team_points(tournament_name, team_name):
     tournie = _find_tournament_by_name(tournament_name)
     if not tournie:
         return
-    return  teams.explain_points_for_team(team_name, _apply_fantasy(_start(tournie)))
+    return teams.explain_points_for_team(team_name, _apply_fantasy(_start(tournie)))
 
 
 def generate_graph(ttl_file):

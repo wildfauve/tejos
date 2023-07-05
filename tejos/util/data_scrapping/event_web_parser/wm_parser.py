@@ -127,10 +127,12 @@ def _scores(content, team_number):
 
 
 def _determine_match_state_exceptions(team, winner, status):
-    if not status == RETIRED:
+    if status == COMPLETED or not winner:
         return None
-    if team != int(winner):
+    if status == RETIRED and team != int(winner):
         return model.MatchState.RET
+    if status == RETIRED and team == int(winner):
+        return None
     breakpoint()
     # if content('span', class_='abandon'):
     #     return model.MatchState.RET

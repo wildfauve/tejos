@@ -8,7 +8,7 @@ sp = f"{'':>4}"
 
 def fantasy_score_template(result_fn_calls: Dict, file):
     if file:
-        f = open(file, 'a')
+        f = open(file, 'w')
     for fn_draw_symbol, fn_calls_for_draw in result_fn_calls.items():
         for result in fn_calls_for_draw:
             if file:

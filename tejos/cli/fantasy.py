@@ -97,12 +97,16 @@ def result_template(tournament, round_number, draw, template_name):
               type=click.Choice(['py', 'csv']),
               default='py',
               help="PY or CSV")
+@click.option("--trim-team", "-m",
+              type=click.Choice(teams.symbolised_names()),
+              help="Team to trim the score template by, when team has already made selection.",
+              required=False)
 @click.option('--file', '-f', required=False)
-def fantasy_score_template(tournament, round, fmt, file):
+def fantasy_score_template(tournament, round, fmt, trim_team, file):
     """
     Get a result DSL template
     """
-    presenter.fantasy_score_template(command.fantasy_score_template(tournament, round), file)
+    presenter.fantasy_score_template(command.fantasy_score_template(tournament, round, trim_team), file)
     pass
 
 

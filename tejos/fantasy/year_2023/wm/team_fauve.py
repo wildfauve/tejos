@@ -30,22 +30,22 @@ def womens_singles_round_2(womens_singles):
     TEAM.draw(womens_singles).match('2.14').winner(women).in_sets()  # TBD  OR  TBD
     TEAM.draw(womens_singles).match('2.15').winner(women).in_sets()  # ( 32) Bouzkova  OR  TBD
     TEAM.draw(womens_singles).match('2.16').winner(women.Garcia).in_sets(2)  # (   ) Fernandez  OR  (  5) Garcia
-    TEAM.draw(womens_singles).match('2.17').winner(women).in_sets()  # (  6) Jabeur  OR  TBD
+    TEAM.draw(womens_singles).match('2.17').winner(women).in_sets()  # (  6) Jabeur  OR  (  Q) Bai
     TEAM.draw(womens_singles).match('2.18').winner(women).in_sets()  # TBD  OR  TBD
-    TEAM.draw(womens_singles).match('2.19').winner(women).in_sets()  # TBD  OR  TBD
+    TEAM.draw(womens_singles).match('2.19').winner(women).in_sets()  # (  Q) Stevanovic  OR  ( LL) Korpatsch
     TEAM.draw(womens_singles).match('2.20').winner(women).in_sets()  # TBD  OR  TBD
-    TEAM.draw(womens_singles).match('2.21').winner(women).in_sets()  # TBD  OR  TBD
-    TEAM.draw(womens_singles).match('2.22').winner(women).in_sets()  # TBD  OR  TBD
-    TEAM.draw(womens_singles).match('2.23').winner(women).in_sets()  # TBD  OR  TBD
-    TEAM.draw(womens_singles).match('2.24').winner(women).in_sets()  # (  3) Rybakina  OR  TBD
-    TEAM.draw(womens_singles).match('2.25').winner(women).in_sets()  # TBD  OR  TBD
-    TEAM.draw(womens_singles).match('2.26').winner(women).in_sets()  # TBD  OR  TBD
-    TEAM.draw(womens_singles).match('2.27').winner(women).in_sets()  # TBD  OR  TBD
-    TEAM.draw(womens_singles).match('2.28').winner(women).in_sets()  # TBD  OR  TBD
+    TEAM.draw(womens_singles).match('2.21').winner(women).in_sets()  # ( 13) Haddad_Maia  OR  (   ) Cristian
+    TEAM.draw(womens_singles).match('2.22').winner(women).in_sets()  # (   ) Cirstea  OR  ( 17) Ostapenko
+    TEAM.draw(womens_singles).match('2.23').winner(women).in_sets()  # (   ) Tomova  OR  ( WC) Boulter
+    TEAM.draw(womens_singles).match('2.24').winner(women).in_sets()  # (   ) Cornet  OR  (  3) Rybakina
+    TEAM.draw(womens_singles).match('2.25').winner(women).in_sets()  # (   ) Kostyuk  OR  (   ) Badosa
+    TEAM.draw(womens_singles).match('2.26').winner(women).in_sets()  # ( 25) Keys  OR  TBD
+    TEAM.draw(womens_singles).match('2.27').winner(women).in_sets()  # ( 22) Potapova  OR  (  Q) Juvan
+    TEAM.draw(womens_singles).match('2.28').winner(women).in_sets()  # (  Q) Andreeva_Mirra  OR  ( 10) Krejcikova
     TEAM.draw(womens_singles).match('2.29').winner(women).in_sets()  # TBD  OR  TBD
-    TEAM.draw(womens_singles).match('2.30').winner(women).in_sets()  # TBD  OR  TBD
-    TEAM.draw(womens_singles).match('2.31').winner(women).in_sets()  # TBD  OR  TBD
-    TEAM.draw(womens_singles).match('2.32').winner(women).in_sets()  # (  2) Sabalenka  OR  TBD
+    TEAM.draw(womens_singles).match('2.30').winner(women).in_sets()  # (   ) Brengle  OR  ( 21) Alexandrova
+    TEAM.draw(womens_singles).match('2.31').winner(women).in_sets()  # (   ) Blinkova  OR  TBD
+    TEAM.draw(womens_singles).match('2.32').winner(women).in_sets()  # (   ) Gracheva  OR  (  2) Sabalenka
 
 
 def mens_singles_round_2(mens_singles):
