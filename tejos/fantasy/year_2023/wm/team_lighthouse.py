@@ -106,73 +106,73 @@ def mens_singles_round_3(mens_singles):
 # womens_singles_round_2:START
 def womens_singles_round_2(womens_singles):
     TEAM.draw(womens_singles).match('2.1').winner(women.Swiatek).in_sets(2)  # (  1) Iga Swiatek  OR  (   ) Sorribes Tormo
-    TEAM.draw(womens_singles).match('2.2').winner(women.Martic).in_sets(3)  # (   ) Diane Parry  OR  ( 30) Petra Martic
-    TEAM.draw(womens_singles).match('2.3').winner(women.Linette).in_sets(2)  # ( 23) Magda Linette  OR  (   ) Barbora Strycova
-    TEAM.draw(womens_singles).match('2.4').winner(women).in_sets()  # (   ) Collins  OR  ( 14) Bencic
-    TEAM.draw(womens_singles).match('2.5').winner(women.Kasatkina).in_sets(3)  # ( 11) Daria Kasatkina  OR  ( WC) Jodie Burrage
-    TEAM.draw(womens_singles).match('2.6').winner(women.Azarenka).in_sets(2)  # (   ) Nadia Podoroska  OR  ( 19) Victoria Azarenka
-    TEAM.draw(womens_singles).match('2.7').winner(women.Mertens).in_sets(3)  # ( 28) Elise Mertens  OR  ( WC) Svitolina
-    TEAM.draw(womens_singles).match('2.8').winner(women.Wang_Xinyu).in_sets(3)  # (   ) Xinyu Wang  OR  (  Q) Sofia Kenin
-    TEAM.draw(womens_singles).match('2.9').winner(women.Pegula).in_sets(2)  # (  4) Jessica Pegula  OR  (   ) Cristina Bucsa
-    TEAM.draw(womens_singles).match('2.10').winner(women).in_sets()  # (   ) Cocciaretto  OR  (   ) Masarova
-    TEAM.draw(womens_singles).match('2.11').winner(women.Siniakova).in_sets(3)  # (   ) Katerina Siniakova  OR  (   ) Lesia Tsurenko
+    TEAM.draw(womens_singles).match('2.2').winner(women.Martic).in_sets(2)  # (   ) Diane Parry  OR  ( 30) Petra Martic
+    TEAM.draw(womens_singles).match('2.3').winner(women.Linette).in_sets(3)  # ( 23) Magda Linette  OR  (   ) Barbora Strycova
+    TEAM.draw(womens_singles).match('2.4').winner(women.Bencic).in_sets(3)  # (   ) Collins  OR  ( 14) Bencic
+    TEAM.draw(womens_singles).match('2.5').winner(women.Kasatkina).in_sets(2)  # ( 11) Daria Kasatkina  OR  ( WC) Jodie Burrage
+    TEAM.draw(womens_singles).match('2.6').winner(women.Azarenka).in_sets(3)  # (   ) Nadia Podoroska  OR  ( 19) Victoria Azarenka
+    TEAM.draw(womens_singles).match('2.7').winner(women.Mertens).in_sets(2)  # ( 28) Elise Mertens  OR  ( WC) Svitolina
+    TEAM.draw(womens_singles).match('2.8').winner(women.Wang_Xinyu).in_sets(2)  # (   ) Xinyu Wang  OR  (  Q) Sofia Kenin
+    TEAM.draw(womens_singles).match('2.9').winner(women.Pegula).in_sets(3)  # (  4) Jessica Pegula  OR  (   ) Cristina Bucsa
+    TEAM.draw(womens_singles).match('2.10').winner(women.Cocciaretto).in_sets(3)  # (   ) Elisabetta Cocciaretto  OR  (   ) Rebeka Masarova
+    TEAM.draw(womens_singles).match('2.11').winner(women.Tsurenko).in_sets(3)  # (   ) Katerina Siniakova  OR  (   ) Lesia Tsurenko
     TEAM.draw(womens_singles).match('2.12').winner(women.Parks).in_sets(2)  # (   ) Alycia Parks  OR  (   ) Ana Bogdan
-    TEAM.draw(womens_singles).match('2.13').winner(women.Kudermetova_Veronika).in_sets(2)  # ( 12) Veronika Kudermetova  OR  (   ) Marketa Vondrousova
-    TEAM.draw(womens_singles).match('2.14').winner(women).in_sets()  # (   ) Stephens  OR  ( 20) Vekic
-    TEAM.draw(womens_singles).match('2.15').winner(women).in_sets()  # ( 32) Bouzkova  OR  (   ) Kontaveit
+    TEAM.draw(womens_singles).match('2.13').winner(women.Kudermetova_Veronika).in_sets(3)  # ( 12) Veronika Kudermetova  OR  (   ) Marketa Vondrousova
+    TEAM.draw(womens_singles).match('2.14').winner(women.Vekic).in_sets(3)  # (   ) Sloane Stephens  OR  ( 20) Donna Vekic
+    TEAM.draw(womens_singles).match('2.15').winner(women.Bouzkova).in_sets(2)  # ( 32) Marie Bouzkova  OR  (   ) Anett Kontaveit
     TEAM.draw(womens_singles).match('2.16').winner(women.Garcia).in_sets(2)  # (   ) Leylah Fernandez  OR  (  5) Caroline Garcia
-    TEAM.draw(womens_singles).match('2.17').winner(women).in_sets()  # (  6) Jabeur  OR  (  Q) Bai
+    TEAM.draw(womens_singles).match('2.17').winner(women.Jabeur).in_sets(2)  # (  6) Jabeur  OR  (  Q) Bai
     TEAM.draw(womens_singles).match('2.18').winner(women).in_sets()  # TBD  OR  TBD
-    TEAM.draw(womens_singles).match('2.19').winner(women).in_sets()  # (  Q) Stevanovic  OR  ( LL) Korpatsch
-    TEAM.draw(womens_singles).match('2.20').winner(women).in_sets()  # (  9) Kvitova  OR  TBD
-    TEAM.draw(womens_singles).match('2.21').winner(women).in_sets()  # ( 13) Haddad_Maia  OR  (   ) Cristian
-    TEAM.draw(womens_singles).match('2.22').winner(women).in_sets()  # (   ) Cirstea  OR  ( 17) Ostapenko
-    TEAM.draw(womens_singles).match('2.23').winner(women).in_sets()  # (   ) Tomova  OR  ( WC) Boulter
-    TEAM.draw(womens_singles).match('2.24').winner(women).in_sets()  # (   ) Cornet  OR  (  3) Rybakina
-    TEAM.draw(womens_singles).match('2.25').winner(women).in_sets()  # (   ) Kostyuk  OR  (   ) Badosa
+    TEAM.draw(womens_singles).match('2.19').winner(women.Stevanovic).in_sets(2)  # (  Q) Stevanovic  OR  ( LL) Korpatsch
+    TEAM.draw(womens_singles).match('2.20').winner(women.Kvitova).in_sets(2)  # (  9) Kvitova  OR  TBD
+    TEAM.draw(womens_singles).match('2.21').winner(women.Haddad_Maia).in_sets(2)  # ( 13) Haddad_Maia  OR  (   ) Cristian
+    TEAM.draw(womens_singles).match('2.22').winner(women.Cirstea).in_sets(3)  # (   ) Cirstea  OR  ( 17) Ostapenko
+    TEAM.draw(womens_singles).match('2.23').winner(women.Tomova).in_sets(2)  # (   ) Tomova  OR  ( WC) Boulter
+    TEAM.draw(womens_singles).match('2.24').winner(women.Rybakina).in_sets(2)  # (   ) Cornet  OR  (  3) Rybakina
+    TEAM.draw(womens_singles).match('2.25').winner(women.Badosa).in_sets(3)  # (   ) Kostyuk  OR  (   ) Badosa
     TEAM.draw(womens_singles).match('2.26').winner(women).in_sets()  # ( 25) Keys  OR  TBD
-    TEAM.draw(womens_singles).match('2.27').winner(women).in_sets()  # ( 22) Potapova  OR  (  Q) Juvan
-    TEAM.draw(womens_singles).match('2.28').winner(women).in_sets()  # (  Q) Andreeva_Mirra  OR  ( 10) Krejcikova
+    TEAM.draw(womens_singles).match('2.27').winner(women.Potapova).in_sets(2)  # ( 22) Potapova  OR  (  Q) Juvan
+    TEAM.draw(womens_singles).match('2.28').winner(women.Krejcikova).in_sets(2)  # (  Q) Andreeva_Mirra  OR  ( 10) Krejcikova
     TEAM.draw(womens_singles).match('2.29').winner(women).in_sets()  # TBD  OR  TBD
-    TEAM.draw(womens_singles).match('2.30').winner(women).in_sets()  # (   ) Brengle  OR  ( 21) Alexandrova
+    TEAM.draw(womens_singles).match('2.30').winner(women.Alexandrova).in_sets(3)  # (   ) Brengle  OR  ( 21) Alexandrova
     TEAM.draw(womens_singles).match('2.31').winner(women).in_sets()  # (   ) Blinkova  OR  TBD
-    TEAM.draw(womens_singles).match('2.32').winner(women).in_sets()  # (   ) Gracheva  OR  (  2) Sabalenka
+    TEAM.draw(womens_singles).match('2.32').winner(women.Sabalenka).in_sets(3)  # (   ) Gracheva  OR  (  2) Sabalenka
 # womens_singles_round_2:END
 
 
 # mens_singles_round_2:START
 def mens_singles_round_2(mens_singles):
-    TEAM.draw(mens_singles).match('2.1').winner(men).in_sets()  # (  1) Alcaraz  OR  (   ) Muller
+    TEAM.draw(mens_singles).match('2.1').winner(men.Alcaraz).in_sets(3)  # (  1) Alcaraz  OR  (   ) Muller
     TEAM.draw(mens_singles).match('2.2').winner(men).in_sets()  # TBD  OR  TBD
     TEAM.draw(mens_singles).match('2.3').winner(men).in_sets()  # TBD  OR  TBD
     TEAM.draw(mens_singles).match('2.4').winner(men).in_sets()  # TBD  OR  TBD
-    TEAM.draw(mens_singles).match('2.5').winner(men).in_sets()  # ( 10) Tiafoe  OR  (  Q) Stricker
-    TEAM.draw(mens_singles).match('2.6').winner(men).in_sets()  # (   ) Ivashka  OR  ( 21) Dimitrov
+    TEAM.draw(mens_singles).match('2.5').winner(men.Tiafoe).in_sets(4)  # ( 10) Tiafoe  OR  (  Q) Stricker
+    TEAM.draw(mens_singles).match('2.6').winner(men.Dimitrov).in_sets(3)  # (   ) Ivashka  OR  ( 21) Dimitrov
     TEAM.draw(mens_singles).match('2.7').winner(men).in_sets()  # TBD  OR  TBD
     TEAM.draw(mens_singles).match('2.8').winner(men).in_sets()  # (  6) Rune  OR  TBD
-    TEAM.draw(mens_singles).match('2.9').winner(men).in_sets()  # (  3) Medvedev  OR  (   ) Mannarino
-    TEAM.draw(mens_singles).match('2.10').winner(men).in_sets()  # (   ) Giron  OR  (   ) Fucsovics
-    TEAM.draw(mens_singles).match('2.11').winner(men).in_sets()  # ( 18) Cerundolo_Francisco  OR  (   ) Lehecka
-    TEAM.draw(mens_singles).match('2.12').winner(men).in_sets()  # (   ) Raonic  OR  ( 16) Paul
-    TEAM.draw(mens_singles).match('2.13').winner(men).in_sets()  # ( 12) Norrie  OR  (   ) Eubanks
+    TEAM.draw(mens_singles).match('2.9').winner(men.Medvedev).in_sets(5)  # (  3) Medvedev  OR  (   ) Mannarino
+    TEAM.draw(mens_singles).match('2.10').winner(men.Giron).in_sets(4)  # (   ) Giron  OR  (   ) Fucsovics
+    TEAM.draw(mens_singles).match('2.11').winner(men.Lehecka).in_sets(4)  # ( 18) Cerundolo_Francisco  OR  (   ) Lehecka
+    TEAM.draw(mens_singles).match('2.12').winner(men.Paul).in_sets(4)  # (   ) Raonic  OR  ( 16) Paul
+    TEAM.draw(mens_singles).match('2.13').winner(men.Eubanks).in_sets(5)  # ( 12) Norrie  OR  (   ) Eubanks
     TEAM.draw(mens_singles).match('2.14').winner(men).in_sets()  # (   ) Vesely  OR  TBD
-    TEAM.draw(mens_singles).match('2.15').winner(men).in_sets()  # ( 32) Shelton  OR  (   ) Djere
-    TEAM.draw(mens_singles).match('2.16').winner(men).in_sets()  # (   ) Murray_Andy  OR  (  5) Tsitsipas
-    TEAM.draw(mens_singles).match('2.17').winner(men.Sinner).in_sets(4)  # (  8) Jannik Sinner  OR  (   ) Diego Schwartzman
-    TEAM.draw(mens_singles).match('2.18').winner(men.Vukic).in_sets(4)  # (   ) Aleksandar Vukic  OR  (   ) Quentin Halys
-    TEAM.draw(mens_singles).match('2.19').winner(men.Galan).in_sets(4)  # (   ) Daniel Elahi Galan  OR  (  Q) Oscar Otte
-    TEAM.draw(mens_singles).match('2.20').winner(men).in_sets()  # (   ) Ymer_Mikael  OR  (  9) Fritz
-    TEAM.draw(mens_singles).match('2.21').winner(men).in_sets()  # (   ) Pella  OR  (  Q) Mayot
-    TEAM.draw(mens_singles).match('2.22').winner(men).in_sets()  # (   ) Moutet  OR  (   ) Safiullin
-    TEAM.draw(mens_singles).match('2.23').winner(men).in_sets()  # ( 26) Shapovalov  OR  (   ) Barrere
-    TEAM.draw(mens_singles).match('2.24').winner(men.Ruud).in_sets(4)  # ( WC) Liam Broady  OR  (  4) Casper Ruud
+    TEAM.draw(mens_singles).match('2.15').winner(men.Djere).in_sets(4)  # ( 32) Shelton  OR  (   ) Djere
+    TEAM.draw(mens_singles).match('2.16').winner(men.Murray_Andy).in_sets(4)  # (   ) Murray_Andy  OR  (  5) Tsitsipas
+    TEAM.draw(mens_singles).match('2.17').winner(men.Sinner).in_sets(3)  # (  8) Jannik Sinner  OR  (   ) Diego Schwartzman
+    TEAM.draw(mens_singles).match('2.18').winner(men.Halys).in_sets(4)  # (   ) Aleksandar Vukic  OR  (   ) Quentin Halys
+    TEAM.draw(mens_singles).match('2.19').winner(men.Galan).in_sets(3)  # (   ) Daniel Elahi Galan  OR  (  Q) Oscar Otte
+    TEAM.draw(mens_singles).match('2.20').winner(men.Fritz).in_sets(4)  # (   ) Ymer_Mikael  OR  (  9) Fritz
+    TEAM.draw(mens_singles).match('2.21').winner(men.Pella).in_sets(3)  # (   ) Pella  OR  (  Q) Mayot
+    TEAM.draw(mens_singles).match('2.22').winner(men.Moutet).in_sets(4)  # (   ) Moutet  OR  (   ) Safiullin
+    TEAM.draw(mens_singles).match('2.23').winner(men.Shapovalov).in_sets(4)  # ( 26) Shapovalov  OR  (   ) Barrere
+    TEAM.draw(mens_singles).match('2.24').winner(men.Ruud).in_sets(3)  # ( WC) Liam Broady  OR  (  4) Casper Ruud
     TEAM.draw(mens_singles).match('2.25').winner(men.Rublev).in_sets(4)  # (  7) Andrey Rublev  OR  (   ) Aslan Karatsev
-    TEAM.draw(mens_singles).match('2.26').winner(men.Vera).in_sets(5)  # (  Q) Tomas Barrios Vera  OR  ( WC) David Goffin
-    TEAM.draw(mens_singles).match('2.27').winner(men.Bublik).in_sets(4)  # ( 23) Alexander Bublik  OR  (   ) J.J. Wolf
-    TEAM.draw(mens_singles).match('2.28').winner(men.Mmoh).in_sets(5)  # (  Q) Maximilian Marterer  OR  (   ) Michael Mmoh
-    TEAM.draw(mens_singles).match('2.29').winner(men.Musetti).in_sets(3)  # ( 14) Lorenzo Musetti  OR  (   ) Jaume Munar
+    TEAM.draw(mens_singles).match('2.26').winner(men.Goffin).in_sets(4)  # (  Q) Tomas Barrios Vera  OR  ( WC) David Goffin
+    TEAM.draw(mens_singles).match('2.27').winner(men.Bublik).in_sets(3)  # ( 23) Alexander Bublik  OR  (   ) J.J. Wolf
+    TEAM.draw(mens_singles).match('2.28').winner(men.Mmoh).in_sets(4)  # (  Q) Maximilian Marterer  OR  (   ) Michael Mmoh
+    TEAM.draw(mens_singles).match('2.29').winner(men.Musetti).in_sets(4)  # ( 14) Lorenzo Musetti  OR  (   ) Jaume Munar
     TEAM.draw(mens_singles).match('2.30').winner(men.Hurkacz).in_sets(4)  # ( WC) Jan Choinski  OR  ( 17) Hubert Hurkacz
-    TEAM.draw(mens_singles).match('2.31').winner(men.Etcheverry).in_sets(4)  # ( 29) Tomas Martin Etcheverry  OR  (   ) Stan Wawrinka
+    TEAM.draw(mens_singles).match('2.31').winner(men.Wawrinka).in_sets(4)  # ( 29) Tomas Martin Etcheverry  OR  (   ) Stan Wawrinka
     TEAM.draw(mens_singles).match('2.32').winner(men.Djokovic).in_sets(3)  # (   ) Jordan Thompson  OR  (  2) Novak Djokovic
 # mens_singles_round_2:END
 
