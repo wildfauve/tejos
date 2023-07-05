@@ -33,7 +33,7 @@ class Match:
     def __repr__(self):
         cls_name = self.__class__.__name__
         components = [
-            f"match_winner = {self.match_winner})",
+            f"match_winner={self.match_winner})",
             f"player1={self.player1.player()}",
             f"player2={self.player2.player()}",
             f"entry_retirement={self.entry_retirement.player()}" if self.entry_retirement else None,
