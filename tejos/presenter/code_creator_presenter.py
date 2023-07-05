@@ -36,8 +36,7 @@ def fantasy_score_template_inserter(fantasy_module_team_fn_calls_tuple: Dict):
                 echo.echo(f"Template not found for {team.name}, for round: {round_fn}")
         try_file.value.close()
         if updated:
-            breakpoint()
-            f = open(f"_temp/team-{team.name}.py", 'w')
+            f = open(team_file, 'w')
             for line in selections:
                 f.write(f"{line}\n")
 

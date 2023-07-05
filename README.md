@@ -11,7 +11,8 @@ poetry run fantasy plot --file _temp/rank.png --tournament FrenchOpen2023 --rank
 
 poetry run fantasy show-round --tournament FrenchOpen2023 --draw MensSingles --round 2
 
-poetry run fantasy fantasy-score-template --tournament FrenchOpen2023 --round 1 --file _temp/t.py 
+poetry run fantasy fantasy-score-template --tournament FrenchOpen2023 --round 1 --file _temp/t.py
+poetry run fantasy fantasy-score-template-inserter --tournament Wimbledon2023 --round 2 
 
 poetry run fantasy explain-team-score --tournament FrenchOpen2023 --fantasy-team-name TeamPolarPrecision
 ```

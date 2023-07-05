@@ -148,6 +148,10 @@ def womens_singles_results_r1(draw):
          .score(wta_players.Zhao, (6, 4, 2))
          .score(wta_players.Korpatsch, (1, 6, 6))),
 
+        (draw.for_round(1).for_match(40)
+         .score(wta_players.Paolini, (4, 7, 1))
+         .score(wta_players.Kvitova, (6, 6, 6))),
+
         (draw.for_round(1).for_match(41)
          .score(wta_players.Haddad_Maia, (3, 6, 6))
          .score(wta_players.Putintseva, (6, 0, 4))),
@@ -308,6 +312,10 @@ def mens_singles_results_r1(draw):
         (draw.for_round(1).for_match(29)
          .score(atp_players.Shelton, (6, 6, 3, 4, 6))
          .score(atp_players.Daniel, (4, 3, 6, 6, 3))),
+
+        (draw.for_round(1).for_match(30)
+         .score(atp_players.Cressy, (7, 6, 6, 6))
+         .score(atp_players.Djere, (6, 7, 7, 7))),
 
         (draw.for_round(1).for_match(31)
          .score(atp_players.Peniston, (3, 0, 1))
