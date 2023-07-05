@@ -19,6 +19,7 @@ class Team:
         self.members = members
         self.fantasy_draws = []
         self.subject = URIRef(f"https://fauve.io/fantasyTeam/{self.symbolic_name}")
+        self.result_file_name = name.lower().replace(" ", "_")
 
     def build_graph(self, g: Graph):
         g.add((self.subject, RDF.type, rdf_prefix.fau_ten.FantasyTeam))

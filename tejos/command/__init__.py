@@ -4,6 +4,7 @@ from .controller import (
     show_round,
     result_template,
     fantasy_score_template,
+    fantasy_score_template_inserter,
     explain_team_points,
     generate_graph,
     player_scrap,

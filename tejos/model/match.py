@@ -80,7 +80,7 @@ class Match:
             score_part = f"score(?, ()).score(?, ())"
         return f"{match_part}.{score_part}"
 
-    def fantasy_score_template(self, event_name, round_number, fmt=None, trim_team_draw=None):
+    def fantasy_score_template(self, event_name, round_number, fmt=None, trim_team_draw=None, add_selected=False):
         """
         TeamBearNecessities.draw(mens_singles).match("1.1").winner(Khachanov).in_sets(5)
         """
@@ -94,10 +94,18 @@ class Match:
                 None,
                 entries
             ]
-        if trim_team_draw.match(self.match_id).has_made_selection():
+        if trim_team_draw.match(self.match_id).has_made_selection() and not add_selected:
             return ""
+        if trim_team_draw.match(self.match_id).has_made_selection() and add_selected:
+            return self._template_with_selection(event_name, trim_team_draw, entries, mod)
         entries = f"{self.player_klass_and_seed(self.player1)}  OR  {self.player_klass_and_seed(self.player2)}"
         return f"{'':>4}TEAM.draw({event_name}).match('{self.match_id}').winner({mod}).in_sets()  # {entries}"
+
+    def _template_with_selection(self, event_name, team_draw, entries, mod):
+        sel = team_draw.match(self.match_id)
+        sel_winner = sel.selected_winner.player().klass_name
+        sel_sets = sel.in_number_sets
+        return f"{'':>4}TEAM.draw({event_name}).match('{self.match_id}').winner({mod}.{sel_winner}).in_sets({sel_sets})  # {entries}"
 
     def find_player_by_player(self, for_player: player.Player, raise_error: bool = True):
         if not self.has_draw():

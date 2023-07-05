@@ -12,7 +12,61 @@ def team_fauve(mens_singles, womens_singles):
     helpers.selection_fn_caller(this, [mens_singles, womens_singles])
     return TEAM
 
+# womens_singles_round_7:START
 
+# womens_singles_round_7:END
+
+
+# mens_singles_round_7:START
+
+# mens_singles_round_7:END
+
+
+
+# womens_singles_round_6:START
+
+# womens_singles_round_6:END
+
+
+# mens_singles_round_6:START
+
+# mens_singles_round_6:END
+
+
+
+# womens_singles_round_5:START
+
+# womens_singles_round_5:END
+
+
+# mens_singles_round_5:START
+
+# mens_singles_round_5:END
+
+
+
+# womens_singles_round_4:START
+
+# womens_singles_round_4:END
+
+
+# mens_singles_round_4:START
+
+# mens_singles_round_4:END
+
+
+
+# womens_singles_round_3:START
+
+# womens_singles_round_3:END
+
+
+# mens_singles_round_3:START
+
+# mens_singles_round_3:END
+
+
+# womens_singles_round_2:START
 def womens_singles_round_2(womens_singles):
     TEAM.draw(womens_singles).match('2.1').winner(women.Swiatek).in_sets(2)  # (  1) Swiatek  OR  (   ) Sorribes_Tormo
     TEAM.draw(womens_singles).match('2.2').winner(women.Martic).in_sets(2)  # (   ) Parry  OR  ( 30) Martic
@@ -46,8 +100,10 @@ def womens_singles_round_2(womens_singles):
     TEAM.draw(womens_singles).match('2.30').winner(women.Alexandrova).in_sets(2)  # (   ) Brengle  OR  ( 21) Alexandrova
     TEAM.draw(womens_singles).match('2.31').winner(women).in_sets()  # (   ) Blinkova  OR  TBD
     TEAM.draw(womens_singles).match('2.32').winner(women.Sabalenka).in_sets(2)  # (   ) Gracheva  OR  (  2) Sabalenka
+# womens_singles_round_2:END
 
 
+# mens_singles_round_2:START
 def mens_singles_round_2(mens_singles):
     TEAM.draw(mens_singles).match('2.1').winner(men).in_sets()  # (  1) Alcaraz  OR  (   ) Muller
     TEAM.draw(mens_singles).match('2.2').winner(men).in_sets()  # TBD  OR  TBD
@@ -81,7 +137,7 @@ def mens_singles_round_2(mens_singles):
     TEAM.draw(mens_singles).match('2.30').winner(men.Hurkacz).in_sets(4)  # ( WC) Choinski  OR  ( 17) Hurkacz
     TEAM.draw(mens_singles).match('2.31').winner(men.Wawrinka).in_sets(4)  # ( 29) Etcheverry  OR  (   ) Wawrinka
     TEAM.draw(mens_singles).match('2.32').winner(men.Djokovic).in_sets(3)  # (   ) Thompson  OR  (  2) Djokovic
-
+# mens_singles_round_2:END
 
 
 def womens_singles_round_1(womens_singles):

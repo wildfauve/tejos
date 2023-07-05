@@ -1,5 +1,7 @@
-import polars as pl
+from functools import reduce
 import csv
+
+import polars as pl
 
 from tejos.model import draw
 from . import leaderboard, graph_generator
@@ -68,6 +70,23 @@ def fantasy_score_template(tournament_name, round_number, trim_with="TeamFauve")
     return results
 
 
+def fantasy_score_template_inserter(tournament_name, round_number):
+    tournie = _find_tournament_by_name(tournament_name)
+    if not tournie:
+        return
+    fantasy_module = _fantasy_module(tournie)
+    teams = _apply_fantasy(_start(tournie))
+    results = reduce(lambda accum, team: {**accum, **{team: {}}}, teams, {})
+    for for_draw in tournie.draws:
+        for team in teams:
+            round_template = f"{for_draw.fn_symbol}_round_{round_number}"
+            results[team][round_template] = (for_draw.for_round(round_number)
+                                             .fantasy_score_template(for_draw.fn_symbol,
+                                                                     trim_team_draw=team.draw(for_draw),
+                                                                     add_selected=True))
+    return fantasy_module, results
+
+
 def atomic_points_for_all_teams(tournament_name):
     tournie = _find_tournament_by_name(tournament_name)
     if not tournie:
@@ -117,13 +136,17 @@ def _apply_fantasy(tournie):
     mens_singles = draw.find_draw_by_cls(draw.MensSingles, tournie.draws)
     womens_singles = draw.find_draw_by_cls(draw.WomensSingles, tournie.draws)
 
-    fantasy_module = fantasy.fantasy_tournaments.get(tournie.name, None)
+    fantasy_module = _fantasy_module(tournie)
 
     if not fantasy_module:
         echo.echo(f"No fantasy selections for {tournie.name}")
         return
 
     return selections.apply(fantasy_module, mens_singles, womens_singles)
+
+
+def _fantasy_module(tournie):
+    return fantasy.fantasy_tournaments.get(tournie.name, None)
 
 
 def _find_tournament_by_name(for_name: str):

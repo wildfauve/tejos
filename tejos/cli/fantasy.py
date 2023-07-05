@@ -114,6 +114,23 @@ def fantasy_score_template(tournament, round, fmt, trim_team, file):
 @click.option("--tournament", "-t",
               type=click.Choice(tournament_names()),
               help="The name of the tournament")
+@click.option("--round", "-r", type=int, default=1, help="The round number to show.")
+@click.option("--fmt", "-f",
+              type=click.Choice(['py', 'csv']),
+              default='py',
+              help="PY or CSV")
+def fantasy_score_template_inserter(tournament, round, fmt):
+    """
+    Get a result DSL template
+    """
+    presenter.fantasy_score_template_inserter(command.fantasy_score_template_inserter(tournament, round))
+    pass
+
+
+@click.command()
+@click.option("--tournament", "-t",
+              type=click.Choice(tournament_names()),
+              help="The name of the tournament")
 @click.option("--fantasy-team-name", "-f",
               type=click.Choice(teams.symbolised_names()),
               help="team name to explain points")
@@ -176,4 +193,5 @@ cli.add_command(result_template)
 cli.add_command(generate_graph)
 cli.add_command(plot)
 cli.add_command(fantasy_score_template)
+cli.add_command(fantasy_score_template_inserter)
 cli.add_command(points_atomic)

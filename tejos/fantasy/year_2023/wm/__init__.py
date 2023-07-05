@@ -14,8 +14,8 @@ from .team_clojo import (
     team_clojo
 )
 
-from .team_light_house import (
-    team_light_house
+from .team_lighthouse import (
+    team_lighthouse
 )
 
 from .team_polar_precision import (
