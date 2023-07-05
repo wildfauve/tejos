@@ -21,7 +21,7 @@ def womens_singles_round_2(womens_singles):
     TEAM.draw(womens_singles).match('2.6').winner(Azarenka).in_sets(2)  # (   ) Podoroska  OR  ( 19) Azarenka
     TEAM.draw(womens_singles).match('2.7').winner(Svitolina).in_sets(2)  # ( 28) Mertens  OR  ( WC) Svitolina
     TEAM.draw(womens_singles).match('2.8').winner(Wang_Xinyu).in_sets(2)  # (   ) Wang_Xinyu  OR  (  Q) Kenin
-    TEAM.draw(womens_singles).match('2.9').winner(Pegula.in_sets(2)  # (  4) Pegula  OR  (   ) Bucsa
+    TEAM.draw(womens_singles).match('2.9').winner(Pegula).in_sets(2)  # (  4) Pegula  OR  (   ) Bucsa
     TEAM.draw(womens_singles).match('2.10').winner(women).in_sets()  # (   ) Masarova  OR  TBD
     TEAM.draw(womens_singles).match('2.11').winner(Siniakova).in_sets(3)  # (   ) Siniakova  OR  (   ) Tsurenko
     TEAM.draw(womens_singles).match('2.12').winner(Parks).in_sets(2)  # (   ) Parks  OR  (   ) Bogdan
