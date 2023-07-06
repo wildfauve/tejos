@@ -42,11 +42,11 @@ class Team:
     def show_draw(self, for_draw: Draw, table: Table, for_round: int = None):
         for_draw.show(table, for_round)
 
-    def points_per_round(self):
+    def points_per_round(self, up_to_rd: int = None):
         """
         There are only ever 2 draws (mens and womens).  Get the total points for each match in the round in both draws.
         """
-        d1, d2 = [fantasy_draw.points_per_round() for fantasy_draw in self.fantasy_draws]
+        d1, d2 = [fantasy_draw.points_per_round(up_to_rd) for fantasy_draw in self.fantasy_draws]
         return [sum(t) for t in zip(d1, d2)]
 
     def total_points(self, for_round=None):
@@ -86,8 +86,14 @@ class FantasyDraw:
                 for mt_id, selection in matches.items():
                     selection.show(self.draw.name, table)
 
-    def points_per_round(self):
-        return [self._sum_round_points(round_selections) for round_selections in self.match_selections.values()]
+    def points_per_round(self, up_to_rd: int = None):
+        return [self._sum_round_points(round_selections) for round_selections in
+                self._selected_filtered_by_rd(up_to_rd)]
+
+    def _selected_filtered_by_rd(self, up_to_rd: int = None):
+        if not up_to_rd:
+            return self.match_selections.values()
+        return dict(filter(lambda kv: kv[0] <= up_to_rd, self.match_selections.items())).values()
 
     def _sum_round_points(self, round_selections):
         return sum([sel.points() for sel in round_selections.values()])

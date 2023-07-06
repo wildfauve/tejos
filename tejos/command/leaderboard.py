@@ -23,7 +23,7 @@ def current_leaderboard(tournie,
                         board_type: BoardType = BoardType.FANTASY,
                         round_number=None,
                         accum: bool = True) -> pl.DataFrame:
-    return _team_scores_df(tournie, fantasy_teams, accum)
+    return _team_scores_df(tournie, fantasy_teams, accum, up_to_rd=round_number)
 
 
 def scores_plot(file: str, tournie, fantasy_teams, ranking_plot: bool = False):
@@ -34,8 +34,8 @@ def scores_plot(file: str, tournie, fantasy_teams, ranking_plot: bool = False):
     return plot.total_score_plot(file, tournie, df)
 
 
-def _team_scores_df(tournie, fantasy_teams, accum: bool):
-    scores = _format_team_scores(tournie, accum, teams_points_per_round(fantasy_teams, accum))
+def _team_scores_df(tournie, fantasy_teams, accum: bool, up_to_rd: int = None):
+    scores = _format_team_scores(tournie, accum, teams_points_per_round(fantasy_teams, accum, up_to_rd))
 
     return dataframe.build_df(scores)
 
@@ -81,16 +81,17 @@ def _team_board_predicate(team, team_on_board):
     return team == team_on_board[0]
 
 
-def teams_points_per_round(fantasy_teams, accum):
+def teams_points_per_round(fantasy_teams, accum, up_to_rd):
     if not fantasy_teams:
         return []
-    return [(team, _accumulate(team.points_per_round(), accum)) for team in fantasy_teams]
+    return [(team, _accumulate(team.points_per_round(up_to_rd), accum)) for team in fantasy_teams]
 
 
 def _accumulate(scores, accum: bool):
     if not accum:
         return scores
     return list(accumulate(scores))
+
 
 def sorted_teams(fantasy_teams, round_number):
     return sorted([(team, team.total_points(round_number)) for team in fantasy_teams], key=lambda t: t[1], reverse=True)
