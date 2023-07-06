@@ -12,7 +12,8 @@ from .explain_presenter import (
 
 from .code_creator_presenter import (
     fantasy_score_template,
-    fantasy_score_template_inserter
+    fantasy_score_template_inserter,
+    scores_scrap_inserter
 )
 
 from .parquet_presenter import (

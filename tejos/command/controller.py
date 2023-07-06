@@ -110,12 +110,16 @@ def player_scrap(file):
 
 
 def draw_scrap(tournament, entries_file, draws_file, results_file, round_number, scores_only):
-    draw_parser.build_draw(tournament=tournament,
-                           entries_file=entries_file,
-                           draws_file=draws_file,
-                           results_file=results_file,
-                           for_round=round_number,
-                           scores_only=scores_only)
+    tournie = _find_tournament_by_name(tournament)
+    tournie_module = _tournament_module(tournie)
+    rd_results = draw_parser.build_draw(tournament=tournament,
+                                        entries_file=entries_file,
+                                        draws_file=draws_file,
+                                        results_file=results_file,
+                                        for_round=round_number,
+                                        scores_only=scores_only)
+
+    return tournie_module, rd_results
 
 
 def show_draw(tournament_name, team_name, round):
@@ -147,6 +151,10 @@ def _apply_fantasy(tournie):
 
 def _fantasy_module(tournie):
     return fantasy.fantasy_tournaments.get(tournie.name, None)
+
+
+def _tournament_module(tournie):
+    return tournaments.tournament_module_name(tournie.name)
 
 
 def _find_tournament_by_name(for_name: str):

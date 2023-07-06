@@ -38,14 +38,13 @@ def player_scrap(file):
 def draw_scrap(tournament, entries_file, draws_file, results_file, round, scores_only):
     """
     """
-    command.draw_scrap(tournament=tournament,
-                       entries_file=entries_file,
-                       draws_file=draws_file,
-                       results_file=results_file,
-                       round_number=round,
-                       scores_only=scores_only)
+    presenter.scores_scrap_inserter(command.draw_scrap(tournament=tournament,
+                                                       entries_file=entries_file,
+                                                       draws_file=draws_file,
+                                                       results_file=results_file,
+                                                       round_number=round,
+                                                       scores_only=scores_only))
     pass
-
 
 
 cli.add_command(player_scrap)

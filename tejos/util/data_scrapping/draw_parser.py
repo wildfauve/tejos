@@ -11,7 +11,7 @@ def build_draw(tournament: str,
                results_file=None,
                for_round=None,
                scores_only=False):
-    (_format_results(
+    return (_format_results(
         _format_brackets(
             _format_entries(
                 _parser_for_event(tournament).build_draw(for_round, scores_only),
@@ -44,9 +44,8 @@ def _format_brackets(draws, draws_file):
 def _format_results(draws, results_file, for_round):
     if not results_file:
         return draws
-    py = reduce(partial(_results_def, for_round), draws.items(), _results_mod_def())
-    _write_file(results_file, py)
-    return draws
+    py = reduce(partial(_results_def, for_round), draws.items(), {})  # _results_mod_def())
+    return py
 
 
 def _entry_imports_hdr():
@@ -76,17 +75,22 @@ def _bracket_def(py, draw_tuple):
     return reduce(_players_bracket, matches, _match_function(py, draw_name)) + f"\n{']':>4}"
 
 
-def _results_def(for_round, py, draw_tuple):
+def _results_def(for_round, accum, draw_tuple):
     draw_name, matches = draw_tuple
-    return reduce(_match_result, matches, _result_function(py, draw_name, for_round)) + f"\n{']':>4}"
+    draw_rd_key = f"{draw_name}_r{for_round}"
+    scores = reduce(_match_result, matches, _result_function(draw_name, for_round))
+    scores.append(f"\n{']':>4}")
+    accum[draw_rd_key] = scores
+    return accum
 
 
 def _players_bracket(acc, match):
     return acc + match.match_format()
 
 
-def _match_result(acc, match):
-    return acc + match.results_format(f"{'':>8}")
+def _match_result(accum, match):
+    accum.append(match.results_format(f"{'':>8}"))
+    return accum
 
 
 def _entry_predicate(bracket_number, entry):
@@ -117,12 +121,11 @@ def {'womens_draw_round_1()' if "WomensSingles" in name else "mens_draw_round_1(
 """
 
 
-def _result_function(py, name, for_round):
-    defn = f"womens_singles_results_r{for_round}(draw)" if "WomensSingles" in name else f"mens_singles_results_r{for_round}(draw)"
-    return py + f"""
-def {defn}:
-        return [
-    """
+def _result_function(name, for_round):
+    return [
+        f"def womens_singles_results_r{for_round}(draw)" if "WomensSingles" in name else f"def mens_singles_results_r{for_round}(draw)",
+        "  return ["
+    ]
 
 
 def _write_file(file_name, klasses):

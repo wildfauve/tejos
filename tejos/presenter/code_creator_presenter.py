@@ -1,4 +1,5 @@
-from typing import Dict
+from typing import Dict, Callable, List, Tuple
+from functools import partial
 import csv
 
 from tejos.util import echo, monad
@@ -17,8 +18,24 @@ def fantasy_score_template(result_fn_calls: Dict, file):
                 echo.echo(result)
 
 
+def scores_scrap_inserter(tourn_mod_rd_result_tuple: Tuple):
+    tourn_mod, rd_results = tourn_mod_rd_result_tuple
+    results_file = tourn_mod.__file__.replace("tournament.py", "results.py")
+    try_file = try_open_file_for_read(results_file)
+    if try_file.is_left():
+        breakpoint()
+    all_results = try_file.value.read().split("\n")
+    for rd_draw, results_for_rd in rd_results.items():
+        updated, results = _template_inserter(partial(_results_insertion_point_indexes, rd_draw),
+                                              all_results,
+                                              results_for_rd)
 
-def fantasy_score_template_inserter(fantasy_module_team_fn_calls_tuple: Dict):
+    try_file.value.close()
+    if updated:
+        file_overwriter(results, results_file)
+
+
+def fantasy_score_template_inserter(fantasy_module_team_fn_calls_tuple: Tuple):
     fantasy_module, team_fn_calls = fantasy_module_team_fn_calls_tuple
     for team, fn_calls in team_fn_calls.items():
         team_file = fantasy_module.__file__.replace("__init__.py", f"{team.result_file_name}.py")
@@ -26,23 +43,40 @@ def fantasy_score_template_inserter(fantasy_module_team_fn_calls_tuple: Dict):
         if try_file.is_left():
             breakpoint()
         selections = try_file.value.read().split("\n")
-        updated = False
         for round_fn, template_lines in fn_calls.items():
-            t_start, t_end = _insertion_point_indexes(selections, round_fn)
-            if t_start.is_right() and t_end.is_right():
-                selections[t_start.value+1:t_end.value] = template_lines
-                updated = True
-            else:
-                echo.echo(f"Template not found for {team.name}, for round: {round_fn}")
+            updated, selections = _template_inserter(partial(_selections_insertion_point_indexes, round_fn),
+                                                     selections,
+                                                     template_lines)
         try_file.value.close()
         if updated:
-            f = open(team_file, 'w')
-            for line in selections:
-                f.write(f"{line}\n")
+            file_overwriter(selections, team_file)
 
-def _insertion_point_indexes(selections, round_fn):
-    return (try_file_template_index(selections, f"# {round_fn}:START"),
-            try_file_template_index(selections, f"# {round_fn}:END"))
+
+def _template_inserter(start_end_fn: Callable, templated_file: List, inserted_lines: List):
+    t_start, t_end = start_end_fn(templated_file)
+    if t_start.is_left() or t_end.is_left():
+        echo.echo(f"Template not found")
+        return False, templated_file
+    templated_file[t_start.value + 1:t_end.value] = inserted_lines
+    return True, templated_file
+
+
+def file_overwriter(lines: List, file_name: str):
+    f = open(file_name, 'w')
+    for line in lines:
+        f.write(f"{line}\n")
+    pass
+
+
+def _selections_insertion_point_indexes(round_fn_name, selections):
+    return (try_file_template_index(selections, f"# {round_fn_name}:START"),
+            try_file_template_index(selections, f"# {round_fn_name}:END"))
+
+
+def _results_insertion_point_indexes(results_fn_name, all_results):
+    return (try_file_template_index(all_results, f"# {results_fn_name}:START"),
+            try_file_template_index(all_results, f"# {results_fn_name}:END"))
+
 
 def format_as_csv(draw_name, round_number, results):
     with open(f"{draw_name}-{round_number}.csv", 'w', newline='') as csvfile:
@@ -56,6 +90,7 @@ def format_as_csv(draw_name, round_number, results):
 @monad.monadic_try()
 def try_open_file_for_read(file_name):
     return open(file_name, 'r')
+
 
 @monad.monadic_try()
 def try_file_template_index(selections, insert_name):

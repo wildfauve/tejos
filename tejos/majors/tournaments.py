@@ -43,9 +43,15 @@ def tournament_in_fantasy(name):
     """
     if name not in tournament_names():
         return None
+
+    tournament_module = tournament_module_name(name)
+    return getattr(tournament_module, name)
+
+
+def tournament_module_name(name):
     year, tournament_module_name = TournamentLoaderConfig.get(name)
     tournament_module = importlib.import_module(f"tejos.majors.year_{year}.{tournament_module_name}.tournament")
-    return getattr(tournament_module, name)
+    return tournament_module
 
 
 def add_results(draws: List[model.Draw], results_module):
