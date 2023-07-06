@@ -1,11 +1,192 @@
 from tejos.players import wta_players, atp_players
 
+
 # WM2023WomensSingles_r2:START
+def womens_singles_results_r2(draw):
+    return [
+        (draw.for_round(2).for_match(1)
+         .score(wta_players.Swiatek, (6, 6))
+         .score(wta_players.Sorribes_Tormo, (2, 0))),
+
+        (draw.for_round(2).for_match(2)
+         .score(wta_players.Parry, (6, 3, 3))
+         .score(wta_players.Martic, (4, 6, 6))),
+
+        (draw.for_round(2).for_match(3)
+         .score(wta_players.Linette, (6, 6, 6))
+         .score(wta_players.Strycova, (4, 7, 3))),
+
+        (draw.for_round(2).for_match(4)
+         .score(wta_players.Collins, (6, 4, 6))
+         .score(wta_players.Bencic, (3, 6, 7))),
+
+        (draw.for_round(2).for_match(5)
+         .score(wta_players.Kasatkina, (6, 6))
+         .score(wta_players.Burrage, (0, 2))),
+
+        (draw.for_round(2).for_match(6)
+         .score(wta_players.Podoroska, (3, 0))
+         .score(wta_players.Azarenka, (6, 6))),
+
+        (draw.for_round(2).for_match(7)
+         .score(wta_players.Mertens, (1, 6, 1))
+         .score(wta_players.Svitolina, (6, 1, 6))),
+
+        (draw.for_round(2).for_match(8)
+         .score(wta_players.Wang_Xinyu, (4, 3))
+         .score(wta_players.Kenin, (6, 6))),
+
+        (draw.for_round(2).for_match(9)
+         .score(wta_players.Pegula, (6, 6))
+         .score(wta_players.Bucsa, (1, 4))),
+
+        (draw.for_round(2).for_match(10)
+         .score(wta_players.Cocciaretto, (6, 6))
+         .score(wta_players.Masarova, (3, 1))),
+
+        (draw.for_round(2).for_match(11)
+         .score(wta_players.Siniakova, (4, 1))
+         .score(wta_players.Tsurenko, (6, 6))),
+
+        (draw.for_round(2).for_match(12)
+         .score(wta_players.Parks, (6, 3, 2))
+         .score(wta_players.Bogdan, (1, 6, 6))),
+
+        (draw.for_round(2).for_match(13)
+         .score(wta_players.Kudermetova_Veronika, (3, 3))
+         .score(wta_players.Vondrousova, (6, 6))),
+
+        (draw.for_round(2).for_match(14)
+         .score(wta_players.Stephens, (6, 5, 4))
+         .score(wta_players.Vekic, (4, 7, 6))),
+
+        (draw.for_round(2).for_match(15)
+         .score(wta_players.Bouzkova, (6, 6))
+         .score(wta_players.Kontaveit, (1, 2))),
+
+        (draw.for_round(2).for_match(16)
+         .score(wta_players.Fernandez, (6, 4, 6))
+         .score(wta_players.Garcia, (3, 6, 7))),
+
+        (draw.for_round(2).for_match(21)
+         .score(wta_players.Haddad_Maia, (4, 6, 6))
+         .score(wta_players.Cristian, (6, 2, 4))),
+
+        (draw.for_round(2).for_match(22)
+         .score(wta_players.Cirstea, (4, 7, 6))
+         .score(wta_players.Ostapenko, (6, 6, 4))),
+
+        (draw.for_round(2).for_match(23)
+         .score(wta_players.Tomova, (0, 6, 3))
+         .score(wta_players.Boulter, (6, 3, 6))),
+
+        (draw.for_round(2).for_match(24)
+         .score(wta_players.Cornet, (2, 6))
+         .score(wta_players.Rybakina, (6, 7))),
+
+        (draw.for_round(2).for_match(27)
+         .score(wta_players.Potapova, (6, 7))
+         .score(wta_players.Juvan, (3, 5))),
+
+        (draw.for_round(2).for_match(28)
+         .score(wta_players.Andreeva_Mirra, (6, 4))
+         .score(wta_players.Krejcikova, (3, 0))
+         .retirement(wta_players.Krejcikova)),
+
+    ]
 
 # WM2023WomensSingles_r2:END
 
 
 # WM2023MensSingles_r2:START
+def mens_singles_results_r2(draw):
+    return [
+        (draw.for_round(2).for_match(5)
+         .score(atp_players.Tiafoe, (7, 6, 6))
+         .score(atp_players.Stricker, (6, 4, 2))),
+
+        (draw.for_round(2).for_match(6)
+         .score(atp_players.Ivashka, (3, 4, 4))
+         .score(atp_players.Dimitrov, (6, 6, 6))),
+
+        (draw.for_round(2).for_match(11)
+         .score(atp_players.Cerundolo_Francisco, (2, 2, 2))
+         .score(atp_players.Lehecka, (6, 6, 6))),
+
+        (draw.for_round(2).for_match(12)
+         .score(atp_players.Raonic, (4, 6, 7, 4))
+         .score(atp_players.Paul, (6, 7, 6, 6))),
+
+        (draw.for_round(2).for_match(15)
+         .score(atp_players.Shelton, (6, 3, 6, 3))
+         .score(atp_players.Djere, (3, 6, 7, 6))),
+
+        (draw.for_round(2).for_match(17)
+         .score(atp_players.Sinner, (7, 6, 6))
+         .score(atp_players.Schwartzman, (5, 1, 2))),
+
+        (draw.for_round(2).for_match(18)
+         .score(atp_players.Vukic, (3, 1, 4))
+         .score(atp_players.Halys, (6, 6, 6))),
+
+        (draw.for_round(2).for_match(19)
+         .score(atp_players.Galan, (6, 3, 6, 7))
+         .score(atp_players.Otte, (3, 6, 3, 6))),
+
+        (draw.for_round(2).for_match(20)
+         .score(atp_players.Ymer_Mikael, (3, 2, 6, 6, 6))
+         .score(atp_players.Fritz, (6, 6, 3, 4, 2))),
+
+        (draw.for_round(2).for_match(21)
+         .score(atp_players.Pella, (2, 6, 7, 7))
+         .score(atp_players.Mayot, (6, 3, 6, 5))),
+
+        (draw.for_round(2).for_match(22)
+         .score(atp_players.Moutet, (5, 3, 6))
+         .score(atp_players.Safiullin, (7, 6, 7))),
+
+        (draw.for_round(2).for_match(23)
+         .score(atp_players.Shapovalov, (6, 6, 7))
+         .score(atp_players.Barrere, (3, 4, 6))),
+
+        (draw.for_round(2).for_match(24)
+         .score(atp_players.Broady, (6, 3, 4, 6, 6))
+         .score(atp_players.Ruud, (4, 6, 6, 3, 0))),
+
+        (draw.for_round(2).for_match(25)
+         .score(atp_players.Rublev, (6, 6, 6, 7))
+         .score(atp_players.Karatsev, (7, 3, 4, 5))),
+
+        (draw.for_round(2).for_match(26)
+         .score(atp_players.Vera, (6, 7, 2, 0))
+         .score(atp_players.Goffin, (7, 5, 6, 6))),
+
+        (draw.for_round(2).for_match(27)
+         .score(atp_players.Bublik, (6, 7, 6))
+         .score(atp_players.Wolf, (3, 6, 0))),
+
+        (draw.for_round(2).for_match(28)
+         .score(atp_players.Marterer, (7, 7, 6))
+         .score(atp_players.Mmoh, (5, 6, 4))),
+
+        (draw.for_round(2).for_match(29)
+         .score(atp_players.Musetti, (6, 6, 6))
+         .score(atp_players.Munar, (4, 3, 1))),
+
+        (draw.for_round(2).for_match(30)
+         .score(atp_players.Choinski, (4, 4, 6))
+         .score(atp_players.Hurkacz, (6, 6, 7))),
+
+        (draw.for_round(2).for_match(31)
+         .score(atp_players.Etcheverry, (3, 6, 4, 2))
+         .score(atp_players.Wawrinka, (6, 4, 6, 6))),
+
+        (draw.for_round(2).for_match(32)
+         .score(atp_players.Thompson, (3, 6, 5))
+         .score(atp_players.Djokovic, (6, 7, 7))),
+
+    ]
+
 
 # WM2023MensSingles_r2:END
 

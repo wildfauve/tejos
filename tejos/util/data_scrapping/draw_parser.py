@@ -123,7 +123,7 @@ def {'womens_draw_round_1()' if "WomensSingles" in name else "mens_draw_round_1(
 
 def _result_function(name, for_round):
     return [
-        f"def womens_singles_results_r{for_round}(draw)" if "WomensSingles" in name else f"def mens_singles_results_r{for_round}(draw)",
+        f"def womens_singles_results_r{for_round}(draw):" if "WomensSingles" in name else f"def mens_singles_results_r{for_round}(draw):",
         "  return ["
     ]
 
