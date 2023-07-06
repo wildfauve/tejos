@@ -124,7 +124,7 @@ def womens_singles_round_2(womens_singles):
     TEAM.draw(womens_singles).match('2.17').winner(women.Jabeur).in_sets(2)  # (  6) Jabeur  OR  (  Q) Bai
     TEAM.draw(womens_singles).match('2.18').winner(women).in_sets()  # TBD  OR  TBD
     TEAM.draw(womens_singles).match('2.19').winner(women.Stevanovic).in_sets(2)  # (  Q) Stevanovic  OR  ( LL) Korpatsch
-    TEAM.draw(womens_singles).match('2.20').winner(women.Kvitova).in_sets(2)  # (  9) Kvitova  OR  TBD
+    TEAM.draw(womens_singles).match('2.20').winner(women).in_sets()  # (  9) Kvitova  OR  TBD
     TEAM.draw(womens_singles).match('2.21').winner(women.Haddad_Maia).in_sets(2)  # ( 13) Haddad_Maia  OR  (   ) Cristian
     TEAM.draw(womens_singles).match('2.22').winner(women.Cirstea).in_sets(3)  # (   ) Cirstea  OR  ( 17) Ostapenko
     TEAM.draw(womens_singles).match('2.23').winner(women.Tomova).in_sets(2)  # (   ) Tomova  OR  ( WC) Boulter
