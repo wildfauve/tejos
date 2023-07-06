@@ -8,7 +8,7 @@ from .event_web_parser import wm_parser
 def build_draw(tournament: str,
                entries_file=None,
                draws_file=None,
-               results_file=None,
+               generate_results=False,
                for_round=None,
                scores_only=False):
     return (_format_results(
@@ -17,7 +17,7 @@ def build_draw(tournament: str,
                 _parser_for_event(tournament).build_draw(for_round, scores_only),
                 entries_file),
             draws_file),
-        results_file,
+        generate_results,
         for_round))
 
 
@@ -41,8 +41,8 @@ def _format_brackets(draws, draws_file):
     return draws
 
 
-def _format_results(draws, results_file, for_round):
-    if not results_file:
+def _format_results(draws, generate_results, for_round):
+    if not generate_results:
         return draws
     py = reduce(partial(_results_def, for_round), draws.items(), {})  # _results_mod_def())
     return py

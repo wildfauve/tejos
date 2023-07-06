@@ -32,16 +32,16 @@ def player_scrap(file):
               help="The name of the tournament")
 @click.option("--entries-file", "-e", type=str, default=None, help="Entries class file")
 @click.option("--draws-file", "-d", type=str, default=None, help="draws class file")
-@click.option("--results-file", "-s", type=str, default=None, help="results file")
+@click.option("--results/--no-results", default=False, help="generate results to tournament results file")
 @click.option("--round", "-r", type=int, default=1, help="The round number to scrap.  Defaults to 1.")
 @click.option('--scores-only/--full-draw', "-o/-f", default=False)
-def draw_scrap(tournament, entries_file, draws_file, results_file, round, scores_only):
+def draw_scrap(tournament, entries_file, draws_file, results, round, scores_only):
     """
     """
     presenter.scores_scrap_inserter(command.draw_scrap(tournament=tournament,
                                                        entries_file=entries_file,
                                                        draws_file=draws_file,
-                                                       results_file=results_file,
+                                                       results=results,
                                                        round_number=round,
                                                        scores_only=scores_only))
     pass

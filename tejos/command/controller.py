@@ -109,13 +109,13 @@ def player_scrap(file):
     atp_rankings.build_players_file(file)
 
 
-def draw_scrap(tournament, entries_file, draws_file, results_file, round_number, scores_only):
+def draw_scrap(tournament, entries_file, draws_file, results, round_number, scores_only):
     tournie = _find_tournament_by_name(tournament)
     tournie_module = _tournament_module(tournie)
     rd_results = draw_parser.build_draw(tournament=tournament,
                                         entries_file=entries_file,
                                         draws_file=draws_file,
-                                        results_file=results_file,
+                                        generate_results=results,
                                         for_round=round_number,
                                         scores_only=scores_only)
 

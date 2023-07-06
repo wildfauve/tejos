@@ -1,7 +1,7 @@
 ## CLI Commands
 
 ```shell
-poetry run util draw-scrap --results-file _temp/s.py --tournament FrenchOpen2023 --round 4 --scores-only
+poetry run util draw-scrap --results --tournament FrenchOpen2023 --round 4 --scores-only
 
 poetry run fantasy leaderboard --tournament FrenchOpen2023 --to-discord
 
