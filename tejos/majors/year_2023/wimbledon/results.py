@@ -1,5 +1,58 @@
 from tejos.players import wta_players, atp_players
 
+# WM2023WomensSingles_r7:START
+
+# WM2023WomensSingles_r7:END
+
+
+# WM2023MensSingles_r7:START
+
+# WM2023MensSingles_r7:END
+
+
+
+# WM2023WomensSingles_r6:START
+
+# WM2023WomensSingles_r6:END
+
+
+# WM2023MensSingles_r6:START
+
+# WM2023MensSingles_r6:END
+
+
+
+# WM2023WomensSingles_r5:START
+
+# WM2023WomensSingles_r5:END
+
+
+# WM2023MensSingles_r5:START
+
+# WM2023MensSingles_r5:END
+
+
+
+# WM2023WomensSingles_r4:START
+
+# WM2023WomensSingles_r4:END
+
+
+# WM2023MensSingles_r4:START
+
+# WM2023MensSingles_r4:END
+
+
+
+# WM2023WomensSingles_r3:START
+
+# WM2023WomensSingles_r3:END
+
+
+# WM2023MensSingles_r3:START
+
+# WM2023MensSingles_r3:END
+
 
 # WM2023WomensSingles_r2:START
 def womens_singles_results_r2(draw):

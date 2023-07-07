@@ -20,7 +20,7 @@ def team_bear_necessities(mens_singles, womens_singles):
 def womens_singles_round_3(womens_singles):
     TEAM.draw(womens_singles).match('3.1').winner(women.Swiatek).in_sets(2)  # (  1) Swiatek  OR  ( 30) Martic
     TEAM.draw(womens_singles).match('3.2').winner(women.Bencic).in_sets(2)  # ( 23) Linette  OR  ( 14) Bencic
-    TEAM.draw(womens_singles).match('3.3').winner(women.Kasatkina.in_sets(2)  # ( 11) Kasatkina  OR  ( 19) Azarenka
+    TEAM.draw(womens_singles).match('3.3').winner(women.Kasatkina).in_sets(2)  # ( 11) Kasatkina  OR  ( 19) Azarenka
     TEAM.draw(womens_singles).match('3.4').winner(women.Svitolina).in_sets(2)  # ( WC) Svitolina  OR  (  Q) Kenin
     TEAM.draw(womens_singles).match('3.5').winner(women.Pegula).in_sets(3)  # (  4) Pegula  OR  (   ) Cocciaretto
     TEAM.draw(womens_singles).match('3.6').winner(women.Bogdan).in_sets(3)  # (   ) Tsurenko  OR  (   ) Bogdan
