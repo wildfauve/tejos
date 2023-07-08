@@ -13,7 +13,6 @@ from tejos.util.data_scrapping import atp_rankings, draw_parser
 
 
 def leaderboard_df(tournament_name, board_type, round_number=None) -> pl.DataFrame:
-    breakpoint()
     tournie = _find_tournament_by_name(tournament_name)
     if not tournie:
         return
