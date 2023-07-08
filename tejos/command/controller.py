@@ -4,7 +4,7 @@ import csv
 import polars as pl
 
 from tejos.model import draw
-from . import leaderboard, graph_generator
+from . import leaderboard
 from tejos.fantasy import teams, selections
 from tejos.majors import tournaments
 from tejos import fantasy, dataframe
@@ -13,6 +13,7 @@ from tejos.util.data_scrapping import atp_rankings, draw_parser
 
 
 def leaderboard_df(tournament_name, board_type, round_number=None) -> pl.DataFrame:
+    breakpoint()
     tournie = _find_tournament_by_name(tournament_name)
     if not tournie:
         return

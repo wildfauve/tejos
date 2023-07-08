@@ -22,9 +22,6 @@ def _player_finder(name, player):
     return player.search_by_name(name)
 
 
-def format_player_klass_name(self):
-    return fn.multi_replace(self.name.rstrip().split(name_split_char)[-1], klass_name_replace_set)
-
 
 def _player_cache(player_module):
     if player_cache[_cache(player_module)]:

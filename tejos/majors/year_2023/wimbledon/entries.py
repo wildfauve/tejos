@@ -1,5 +1,4 @@
 from typing import Tuple, List, Optional
-from tejos import model
 from tejos.players import atp_players, wta_players
 
 

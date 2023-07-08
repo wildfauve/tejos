@@ -2,7 +2,7 @@ from typing import List, Union
 from functools import partial
 from rdflib import Graph, RDF, URIRef, Literal
 
-from tejos.graph import rdf_prefix
+from tejos.rdf import rdf_prefix
 from tejos.model import player
 from tejos.util import fn, error
 

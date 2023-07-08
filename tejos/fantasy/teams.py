@@ -11,14 +11,14 @@ from tejos.util import fn, echo
 
 console = Console()
 
-TeamGelatoGiants = fantasy.Team("Team Gelato Giants", "Bronzie, Juki & Lemmie")
-TeamPolarPrecision = fantasy.Team("Team Polar Precision", "IceT, Pepsi, Rollie & Gertie")
+TeamGelatoGiants = fantasy.Team("Team Gelato Giants", "Bronzie, Juki")
+TeamPolarPrecision = fantasy.Team("Team Polar Precision", "IceT, Pepsi, Rollie, Lemmie & Gertie")
 TeamHeroHangouts = fantasy.Team("Team Hero Hangouts", "Marmalade, Richmond, Greenwich")
 TeamBearNecessities = fantasy.Team("Team Bear Necessities", "Fraser, Tom, Frank, Spencer & Duck")
 TeamMusicalBears = fantasy.Team("Team Musical Bears", "Rinksy, Beetie, Motzie")
-TeamFauve = fantasy.Team("Team Fauve", "Perky")
+TeamFauve = fantasy.Team("Team Fauve", "Perky, Jacque, Albert")
 TeamClojo = fantasy.Team("Team Clojo", "Claudie, Fyodoro")
-TeamLightHouse = fantasy.Team("Team LightHouse", "Edouard, Piri")
+TeamLightHouse = fantasy.Team("Team LightHouse", "Edouard, Piri, Jack, Tom, Islay, Pinky, Purpley, Florance, Fennel")
 
 teams = [TeamGelatoGiants,
          TeamPolarPrecision,

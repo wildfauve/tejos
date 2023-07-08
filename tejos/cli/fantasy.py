@@ -1,10 +1,10 @@
 import click
 
+from tejos.initialiser import environment, db
+
 from tejos import command, presenter
 from tejos.majors import tournaments
 from tejos.fantasy import teams
-
-from tejos.initialiser import environment
 
 
 def tournament_names():

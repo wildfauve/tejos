@@ -1,4 +1,7 @@
-from .player import Player
+from .player import (
+    MatchPlayerNumber,
+    Player
+)
 
 from .draw import (
     Draw,

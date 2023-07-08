@@ -5,7 +5,7 @@ from rdflib import URIRef, Graph, RDF, Literal
 
 from . import round, match
 from tejos.model import tournament_event, player, entry, errors
-from tejos.graph import rdf_prefix
+from tejos.rdf import rdf_prefix
 from tejos.util import fn, error, echo
 
 

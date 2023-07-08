@@ -23,10 +23,12 @@ matplotlib = "^3.7.1"
 discord-webhook = "^1.1.0"
 python-dotenv = "^1.0.0"
 duckdb = "^0.8.0"
+pendulum = "^2.1.2"
 
 [tool.poetry.group.dev.dependencies]
 pytest-env = "^0.8.1"
 pdbpp = "^0.10.3"
+pytest = "^7.4.0"
 
 [tool.pytest.ini_options]
 minversion = "6.0"

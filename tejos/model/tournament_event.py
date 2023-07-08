@@ -1,10 +1,11 @@
 from typing import List
 from itertools import accumulate
 
-
 from rdflib import Graph, RDF, URIRef, Literal
 
-from tejos.graph import rdf_prefix
+from tejos.model.player import Player
+
+
 class TournamentEvent:
 
     """
@@ -23,20 +24,15 @@ class TournamentEvent:
         self.name = f"{self.is_event_of.subject_name}{self.scheduled_in_year}"
         self.label = f"{self.is_event_of.name} {self.scheduled_in_year}"
         self.draws = []
+        # This loads all players into the players module to make the entries config faster
+        Player.loadall()
 
     def has_draw(self, draw):
         self.draws.append(draw)
         return self
 
-    def build_graph(self, g: Graph):
-        g.add((self.subject, RDF.type, rdf_prefix.fau_ten.Event))
-        g.add((self.subject, rdf_prefix.fau_ten.isEventOf, self.is_event_of.subject))
-        g.add((self.subject, rdf_prefix.skos.notation, Literal(self.label)))
-        for draw in self.draws:
-            g.add((self.subject, rdf_prefix.fau_ten.hasDraw, draw.subject))
-            draw.build_graph(g)
-        return g
-
+    def load_players(self):
+        breakpoint()
 
     def fantasy_points_schedule(self, rd_number, accum:bool = False) -> List:
         sched = [len(self.draws) * pt for pt in (self.draws[0].fantasy_points_schedule(rd_number))]

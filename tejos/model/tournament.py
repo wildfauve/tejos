@@ -1,6 +1,6 @@
 from rdflib import URIRef, RDF, Literal
 
-from tejos.graph import rdf_prefix
+from tejos.rdf import rdf_prefix
 
 class Tournament:
     """

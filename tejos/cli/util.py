@@ -4,7 +4,7 @@ from tejos import command, presenter
 from tejos.majors import tournaments
 from tejos.fantasy import teams
 
-from tejos.initialiser import environment
+from tejos.initialiser import environment, db
 
 
 def tournament_names():

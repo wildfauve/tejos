@@ -5,9 +5,9 @@ from rdflib import URIRef, Graph, RDF, Literal
 from rich.table import Table
 
 from tejos.model.draw import Draw
-from tejos.model.player import Player
+from tejos.model.player import Player, MatchPlayerNumber
 from tejos.model.entry import Entry
-from tejos.graph import rdf_prefix
+from tejos.rdf import rdf_prefix
 
 from tejos.util import fn, identity
 
@@ -27,12 +27,14 @@ class Team:
         g.add((self.subject, rdf_prefix.fau_ten.hasFantasyMembers, Literal(self.members)))
         return g
 
-    def draw(self, for_draw: Draw):
+    def draw(self, for_draw: Draw, match_id: str = None):
         # print(f"Team: {self.name} Draw: {for_draw.name}")
         fantasy = self._find_fantasy_draw(for_draw)
         if not fantasy:
             fantasy = FantasyDraw(for_draw, self)
             self.fantasy_draws.append(fantasy)
+        if match_id:
+            return fantasy.match(match_id)
         return fantasy
 
     def show_draws(self, for_round: int, table: Table):
@@ -138,9 +140,15 @@ class Selection:
         self.round_id = round_id
         self.match = self._find_match(draw, round_id, match_id)
         self.selected_winner = None
+        self.selected_player_number = None
         self.in_number_sets = None
         self.points_strategy = draw.points_strategy
         self.per_round_accum_strategy = draw.round_factor_strategy
+
+    def matchup(self, pos1, player1, pos2, player2):
+        if player1 != self.match.player1.player() or player2 != self.match.player2.player():
+            breakpoint()
+        return self
 
     def points(self):
         if not self.match.is_finished():
@@ -198,6 +206,18 @@ class Selection:
             return self
         self.in_number_sets = number_of_sets
         return self
+
+
+    def select(self, player_number, in_sets):
+        winner_number = MatchPlayerNumber(player_number)
+        if winner_number == MatchPlayerNumber.PLAYER1:
+            self.winner(self.match.player1.player())
+        else:
+            self.winner(self.match.player2.player())
+        self.in_sets(in_sets)
+        self.selected_player_number = winner_number
+        return self
+
 
     def has_made_selection(self):
         return self.selected_winner or self.in_number_sets

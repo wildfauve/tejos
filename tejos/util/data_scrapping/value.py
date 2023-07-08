@@ -20,7 +20,8 @@ class Player:
     player_klass: model.Player = None
 
     def __post_init__(self):
-        self.player_klass = players.search_player_by_name(self.name, self.player_module)
+        # self.player_klass = players.search_player_by_name(self.name, self.player_module)
+        self.player_klass = model.Player.load(name=self.name)
         if not self.player_klass:
             with open('_temp/missing.py', 'a') as missing_file:
                 plyr_def = (f"{self.name} = Player('{self.name}', tour_symbol=TOUR, klass_name='{self.name}', alt_names=[])\n")
