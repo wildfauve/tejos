@@ -2,7 +2,7 @@ from typing import Callable, Tuple
 import math
 from enum import Enum
 
-from . import player, set, entry, draw
+from . import player, set, entry, draw, feature
 from tejos.presenter import console
 from tejos.util import fn, error, echo
 
@@ -80,7 +80,7 @@ class Match:
             score_part = f"score(?, ()).score(?, ())"
         return f"{match_part}.{score_part}"
 
-    def fantasy_score_template(self, event_name, round_number, fmt=None, trim_team_draw=None, add_selected=False):
+    def fantasy_score_template(self, event_name, round_number, fmt=None, trim_team_draw=None, add_selected=False, features=None):
         """
         TeamBearNecessities.draw(mens_singles).match("1.1").winner(Khachanov).in_sets(5)
         """
@@ -96,10 +96,19 @@ class Match:
             ]
         if trim_team_draw.match(self.match_id).has_made_selection() and not add_selected:
             return ""
+        # if trim_team_draw.team.name == "Team Clojo" and self.match_id == '4.7':
+        #     breakpoint()
         if trim_team_draw.match(self.match_id).has_made_selection() and add_selected:
             return self._template_with_selection(event_name, trim_team_draw, entries, mod)
-        entries = f"{self.player_klass_and_seed(self.player1)}  OR  {self.player_klass_and_seed(self.player2)}"
-        return f"{'':>4}TEAM.draw({event_name}).match('{self.match_id}').winner({mod}).in_sets()  # {entries}"
+
+        if feature.FantasyFeature.PlayerNumberSelector not in features:
+            return f"{'':>4}TEAM.draw({event_name}).match('{self.match_id}').winner({mod}).in_sets()  # {entries}"
+
+        # TEAM.draw(mens_singles, '3.16').matchup(1, men.Wawrinka, 2, men.Djokovic).select(2).in_sets(3)
+        pl1 = f"1, {mod}.{self.player1.player().klass_name}" if self.player1 else "1, None"
+        pl2 = f"2, {mod}.{self.player2.player().klass_name}" if self.player2 else "2, None"
+        return f"{'':>4}TEAM.draw({event_name}, '{self.match_id}').matchup({pl1}, {pl2}).select()  # {entries}"
+
 
     def _template_with_selection(self, event_name, team_draw, entries, mod):
         sel = team_draw.match(self.match_id)

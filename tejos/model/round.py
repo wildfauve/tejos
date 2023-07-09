@@ -36,12 +36,13 @@ class Round:
     def result_template(self, event_name):
         return [match.result_template(event_name, self.round_id) for match in self.matches]
 
-    def fantasy_score_template(self, draw_fn_symbol, trim_team_draw=None, add_selected=False):
+    def fantasy_score_template(self, draw_fn_symbol, trim_team_draw=None, add_selected=False, features=None):
         return [self._fn_definition_for_result_template(draw_fn_symbol)] + [
             match.fantasy_score_template(draw_fn_symbol,
                                          self.round_id,
                                          trim_team_draw=trim_team_draw,
-                                         add_selected=add_selected) for match in self.matches]
+                                         add_selected=add_selected,
+                                         features=features) for match in self.matches]
 
     def _fn_definition_for_result_template(self, fn_symbol):
         return f"def {fn_symbol}_round_{self.round_id}({fn_symbol}):"

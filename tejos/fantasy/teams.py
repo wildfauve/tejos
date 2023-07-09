@@ -6,7 +6,7 @@ from rich.console import Console
 from rich.table import Table
 from rich import box
 
-from tejos.model import fantasy
+from tejos.model import fantasy, feature
 from tejos.util import fn, echo
 
 console = Console()
@@ -15,10 +15,14 @@ TeamGelatoGiants = fantasy.Team("Team Gelato Giants", "Bronzie, Juki")
 TeamPolarPrecision = fantasy.Team("Team Polar Precision", "IceT, Pepsi, Rollie, Lemmie & Gertie")
 TeamHeroHangouts = fantasy.Team("Team Hero Hangouts", "Marmalade, Richmond, Greenwich")
 TeamBearNecessities = fantasy.Team("Team Bear Necessities", "Fraser, Tom, Frank, Spencer & Duck")
-TeamMusicalBears = fantasy.Team("Team Musical Bears", "Rinksy, Beetie, Motzie")
-TeamFauve = fantasy.Team("Team Fauve", "Perky, Jacque, Albert")
-TeamClojo = fantasy.Team("Team Clojo", "Claudie, Fyodoro")
-TeamLightHouse = fantasy.Team("Team LightHouse", "Edouard, Piri, Jack, Tom, Islay, Pinky, Purpley, Florance, Fennel")
+TeamMusicalBears = fantasy.Team("Team Musical Bears",
+                                "Rinksy, Beetie, Motzie",
+                                features=[feature.FantasyFeature.PlayerNumberSelector])
+TeamFauve = fantasy.Team("Team Fauve", "Perky, Jacque, Albert", features=[feature.FantasyFeature.PlayerNumberSelector])
+TeamClojo = fantasy.Team("Team Clojo", "Claudie, Fyodoro", features=[feature.FantasyFeature.PlayerNumberSelector])
+TeamLightHouse = fantasy.Team("Team LightHouse",
+                              "Edouard, Piri, Jack, Tom, Islay, Pinky, Purpley, Florance, Fennel",
+                              features=[feature.FantasyFeature.PlayerNumberSelector])
 
 teams = [TeamGelatoGiants,
          TeamPolarPrecision,

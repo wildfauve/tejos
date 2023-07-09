@@ -83,7 +83,8 @@ def fantasy_score_template_inserter(tournament_name, round_number):
             results[team][round_template] = (for_draw.for_round(round_number)
                                              .fantasy_score_template(for_draw.fn_symbol,
                                                                      trim_team_draw=team.draw(for_draw),
-                                                                     add_selected=True))
+                                                                     add_selected=True,
+                                                                     features=team.features))
     return fantasy_module, results
 
 

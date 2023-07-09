@@ -1,31 +1,29 @@
+from typing import List
 from enum import Enum
 from functools import partial
 
-from rdflib import URIRef, Graph, RDF, Literal
+from rdflib import Graph, URIRef
+
 from rich.table import Table
 
 from tejos.model.draw import Draw
 from tejos.model.player import Player, MatchPlayerNumber
 from tejos.model.entry import Entry
+from tejos.model import feature
 from tejos.rdf import rdf_prefix
 
 from tejos.util import fn, identity
 
 
 class Team:
-    def __init__(self, name, members):
+    def __init__(self, name, members, features=None):
         self.name = name
         self.symbolic_name = name.replace(" ", "")
         self.members = members
         self.fantasy_draws = []
         self.subject = URIRef(f"https://fauve.io/fantasyTeam/{self.symbolic_name}")
         self.result_file_name = name.lower().replace(" ", "_")
-
-    def build_graph(self, g: Graph):
-        g.add((self.subject, RDF.type, rdf_prefix.fau_ten.FantasyTeam))
-        g.add((self.subject, rdf_prefix.skos.notation, Literal(self.name)))
-        g.add((self.subject, rdf_prefix.fau_ten.hasFantasyMembers, Literal(self.members)))
-        return g
+        self.features = features if features else []
 
     def draw(self, for_draw: Draw, match_id: str = None):
         # print(f"Team: {self.name} Draw: {for_draw.name}")
@@ -35,6 +33,7 @@ class Team:
             self.fantasy_draws.append(fantasy)
         if match_id:
             return fantasy.match(match_id)
+        fantasy.features(self.features)
         return fantasy
 
     def show_draws(self, for_round: int, table: Table):
@@ -122,6 +121,10 @@ class FantasyDraw:
             self._add_selection(selection, rd_id, mt_id)
         return selection
 
+    def features(self, feats: List[feature.FantasyFeature]):
+        self.fantasy_features = feats
+        return self
+
     def selection_for(self, round_id, match_id):
         return self._find_match_selection(round_id, match_id)
 
@@ -146,6 +149,8 @@ class Selection:
         self.per_round_accum_strategy = draw.round_factor_strategy
 
     def matchup(self, pos1, player1, pos2, player2):
+        if not player1 or not player2:
+            return self
         if player1 != self.match.player1.player() or player2 != self.match.player2.player():
             breakpoint()
         return self
@@ -207,8 +212,9 @@ class Selection:
         self.in_number_sets = number_of_sets
         return self
 
-
-    def select(self, player_number, in_sets):
+    def select(self, player_number=None, in_sets=None):
+        if not player_number or not in_sets:
+            return self
         winner_number = MatchPlayerNumber(player_number)
         if winner_number == MatchPlayerNumber.PLAYER1:
             self.winner(self.match.player1.player())
@@ -217,7 +223,6 @@ class Selection:
         self.in_sets(in_sets)
         self.selected_player_number = winner_number
         return self
-
 
     def has_made_selection(self):
         return self.selected_winner or self.in_number_sets
