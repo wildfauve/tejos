@@ -16,9 +16,11 @@ match_id_pattern = re.compile('matches\\/\\d+\\/\\w{2}(\\d+)')
 
 draw_map = {
     'WM2023WomensSingles': {'name': "womens_singles",
-                            'player_module': wta_players},
+                            'player_module': wta_players,
+                            'draw_symbol': 'WomensSingles'},
     'WM2023MensSingles': {'name': "mens_singles",
-                          'player_module': atp_players}}
+                          'player_module': atp_players,
+                          'draw_symbol': 'MensSingles'}}
 
 round_code_map = {'1': 1,
                   '2': 2,
@@ -86,6 +88,7 @@ def _match(draw_mapping, for_rd, scores_only, match):
                                   json=match,
                                   round=rd,
                                   draw_attr_name=draw_mapping['name'],
+                                  draw_symbol=draw_mapping['draw_symbol'],
                                   player1=_player(draw_mapping,
                                                   match.get('team1'),
                                                   team=1,

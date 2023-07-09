@@ -1,3 +1,5 @@
+from .model import GraphModel
+
 from .player import (
     MatchPlayerNumber,
     Player
@@ -12,6 +14,10 @@ from .draw import (
 
 from .tournament import (
     GrandSlam
+)
+
+from .tournament_event import (
+    TournamentEvent
 )
 
 from .fantasy import (

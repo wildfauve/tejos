@@ -1,5 +1,3 @@
-from company import model
-
 from . import helpers
 
 

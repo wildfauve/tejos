@@ -4,11 +4,11 @@ import csv
 import polars as pl
 
 from tejos.model import draw
-from . import leaderboard
+from . import leaderboard, commanda
 from tejos.fantasy import teams, selections
 from tejos.majors import tournaments
 from tejos import fantasy, dataframe
-from tejos.util import echo
+from tejos.util import echo, monad
 from tejos.util.data_scrapping import atp_rankings, draw_parser
 
 
@@ -110,17 +110,18 @@ def player_scrap(file):
     atp_rankings.build_players_file(file)
 
 
+@commanda.command()
 def draw_scrap(tournament, entries_file, draws_file, results, round_number, scores_only):
     tournie = _find_tournament_by_name(tournament)
     tournie_module = _tournament_module(tournie)
-    rd_results = draw_parser.build_draw(tournament=tournament,
+    rd_results = draw_parser.build_draw(tournament=tournie,
                                         entries_file=entries_file,
                                         draws_file=draws_file,
                                         generate_results=results,
                                         for_round=round_number,
                                         scores_only=scores_only)
 
-    return tournie_module, rd_results
+    return monad.Right((tournie_module, rd_results))
 
 
 def show_draw(tournament_name, team_name, round):

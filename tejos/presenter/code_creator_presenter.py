@@ -18,8 +18,10 @@ def fantasy_score_template(result_fn_calls: Dict, file):
                 echo.echo(result)
 
 
-def scores_scrap_inserter(tourn_mod_rd_result_tuple: Tuple):
-    tourn_mod, rd_results = tourn_mod_rd_result_tuple
+def scores_scrap_inserter(tourn_mod_rd_result_tuple: monad.EitherMonad[Tuple]):
+    if tourn_mod_rd_result_tuple.is_left():
+        breakpoint()
+    tourn_mod, rd_results = tourn_mod_rd_result_tuple.value
     results_file = tourn_mod.__file__.replace("tournament.py", "results.py")
     try_file = try_open_file_for_read(results_file)
     if try_file.is_left():

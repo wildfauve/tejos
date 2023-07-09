@@ -1,10 +1,13 @@
-from typing import Callable, Tuple
+from typing import Callable, Tuple, List
 import math
 from enum import Enum
 
-from . import player, set, entry, draw, feature
+from rdflib import URIRef
+
+from . import player, set, entry, draw, feature, model
 from tejos.presenter import console
-from tejos.util import fn, error, echo
+from tejos.util import fn, error, echo, monad, singleton
+from tejos.repo import repository
 
 
 class MatchState(Enum):
@@ -16,12 +19,23 @@ def split_match_id(match_id):
     return [int(ident) for ident in match_id.split(".")]
 
 
-class Match:
-    def __init__(self, round_id, match_number, best_of, advance_winner_fn: Callable):
+class Match(model.GraphModel):
+    repo = repository.MatchRepo
+
+
+    def __init__(self,
+                 round_id,
+                 match_number,
+                 best_of,
+                 advance_winner_fn: Callable,
+                 round_subject: URIRef,
+                 sub: URIRef = None):
         self.number = match_number
         self.match_id = f"{round_id}.{match_number}"
         self.advance_winner_fn = advance_winner_fn
         self.best_of = best_of
+        self.round_subject = round_subject
+        self.subject = URIRef(f"{self.round_subject.toPython()}/Match/{self.match_id}") if not sub else sub
         self.player1 = None
         self.player2 = None
         self.scores = None
@@ -29,16 +43,17 @@ class Match:
         self.match_winner = None
         self.entry_retirement = None
         self.entry_withdrawal = None
+        self.repo(self.__class__.tournament_graph()).upsert(self)
 
     def __repr__(self):
         cls_name = self.__class__.__name__
         components = [
-            f"match_winner={self.match_winner})",
-            f"player1={self.player1.player()}",
-            f"player2={self.player2.player()}",
+            f"match_winner={self.match_winner}",
+            f"player1={self.player1.player()}" if self.player1 else "player1=None",
+            f"player2={self.player2.player()}" if self.player2 else "player1=None",
             f"entry_retirement={self.entry_retirement.player()}" if self.entry_retirement else None,
             f"entry_withdrawal={self.entry_withdrawal.player()}" if self.entry_withdrawal else None]
-        return f"{cls_name}(match_id='{self.match_id}', {', '.join(fn.remove_none(components))}"
+        return f"{cls_name}(match_id='{self.match_id}', {', '.join(fn.remove_none(components))})"
 
     def show(self, table):
         table.add_row(self.match_id,
@@ -80,7 +95,8 @@ class Match:
             score_part = f"score(?, ()).score(?, ())"
         return f"{match_part}.{score_part}"
 
-    def fantasy_score_template(self, event_name, round_number, fmt=None, trim_team_draw=None, add_selected=False, features=None):
+    def fantasy_score_template(self, event_name, round_number, fmt=None, trim_team_draw=None, add_selected=False,
+                               features=None):
         """
         TeamBearNecessities.draw(mens_singles).match("1.1").winner(Khachanov).in_sets(5)
         """
@@ -108,7 +124,6 @@ class Match:
         pl1 = f"1, {mod}.{self.player1.player().klass_name}" if self.player1 else "1, None"
         pl2 = f"2, {mod}.{self.player2.player().klass_name}" if self.player2 else "2, None"
         return f"{'':>4}TEAM.draw({event_name}, '{self.match_id}').matchup({pl1}, {pl2}).select()  # {entries}"
-
 
     def _template_with_selection(self, event_name, team_draw, entries, mod):
         sel = team_draw.match(self.match_id)
@@ -152,31 +167,48 @@ class Match:
         else:
             self.player2 = player_to_add
             self._init_scores(player_to_add)
+        self.repo(self.__class__.tournament_graph()).add_players_to_match(self, (self.player1, self.player2))
         return self
 
     def add_players(self, player1: entry.Entry, player2: entry.Entry):
+        """
+        Add both players to the draw
+        :param player1:
+        :param player2:
+        :return:
+        """
         self.player1 = player1
         self._init_scores(player1)
         self.player2 = player2
         self._init_scores(player2)
+        self.repo(self.__class__.tournament_graph()).add_players_to_match(self, (player1, player2))
         return self
 
     def score(self, for_player, set_games: Tuple[int]):
-        pl = draw.find_entry_for_player(for_player, [self.player1, self.player2])
+        if for_player == self.player1.player():
+            pos_player = (1, self.player1)
+        elif for_player == self.player2.player():
+            pos_player = (2, self.player2)
+        else:
+            breakpoint()
+        pos, pl = pos_player
         self.scores[pl] = set_games
         [self.sets[set_number].result_for_player(pl, set_games[set_number]) for set_number in range(len(set_games))]
+        self.repo(self.__class__.tournament_graph()).add_score(self, pos_player, set_games)
         self.winner()
         return self
 
     def retirement(self, retired_player):
         pl = draw.find_entry_for_player(retired_player, [self.player1, self.player2])
         self.entry_retirement = pl
+        self.repo(self.__class__.tournament_graph()).add_retirement(self)
         self.winner()
         return self
 
     def withdrawal(self, wd_player):
         pl = draw.find_entry_for_player(wd_player, [self.player1, self.player2])
         self.entry_withdrawal = pl
+        self.repo(self.__class__.tournament_graph()).add_withdrawal(self)
         self.winner()
         return self
 
@@ -212,6 +244,7 @@ class Match:
         {self._losing_player().player().name}: {self.show_set_and_winner(self._losing_player())}
         """))
 
+        self.repo(self.__class__.tournament_graph()).add_match_winner(self)
         self.advance_winner_fn(self)
         return self.match_winner
 

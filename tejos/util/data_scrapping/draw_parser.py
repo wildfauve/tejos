@@ -2,10 +2,11 @@ from typing import Tuple, Dict
 from functools import reduce, partial
 
 from tejos.players import atp_players as players
+from tejos import model
 from .event_web_parser import wm_parser
 
 
-def build_draw(tournament: str,
+def build_draw(tournament: model.tournament_event.TournamentEvent,
                entries_file=None,
                draws_file=None,
                generate_results=False,
@@ -18,7 +19,8 @@ def build_draw(tournament: str,
                 entries_file),
             draws_file),
         generate_results,
-        for_round))
+        for_round,
+        tournament))
 
 
 def _parser_for_event(_tournament):
@@ -41,10 +43,10 @@ def _format_brackets(draws, draws_file):
     return draws
 
 
-def _format_results(draws, generate_results, for_round):
+def _format_results(draws, generate_results, for_round, tournament):
     if not generate_results:
         return draws
-    py = reduce(partial(_results_def, for_round), draws.items(), {})  # _results_mod_def())
+    py = reduce(partial(_results_def, for_round, tournament), draws.items(), {})  # _results_mod_def())
     return py
 
 
@@ -75,10 +77,10 @@ def _bracket_def(py, draw_tuple):
     return reduce(_players_bracket, matches, _match_function(py, draw_name)) + f"\n{']':>4}"
 
 
-def _results_def(for_round, accum, draw_tuple):
+def _results_def(for_round, tournament, accum, draw_tuple):
     draw_name, matches = draw_tuple
     draw_rd_key = f"{draw_name}_r{for_round}"
-    scores = reduce(_match_result, matches, _result_function(draw_name, for_round))
+    scores = reduce(partial(_match_result, tournament), matches, _result_function(draw_name, for_round))
     scores.append(f"\n{']':>4}")
     accum[draw_rd_key] = scores
     return accum
@@ -88,7 +90,8 @@ def _players_bracket(acc, match):
     return acc + match.match_format()
 
 
-def _match_result(accum, match):
+def _match_result(tournament, accum, match):
+    match.save(tournament)
     accum.append(match.results_format(f"{'':>8}"))
     return accum
 

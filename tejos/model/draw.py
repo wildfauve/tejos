@@ -4,7 +4,9 @@ import math
 from rdflib import URIRef, Graph, RDF, Literal
 
 from . import round, match
-from tejos.model import tournament_event, player, entry, errors
+from tejos.model import tournament_event, player, entry, errors, model
+from tejos.repo import repository
+
 from tejos.rdf import rdf_prefix
 from tejos.util import fn, error, echo
 
@@ -33,15 +35,15 @@ def _draw_cls_predicate(draw_cls, draw):
     return isinstance(draw, draw_cls)
 
 
-class Draw:
+class Draw(model.GraphModel):
+    repo = repository.DrawRepo
 
     def __init__(self,
                  name,
-                 fn_symbol,
                  best_of,
-                 tournament: tournament_event.TournamentEvent):
+                 tournament: tournament_event.TournamentEvent,
+                 sub: URIRef = None):
         self.name = name
-        self.fn_symbol = fn_symbol
         self.number_of_matches = None
         self.best_of = best_of
         self.rounds = []
@@ -50,16 +52,9 @@ class Draw:
         self.errors = []
         self.points_strategy = None
         self.round_factor_strategy = None
-        self.subject = URIRef(f"{self.tournament.subject.toPython()}/{self.name}")
+        self.subject = URIRef(f"{self.tournament.subject.toPython()}/{self.name}") if not sub else sub
+        self.repo(self.__class__.tournament_graph()).upsert(self)
 
-    def build_graph(self, g: Graph):
-        g.add((self.subject, RDF.type, rdf_prefix.fau_ten.Draw))
-        g.add((self.subject, rdf_prefix.fau_ten.hasBestOfSets, Literal(self.best_of)))
-        g.add((self.subject, rdf_prefix.fau_ten.hasInitialDrawSize, Literal(self.number_of_matches)))
-        for e in self.entries:
-            g.add((self.subject, rdf_prefix.fau_ten.hasQualifiedPlayer, e.subject))
-            e.build_graph(g)
-        return g
 
     def __hash__(self):
         return hash((self.name,))
@@ -69,6 +64,7 @@ class Draw:
 
     def draw_size(self, number_of_matches):
         self.number_of_matches = number_of_matches
+        self.repo(self.__class__.tournament_graph()).update_draw_size(self)
         self._build_draw(1, number_of_matches)
         return self
 
@@ -128,10 +124,14 @@ class Draw:
         return math.ceil(this_rd_match_number / 2)
 
     def _build_draw(self, round_id, number_of_slots):
+        """
+        recursiving build the draw
+        """
         self.rounds.append(round.Round(round_id,
                                        number_of_slots,
                                        self.best_of,
-                                       self.advance_winner))
+                                       self.advance_winner,
+                                       self.subject))
         if number_of_slots == 1:
             return self
         self._build_draw(round_id + 1, int(number_of_slots / 2))
@@ -153,8 +153,9 @@ class Draw:
 
 
 class MensSingles(Draw):
-    pass
+    fn_symbol = "mens_singles"
+
 
 
 class WomensSingles(Draw):
-    pass
+    fn_symbol = "womens_singles"

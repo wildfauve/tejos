@@ -3,11 +3,13 @@ from functools import partial
 from rdflib import Graph, RDF, URIRef, Literal
 
 from tejos.rdf import rdf_prefix
-from tejos.model import player
+from tejos.model import player, model
+from tejos.repo import repository
 from tejos.util import fn, error
 
 
-class Entry:
+class Entry(model.GraphModel):
+    repo = repository.EntryRepo
     """
     <https://fauve.io/ao/2023/entries/Aliassime>
     a                        fau-ten:QualifiedPlayer ;
@@ -16,11 +18,12 @@ class Entry:
     fau-ten:isEntryForPlayer fau-ten-ind:Aliassime .
     """
 
-    def __init__(self, player, draw, seed):
+    def __init__(self, player, draw, seed, sub: URIRef = None):
         self.is_entry_for_player = player
         self.is_in_draw = draw
         self.has_seed = seed
-        self.subject = URIRef(f"{self.is_in_draw.subject.toPython()}/{self.is_entry_for_player.uri_name()}")
+        self.subject = URIRef(f"{self.is_in_draw.subject.toPython()}/{self.is_entry_for_player.uri_name()}") if not sub else sub
+        self.repo(self.__class__.tournament_graph()).upsert(self)
 
     def player(self):
         return self.is_entry_for_player
@@ -29,13 +32,6 @@ class Entry:
         if not self.has_seed:
             return "   "
         return str(self.has_seed).rjust(3)
-
-
-    def build_graph(self, g: Graph):
-        g.add((self.subject, RDF.type, rdf_prefix.fau_ten.QualifiedPlayer))
-        g.add((self.subject, rdf_prefix.fau_ten.hasSeed, Literal(self.has_seed)))
-        g.add((self.subject, rdf_prefix.fau_ten.isEntryForPlayer, self.player().subject))
-        return g
 
 
 def find_player_from_entry(for_player: Union[Entry, player.Player], players: List[Entry]):

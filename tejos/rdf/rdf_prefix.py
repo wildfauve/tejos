@@ -14,6 +14,7 @@ clo_te_plr = Namespace(f"{__clo_te_ns}Player/")
 
 clo_te_ind_plr = Namespace(f"{__clo_ind_ns}Player/")
 
+clo_te_ind_tou = Namespace(f"{__clo_ind_ns}Tournament/")
 
 foaf = Namespace("http://xmlns.com/foaf/0.1/")
 

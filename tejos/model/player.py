@@ -69,12 +69,12 @@ class Player(model.GraphModel):
             cls.build_player(plr.value)
         player = cls(name, tour_symbol, klass_name, alt_names)
         cls.player_cache().add_to_cache(player)
-        cls.repo(cls.graph()).upsert(player)
+        cls.repo(cls.players_graph()).upsert(player)
         return player
 
     @classmethod
     def loadall(cls):
-        for plr in cls.repo(cls.graph()).get_all():
+        for plr in cls.repo(cls.players_graph()).get_all():
             player = cls.build_player(plr)
             cls.player_cache().add_to_cache(player)
         pass
@@ -104,7 +104,7 @@ class Player(model.GraphModel):
 
     @classmethod
     def cls_search(cls, name=None, klass_name=None, alt_name=None) -> monad.EitherMonad[Tuple]:
-        plr = cls.repo(cls.graph()).get_by_name_or_klass_name(name=name, klass_name=klass_name, alt_name=alt_name)
+        plr = cls.repo(cls.players_graph()).get_by_name_or_klass_name(name=name, klass_name=klass_name, alt_name=alt_name)
         if not plr:
             return monad.Left(plr)
         return monad.Right(plr)

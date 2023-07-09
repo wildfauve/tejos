@@ -3,27 +3,24 @@ from itertools import accumulate
 
 from rdflib import Graph, RDF, URIRef, Literal
 
+from tejos.util import fn
+from tejos.rdf import rdf_prefix
+from tejos import model
+from tejos.repo import repository
 from tejos.model.player import Player
 
 
-class TournamentEvent:
+class TournamentEvent(model.GraphModel):
+    repo = repository.TournamentEventRepo
 
-    """
-    ao:AustralianOpen2023
-    a                 fau-ten:Event ;
-    fau-ten:isEventOf ao:AustralianOpen ;
-    skos:notation     "Australian Open 2023" ;
-    fau-ten:hasDraw   <https://fauve.io/ao/2023/mensSingles>, <https://fauve.io/ao/2023/womensSingles> .
-
-    """
-
-    def __init__(self, event_of, year):
+    def __init__(self, event_of, year, sub: URIRef = None):
         self.is_event_of = event_of
         self.scheduled_in_year = year
-        self.subject = URIRef(f"https://fauve.io/{self.is_event_of.subject_name}/{self.scheduled_in_year}")
+        self.subject = rdf_prefix.clo_te_ind_tou[self.is_event_of.subject_name] + f"/{self.scheduled_in_year}" if not sub else sub
         self.name = f"{self.is_event_of.subject_name}{self.scheduled_in_year}"
         self.label = f"{self.is_event_of.name} {self.scheduled_in_year}"
         self.draws = []
+        self.repo(self.__class__.tournament_graph()).upsert(self)
         # This loads all players into the players module to make the entries config faster
         Player.loadall()
 
@@ -31,10 +28,10 @@ class TournamentEvent:
         self.draws.append(draw)
         return self
 
-    def load_players(self):
-        breakpoint()
+    def find_draw_by_symbol(self, symbol):
+        return fn.find(lambda dr: dr.name == symbol, self.draws)
 
-    def fantasy_points_schedule(self, rd_number, accum:bool = False) -> List:
+    def fantasy_points_schedule(self, rd_number, accum: bool = False) -> List:
         sched = [len(self.draws) * pt for pt in (self.draws[0].fantasy_points_schedule(rd_number))]
         if not accum:
             return sched

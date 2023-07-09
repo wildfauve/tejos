@@ -1,24 +1,18 @@
 from rdflib import URIRef, RDF, Literal
 
 from tejos.rdf import rdf_prefix
+from tejos import model
+from tejos.repo import repository
 
-class Tournament:
-    """
-    ao:AustralianOpen
-    a             fau-ten:GrandSlam ;
-    skos:notation "Australian Open" .
+class Tournament(model.GraphModel):
+    repo = repository.TournamentRepo
 
-    """
-    def __init__(self, name, subject_name: str, perma_id: str):
+    def __init__(self, name, subject_name: str, perma_id: str, sub: URIRef = None):
         self.name = name
         self.perma_id = perma_id
         self.subject_name = subject_name
-        self.subject = URIRef(f"https://fauve.io/{subject_name}")
-
-    def build_graph(self, g):
-        g.add((self.subject, RDF.type, rdf_prefix.fau_ten.GrandSlam))
-        g.add((self.subject, rdf_prefix.skos.notation, Literal(self.name)))
-        return g
+        self.subject = rdf_prefix.clo_te_ind_tou[subject_name] if not sub else sub
+        self.repo(self.__class__.tournament_graph()).upsert(self)
 
 
 class GrandSlam(Tournament):

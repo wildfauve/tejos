@@ -1,14 +1,18 @@
-from tejos import repo
 class GraphModel:
-    cached_graph = None
+    cached_tournament_graph = None
+    cached_players_graph = None
 
     @classmethod
-    def init(cls, g):
-        cls.cached_graph = g
-        return cls
+    def tournament_graph(cls):
+        if not cls.cached_tournament_graph:
+            from tejos import repo
+            cls.cached_tournament_graph = repo.tournament_graph()
+        return cls.cached_tournament_graph
+
 
     @classmethod
-    def graph(cls):
-        if not cls.cached_graph:
-            cls.init(g=repo.graph())
-        return cls.cached_graph
+    def players_graph(cls):
+        if not cls.cached_players_graph:
+            from tejos import repo
+            cls.cached_players_graph = repo.players_graph()
+        return cls.cached_players_graph

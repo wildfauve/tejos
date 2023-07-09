@@ -1,24 +1,50 @@
 from typing import Callable
 from functools import partial
+
 from rich.console import Console
 from rich.table import Table
 from rich import box
 
-from tejos.model import match, entry
+from rdflib import URIRef
+
+from tejos.model import match, entry, model
+from tejos.repo import repository
 from tejos.util import fn, error
 
 console = Console()
 
 
-class Round:
-    def __init__(self, round_id, number_match_slots, games_best_of, advance_winner_fn: Callable):
+class Round(model.GraphModel):
+    repo = repository.RoundRepo
+
+    def __init__(self,
+                 round_id,
+                 number_match_slots,
+                 games_best_of,
+                 advance_winner_fn: Callable,
+                 draw_subject: URIRef,
+                 sub: URIRef = None):
         self.number_match_slots = number_match_slots
-        self.name = f"Round of {number_match_slots}"
+        self.name = self.determine_round_of()
         self.round_id = round_id
         self.matches = []
         self.games_best_of = games_best_of
+        self.draw_subject = draw_subject
         self.advance_winner_fn = advance_winner_fn
+        self.subject = URIRef(f"{self.draw_subject.toPython()}/Round/{self.round_id}") if not sub else sub
+        self.repo(self.__class__.tournament_graph()).upsert(self)
         self._build_match_slots()
+
+    def determine_round_of(self):
+        if self.number_match_slots > 4:
+            return f"Round of {self.number_match_slots * 2}"
+        if self.number_match_slots == 4:
+            return "QF"
+        if self.number_match_slots == 2:
+            return "SF"
+        if self.number_match_slots == 1:
+            return "F"
+        breakpoint()
 
     def show(self):
         table = Table(title=f"Draw and Results for round {self.round_id}",
@@ -77,7 +103,8 @@ class Round:
         return match.Match(self.round_id,
                            match_number,
                            self.games_best_of,
-                           self.advance_winner_fn)
+                           self.advance_winner_fn,
+                           self.subject)
 
     def _match_number_predicate(self, number, match):
         return match.number == number

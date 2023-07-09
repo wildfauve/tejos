@@ -7,7 +7,6 @@ Wimbledon2023 = tournament_event.TournamentEvent(event_of=tournaments.Wimbledon,
 
 
 WM2023MensSingles = (draw.MensSingles(name="MensSingles",
-                                      fn_symbol="mens_singles",
                                       best_of=5,
                                       tournament=Wimbledon2023)
                      .draw_size(number_of_matches=64)
@@ -16,7 +15,6 @@ WM2023MensSingles = (draw.MensSingles(name="MensSingles",
                      .fantasy_points_strategy(points_strategy.strategy_2_1_point5_double()))
 
 WM2023WomensSingles = (draw.WomensSingles("WomensSingles",
-                                          fn_symbol="womens_singles",
                                           best_of=3,
                                           tournament=Wimbledon2023)
                        .draw_size(number_of_matches=64)

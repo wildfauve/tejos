@@ -66,6 +66,7 @@ class MatchBlock:
     match_id_fn: Callable
     round: int
     draw_attr_name: str
+    draw_symbol: str
     player1: Player
     player2: Player
     json: Dict = None
@@ -80,6 +81,20 @@ class MatchBlock:
     def set_match_number_from_1(self, min_match):
         self.match_number = (self.match_id - min_match) + 1
         return self
+
+    def save(self, tournament):
+        # f"""{sp}({self._rd_and_match()}
+        # {sp}.score({self.player1.score()})
+        # {sp}.score({self.player2.score()}){self._has_retirement(sp)}{self._has_withdrawal(sp)}),"""
+
+        # (draw.for_round(3).for_match(1)
+        # .score(wta_players.Swiatek, (6, 7))
+        # .score(wta_players.Martic, (2, 5))),
+
+        # match = tournament.find_draw_by_symbol(self.draw_symbol).for_round(self.round).for_match(self.match_number)
+        # match.score(self.player1.player_klass, tuple(self.player1.scores))
+        # match.score(self.player2.player_klass, tuple(self.player2.scores))
+        pass
 
     def __hash__(self):
         return hash((self.href,))

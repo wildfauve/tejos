@@ -8,6 +8,7 @@ from rdflib.plugins.sparql.processor import SPARQLResult
 def sparql_prefixes():
     return dedent("""prefix clo-te: <https://clojos.io/ontology/FantasyTennis/>
     prefix clo-te-plr: <https://clojos.io/ontology/FantasyTennis/Player/>
+    prefix clo-te-tou: <https://clojos.io/ontology/FantasyTennis/Tournament/>
     prefix clo-te-ind: <https://clojos.io/ontology/FantasyTennis/Ind/>
     prefix foaf: <http://xmlns.com/foaf/0.1/>
     prefix skos: <http://www.w3.org/2004/02/skos/core#>
