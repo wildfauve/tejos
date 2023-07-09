@@ -115,6 +115,11 @@ def womens_singles_results_r3(draw):
         .score(wta_players.Keys, (6, 6))),
 
 
+        (draw.for_round(3).for_match(14)
+        .score(wta_players.Potapova, (2, 5))
+        .score(wta_players.Andreeva_Mirra, (6, 7))),
+
+
         (draw.for_round(3).for_match(15)
         .score(wta_players.Galfi, (0, 4))
         .score(wta_players.Alexandrova, (6, 6))),
@@ -141,6 +146,11 @@ def mens_singles_results_r3(draw):
         (draw.for_round(3).for_match(2)
         .score(atp_players.Zverev, (3, 6, 6))
         .score(atp_players.Berrettini, (6, 7, 7))),
+
+
+        (draw.for_round(3).for_match(3)
+        .score(atp_players.Tiafoe, (2, 3, 2))
+        .score(atp_players.Dimitrov, (6, 6, 6))),
 
 
         (draw.for_round(3).for_match(4)
@@ -1010,6 +1020,7 @@ def mens_singles_results_r1(draw):
          .score(atp_players.Djokovic, (6, 6, 7))),
 
     ]
+
 
 
 

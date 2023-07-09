@@ -59,7 +59,7 @@ def womens_singles_round_4(womens_singles):
     TEAM.draw(womens_singles).match('4.4').winner(women.Vondrousova).in_sets(3)  # (   ) Marketa Vondrousova  OR  ( 32) Marie Bouzkova
     TEAM.draw(womens_singles).match('4.5').winner(women.Kvitova).in_sets(3)  # (  6) Ons Jabeur  OR  (  9) Petra Kvitova
     TEAM.draw(womens_singles).match('4.6').winner(women.Haddad_Maia).in_sets(2)  # ( 13) Beatriz Haddad Maia  OR  (  3) Elena Rybakina
-    TEAM.draw(womens_singles, '4.7').matchup(1, women.Keys, 2, None).select()  # ( 25) Madison Keys  OR  TBD
+    TEAM.draw(womens_singles, '4.7').matchup(1, women.Keys, 2, women.Andreeva_Mirra).select()  # ( 25) Madison Keys  OR  (  Q) Mirra Andreeva
     TEAM.draw(womens_singles).match('4.8').winner(women.Sabalenka).in_sets(2)  # ( 21) Ekaterina Alexandrova  OR  (  2) Aryna Sabalenka
 # womens_singles_round_4:END
 
@@ -67,7 +67,7 @@ def womens_singles_round_4(womens_singles):
 # mens_singles_round_4:START
 def mens_singles_round_4(mens_singles):
     TEAM.draw(mens_singles).match('4.1').winner(men.Alcaraz).in_sets(3)  # (  1) Carlos Alcaraz  OR  (   ) Matteo Berrettini
-    TEAM.draw(mens_singles, '4.2').matchup(1, men.Rune, 2, None).select()  # (  6) Holger Rune  OR  TBD
+    TEAM.draw(mens_singles, '4.2').matchup(1, men.Dimitrov, 2, men.Rune).select()  # ( 21) Grigor Dimitrov  OR  (  6) Holger Rune
     TEAM.draw(mens_singles).match('4.3').winner(men.Medvedev).in_sets(4)  # (  3) Daniil Medvedev  OR  (   ) Jiri Lehecka
     TEAM.draw(mens_singles).match('4.4').winner(men.Tsitsipas).in_sets(4)  # (   ) Christopher Eubanks  OR  (  5) Stefanos Tsitsipas
     TEAM.draw(mens_singles).match('4.5').winner(men.Sinner).in_sets(4)  # (  8) Jannik Sinner  OR  (   ) Daniel Elahi Galan
@@ -398,4 +398,5 @@ def mens_singles_round_1(mens_singles):
     TEAM.draw(mens_singles).match('1.62').winner(men.Wawrinka).in_sets(4)  # (   ) Ruusuvuori  OR  (   ) Wawrinka
     TEAM.draw(mens_singles).match('1.63').winner(men.Nakashima).in_sets(4)  # (   ) Thompson  OR  (   ) Nakashima
     TEAM.draw(mens_singles).match('1.64').winner(men.Djokovic).in_sets(3)  # (   ) Cachin  OR  (  2) Djokovic
+
 
