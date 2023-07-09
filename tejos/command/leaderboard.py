@@ -23,11 +23,11 @@ def current_leaderboard(tournie,
                         board_type: BoardType = BoardType.FANTASY,
                         round_number=None,
                         accum: bool = True) -> pl.DataFrame:
-    return _team_scores_df(tournie, fantasy_teams, accum, up_to_rd=round_number)
+    return _team_scores_df(tournie, fantasy_teams, accum=accum, up_to_rd=round_number)
 
 
-def scores_plot(file: str, tournie, fantasy_teams, ranking_plot: bool = False):
-    df = _team_scores_df(tournie, fantasy_teams, True)
+def scores_plot(file: str, tournie, fantasy_teams, ranking_plot: bool = False, round_number=None):
+    df = _team_scores_df(tournie, fantasy_teams, accum=True, up_to_rd=round_number)
 
     if ranking_plot:
         return plot.rank_plot(file, tournie, df)

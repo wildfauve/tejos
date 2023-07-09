@@ -3,12 +3,16 @@ from .rdf_prefix import *
 name = foaf.name
 notation = skos.notation
 
+
 # Players
 hasTourDesignation = clo_te_plr.hasTourDesignation
 hasAlternateName = clo_te_plr.hasAltName
 hasKlassName = clo_te_plr.hasKlassName
 
 # Tournaments
+isInYear = clo_te.isInYear
+hasSubjectName = clo_te.hasSubjectName
+hasPermId = clo_te.hasPermId
 isEventOf = clo_te.isEventOf
 hasDraw = clo_te.hasDraw
 hasBestOfSets = clo_te.hasBestOfSets

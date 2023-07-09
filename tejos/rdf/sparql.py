@@ -16,6 +16,7 @@ def sparql_prefixes():
     """)
 
 def query(g, query_exp: str, prefixes_fn: Callable = sparql_prefixes) -> SPARQLResult:
+    print(f"{prefixes_fn()}\n{query_exp}")
     return g.query(f"{prefixes_fn()}\n{query_exp}")
 
 

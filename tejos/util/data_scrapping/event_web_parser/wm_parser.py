@@ -112,7 +112,6 @@ def _match_in_finished_state(match_status):
 def _player(draw_mapping, player_content, team, scores, winner, status):
     seed = player_content.get('seed', None) if player_content.get('seed', None) else player_content.get('entryStatus',
                                                                                                         None)
-    print(f"Status:{status}")
     # if player_content.get('lastNameA') == "Fruhvirtova":
     #     breakpoint()
     return value.Player(name=f"{player_content.get('firstNameA')} {player_content.get('lastNameA')}",

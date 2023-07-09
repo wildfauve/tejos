@@ -173,14 +173,15 @@ def generate_graph(ttl_file):
               type=click.Choice(tournament_names()),
               help="The name of the tournament")
 @click.option("--ranking-plot/--accum-totals-plot", "-r/-a", required=True, help="Plot Position, or plot total scores")
+@click.option("--round", "-r", type=int, default=None, help="Leaderboard for specific round")
 @click.option("--to-discord", "channel", required=False, flag_value="to-discord", default=False,
               help="Post the plot to Discord")
 @click.command()
-def plot(file, tournament, ranking_plot, channel):
+def plot(file, tournament, ranking_plot, channel, round):
     """
     Generate a Ranking Graph
     """
-    command.rank_plot(file=file, tournament_name=tournament, ranking_plot=ranking_plot)
+    command.rank_plot(file=file, tournament_name=tournament, ranking_plot=ranking_plot, round_number=round)
     presenter.plot_to_channel(file, channel)
     pass
 

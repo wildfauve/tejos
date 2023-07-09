@@ -3,7 +3,7 @@
 ```shell
 poetry run util draw-scrap --results --tournament FrenchOpen2023 --round 4 --scores-only
 
-poetry run fantasy leaderboard --tournament FrenchOpen2023 --to-discord
+poetry run fantasy leaderboard --tournament FrenchOpen2023 --round 4 --to-discord
 
 
 poetry run fantasy plot --file _temp/totals.png --tournament FrenchOpen2023 --accum-totals-plot --to-discord

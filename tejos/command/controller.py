@@ -31,11 +31,11 @@ def show_round(tournament_name, draw_name, round_number):
     for_draw.for_round(round_number).show()
 
 
-def rank_plot(file: str, tournament_name: str, ranking_plot: bool):
+def rank_plot(file: str, tournament_name: str, ranking_plot: bool, round_number=None):
     tournie = _find_tournament_by_name(tournament_name)
     if not tournie:
         return
-    leaderboard.scores_plot(file, tournie, _apply_fantasy(_start(tournie)), ranking_plot)
+    leaderboard.scores_plot(file, tournie, _apply_fantasy(_start(tournie)), ranking_plot, round_number=round_number)
     pass
 
 

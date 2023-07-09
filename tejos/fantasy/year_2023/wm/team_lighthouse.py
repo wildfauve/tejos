@@ -40,12 +40,20 @@ def team_lighthouse(mens_singles, womens_singles):
 
 
 # womens_singles_round_5:START
-
+def womens_singles_round_5(womens_singles):
+    TEAM.draw(womens_singles, '5.1').matchup(1, women.Swiatek, 2, women.Svitolina).select()  # (  1) Iga Swiatek  OR  ( WC) Svitolina
+    TEAM.draw(womens_singles, '5.2').matchup(1, women.Pegula, 2, women.Vondrousova).select()  # (  4) Jessica Pegula  OR  (   ) Marketa Vondrousova
+    TEAM.draw(womens_singles, '5.3').matchup(1, None, 2, None).select()  # TBD  OR  TBD
+    TEAM.draw(womens_singles, '5.4').matchup(1, None, 2, None).select()  # TBD  OR  TBD
 # womens_singles_round_5:END
 
 
 # mens_singles_round_5:START
-
+def mens_singles_round_5(mens_singles):
+    TEAM.draw(mens_singles, '5.1').matchup(1, None, 2, None).select()  # TBD  OR  TBD
+    TEAM.draw(mens_singles, '5.2').matchup(1, None, 2, None).select()  # TBD  OR  TBD
+    TEAM.draw(mens_singles, '5.3').matchup(1, men.Sinner, 2, men.Safiullin).select()  # (  8) Jannik Sinner  OR  (   ) Roman Safiullin
+    TEAM.draw(mens_singles, '5.4').matchup(1, men.Rublev, 2, None).select()  # (  7) Andrey Rublev  OR  TBD
 # mens_singles_round_5:END
 
 
@@ -337,6 +345,7 @@ def mens_singles_round_1(mens_singles):
     TEAM.draw(mens_singles).match('1.62').winner(men.Ruusuvuori).in_sets(4)  # (   ) Ruusuvuori  OR  (   ) Wawrinka
     TEAM.draw(mens_singles).match('1.63').winner(men.Thompson).in_sets(4)  # (   ) Thompson  OR  (   ) Nakashima
     TEAM.draw(mens_singles).match('1.64').winner(men.Djokovic).in_sets(3)  # (   ) Cachin  OR  (  2) Djokovic
+
 
 
 

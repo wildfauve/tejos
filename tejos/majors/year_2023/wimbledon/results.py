@@ -34,6 +34,26 @@ from tejos.players import wta_players, atp_players
 # WM2023WomensSingles_r4:START
 def womens_singles_results_r4(draw):
   return [
+        (draw.for_round(4).for_match(1)
+        .score(wta_players.Swiatek, (6, 7, 6))
+        .score(wta_players.Bencic, (7, 6, 3))),
+
+
+        (draw.for_round(4).for_match(2)
+        .score(wta_players.Azarenka, (6, 4, 6))
+        .score(wta_players.Svitolina, (2, 6, 7))),
+
+
+        (draw.for_round(4).for_match(3)
+        .score(wta_players.Pegula, (6, 6))
+        .score(wta_players.Tsurenko, (1, 3))),
+
+
+        (draw.for_round(4).for_match(4)
+        .score(wta_players.Vondrousova, (2, 6, 6))
+        .score(wta_players.Bouzkova, (6, 4, 3))),
+
+
 
    ]
 # WM2023WomensSingles_r4:END
@@ -42,6 +62,21 @@ def womens_singles_results_r4(draw):
 # WM2023MensSingles_r4:START
 def mens_singles_results_r4(draw):
   return [
+        (draw.for_round(4).for_match(5)
+        .score(atp_players.Sinner, (7, 6, 6))
+        .score(atp_players.Galan, (6, 4, 3))),
+
+
+        (draw.for_round(4).for_match(6)
+        .score(atp_players.Safiullin, (3, 6, 6, 6))
+        .score(atp_players.Shapovalov, (6, 3, 1, 3))),
+
+
+        (draw.for_round(4).for_match(7)
+        .score(atp_players.Rublev, (7, 6, 6, 6, 6))
+        .score(atp_players.Bublik, (5, 3, 7, 7, 4))),
+
+
 
    ]
 # WM2023MensSingles_r4:END
@@ -1020,6 +1055,9 @@ def mens_singles_results_r1(draw):
          .score(atp_players.Djokovic, (6, 6, 7))),
 
     ]
+
+
+
 
 
 

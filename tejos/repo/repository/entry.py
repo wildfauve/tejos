@@ -25,6 +25,7 @@ class EntryRepo:
         """
         g.add((sub, RDF.type, rdf.PLAYER_ENTRY))
         g.add((sub, rdf.isEntryForPlayer, entry.player().subject))
+        g.add((sub, rdf.hasKlassName, Literal(entry.player().klass_name)))
         g.add((sub, rdf.hasSeed, Literal(entry.has_seed)))
         g.add((sub, rdf.isEnterForDraw, entry.is_in_draw.subject))
         return g
