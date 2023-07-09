@@ -46,33 +46,32 @@ def team_bear_necessities(mens_singles, womens_singles):
 
 # mens_singles_round_5:END
 
-
-
 # womens_singles_round_4:START
 def womens_singles_round_4(womens_singles):
-    TEAM.draw(womens_singles).match('4.1').winner(women).in_sets()  # (  1) Iga Swiatek  OR  ( 14) Belinda Bencic
-    TEAM.draw(womens_singles).match('4.2').winner(women).in_sets()  # ( 19) Victoria Azarenka  OR  ( WC) Svitolina
-    TEAM.draw(womens_singles).match('4.3').winner(women).in_sets()  # (  4) Jessica Pegula  OR  (   ) Lesia Tsurenko
-    TEAM.draw(womens_singles).match('4.4').winner(women).in_sets()  # (   ) Marketa Vondrousova  OR  ( 32) Marie Bouzkova
-    TEAM.draw(womens_singles).match('4.5').winner(women).in_sets()  # (  6) Ons Jabeur  OR  (  9) Petra Kvitova
-    TEAM.draw(womens_singles).match('4.6').winner(women).in_sets()  # ( 13) Beatriz Haddad Maia  OR  (  3) Elena Rybakina
+    TEAM.draw(womens_singles).match('4.1').winner(women.Swiatek).in_sets(3)  # (  1) Iga Swiatek  OR  ( 14) Belinda Bencic
+    TEAM.draw(womens_singles).match('4.2').winner(women.Svitolina).in_sets(3)  # ( 19) Victoria Azarenka  OR  ( WC) Svitolina
+    TEAM.draw(womens_singles).match('4.3').winner(women.Tsurenko).in_sets(3)  # (  4) Jessica Pegula  OR  (   ) Lesia Tsurenko
+    TEAM.draw(womens_singles).match('4.4').winner(women.Bouzkova).in_sets(3)  # (   ) Marketa Vondrousova  OR  ( 32) Marie Bouzkova
+    TEAM.draw(womens_singles).match('4.5').winner(women.Jabeur).in_sets(3)  # (  6) Ons Jabeur  OR  (  9) Petra Kvitova
+    TEAM.draw(womens_singles).match('4.6').winner(women.Rybakina).in_sets(3)  # ( 13) Beatriz Haddad Maia  OR  (  3) Elena Rybakina
     TEAM.draw(womens_singles).match('4.7').winner(women).in_sets()  # ( 25) Madison Keys  OR  TBD
-    TEAM.draw(womens_singles).match('4.8').winner(women).in_sets()  # ( 21) Ekaterina Alexandrova  OR  (  2) Aryna Sabalenka
+    TEAM.draw(womens_singles).match('4.8').winner(women.Sabalenka).in_sets(3)  # ( 21) Ekaterina Alexandrova  OR  (  2) Aryna Sabalenka
 # womens_singles_round_4:END
-
 
 
 # mens_singles_round_4:START
 def mens_singles_round_4(mens_singles):
-    TEAM.draw(mens_singles).match('4.1').winner(men).in_sets()  # (  1) Carlos Alcaraz  OR  (   ) Matteo Berrettini
+    TEAM.draw(mens_singles).match('4.1').winner(men.Berrettini).in_sets(5)  # (  1) Carlos Alcaraz  OR  (   ) Matteo Berrettini
     TEAM.draw(mens_singles).match('4.2').winner(men).in_sets()  # (  6) Holger Rune  OR  TBD
-    TEAM.draw(mens_singles).match('4.3').winner(men).in_sets()  # (  3) Daniil Medvedev  OR  (   ) Jiri Lehecka
-    TEAM.draw(mens_singles).match('4.4').winner(men).in_sets()  # (   ) Christopher Eubanks  OR  (  5) Stefanos Tsitsipas
-    TEAM.draw(mens_singles).match('4.5').winner(men).in_sets()  # (  8) Jannik Sinner  OR  (   ) Daniel Elahi Galan
-    TEAM.draw(mens_singles).match('4.6').winner(men).in_sets()  # (   ) Roman Safiullin  OR  ( 26) Denis Shapovalov
-    TEAM.draw(mens_singles).match('4.7').winner(men).in_sets()  # (  7) Andrey Rublev  OR  ( 23) Alexander Bublik
-    TEAM.draw(mens_singles).match('4.8').winner(men).in_sets()  # ( 17) Hubert Hurkacz  OR  (  2) Novak Djokovic
+    TEAM.draw(mens_singles).match('4.3').winner(men.Medvedev).in_sets(5)  # (  3) Daniil Medvedev  OR  (   ) Jiri Lehecka
+    TEAM.draw(mens_singles).match('4.4').winner(men.Tsitsipas).in_sets(4)  # (   ) Christopher Eubanks  OR  (  5) Stefanos Tsitsipas
+    TEAM.draw(mens_singles).match('4.5').winner(men.Sinner).in_sets(4)  # (  8) Jannik Sinner  OR  (   ) Daniel Elahi Galan
+    TEAM.draw(mens_singles).match('4.6').winner(men.Safiullin).in_sets(4)  # (   ) Roman Safiullin  OR  ( 26) Denis Shapovalov
+    TEAM.draw(mens_singles).match('4.7').winner(men.Bublik).in_sets(5)  # (  7) Andrey Rublev  OR  ( 23) Alexander Bublik
+    TEAM.draw(mens_singles).match('4.8').winner(men.Djokovic).in_sets(3)  # ( 17) Hubert Hurkacz  OR  (  2) Novak Djokovic
 # mens_singles_round_4:END
+
+
 
 
 
