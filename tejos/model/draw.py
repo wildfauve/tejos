@@ -37,23 +37,45 @@ def _draw_cls_predicate(draw_cls, draw):
 
 class Draw(model.GraphModel):
     repo = repository.DrawRepo
+    repo_graph = model.GraphModel.tournament_graph
+    repo_instance = None
+
+    @classmethod
+    def create(cls, name: str, best_of: int, draw_size: int, event):
+        draw = cls(name=name, best_of=best_of, event=event).draw_size(number_of_matches=draw_size)
+        cls.repository().upsert(draw)
+        return draw
+
+    @classmethod
+    def get(cls, event, name: str):
+        result = cls.repository().get(event_subject=event.subject, name=name)
+        if not result:
+            return None
+        name, best_of, draw_size, sub, event_sub = result
+        event = tournament_event.TournamentEvent.get_by_sub(event_sub)
+        draw = cls(name=name, best_of=best_of, sub=sub, event=event)
+        draw.entries = entry.Entry.get_all_entries_for_draw(draw)
+        event.has_draw(draw)
+        draw.draw_size(draw_size)
+        return draw
+
 
     def __init__(self,
                  name,
                  best_of,
-                 tournament: tournament_event.TournamentEvent,
+                 event: tournament_event.TournamentEvent,
                  sub: URIRef = None):
         self.name = name
         self.number_of_matches = None
         self.best_of = best_of
         self.rounds = []
-        self.tournament = tournament
+        self.tournament = event
         self.entries = []
         self.errors = []
         self.points_strategy = None
         self.round_factor_strategy = None
         self.subject = URIRef(f"{self.tournament.subject.toPython()}/{self.name}") if not sub else sub
-        self.repo(self.__class__.tournament_graph()).upsert(self)
+        # self.repository().upsert(self)
 
 
     def __hash__(self):
@@ -76,12 +98,15 @@ class Draw(model.GraphModel):
         self.round_factor_strategy = accum_strat
         return self
 
-    def add_entries(self, players):
+    def add_entries(self, players: List[player.Player]):
         [self.has_entry(player_entry, seed) for player_entry, seed in players]
         return self
 
     def has_entry(self, player_entry: player.Player, seed: int):
-        self.entries.append(entry.Entry(player_entry, draw=self, seed=seed))
+        en = entry.Entry.create(player_entry, draw=self, seed=seed)
+        if en in self.entries:
+            return self
+        self.entries.append(en)
         return self
 
     def init_draw(self, match_ups):

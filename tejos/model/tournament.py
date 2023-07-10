@@ -3,6 +3,7 @@ from rdflib import URIRef, RDF, Literal
 from tejos.rdf import rdf_prefix
 from tejos import model
 from tejos.repo import repository
+from tejos.util import fn
 
 
 class Tournament(model.GraphModel):
@@ -41,6 +42,7 @@ class Tournament(model.GraphModel):
         self.perma_id = perma_id
         self.subject_name = subject_name
         self.subject = rdf_prefix.clo_te_ind_tou[subject_name] if not sub else sub
+        self.events = []
         self.repo(self.__class__.tournament_graph()).upsert(self)
 
     def __hash__(self):
@@ -50,6 +52,14 @@ class Tournament(model.GraphModel):
         if not self or not other:
             return None
         return self.subject == other.subject
+
+    def make_event(self, year):
+        event = fn.find(lambda ev: ev.scheduled_in_year == year, self.events)
+        if event:
+            return event
+        event = model.TournamentEvent.create(year=year, tournament=self)
+        self.events.append(event)
+        return event
 
 
 

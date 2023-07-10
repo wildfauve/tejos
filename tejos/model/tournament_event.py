@@ -16,8 +16,9 @@ class TournamentEvent(model.GraphModel):
     repo_instance = None
 
     @classmethod
-    def create(cls, year: int, tournament_name: str):
-        event = cls(event_of=model.GrandSlam.get(name=tournament_name), year=year)
+    def create(cls, year: int, tournament_name: str = None, tournament=None):
+        event_of = tournament if isinstance(tournament, model.GrandSlam) else model.GrandSlam.get(name=tournament_name)
+        event = cls(event_of=event_of, year=year)
         cls.repository().upsert(event)
         return event
 
@@ -35,6 +36,14 @@ class TournamentEvent(model.GraphModel):
         return cls(*[tournament] + list(event[:-1]))
 
 
+    @classmethod
+    def get_by_sub(cls, sub):
+        event = cls.repository().get_by_sub(sub)
+        if not event:
+            return None
+        return cls(*[event[-1:][0]] + list(event[:-1]))
+
+
     def __init__(self, event_of, year, name: str = None, sub: URIRef = None):
         self.is_event_of = event_of if isinstance(event_of, model.GrandSlam) else self.tournament_by_sub(event_of)
         self.scheduled_in_year = year
@@ -48,7 +57,18 @@ class TournamentEvent(model.GraphModel):
     def tournament_by_sub(self, sub):
         return model.GrandSlam.get_by_sub(sub)
 
+    def make_draw(self, name: str, best_of: int, draw_size=int):
+        draw = self.find_draw_by_symbol(name)
+        if draw:
+            return draw
+        draw = model.Draw.create(name=name, best_of=best_of, draw_size=draw_size, event=self)
+        self.has_draw(draw)
+        return draw
+
+
     def has_draw(self, draw):
+        if fn.find(lambda dr: dr == draw, self.draws):
+            return self
         self.draws.append(draw)
         return self
 

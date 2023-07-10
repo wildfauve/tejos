@@ -1,0 +1,50 @@
+@prefix clo-te: <https://clojos.io/ontology/FantasyTennis/> .
+@prefix clo-te-ind-plr: <https://clojos.io/ontology/FantasyTennis/Ind/Player/> .
+@prefix clo-te-plr: <https://clojos.io/ontology/FantasyTennis/Player/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+
+clo-te-ind-plr:Alcaraz a clo-te:Player ;
+    foaf:name "Carlos Alcaraz" ;
+    clo-te-plr:hasKlassName "Alcaraz" ;
+    clo-te-plr:hasTourDesignation "ATP" .
+
+clo-te-ind-plr:Sinner a clo-te:Player ;
+    foaf:name "Jannik Sinner" ;
+    clo-te-plr:hasKlassName "Sinner" ;
+    clo-te-plr:hasTourDesignation "ATP" .
+
+
+clo-te-ind-plr:Djokovic a clo-te:Player ;
+    foaf:name "Novak Djokovic" ;
+    clo-te-plr:hasKlassName "Djokovic" ;
+    clo-te-plr:hasTourDesignation "ATP" .
+
+
+clo-te-ind-plr:Eubanks a clo-te:Player ;
+    foaf:name "Christopher Eubanks" ;
+    clo-te-plr:hasKlassName "Eubanks" ;
+    clo-te-plr:hasTourDesignation "ATP" .
+
+
+
+clo-te-ind-plr:Berrettini a clo-te:Player ;
+    foaf:name "Matteo Berrettini" ;
+    clo-te-plr:hasKlassName "Berrettini" ;
+    clo-te-plr:hasTourDesignation "ATP" .
+
+
+clo-te-ind-plr:Rublev a clo-te:Player ;
+    foaf:name "Andrey Rublev" ;
+    clo-te-plr:hasKlassName "Rublev" ;
+    clo-te-plr:hasTourDesignation "ATP" .
+
+clo-te-ind-plr:Rune a clo-te:Player ;
+    foaf:name "Holger Rune" ;
+    clo-te-plr:hasKlassName "Rune" ;
+    clo-te-plr:hasTourDesignation "ATP" .
+
+
+clo-te-ind-plr:Tsitsipas a clo-te:Player ;
+    foaf:name "Stefanos Tsitsipas" ;
+    clo-te-plr:hasKlassName "Tsitsipas" ;
+    clo-te-plr:hasTourDesignation "ATP" .

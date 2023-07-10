@@ -15,6 +15,18 @@ def test_create_event(configure_repo):
     assert same_event == event
 
 
+def test_make_event_from_tournament(configure_repo):
+    tournie = model.GrandSlam.create(name="Wimbledon", subject_name="Wimbledon", perma_id="wm")
+
+    event = tournie.make_event(year=2023)
+
+    assert event.scheduled_in_year == 2023
+    assert event.is_event_of.name == "Wimbledon"
+
+    exactly_the_same_event = tournie.make_event(year=2023)
+    assert id(event) == id(exactly_the_same_event)
+
+
 def test_get_all_events(configure_repo):
     create_tournies()
     create_events()

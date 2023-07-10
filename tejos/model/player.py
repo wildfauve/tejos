@@ -83,6 +83,7 @@ class Player(model.GraphModel):
     def load(cls, name: str = None, klass_name: str = None):
         cached_player = cls.cache_hit(name=name, klass_name=klass_name)
         if cached_player.is_right():
+            print(f"Player Cache Hit: {cached_player.value}")
             return cached_player.value
 
         plr = cls.cls_search(name=name, klass_name=klass_name, alt_name=name)

@@ -10,20 +10,34 @@ from tejos.util import fn, error
 
 class Entry(model.GraphModel):
     repo = repository.EntryRepo
-    """
-    <https://fauve.io/ao/2023/entries/Aliassime>
-    a                        fau-ten:QualifiedPlayer ;
-    fau-ten:hasSeed          6 ;
-    fau-ten:isInDraw         <https://fauve.io/ao/2023/mensSingles> ;
-    fau-ten:isEntryForPlayer fau-ten-ind:Aliassime .
-    """
+    repo_graph = model.GraphModel.tournament_graph
+    repo_instance = None
+
+    @classmethod
+    def create(cls, player, draw, seed):
+        en = cls(player=player, draw=draw, seed=seed)
+        cls.repository().upsert(en)
+        return en
+
+    @classmethod
+    def get_all_entries_for_draw(cls, draw):
+        return [cls.builder(entry, draw) for entry in cls.repository().get_all_entries_for_draw(draw.subject)]
+
+
+    @classmethod
+    def builder(cls, entry, draw):
+        sub, player_sub, klass_name, seed, draw_sub = entry
+        return cls(player=player.Player.load(klass_name=klass_name),
+                   draw=draw,
+                   seed=seed,
+                   sub=sub)
 
     def __init__(self, player, draw, seed, sub: URIRef = None):
         self.is_entry_for_player = player
         self.is_in_draw = draw
         self.has_seed = seed
         self.subject = URIRef(f"{self.is_in_draw.subject.toPython()}/{self.is_entry_for_player.uri_name()}") if not sub else sub
-        self.repo(self.__class__.tournament_graph()).upsert(self)
+
 
     def player(self):
         return self.is_entry_for_player

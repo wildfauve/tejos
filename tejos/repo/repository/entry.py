@@ -17,12 +17,6 @@ class EntryRepo:
         pass
 
     def creator(self, entry, g, sub):
-        """
-        g.add((self.subject, RDF.type, rdf_prefix.fau_ten.QualifiedPlayer))
-        g.add((self.subject, rdf_prefix.fau_ten.hasSeed, Literal(self.has_seed)))
-        g.add((self.subject, rdf_prefix.fau_ten.isEntryForPlayer, self.player().subject))
-        return g
-        """
         g.add((sub, RDF.type, rdf.PLAYER_ENTRY))
         g.add((sub, rdf.isEntryForPlayer, entry.player().subject))
         g.add((sub, rdf.hasKlassName, Literal(entry.player().klass_name)))
@@ -30,3 +24,41 @@ class EntryRepo:
         g.add((sub, rdf.isEnterForDraw, entry.is_in_draw.subject))
         return g
 
+
+    def get_all_entries_for_draw(self, draw_sub):
+        return [self.to_entry(entry) for entry in (rdf.many(rdf.query(self.graph, self._sparql(draw_sub))))]
+
+
+    def to_entry(self, entry):
+        if not entry:
+            return None
+        return (
+            entry.entry,
+            entry.player_sub,
+            entry.player_klass_name.toPython(),
+            entry.seed.toPython(),
+            entry.draw
+        )
+
+
+    def _sparql(self, draw_sub=None):
+        if not draw_sub:
+            filter_criteria = None
+        else:
+            filter_criteria = f"?draw = {draw_sub.n3()}"
+
+        filter = "" if not filter_criteria else f"filter({filter_criteria})"
+
+        return f"""
+        select ?entry ?player_klass_name ?seed ?draw ?player_sub
+
+        where {{
+
+  	    ?entry a clo-te:PlayerEntry ;
+  	           clo-te-plr:hasKlassName ?player_klass_name ;
+               clo-te:hasSeed ?seed ;
+               clo-te:isEnterForDraw ?draw ;
+               clo-te:isEntryForPlayer ?player_sub .
+
+        {filter} }}
+        """
