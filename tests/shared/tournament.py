@@ -32,10 +32,10 @@ def build_tournament():
     T2023WomensSingles.has_entry(players.Azarenka, seed=27)
     T2023WomensSingles.has_entry(players.Swiatek, seed=1)
 
-    T2023MensSingles.init_draw((1, players.Hurkacz, players.Khachanov),
-                               (2, players.Korda, players.Tsitsipas))
+    T2023MensSingles.first_round_draw((1, players.Hurkacz, players.Khachanov),
+                                      (2, players.Korda, players.Tsitsipas))
 
-    T2023WomensSingles.init_draw((1, players.Sabalenka, players.Swiatek),
-                                 (2, players.Rybakina, players.Azarenka))
+    T2023WomensSingles.first_round_draw((1, players.Sabalenka, players.Swiatek),
+                                        (2, players.Rybakina, players.Azarenka))
 
     return TestMajor2023

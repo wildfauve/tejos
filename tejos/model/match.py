@@ -6,7 +6,8 @@ from rdflib import URIRef
 
 from . import player, set, entry, draw, feature, model
 from tejos.presenter import console
-from tejos.util import fn, error, echo, monad, singleton
+from tejos.util import fn, error, echo
+from tejos import rdf
 from tejos.repo import repository
 
 
@@ -21,20 +22,43 @@ def split_match_id(match_id):
 
 class Match(model.GraphModel):
     repo = repository.MatchRepo
+    repo_graph = model.GraphModel.tournament_graph
+    repo_instance = None
 
+    @classmethod
+    def create(cls, round_id, match_number, draw, for_round):
+        mt = cls(round_id, match_number, draw, for_round)
+        cls.repository().upsert(mt)
+        return mt
+
+    @classmethod
+    def get_all_for_round(cls, for_round, round_sub):
+        matches = cls.repository().get_all_for_round(round_sub)
+        return [cls.to_match(for_round, match) for match in matches]
+
+    @classmethod
+    def to_match(cls, for_round, match):
+        _, _, _, match_number, pos1_sub, pos2_sub, winner, scores1, scores2 = match
+        mt = for_round.for_match(match_number)
+        mt.add_players(*entry.Entry.get_by_subs([pos1_sub, pos2_sub]))
+        if scores1:
+            mt.load_score(position1_subject_sets=scores1)
+        if scores2:
+            mt.load_score(position2_subject_sets=scores2)
+        return mt
 
     def __init__(self,
                  round_id,
                  match_number,
-                 best_of,
-                 advance_winner_fn: Callable,
-                 round_subject: URIRef,
+                 draw,
+                 for_round,
                  sub: URIRef = None):
         self.number = match_number
         self.match_id = f"{round_id}.{match_number}"
-        self.advance_winner_fn = advance_winner_fn
-        self.best_of = best_of
-        self.round_subject = round_subject
+        self.draw = draw
+        self.for_round = for_round
+        self.best_of = for_round.games_best_of
+        self.round_subject = for_round.subject
         self.subject = URIRef(f"{self.round_subject.toPython()}/Match/{self.match_id}") if not sub else sub
         self.player1 = None
         self.player2 = None
@@ -43,7 +67,6 @@ class Match(model.GraphModel):
         self.match_winner = None
         self.entry_retirement = None
         self.entry_withdrawal = None
-        self.repo(self.__class__.tournament_graph()).upsert(self)
 
     def __repr__(self):
         cls_name = self.__class__.__name__
@@ -167,7 +190,7 @@ class Match(model.GraphModel):
         else:
             self.player2 = player_to_add
             self._init_scores(player_to_add)
-        self.repo(self.__class__.tournament_graph()).add_players_to_match(self, (self.player1, self.player2))
+        self.repository().add_players_to_match(self, (self.player1, self.player2))
         return self
 
     def add_players(self, player1: entry.Entry, player2: entry.Entry):
@@ -191,12 +214,34 @@ class Match(model.GraphModel):
             pos_player = (2, self.player2)
         else:
             breakpoint()
-        pos, pl = pos_player
-        self.scores[pl] = set_games
-        [self.sets[set_number].result_for_player(pl, set_games[set_number]) for set_number in range(len(set_games))]
-        self.repo(self.__class__.tournament_graph()).add_score(self, pos_player, set_games)
+        _pos, pl = pos_player
+        self.update_sets(pl, set_games)
+
+        self.repository().add_score(self, pos_player,
+                                    [self.set_game_subjects(for_set, score) for for_set, score in enumerate(set_games)])
         self.winner()
         return self
+
+    def load_score(self, position1_subject_sets=None, position2_subject_sets=None):
+        if position1_subject_sets:
+            self.update_sets(self.player1, self.score_sbjects_to_score(position1_subject_sets))
+        if position2_subject_sets:
+            self.update_sets(self.player2, self.score_sbjects_to_score(position2_subject_sets))
+        self.winner(advance=False)
+        return self
+
+    def update_sets(self, for_player: entry.Entry, set_games):
+        self.scores[for_player] = set_games
+        [self.sets[set_number].result_for_player(for_player, set_games[set_number]) for set_number in
+         range(len(set_games))]
+        return self
+
+    def set_game_subjects(self, for_set, score):
+        return rdf.SCORE + f"/{for_set + 1}/{score}"
+
+    def score_sbjects_to_score(self, score_subjects: URIRef) -> Tuple[int]:
+        return tuple(
+            int(p) for _, p in sorted([tuple(sub.split('/')[-2:]) for sub in score_subjects], key=lambda s: s[0]))
 
     def retirement(self, retired_player):
         pl = draw.find_entry_for_player(retired_player, [self.player1, self.player2])
@@ -231,7 +276,7 @@ class Match(model.GraphModel):
     def has_draw(self):
         return self.player1 and self.player2
 
-    def winner(self):
+    def winner(self, advance: bool = True):
         if not self.is_finished():
             return None
         if self.match_winner:
@@ -244,8 +289,9 @@ class Match(model.GraphModel):
         {self._losing_player().player().name}: {self.show_set_and_winner(self._losing_player())}
         """))
 
-        self.repo(self.__class__.tournament_graph()).add_match_winner(self)
-        self.advance_winner_fn(self)
+        if advance:
+            self.repository().add_match_winner(self)
+            self.draw.advance_winner(self)
         return self.match_winner
 
     def _init_scores(self, for_player):

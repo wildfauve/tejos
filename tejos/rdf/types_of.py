@@ -13,3 +13,5 @@ PLAYER_ENTRY = clo_te.PlayerEntry
 ROUND = clo_te.DrawRound
 
 MATCH = clo_te.Match
+
+SCORE = clo_te.Score

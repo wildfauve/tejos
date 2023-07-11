@@ -48,7 +48,7 @@ def _get_pages(urls, for_rd):
 
 def _get_page(url_or_file, for_rd):
     if 'http' in url_or_file:
-        return BeautifulSoup(requests.get(url_or_file.format(for_rd)).text, "html.parser")
+        return BeautifulSoup(requests.get_all_for_draw(url_or_file.format(for_rd)).text, "html.parser")
     return BeautifulSoup(open(url_or_file, encoding='UTF-8'), "html.parser")
 
 
@@ -66,7 +66,7 @@ def _assign_match_numbers(draws):
 def _singles_brackets(for_rd, scores_only, acc, draw_tuple):
     draw, draw_name = draw_tuple
     links = draw.find_all('a')
-    matches = [x for x in links if x.get('href') and draw_map[draw_name]['url_pattern'] in x.get('href')]
+    matches = [x for x in links if x.get_all_for_draw('href') and draw_map[draw_name]['url_pattern'] in x.get_all_for_draw('href')]
 
     matches = sorted(fn.remove_none(map(partial(_match, draw_map[draw_name], for_rd, scores_only), matches)),
                      key=lambda m: m.href)
@@ -75,7 +75,7 @@ def _singles_brackets(for_rd, scores_only, acc, draw_tuple):
 
 
 def _match(draw_mapping, for_rd, scores_only, match_html):
-    match_id = match_html.get('href')
+    match_id = match_html.get_all_for_draw('href')
     rd = _round(match_html)
     if for_rd and rd != for_rd:
         return None

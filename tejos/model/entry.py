@@ -12,6 +12,7 @@ class Entry(model.GraphModel):
     repo = repository.EntryRepo
     repo_graph = model.GraphModel.tournament_graph
     repo_instance = None
+    entry_cache = []
 
     @classmethod
     def create(cls, player, draw, seed):
@@ -23,21 +24,34 @@ class Entry(model.GraphModel):
     def get_all_entries_for_draw(cls, draw):
         return [cls.builder(entry, draw) for entry in cls.repository().get_all_entries_for_draw(draw.subject)]
 
-
     @classmethod
     def builder(cls, entry, draw):
         sub, player_sub, klass_name, seed, draw_sub = entry
-        return cls(player=player.Player.load(klass_name=klass_name),
-                   draw=draw,
-                   seed=seed,
-                   sub=sub)
+        entry = cls(player=player.Player.load(klass_name=klass_name),
+                    draw=draw,
+                    seed=seed,
+                    sub=sub)
+        if entry not in cls.entry_cache:
+            cls.entry_cache.append(entry)
+        return entry
+
+    @classmethod
+    def get_by_subs(cls, subs: List[URIRef]):
+        return [cls.find_or_get(entry_sub) for entry_sub in subs]
+
+    @classmethod
+    def find_or_get(cls, entry_sub):
+        entry = fn.find(lambda entry: entry.subject == entry_sub, cls.entry_cache)
+        if not entry:
+            breakpoint()
+        return entry
 
     def __init__(self, player, draw, seed, sub: URIRef = None):
         self.is_entry_for_player = player
         self.is_in_draw = draw
         self.has_seed = seed
-        self.subject = URIRef(f"{self.is_in_draw.subject.toPython()}/{self.is_entry_for_player.uri_name()}") if not sub else sub
-
+        self.subject = URIRef(
+            f"{self.is_in_draw.subject.toPython()}/{self.is_entry_for_player.uri_name()}") if not sub else sub
 
     def player(self):
         return self.is_entry_for_player
@@ -46,6 +60,14 @@ class Entry(model.GraphModel):
         if not self.has_seed:
             return "   "
         return str(self.has_seed).rjust(3)
+
+    def __hash__(self):
+        return hash((self.is_entry_for_player.subject,))
+
+    def __eq__(self, other):
+        if not self or not other:
+            return None
+        return (self.is_entry_for_player.subject == other.is_entry_for_player.subject)
 
 
 def find_player_from_entry(for_player: Union[Entry, player.Player], players: List[Entry]):
@@ -63,6 +85,7 @@ def find_player_by_name(player_name, players):
 
 def _player_entry_predicate(player_to_find, player_entry):
     return player_to_find.player() == player_entry.player()
+
 
 def _player_predicate(player_to_find: player.Player, player_entry: Entry):
     return player_to_find == player_entry.player()

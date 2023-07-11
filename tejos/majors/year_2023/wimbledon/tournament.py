@@ -11,7 +11,8 @@ WM2023MensSingles = (draw.MensSingles(name="MensSingles",
                                       event=Wimbledon2023)
                      .draw_size(number_of_matches=64)
                      .add_entries(entries.mens_singles_entries())
-                     .init_draw(first_round_draw.mens_draw_round_1())
+                     .init_draw()
+                     .first_round_draw(first_round_draw.mens_draw_round_1())
                      .fantasy_points_strategy(points_strategy.strategy_2_1_point5_double()))
 
 WM2023WomensSingles = (draw.WomensSingles("WomensSingles",
@@ -19,7 +20,8 @@ WM2023WomensSingles = (draw.WomensSingles("WomensSingles",
                                           event=Wimbledon2023)
                        .draw_size(number_of_matches=64)
                        .add_entries(entries.womens_singles_entries())
-                       .init_draw(first_round_draw.womens_draw_round_1())
+                       .init_draw()
+                       .first_round_draw(first_round_draw.womens_draw_round_1())
                        .fantasy_points_strategy(points_strategy.strategy_2_1_point5_double()))
 
 Wimbledon2023.has_draw(WM2023WomensSingles).has_draw(WM2023MensSingles)

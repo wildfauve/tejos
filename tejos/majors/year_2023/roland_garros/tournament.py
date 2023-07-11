@@ -12,7 +12,7 @@ RG2023MensSingles = (draw.MensSingles(name="MensSingles",
                                       tournament=RolandGarros2023)
                      .draw_size(number_of_matches=64)
                      .add_entries(entries.mens_singles_entries())
-                     .init_draw(first_round_draw.mens_draw_round_1())
+                     .first_round_draw(first_round_draw.mens_draw_round_1())
                      .fantasy_points_strategy(points_strategy.strategy_2_1_point5_double()))
 
 RG2023WomensSingles = (draw.WomensSingles("WomensSingles",
@@ -21,7 +21,7 @@ RG2023WomensSingles = (draw.WomensSingles("WomensSingles",
                                           tournament=RolandGarros2023)
                        .draw_size(number_of_matches=64)
                        .add_entries(entries.womens_singles_entries())
-                       .init_draw(first_round_draw.womens_draw_round_1())
+                       .first_round_draw(first_round_draw.womens_draw_round_1())
                        .fantasy_points_strategy(points_strategy.strategy_2_1_point5_double()))
 
 RolandGarros2023.has_draw(RG2023WomensSingles).has_draw(RG2023MensSingles)

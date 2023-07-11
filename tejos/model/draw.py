@@ -56,9 +56,9 @@ class Draw(model.GraphModel):
         draw = cls(name=name, best_of=best_of, sub=sub, event=event)
         draw.entries = entry.Entry.get_all_entries_for_draw(draw)
         event.has_draw(draw)
-        draw.draw_size(draw_size)
+        draw.draw_size(draw_size)  # builds the rounds and draws
+        draw.load_rounds()
         return draw
-
 
     def __init__(self,
                  name,
@@ -75,8 +75,6 @@ class Draw(model.GraphModel):
         self.points_strategy = None
         self.round_factor_strategy = None
         self.subject = URIRef(f"{self.tournament.subject.toPython()}/{self.name}") if not sub else sub
-        # self.repository().upsert(self)
-
 
     def __hash__(self):
         return hash((self.name,))
@@ -87,7 +85,20 @@ class Draw(model.GraphModel):
     def draw_size(self, number_of_matches):
         self.number_of_matches = number_of_matches
         self.repo(self.__class__.tournament_graph()).update_draw_size(self)
-        self._build_draw(1, number_of_matches)
+        return self
+
+    def load_rounds(self):
+        self.rounds = round.Round.init_add_rds_for_for_draw(self)
+        round.Round.add_match_state(self)
+        return self
+
+    def init_draw(self):
+        """
+        Creates an empty set of rounds an matches
+        """
+        if not self.number_of_matches:
+            breakpoint()
+        self._build_draw(1, self.number_of_matches)
         return self
 
     def fantasy_points_strategy(self, points_strategy):
@@ -109,7 +120,7 @@ class Draw(model.GraphModel):
         self.entries.append(en)
         return self
 
-    def init_draw(self, match_ups):
+    def first_round_draw(self, match_ups):
         if len(match_ups) != self.number_of_matches:
             er = errors.ConfigError(type_of_error=errors.TypeOfError.INITIALISAION,
                                     error_severity=errors.ErrorSeverity.FATAL,
@@ -152,11 +163,10 @@ class Draw(model.GraphModel):
         """
         recursiving build the draw
         """
-        self.rounds.append(round.Round(round_id,
-                                       number_of_slots,
-                                       self.best_of,
-                                       self.advance_winner,
-                                       self.subject))
+        self.rounds.append(round.Round.create(round_id,
+                                              number_of_slots,
+                                              self.best_of,
+                                              self))
         if number_of_slots == 1:
             return self
         self._build_draw(round_id + 1, int(number_of_slots / 2))
@@ -179,7 +189,6 @@ class Draw(model.GraphModel):
 
 class MensSingles(Draw):
     fn_symbol = "mens_singles"
-
 
 
 class WomensSingles(Draw):

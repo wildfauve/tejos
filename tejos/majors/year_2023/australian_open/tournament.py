@@ -12,7 +12,7 @@ AO2023MensSingles = (draw.MensSingles(name="MensSingles",
                                       tournament=AustralianOpen2023)
                      .draw_size(number_of_matches=8)
                      .add_entries(entries.mens_singles_entries())
-                     .init_draw(first_round_draw.mens_draw_round_1())
+                     .first_round_draw(first_round_draw.mens_draw_round_1())
                      .fantasy_points_strategy(points_strategy.strategy_5_2_1_double()))
 
 AO2023WomensSingles = (draw.WomensSingles("WomensSingles",
@@ -21,7 +21,7 @@ AO2023WomensSingles = (draw.WomensSingles("WomensSingles",
                                           tournament=AustralianOpen2023)
                        .draw_size(number_of_matches=8)
                        .add_entries(entries.womens_singles_entries())
-                       .init_draw(first_round_draw.womens_draw_round_1())
+                       .first_round_draw(first_round_draw.womens_draw_round_1())
                        .fantasy_points_strategy(points_strategy.strategy_5_2_1_double()))
 
 AustralianOpen2023.has_draw(AO2023WomensSingles).has_draw(AO2023MensSingles)

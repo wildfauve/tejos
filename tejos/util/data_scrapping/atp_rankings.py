@@ -15,7 +15,7 @@ def build_players_file(file):
 
 
 def _get_pages(urls):
-    return [(BeautifulSoup(requests.get(url).text, "html.parser"), tour, link_pattern) for url, tour, link_pattern in urls]
+    return [(BeautifulSoup(requests.get_all_for_draw(url).text, "html.parser"), tour, link_pattern) for url, tour, link_pattern in urls]
 
 
 def _player_links(pages):
@@ -24,7 +24,7 @@ def _player_links(pages):
 
 def _tour_links(players, page_tuple):
     pg, tour, link_form = page_tuple
-    [players.append(_player_model(tour, link)) for link in pg.find_all("a") if link_form in link.get('href')]
+    [players.append(_player_model(tour, link)) for link in pg.find_all("a") if link_form in link.get_all_for_draw('href')]
     return players
 
 
@@ -38,7 +38,7 @@ def _display_dups(players):
 
 
 def _player_model(tour, link):
-    return (link.get('href'), link.string, _format_klass_name(link.string), tour)
+    return (link.get_all_for_draw('href'), link.string, _format_klass_name(link.string), tour)
 
 
 def _format_klass_name(name):

@@ -1,4 +1,4 @@
-from typing import Callable
+from typing import Callable, List
 from functools import partial
 
 from rich.console import Console
@@ -16,24 +16,53 @@ console = Console()
 
 class Round(model.GraphModel):
     repo = repository.RoundRepo
+    repo_graph = model.GraphModel.tournament_graph
+    repo_instance = None
+
+    @classmethod
+    def create(cls, round_id,
+               number_of_slots,
+               best_of,
+               draw):
+        rd = cls(round_id, number_of_slots, best_of, draw)
+        rd.build_match_slots()
+        cls.repository().upsert(rd)
+        return rd
+
+    @classmethod
+    def init_add_rds_for_for_draw(cls, draw):
+        return [cls.init_matches(draw, rd) for rd in cls.repository().get_all_for_draw(draw.subject)]
+
+    @classmethod
+    def add_match_state(cls, draw):
+        return [cls.for_round(draw, rd) for rd in draw.rounds]
+
+    @classmethod
+    def init_matches(cls, draw, rd):
+        sub, draw_name, rd_number, best_of, draw_sub, match_subs = rd
+        rd = cls(round_id=rd_number, number_match_slots=len(match_subs), games_best_of=best_of, draw=draw, sub=sub)
+        rd.build_match_slots()
+        return rd
+
+    @classmethod
+    def for_round(cls, draw, rd):
+        rd.add_matches(match.Match.get_all_for_round(for_round=rd, round_sub=rd.subject))
+        return rd
+
 
     def __init__(self,
                  round_id,
                  number_match_slots,
                  games_best_of,
-                 advance_winner_fn: Callable,
-                 draw_subject: URIRef,
+                 draw,
                  sub: URIRef = None):
         self.number_match_slots = number_match_slots
         self.name = self.determine_round_of()
         self.round_id = round_id
         self.matches = []
         self.games_best_of = games_best_of
-        self.draw_subject = draw_subject
-        self.advance_winner_fn = advance_winner_fn
-        self.subject = URIRef(f"{self.draw_subject.toPython()}/Round/{self.round_id}") if not sub else sub
-        self.repo(self.__class__.tournament_graph()).upsert(self)
-        self._build_match_slots()
+        self.draw = draw
+        self.subject = URIRef(f"{self.draw.subject.toPython()}/Round/{self.round_id}") if not sub else sub
 
     def determine_round_of(self):
         if self.number_match_slots > 4:
@@ -94,17 +123,35 @@ class Round(model.GraphModel):
             raise error.ConfigException
         return mt
 
-    def _build_match_slots(self):
-        [self.matches.append(self._match_constructor(match_number)) for match_number in
+    def build_match_slots(self):
+        [self.add_match(self._match_constructor(match_number)) for match_number in
          range(1, self.number_match_slots + 1)]
         return self
 
+    def add_match(self, for_match: match.Match):
+        self.matches.append(for_match)
+        return self
+
+    def add_matches(self, matches: List[match.Match]):
+        self.matches = self.matches + matches
+        return self
+
     def _match_constructor(self, match_number):
-        return match.Match(self.round_id,
-                           match_number,
-                           self.games_best_of,
-                           self.advance_winner_fn,
-                           self.subject)
+        mt = match.Match.create(round_id=self.round_id,
+                                match_number=match_number,
+                                draw=self.draw,
+                                for_round=self)
+        self.repository().add_match(self.subject, mt.subject)
+        return mt
 
     def _match_number_predicate(self, number, match):
         return match.number == number
+
+    def __repr__(self):
+        cls_name = self.__class__.__name__
+        components = [
+            f"name={self.name}",
+            f"round_id={self.round_id}",
+            f"number_of_slots={self.number_match_slots}"]
+        return f"{cls_name}({', '.join(fn.remove_none(components))})"
+

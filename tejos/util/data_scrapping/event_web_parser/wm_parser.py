@@ -50,7 +50,7 @@ def _get_json(urls, for_rd) -> List[Tuple]:
 def _get_doc(url_or_file, for_rd):
     if 'http' in url_or_file:
         headers = {'Content-Type': 'application/json', 'User-Agent': 'vscode-restclient'}
-        result = requests.get(url_or_file, headers=headers)
+        result = requests.get_all_for_draw(url_or_file, headers=headers)
         return result.json()
     f = open(url_or_file, "r")
     return json.loads(f.read())
@@ -70,14 +70,14 @@ def _assign_match_numbers(draws):
 
 def _singles_brackets(for_rd, scores_only, acc, draw_tuple):
     draw, draw_name = draw_tuple
-    matches = fn.remove_none([_match(draw_map[draw_name], for_rd, scores_only, match) for match in draw.get('matches')])
+    matches = fn.remove_none([_match(draw_map[draw_name], for_rd, scores_only, match) for match in draw.get_all_for_draw('matches')])
     return {**acc, **{draw_name: matches}}
 
 
 def _match(draw_mapping, for_rd, scores_only, match):
-    match_id = match.get('match_id')
-    match_status = match.get('status')
-    rd = round_code_map.get(match.get('roundCode'))
+    match_id = match.get_all_for_draw('match_id')
+    match_status = match.get_all_for_draw('status')
+    rd = round_code_map.get(match.get_all_for_draw('roundCode'))
     if for_rd and rd != for_rd:
         return None
     if match_id in match_ids[draw_mapping['name']]:
@@ -90,16 +90,16 @@ def _match(draw_mapping, for_rd, scores_only, match):
                                   draw_attr_name=draw_mapping['name'],
                                   draw_symbol=draw_mapping['draw_symbol'],
                                   player1=_player(draw_mapping,
-                                                  match.get('team1'),
+                                                  match.get_all_for_draw('team1'),
                                                   team=1,
-                                                  scores=match.get('scores'),
-                                                  winner=match.get('winner'),
+                                                  scores=match.get_all_for_draw('scores'),
+                                                  winner=match.get_all_for_draw('winner'),
                                                   status=match_status),
                                   player2=_player(draw_mapping,
-                                                  match.get('team2'),
+                                                  match.get_all_for_draw('team2'),
                                                   team=2,
-                                                  scores=match.get('scores'),
-                                                  winner=match.get('winner'),
+                                                  scores=match.get_all_for_draw('scores'),
+                                                  winner=match.get_all_for_draw('winner'),
                                                   status=match_status),
                                   match_id_fn=_match_id_fn)
     if scores_only and match_bloc.has_result() and _match_in_finished_state(match_status):
@@ -110,11 +110,11 @@ def _match_in_finished_state(match_status):
     return match_status in [COMPLETED, RETIRED]
 
 def _player(draw_mapping, player_content, team, scores, winner, status):
-    seed = player_content.get('seed', None) if player_content.get('seed', None) else player_content.get('entryStatus',
-                                                                                                        None)
+    seed = player_content.get_all_for_draw('seed', None) if player_content.get_all_for_draw('seed', None) else player_content.get_all_for_draw('entryStatus',
+                                                                                                                                               None)
     # if player_content.get('lastNameA') == "Fruhvirtova":
     #     breakpoint()
-    return value.Player(name=f"{player_content.get('firstNameA')} {player_content.get('lastNameA')}",
+    return value.Player(name=f"{player_content.get_all_for_draw('firstNameA')} {player_content.get_all_for_draw('lastNameA')}",
                         seed=seed,
                         match_state=_determine_match_state_exceptions(team, winner, status),
                         player_module=draw_mapping['player_module'],
@@ -122,10 +122,10 @@ def _player(draw_mapping, player_content, team, scores, winner, status):
 
 
 def _scores(content, team_number):
-    sets = content.get('sets', None)
+    sets = content.get_all_for_draw('sets', None)
     if not sets:
         return None
-    return [set_team_scores[team_number -1].get('score', None) for set_team_scores in sets]
+    return [set_team_scores[team_number -1].get_all_for_draw('score', None) for set_team_scores in sets]
 
 
 def _determine_match_state_exceptions(team, winner, status):
