@@ -22,12 +22,18 @@ from tejos.players import wta_players, atp_players
 
 
 # WM2023WomensSingles_r5:START
+def womens_singles_results_r5(draw):
+  return [
 
+   ]
 # WM2023WomensSingles_r5:END
 
 
 # WM2023MensSingles_r5:START
+def mens_singles_results_r5(draw):
+  return [
 
+   ]
 # WM2023MensSingles_r5:END
 
 
@@ -54,6 +60,27 @@ def womens_singles_results_r4(draw):
         .score(wta_players.Bouzkova, (6, 4, 3))),
 
 
+        (draw.for_round(4).for_match(5)
+        .score(wta_players.Jabeur, (6, 6))
+        .score(wta_players.Kvitova, (0, 3))),
+
+
+        (draw.for_round(4).for_match(6)
+        .score(wta_players.Haddad_Maia, (1,))
+        .score(wta_players.Rybakina, (4,))
+        .retirement(wta_players.Haddad_Maia)),
+
+
+        (draw.for_round(4).for_match(7)
+        .score(wta_players.Keys, (3, 7, 6))
+        .score(wta_players.Andreeva_Mirra, (6, 6, 2))),
+
+
+        (draw.for_round(4).for_match(8)
+        .score(wta_players.Alexandrova, (4, 0))
+        .score(wta_players.Sabalenka, (6, 6))),
+
+
 
    ]
 # WM2023WomensSingles_r4:END
@@ -62,6 +89,27 @@ def womens_singles_results_r4(draw):
 # WM2023MensSingles_r4:START
 def mens_singles_results_r4(draw):
   return [
+        (draw.for_round(4).for_match(1)
+        .score(atp_players.Alcaraz, (3, 6, 6, 6))
+        .score(atp_players.Berrettini, (6, 3, 3, 3))),
+
+
+        (draw.for_round(4).for_match(2)
+        .score(atp_players.Dimitrov, (6, 6, 6, 3))
+        .score(atp_players.Rune, (3, 7, 7, 6))),
+
+
+        (draw.for_round(4).for_match(3)
+        .score(atp_players.Medvedev, (6, 6))
+        .score(atp_players.Lehecka, (4, 2))
+        .retirement(atp_players.Lehecka)),
+
+
+        (draw.for_round(4).for_match(4)
+        .score(atp_players.Eubanks, (3, 7, 3, 6, 6))
+        .score(atp_players.Tsitsipas, (6, 6, 6, 4, 4))),
+
+
         (draw.for_round(4).for_match(5)
         .score(atp_players.Sinner, (7, 6, 6))
         .score(atp_players.Galan, (6, 4, 3))),
@@ -75,6 +123,11 @@ def mens_singles_results_r4(draw):
         (draw.for_round(4).for_match(7)
         .score(atp_players.Rublev, (7, 6, 6, 6, 6))
         .score(atp_players.Bublik, (5, 3, 7, 7, 4))),
+
+
+        (draw.for_round(4).for_match(8)
+        .score(atp_players.Hurkacz, (6, 6, 7, 4))
+        .score(atp_players.Djokovic, (7, 7, 5, 6))),
 
 
 
@@ -1055,6 +1108,12 @@ def mens_singles_results_r1(draw):
          .score(atp_players.Djokovic, (6, 6, 7))),
 
     ]
+
+
+
+
+
+
 
 
 

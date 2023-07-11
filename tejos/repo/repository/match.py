@@ -18,6 +18,7 @@ class MatchRepo(graphrepo.GraphRepo):
 
 
     def add_players_to_match(self, match, entries: Tuple):
+        print(f"{match.subject}")
         e1, e2 = entries
         if e1:
             self.graph.add((match.subject, rdf.hasMatchUpPosition1, e1.subject))

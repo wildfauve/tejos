@@ -17,3 +17,11 @@ from .leaderboard import (
     BoardType,
     scores_plot
 )
+
+from .tournament import (
+    add_entries,
+    first_round_draw,
+    new_draw,
+    new_event,
+    new_tournament
+)

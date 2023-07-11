@@ -46,7 +46,10 @@ class Round(model.GraphModel):
 
     @classmethod
     def for_round(cls, draw, rd):
-        rd.add_matches(match.Match.get_all_for_round(for_round=rd, round_sub=rd.subject))
+        matches = match.Match.get_all_for_round(for_round=rd, round_sub=rd.subject)
+        if not matches:
+            return rd
+        rd.add_matches(matches)
         return rd
 
 
@@ -133,6 +136,7 @@ class Round(model.GraphModel):
         return self
 
     def add_matches(self, matches: List[match.Match]):
+        breakpoint()
         self.matches = self.matches + matches
         return self
 

@@ -88,6 +88,7 @@ class Draw(model.GraphModel):
         return self
 
     def load_rounds(self):
+        print(f"Load Draw: {self.name}")
         self.rounds = round.Round.init_add_rds_for_for_draw(self)
         round.Round.add_match_state(self)
         return self
@@ -128,6 +129,7 @@ class Draw(model.GraphModel):
             self.errors.append(er)
             echo.echo(er.message_fn(self.name))
             return self
+        print(f"Create First round for {self.name}")
         [self._place_in_first_round(match_up) for match_up in match_ups]
         return self
 
@@ -173,7 +175,10 @@ class Draw(model.GraphModel):
 
     def _place_in_first_round(self, match_up: Tuple[int, player.Player, player.Player]):
         match_number, player1, player2 = match_up
-        self.rounds[0].build_match(match_number, self._player_to_entry(player1), self._player_to_entry(player2))
+        rd1 = self.for_round(1)
+        if not rd1:
+            breakpoint()
+        rd1.build_match(match_number, self._player_to_entry(player1), self._player_to_entry(player2))
         return self
 
     def _player_to_entry(self, for_player: player.Player) -> entry.Entry:
@@ -185,6 +190,9 @@ class Draw(model.GraphModel):
 
     def _round_number_predicate(self, number, round):
         return round.round_id == number
+
+    def __repr__(self):
+        return f"{self.__class__.__name__}(name={self.name})"
 
 
 class MensSingles(Draw):

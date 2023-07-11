@@ -17,6 +17,8 @@ class Entry(model.GraphModel):
     @classmethod
     def create(cls, player, draw, seed):
         en = cls(player=player, draw=draw, seed=seed)
+        # if "Wang" in player.klass_name:
+        #     breakpoint()
         cls.repository().upsert(en)
         return en
 
@@ -32,6 +34,7 @@ class Entry(model.GraphModel):
                     seed=seed,
                     sub=sub)
         if entry not in cls.entry_cache:
+            print(f"Add to Cache: {klass_name}")
             cls.entry_cache.append(entry)
         return entry
 
@@ -51,7 +54,7 @@ class Entry(model.GraphModel):
         self.is_in_draw = draw
         self.has_seed = seed
         self.subject = URIRef(
-            f"{self.is_in_draw.subject.toPython()}/{self.is_entry_for_player.uri_name()}") if not sub else sub
+            f"{self.is_in_draw.subject.toPython()}/{self.is_entry_for_player.klass_name}") if not sub else sub
 
     def player(self):
         return self.is_entry_for_player

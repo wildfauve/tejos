@@ -123,9 +123,6 @@ class Player(model.GraphModel):
             return tokeniser.string_tokeniser(nm, tokeniser.dot_splitter, tokeniser.special_char_set)
         return tokeniser.string_tokeniser(nm, tokeniser.sp_splitter, tokeniser.special_char_set)
 
-    def uri_name(self):
-        return self.name.split(" ")[-1]
-
     def __hash__(self):
         return hash((self.name,))
 

@@ -40,6 +40,8 @@ class Match(model.GraphModel):
     def to_match(cls, for_round, match):
         _, _, _, match_number, pos1_sub, pos2_sub, winner, scores1, scores2 = match
         mt = for_round.for_match(match_number)
+        print(f"Creating Match: {mt}")
+        breakpoint()
         mt.add_players(*entry.Entry.get_by_subs([pos1_sub, pos2_sub]))
         if scores1:
             mt.load_score(position1_subject_sets=scores1)
@@ -204,7 +206,8 @@ class Match(model.GraphModel):
         self._init_scores(player1)
         self.player2 = player2
         self._init_scores(player2)
-        self.repo(self.__class__.tournament_graph()).add_players_to_match(self, (player1, player2))
+        print(f"Add Players to {self.match_id}; 1: {player1.player()} 2: {player2.player()}")
+        self.repository().add_players_to_match(self, (player1, player2))
         return self
 
     def score(self, for_player, set_games: Tuple[int]):
@@ -231,6 +234,8 @@ class Match(model.GraphModel):
         return self
 
     def update_sets(self, for_player: entry.Entry, set_games):
+        if isinstance(set_games, int):
+            breakpoint()
         self.scores[for_player] = set_games
         [self.sets[set_number].result_for_player(for_player, set_games[set_number]) for set_number in
          range(len(set_games))]

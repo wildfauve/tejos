@@ -41,19 +41,19 @@ def team_lighthouse(mens_singles, womens_singles):
 
 # womens_singles_round_5:START
 def womens_singles_round_5(womens_singles):
-    TEAM.draw(womens_singles, '5.1').matchup(1, women.Swiatek, 2, women.Svitolina).select(1, 3)  # (  1) Iga Swiatek  OR  ( WC) Svitolina
-    TEAM.draw(womens_singles, '5.2').matchup(1, women.Pegula, 2, women.Vondrousova).select(1, 3)  # (  4) Jessica Pegula  OR  (   ) Marketa Vondrousova
-    TEAM.draw(womens_singles, '5.3').matchup(1, None, 2, None).select()  # TBD  OR  TBD
-    TEAM.draw(womens_singles, '5.4').matchup(1, None, 2, None).select()  # TBD  OR  TBD
+    TEAM.draw(womens_singles).match('5.1').winner(women.Swiatek).in_sets(3)  # (  1) Iga Swiatek  OR  ( WC) Svitolina
+    TEAM.draw(womens_singles).match('5.2').winner(women.Pegula).in_sets(3)  # (  4) Jessica Pegula  OR  (   ) Marketa Vondrousova
+    TEAM.draw(womens_singles, '5.3').matchup(1, women.Jabeur, 2, women.Rybakina).select(1, 3)  # (  6) Ons Jabeur  OR  (  3) Elena Rybakina
+    TEAM.draw(womens_singles, '5.4').matchup(1, women.Keys, 2, women.Sabalenka).select(2, 3)  # ( 25) Madison Keys  OR  (  2) Aryna Sabalenka
 # womens_singles_round_5:END
 
 
 # mens_singles_round_5:START
 def mens_singles_round_5(mens_singles):
-    TEAM.draw(mens_singles, '5.1').matchup(1, None, 2, None).select()  # TBD  OR  TBD
-    TEAM.draw(mens_singles, '5.2').matchup(1, None, 2, None).select()  # TBD  OR  TBD
-    TEAM.draw(mens_singles, '5.3').matchup(1, men.Sinner, 2, men.Safiullin).select(1, 5)  # (  8) Jannik Sinner  OR  (   ) Roman Safiullin
-    TEAM.draw(mens_singles, '5.4').matchup(1, men.Rublev, 2, None).select()  # (  7) Andrey Rublev  OR  TBD
+    TEAM.draw(mens_singles, '5.1').matchup(1, men.Alcaraz, 2, men.Rune).select(1, 5)  # (  1) Carlos Alcaraz  OR  (  6) Holger Rune
+    TEAM.draw(mens_singles, '5.2').matchup(1, men.Medvedev, 2, men.Eubanks).select(2, 4)  # (  3) Daniil Medvedev  OR  (   ) Christopher Eubanks
+    TEAM.draw(mens_singles).match('5.3').winner(men.Sinner).in_sets(5)  # (  8) Jannik Sinner  OR  (   ) Roman Safiullin
+    TEAM.draw(mens_singles, '5.4').matchup(1, men.Rublev, 2, men.Djokovic).select(2, 5)  # (  7) Andrey Rublev  OR  (  2) Novak Djokovic
 # mens_singles_round_5:END
 
 
@@ -345,6 +345,8 @@ def mens_singles_round_1(mens_singles):
     TEAM.draw(mens_singles).match('1.62').winner(men.Ruusuvuori).in_sets(4)  # (   ) Ruusuvuori  OR  (   ) Wawrinka
     TEAM.draw(mens_singles).match('1.63').winner(men.Thompson).in_sets(4)  # (   ) Thompson  OR  (   ) Nakashima
     TEAM.draw(mens_singles).match('1.64').winner(men.Djokovic).in_sets(3)  # (   ) Cachin  OR  (  2) Djokovic
+
+
 
 
 

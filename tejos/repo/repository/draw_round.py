@@ -22,7 +22,7 @@ class RoundRepo(graphrepo.GraphRepo):
     def creator(self, draw_round, g, sub):
         g.add((sub, RDF.type, rdf.ROUND))
         g.add((sub, rdf.hasRoundNumber, Literal(draw_round.round_id)))
-        g.add((sub, rdf.isRoundForDraw, Literal(draw_round.draw.subject)))
+        g.add((sub, rdf.isRoundForDraw, draw_round.draw.subject))
         g.add((sub, rdf.isBestOfGames, Literal(draw_round.games_best_of)))
         g.add((sub, rdf.notation, Literal(draw_round.name)))
         return g
@@ -45,30 +45,11 @@ class RoundRepo(graphrepo.GraphRepo):
             match_subs
         )
 
-
-    # def to_round(self, rd, props):
-    #     rd_props = list(props)
-    #     mt_props = [(p.match,
-    #                  p.match_id.toPython(),
-    #                  p.match_number.toPython(),
-    #                  p.pos1_sub,
-    #                  p.pos2_sub) for p in rd_props]
-    #     rd_prop = rd_props[0]
-    #     return (
-    #         rd,
-    #         rd_prop.draw_rd,
-    #         rd_prop.draw_name.toPython(),
-    #         rd_prop.rd_number.toPython(),
-    #         rd_prop.best_of.toPython(),
-    #         rd_prop.draw_sub,
-    #         mt_props
-    #     )
-
     def _sparql(self, draw_sub=None):
-        if draw_sub:
+        if not draw_sub:
             filter_criteria = None
         else:
-            filter_criteria = f"?draw = {draw_sub.n3()}"
+            filter_criteria = f"?draw_sub = {draw_sub.n3()}"
 
         filter = "" if not filter_criteria else f"filter({filter_criteria})"
 

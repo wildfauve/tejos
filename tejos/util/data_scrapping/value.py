@@ -38,7 +38,11 @@ class Player:
         """
         men.Medvedev, (6, 6, 6)
         """
-        return f"{self.player_definition()}, ({', '.join(self.scores_to_string())})"
+        if len(self.scores) == 1:
+            score_def = f"({self.scores[0]},)"
+        else:
+            score_def = f"({', '.join(self.scores_to_string())})"
+        return f"{self.player_definition()}, {score_def}"
 
     def scores_to_string(self):
         return [str(s) for s in self.scores]
@@ -113,6 +117,8 @@ class MatchBlock:
         mens_singles.for_round(1).for_match(64).score(men.Seyboth_Wild, ()).score(men.Medvedev, ())
         :return:
         """
+        if len(self.player1.score()) == 1:
+            breakpoint()
         return f"""{sp}({self._rd_and_match()}
 {sp}.score({self.player1.score()})
 {sp}.score({self.player2.score()}){self._has_retirement(sp)}{self._has_withdrawal(sp)}),
