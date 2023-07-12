@@ -103,19 +103,18 @@ def fantasy_score_template(tournament, round, fmt, trim_team, file):
 
 
 @click.command()
-@click.option("--tournament", "-t",
-              type=click.Choice(tournament_names()),
-              help="The name of the tournament")
+@click.option("--tournament", "-t")
+@click.option("--year", "-y", type=int)
 @click.option("--round", "-r", type=int, default=1, help="The round number to show.")
 @click.option("--fmt", "-f",
               type=click.Choice(['py', 'csv']),
               default='py',
               help="PY or CSV")
-def fantasy_score_template_inserter(tournament, round, fmt):
+def fantasy_score_template_inserter(tournament, year, round, fmt):
     """
     Get a result DSL template
     """
-    presenter.fantasy_score_template_inserter(command.fantasy_score_template_inserter(tournament, round))
+    presenter.fantasy_score_template_inserter(command.fantasy_score_template_inserter(tournament, year, round))
     pass
 
 

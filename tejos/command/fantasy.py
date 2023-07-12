@@ -71,14 +71,16 @@ def fantasy_score_template(tournament_name, round_number, trim_with="TeamFauve")
     return results
 
 
-def fantasy_score_template_inserter(tournament_name, round_number):
-    tournie = _find_tournament_by_name(tournament_name)
-    if not tournie:
-        return
-    fantasy_module = _fantasy_module(tournie)
-    teams = _apply_fantasy(_start(tournie))
+def fantasy_score_template_inserter(tournament_name, year, round_number):
+    tournie = helpers.tournie(tournament_name)
+    event = helpers.event(tournie=tournie, year=year)
+    event.load()
+
+    fantasy_module = _fantasy_module(event)
+    teams = _apply_fantasy(event)
+
     results = reduce(lambda accum, team: {**accum, **{team: {}}}, teams, {})
-    for for_draw in tournie.draws:
+    for for_draw in event.draws:
         for team in teams:
             round_template = f"{for_draw.fn_symbol}_round_{round_number}"
             results[team][round_template] = (for_draw.for_round(round_number)

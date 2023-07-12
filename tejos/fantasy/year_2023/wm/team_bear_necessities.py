@@ -27,12 +27,16 @@ def team_bear_necessities(mens_singles, womens_singles):
 
 
 # womens_singles_round_6:START
-
+def womens_singles_round_6(womens_singles):
+    TEAM.draw(womens_singles).match('6.1').winner(women).in_sets()  # ( WC) Svitolina  OR  (   ) Marketa Vondrousova
+    TEAM.draw(womens_singles).match('6.2').winner(women).in_sets()  # TBD  OR  TBD
 # womens_singles_round_6:END
 
 
 # mens_singles_round_6:START
-
+def mens_singles_round_6(mens_singles):
+    TEAM.draw(mens_singles).match('6.1').winner(men).in_sets()  # TBD  OR  TBD
+    TEAM.draw(mens_singles).match('6.2').winner(men).in_sets()  # (  8) Jannik Sinner  OR  (  2) Novak Djokovic
 # mens_singles_round_6:END
 
 # womens_singles_round_5:START
@@ -330,6 +334,7 @@ def mens_singles_round_1(mens_singles):
     TEAM.draw(mens_singles).match('1.62').winner(men.Wawrinka).in_sets(4)  # (   ) Ruusuvuori  OR  (   ) Wawrinka
     TEAM.draw(mens_singles).match('1.63').winner(men.Thompson).in_sets(5)  # (   ) Thompson  OR  (   ) Nakashima
     TEAM.draw(mens_singles).match('1.64').winner(men.Djokovic).in_sets(3)  # (   ) Cachin  OR  (  2) Djokovic
+
 
 
 
