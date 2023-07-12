@@ -17,6 +17,22 @@ def test_create_draw(configure_repo):
     assert id(same_draw) == id(draw)
 
 
+def test_create_draw_with_points_strategy(configure_repo):
+    from tejos.fantasy import points_strategy
+    wm2023 = create_event()
+
+    pts_strat_components = ("WinNumSetsLossMaxSets", "Points21Half", "DoublePerRound")
+
+    draw = wm2023.make_draw(name="MensSingles", best_of=5, draw_size=4, points_strategy_components=pts_strat_components)
+
+    assert draw.points_strategy.pts_strategy == points_strategy.Points21Half
+    assert isinstance(draw.points_strategy.per_round_accum_strategy, points_strategy.DoublePerRound)
+
+    same_draw = model.Draw.get(event=wm2023, name="MensSingles")
+    assert same_draw.points_strategy.pts_strategy == points_strategy.Points21Half
+    assert isinstance(same_draw.points_strategy.per_round_accum_strategy, points_strategy.DoublePerRound)
+
+
 def test_get_draw(configure_repo):
     wm2023 = create_event()
 
@@ -118,8 +134,6 @@ def test_get_first_round(configure_repo):
 
 
 def test_add_match_result(configure_repo):
-    from tejos.players import atp_players
-
     wm2023 = create_event()
 
     wm2023.make_draw(name="MensSingles", best_of=5, draw_size=4).add_entries(entries()).init_draw().first_round_draw(

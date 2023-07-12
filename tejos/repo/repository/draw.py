@@ -27,6 +27,7 @@ class DrawRepo(graphrepo.GraphRepo):
         g.add((sub, rdf.hasBestOfSets, Literal(draw.best_of)))
         g.add((sub, rdf.hasInitialDrawSize, Literal(draw.number_of_matches)))
         g.add((sub, rdf.isDrawFromEvent, draw.tournament.subject))
+        g.add((sub, rdf.hasFantasyPointsStrategy, draw.points_strategy.subject()))
         return g
 
     def get(self, event_subject, name):
@@ -45,6 +46,7 @@ class DrawRepo(graphrepo.GraphRepo):
                 draw.best_of.toPython(),
                 draw.draw_size.toPython(),
                 draw.draw,
+                draw.fantasy_pts,
                 draw.event_sub)
 
 
@@ -59,7 +61,7 @@ class DrawRepo(graphrepo.GraphRepo):
         filter = "" if not filter_criteria else f"filter({filter_criteria})"
 
         return f"""
-        select ?draw ?name ?best_of ?draw_size ?event_sub
+        select ?draw ?name ?best_of ?draw_size ?fantasy_pts ?event_sub
 
         where {{
 
@@ -67,6 +69,7 @@ class DrawRepo(graphrepo.GraphRepo):
 	           skos:notation ?name ;
 	           clo-te:hasBestOfSets ?best_of ;
 	           clo-te:hasInitialDrawSize ?draw_size ;
+	           clo-te:hasFantasyPointsStrategy ?fantasy_pts ;
                clo-te:isDrawFromEvent ?event_sub .
 
         {filter} }}

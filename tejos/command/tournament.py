@@ -16,12 +16,8 @@ def new_tournament(tournament_name, perma_id) -> monad.EitherMonad[model.GrandSl
 
 
 @commanda.command()
-def new_event(tournament_name, year):
-    tournie = helpers.tournie(tournament_name)
-    if not tournie:
-        return monad.Left(tournie)
-
-    ev = tournie.make_event(year)
+def new_event(tournament, year):
+    ev = tournament.make_event(year)
 
     if not ev:
         breakpoint()
@@ -29,9 +25,8 @@ def new_event(tournament_name, year):
 
 
 @commanda.command()
-def new_draw(tournament_name, year, draw_name, best_of, draw_size):
-    tournie = helpers.tournie(tournament_name)
-    event = helpers.event(tournament=tournie, year=year)
+def new_draw(tournament, year, draw_name, best_of, draw_size):
+    event = tournament.for_year(year, load=True)
     if not event:
         return monad.Left(event)
 
@@ -43,9 +38,8 @@ def new_draw(tournament_name, year, draw_name, best_of, draw_size):
 
 
 @commanda.command()
-def add_entries(tournament_name, year, draw_name, in_file):
-    tournie = helpers.tournie(tournament_name)
-    event = helpers.event(tournament=tournie, year=year)
+def add_entries(tournament, year, draw_name, in_file):
+    event = tournament.for_year(year, load=True)
 
     if not event:
         return monad.Left(event)
@@ -66,9 +60,8 @@ def add_entries(tournament_name, year, draw_name, in_file):
 
 
 @commanda.command()
-def first_round_draw(tournament_name, year, draw_name, in_file):
-    tournie = helpers.tournie(tournament_name)
-    event = helpers.event(tournament=tournie, year=year)
+def first_round_draw(tournament, year, draw_name, in_file):
+    event = tournament.for_year(year, load=True)
 
     if not event:
         return monad.Left(event)
@@ -92,9 +85,8 @@ def first_round_draw(tournament_name, year, draw_name, in_file):
 
 @commanda.command()
 def results(tournament, year, round_number, scores_only):
-    tournie = helpers.tournie(tournament)
-    event = helpers.event(tournament=tournie, year=year)
-    event.load()
+    event = tournament.for_year(year, load=True)
+
     rd_results = model.results(event=event,
                                for_round=round_number,
                                scores_only=scores_only)

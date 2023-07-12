@@ -100,6 +100,7 @@ def _match(draw_mapping, event, for_rd, scores_only, match):
                                                   winner=match.get('winner'),
                                                   status=match_status),
                                   match_id_fn=_match_id_fn)
+
     if scores_only and match_bloc.has_result() and _match_in_finished_state(match_status):
         return match_bloc
     return None

@@ -304,8 +304,8 @@ class Match(model.GraphModel):
         """))
 
         if advance:
-            if self.match_id == "5.1":
-                breakpoint()
+            # if self.match_id == "5.1":
+            #     breakpoint()
             self.repository().add_match_winner(self)
             self.draw.advance_winner(self)
         return self.match_winner

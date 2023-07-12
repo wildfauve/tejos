@@ -9,10 +9,3 @@ def save(val: Tuple = None) -> Tuple:
 
 def graph():
     return repo.graph()
-
-def tournie(name):
-    return model.GrandSlam.get(name=name)
-
-
-def event(tournie, year):
-    return model.TournamentEvent.get(tournament=tournie, year=year)

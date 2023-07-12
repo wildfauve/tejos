@@ -17,6 +17,7 @@ isEventOf = clo_te.isEventOf
 hasDraw = clo_te.hasDraw
 hasBestOfSets = clo_te.hasBestOfSets
 isDrawFromEvent = clo_te.isDrawFromEvent
+hasFantasyPointsStrategy = clo_te.hasFantasyPointsStrategy
 hasInitialDrawSize = clo_te.hasInitialDrawSize
 hasSeed = clo_te.hasSeed
 isEntryForPlayer = clo_te.isEntryForPlayer

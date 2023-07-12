@@ -1,9 +1,12 @@
 from typing import Callable, List, Tuple, Union, Type, Optional, Dict
 from functools import reduce
+import sys
 from enum import Enum
 from collections import ChainMap
 
-from tejos import model
+from rdflib import URIRef
+
+from tejos import model, rdf
 
 
 class Points521(Enum):
@@ -29,10 +32,26 @@ class Points21Half(Enum):
 
 class PointsStrategyCalculator:
 
+    @classmethod
+    def build(cls, sub: Union[URIRef, Tuple]):
+        if isinstance(sub, tuple):
+            klass_name, pts_strat_name, accum_name = sub
+        else:
+            klass_name, pts_strat_name, accum_name = sub.split("/")[-3:]
+        klass = getattr(sys.modules[__name__], klass_name)
+        strat_klass = getattr(sys.modules[__name__], pts_strat_name)
+        accum_klass = getattr(sys.modules[__name__], accum_name)()
+        return klass(strat_klass, accum_klass)
+
     def __init__(self, pts_strategy: Union[Type[Points521], Type[Points1HalfHalf]],
                  per_round_accum_strategy: Callable):
         self.pts_strategy = pts_strategy
         self.per_round_accum_strategy = per_round_accum_strategy
+
+
+    def subject(self):
+        return URIRef(
+            rdf.FANTASY_POINTS_STRATEGY) + f"/{self.__class__.__name__}/{self.pts_strategy.__name__}/{self.per_round_accum_strategy.__class__.__name__}"
 
     def calc(self):
         return 0
@@ -90,8 +109,8 @@ class WinNumSetsLossMaxSets(PointsStrategyCalculator):
 
     def lost_but_in_max_sets(self, selection, explain: bool = False) -> int:
         if ((selection.match.match_winner != selection.selected_winner) and
-            selection.match.max_sets_played()):
-                # selection.match.number_of_sets_played() == selection.in_number_sets):
+                selection.match.max_sets_played()):
+            # selection.match.number_of_sets_played() == selection.in_number_sets):
             return self._calc(self.pts_strategy.LOST_WITH_MAX_SETS,
                               selection.round_id,
                               explain)
@@ -140,22 +159,23 @@ class WinNumSetsLossMaxSets(PointsStrategyCalculator):
         return self._rd_range(acc, int(curr / 2))
 
 
-def doubling_per_round_strategy(rd: int):
-    if rd == 1:
-        return 1
-    return 2 ** (rd - 1)
+class DoublePerRound:
+    def __call__(self, rd: int):
+        if rd == 1:
+            return 1
+        return 2 ** (rd - 1)
 
 
 def strategy_1_point5_point5_double():
-    return WinNumSetsLossMaxSets(Points1HalfHalf, doubling_per_round_strategy)
+    return WinNumSetsLossMaxSets(Points1HalfHalf, DoublePerRound())
 
 
 def strategy_5_2_1_double():
-    return WinNumSetsLossMaxSets(Points521, doubling_per_round_strategy)
+    return WinNumSetsLossMaxSets(Points521, DoublePerRound())
 
 
 def strategy_2_1_point5_double():
-    return WinNumSetsLossMaxSets(Points21Half, doubling_per_round_strategy)
+    return WinNumSetsLossMaxSets(Points21Half, DoublePerRound())
 
 
 def points_list_to_dict(points: List[Dict[str, int]]):

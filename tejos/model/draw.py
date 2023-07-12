@@ -1,4 +1,4 @@
-from typing import Tuple, List
+from typing import Tuple, List, Union
 from functools import partial, reduce
 import math
 from rdflib import URIRef, Graph, RDF, Literal
@@ -42,8 +42,11 @@ class Draw(model.GraphModel):
     repo_instance = None
 
     @classmethod
-    def create(cls, name: str, best_of: int, draw_size: int, event):
-        draw = cls(name=name, best_of=best_of, event=event).draw_size(number_of_matches=draw_size)
+    def create(cls, name: str, best_of: int, draw_size: int, event, points_strategy_components: tuple = None):
+        draw = cls(name=name,
+                   best_of=best_of,
+                   event=event,
+                   points_strategy_components=points_strategy_components).draw_size(number_of_matches=draw_size)
         cls.repository().upsert(draw)
         return draw
 
@@ -61,9 +64,9 @@ class Draw(model.GraphModel):
 
     @classmethod
     def build_draw_and_add_to_event(cls, result, for_event):
-        name, best_of, draw_size, sub, event_sub = result
+        name, best_of, draw_size, sub, fantasy_pts, event_sub = result
         event = tournament_event.TournamentEvent.get_by_sub(event_sub) if not for_event else for_event
-        draw = cls(name=name, best_of=best_of, sub=sub, event=event)
+        draw = cls(name=name, best_of=best_of, points_strategy_components=fantasy_pts, sub=sub, event=event)
         draw.entries = entry.Entry.get_all_entries_for_draw(draw)
         event.has_draw(draw)
         draw.draw_size(draw_size)  # builds the rounds and draws
@@ -74,6 +77,7 @@ class Draw(model.GraphModel):
                  name,
                  best_of,
                  event: tournament_event.TournamentEvent,
+                 points_strategy_components: Union[tuple, URIRef] = None,
                  sub: URIRef = None):
         self.name = name
         self.number_of_matches = None
@@ -82,7 +86,7 @@ class Draw(model.GraphModel):
         self.tournament = event
         self.entries = []
         self.errors = []
-        self.points_strategy = points_strategy.strategy_2_1_point5_double()
+        self.points_strategy = self.fantasy_strategy(points_strategy_components)
         self.fn_symbol = "mens_singles" if self.name == 'MensSingles' else "womens_singles"
         self.round_factor_strategy = None
         self.subject = URIRef(f"{self.tournament.subject.toPython()}/{self.name}") if not sub else sub
@@ -92,6 +96,11 @@ class Draw(model.GraphModel):
 
     def __eq__(self, other):
         return self.name == other.name
+
+    def fantasy_strategy(self, components: Union[Tuple, URIRef] = None):
+        if components:
+            return points_strategy.PointsStrategyCalculator.build(components)
+        return points_strategy.strategy_2_1_point5_double()
 
     def draw_size(self, number_of_matches):
         self.number_of_matches = number_of_matches

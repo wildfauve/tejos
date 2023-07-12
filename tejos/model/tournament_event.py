@@ -73,11 +73,15 @@ class TournamentEvent(model.GraphModel):
     def tournament_by_sub(self, sub):
         return model.GrandSlam.get_by_sub(sub)
 
-    def make_draw(self, name: str, best_of: int, draw_size=int):
+    def make_draw(self, name: str, best_of: int, draw_size=int, points_strategy_components: tuple = None):
         draw = self.find_draw_by_symbol(name)
         if draw:
             return draw
-        draw = model.Draw.create(name=name, best_of=best_of, draw_size=draw_size, event=self)
+        draw = model.Draw.create(name=name,
+                                 best_of=best_of,
+                                 draw_size=draw_size,
+                                 event=self,
+                                 points_strategy_components=points_strategy_components)
         self.has_draw(draw)
         return draw
 
