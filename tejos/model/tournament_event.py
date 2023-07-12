@@ -35,6 +35,18 @@ class TournamentEvent(model.GraphModel):
             return None
         return cls(*[tournament] + list(event[:-1]))
 
+    @classmethod
+    def get_all_for_tournament(cls, tournament):
+        return [cls.build_event(tournament, event) for event in cls.repository().find_by_tournament(tournament.subject)]
+
+    @classmethod
+    def build_event(cls, tournament, event):
+        year, name, sub, _tourn_sub = event
+        return cls(event_of=tournament,
+                   year=year,
+                   sub=sub,
+                   name=name)
+
 
     @classmethod
     def get_by_sub(cls, sub):

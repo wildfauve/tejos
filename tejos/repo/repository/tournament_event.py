@@ -35,6 +35,10 @@ class TournamentEventRepo(graphrepo.GraphRepo):
                                                                    self._sparql(year=year,
                                                                                 tournament_sub=tournament_sub))))
 
+    def find_by_tournament(self, tournament_sub):
+        events = rdf.many(rdf.query(self.graph, self._sparql(tournament_sub=tournament_sub)))
+        return [self.to_event(event) for event in events]
+
     def get_by_sub(self, sub):
         return self.to_event(rdf.single_result_or_none(rdf.query(self.graph, self._sparql(sub=sub))))
 
@@ -52,6 +56,8 @@ class TournamentEventRepo(graphrepo.GraphRepo):
             filter_criteria = None
         elif tournament_sub and year:
             filter_criteria = f"?tournament_sub = {tournament_sub.n3()} && ?year = {Literal(year).n3()}"
+        elif tournament_sub and not year:
+            filter_criteria = f"?tournament_sub = {tournament_sub.n3()}"
         else:
             filter_criteria = f"?event = {sub.n3()}"
 

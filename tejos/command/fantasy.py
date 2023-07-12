@@ -13,30 +13,26 @@ from tejos.util import echo, monad
 from tejos.util.data_scrapping import atp_rankings, draw_parser
 
 
-def leaderboard_df(tournament_name, year, round_number=None) -> pl.DataFrame:
-    tournie = helpers.tournie(tournament_name)
-    event = helpers.event(tournie=tournie, year=year)
-    event.load()
+def leaderboard_df(tournament, year, round_number=None) -> pl.DataFrame:
+    event = tournament.for_year(year, load=True)
 
     return leaderboard.current_leaderboard(event, _apply_fantasy(event), round_number)
 
 
-def show_round(tournament_name, draw_name, round_number):
-    tournie = _find_tournament_by_name(tournament_name)
-    if not tournie:
-        return
-    _start(tournie)
+def show_round(tournament, draw_name, round_number):
+    event = tournament.for_year(year, load=True)
+
+    breakpoint()
     for_draw = draw.find_draw(draw_name, tournie.draws)
     if not for_draw:
         echo.echo(f"Draw with name {draw_name} not found in {tournie.label}")
     for_draw.for_round(round_number).show()
 
 
-def rank_plot(file: str, tournament_name: str, ranking_plot: bool, round_number=None):
-    tournie = _find_tournament_by_name(tournament_name)
-    if not tournie:
-        return
-    leaderboard.scores_plot(file, tournie, _apply_fantasy(_start(tournie)), ranking_plot, round_number=round_number)
+def rank_plot(file: str, tournament: str, year: int, ranking_plot: bool, round_number=None):
+    event = tournament.for_year(year, load=True)
+
+    leaderboard.scores_plot(file, event, _apply_fantasy(event), ranking_plot, round_number=round_number)
     pass
 
 
@@ -71,11 +67,8 @@ def fantasy_score_template(tournament_name, round_number, trim_with="TeamFauve")
     return results
 
 
-def fantasy_score_template_inserter(tournament_name, year, round_number):
-    tournie = helpers.tournie(tournament_name)
-    event = helpers.event(tournie=tournie, year=year)
-    event.load()
-
+def fantasy_score_template_inserter(tournament, year, round_number):
+    event = tournament.for_year(year, load=True)
     fantasy_module = _fantasy_module(event)
     teams = _apply_fantasy(event)
 

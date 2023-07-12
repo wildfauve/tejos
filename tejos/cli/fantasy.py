@@ -2,13 +2,18 @@ import click
 
 from tejos.initialiser import environment, db
 
-from tejos import command, presenter
-from tejos.majors import tournaments
+from tejos import command, presenter, model
 from tejos.fantasy import teams
+
+Tournaments = model.tournament.tournaments()
 
 
 def tournament_names():
-    return tournaments.tournament_names()
+    return Tournaments.slam_symbols()
+
+
+def to_tournament(name):
+    return Tournaments.slam(name)
 
 
 @click.group()
@@ -17,7 +22,7 @@ def cli():
 
 
 @click.command()
-@click.option("--tournament", "-t")
+@click.option("--tournament", "-t", type=click.Choice(tournament_names()), )
 @click.option("--year", "-y", type=int)
 @click.option("--round", "-r", type=int, default=None, help="Leaderboard for specific round")
 @click.option("--to-discord/--to-shell", "-d/-s", required=True, default=False, help="To discord or to the shell")
@@ -25,27 +30,25 @@ def leaderboard(tournament, year, round, to_discord):
     """
     Starts the tournament,  applies the results, applies the fantasy selection and prints the leaderboard
     """
-    presenter.event_team_scores_table(command.leaderboard_df(tournament, year, round), to_discord)
+    presenter.event_team_scores_table(command.leaderboard_df(to_tournament(tournament), year, round), to_discord)
     pass
 
 
 @click.command()
-@click.option("--tournament", "-t",
-              type=click.Choice(tournament_names()),
-              help="The name of the tournament")
+@click.option("--tournament", "-t", type=click.Choice(tournament_names()), )
+@click.option("--year", "-y", type=int)
 @click.option("--fantasy-team-name", "-f",
               type=click.Choice(teams.symbolised_names()),
               help="team name to explain points")
 @click.option("--round_number", "-r", type=int, default=None, help="Leaderboard for specific round")
 def show_draw(tournament, fantasy_team_name, round_number):
-    command.show_draw(tournament_name=tournament, round=round_number, team_name=fantasy_team_name)
+    command.show_draw(tournament=to_tournament(tournament), round=round_number, team_name=fantasy_team_name)
     pass
 
 
 @click.command()
-@click.option("--tournament", "-t",
-              type=click.Choice(tournament_names()),
-              help="The name of the tournament")
+@click.option("--tournament", "-t", type=click.Choice(tournament_names()), )
+@click.option("--year", "-y", type=int)
 @click.option("--draw", "-d",
               type=click.Choice(['MensSingles', 'WomensSingles']),
               default='MensSingles',
@@ -60,9 +63,8 @@ def show_round(tournament, round, draw):
 
 
 @click.command()
-@click.option("--tournament", "-t",
-              type=click.Choice(tournament_names()),
-              help="The name of the tournament")
+@click.option("--tournament", "-t", type=click.Choice(tournament_names()), )
+@click.option("--year", "-y", type=int)
 @click.option("--round_number", "-r", type=int, default=1, help="The round number to show.")
 @click.option("--draw", "-d",
               type=click.Choice(['MensSingles', 'WomensSingles']),
@@ -81,9 +83,8 @@ def result_template(tournament, round_number, draw, template_name):
 
 
 @click.command()
-@click.option("--tournament", "-t",
-              type=click.Choice(tournament_names()),
-              help="The name of the tournament")
+@click.option("--tournament", "-t", type=click.Choice(tournament_names()), )
+@click.option("--year", "-y", type=int)
 @click.option("--round", "-r", type=int, default=1, help="The round number to show.")
 @click.option("--fmt", "-f",
               type=click.Choice(['py', 'csv']),
@@ -103,7 +104,7 @@ def fantasy_score_template(tournament, round, fmt, trim_team, file):
 
 
 @click.command()
-@click.option("--tournament", "-t")
+@click.option("--tournament", "-t", type=click.Choice(tournament_names()), )
 @click.option("--year", "-y", type=int)
 @click.option("--round", "-r", type=int, default=1, help="The round number to show.")
 @click.option("--fmt", "-f",
@@ -114,14 +115,14 @@ def fantasy_score_template_inserter(tournament, year, round, fmt):
     """
     Get a result DSL template
     """
-    presenter.fantasy_score_template_inserter(command.fantasy_score_template_inserter(tournament, year, round))
+    presenter.fantasy_score_template_inserter(
+        command.fantasy_score_template_inserter(to_tournament(tournament), year, round))
     pass
 
 
 @click.command()
-@click.option("--tournament", "-t",
-              type=click.Choice(tournament_names()),
-              help="The name of the tournament")
+@click.option("--tournament", "-t", type=click.Choice(tournament_names()), )
+@click.option("--year", "-y", type=int)
 @click.option("--fantasy-team-name", "-f",
               type=click.Choice(teams.symbolised_names()),
               help="team name to explain points")
@@ -136,15 +137,14 @@ def explain_team_score(tournament, fantasy_team_name, channel):
 
 
 @click.command()
-@click.option("--tournament", "-t",
-              type=click.Choice(tournament_names()),
-              help="The name of the tournament")
+@click.option("--tournament", "-t", type=click.Choice(tournament_names()), )
+@click.option("--year", "-y", type=int)
 @click.option("--file", "-f", type=str, default=None, help="Parquet File Location")
 def points_atomic(file, tournament):
     """
     Shows the round of an event
     """
-    presenter.to_parquet(file, command.atomic_points_for_all_teams(tournament))
+    presenter.to_parquet(file, command.atomic_points_for_all_teams(to_tournament(tournament)))
     pass
 
 
@@ -158,21 +158,22 @@ def generate_graph(ttl_file):
     pass
 
 
-
 @click.option('--file', '-f', required=True)
-@click.option("--tournament", "-t",
-              type=click.Choice(tournament_names()),
-              help="The name of the tournament")
+@click.option("--tournament", "-t", type=click.Choice(tournament_names()), )
+@click.option("--year", "-y", type=int)
 @click.option("--ranking-plot/--accum-totals-plot", "-r/-a", required=True, help="Plot Position, or plot total scores")
 @click.option("--round", "-r", type=int, default=None, help="Leaderboard for specific round")
 @click.option("--to-discord", "channel", required=False, flag_value="to-discord", default=False,
               help="Post the plot to Discord")
 @click.command()
-def plot(file, tournament, ranking_plot, channel, round):
+def plot(file, tournament, year, ranking_plot, channel, round):
     """
     Generate a Ranking Graph
     """
-    command.rank_plot(file=file, tournament_name=tournament, ranking_plot=ranking_plot, round_number=round)
+    command.rank_plot(file=file,
+                      tournament=to_tournament(tournament),
+                      year=year, ranking_plot=ranking_plot,
+                      round_number=round)
     presenter.plot_to_channel(file, channel)
     pass
 

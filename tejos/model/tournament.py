@@ -3,7 +3,7 @@ from rdflib import URIRef, RDF, Literal
 from tejos.rdf import rdf_prefix
 from tejos import model
 from tejos.repo import repository
-from tejos.util import fn
+from tejos.util import fn, singleton
 
 
 class Tournament(model.GraphModel):
@@ -22,7 +22,6 @@ class Tournament(model.GraphModel):
     def get_all(cls):
         return [cls(*tournie) for tournie in cls.repository().get_all()]
 
-
     @classmethod
     def get(cls, name):
         tournie = cls.repository().find_by_name(name)
@@ -36,7 +35,6 @@ class Tournament(model.GraphModel):
         if not tournie:
             return None
         return cls(*tournie)
-
 
     def __init__(self, name, subject_name: str, perma_id: str, sub: URIRef = None):
         self.name = name
@@ -61,7 +59,41 @@ class Tournament(model.GraphModel):
         self.events.append(event)
         return event
 
+    def for_year(self, year, load: bool = False):
+        event = fn.find(lambda event: event.scheduled_in_year == year, self.events)
+        if not load:
+            return event
+        return event.load()
+
+    def all_events(self):
+        self.events = model.TournamentEvent.get_all_for_tournament(self)
+        return self
 
 
 class GrandSlam(Tournament):
     pass
+
+
+class TournamentFinder(singleton.Singleton):
+
+    def add_touraments(self, tournies):
+        self.tournaments = tournies
+
+    def slam(self, symbol):
+        return fn.find(lambda tournie: tournie.subject_name == symbol, self.tournaments)
+
+    def slam_names(self):
+        return [tournie.name for tournie in self.tournaments]
+
+    def slam_symbols(self):
+        return [tournie.subject_name for tournie in self.tournaments]
+
+    def slam_year(self, name, year, load: bool = False):
+        tournie = self.slam(name)
+        return tournie, tournie.for_year(year, load=load)
+
+
+def tournaments():
+    all_tournies = GrandSlam.get_all()
+    TournamentFinder().add_touraments([Tournament.all_events(tournie) for tournie in all_tournies])
+    return TournamentFinder()
