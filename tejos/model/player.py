@@ -24,6 +24,11 @@ class PlayerCache(singleton.Singleton):
     atp_players_module = atp_players
     wta_players_module = wta_players
 
+    def clear(self):
+        self.__class__.player_name_index = {}
+        self.__class__.players = {}
+        return self
+
     def get_by_name_or_klass(self, name=None, klass_name=None):
         if name:
             possible_hit = self.__class__.player_name_index.get(name, None)
@@ -46,16 +51,21 @@ class PlayerCache(singleton.Singleton):
 
     def set_player_on_player_module(self, player):
         if player.tour_symbol == "ATP":
-            setattr(self.atp_players_module, player.klass_name, player)
+            setattr(self.__class__.atp_players_module, player.klass_name, player)
         elif player.tour_symbol == "WTA":
-            setattr(self.wta_players_module, player.klass_name, player)
+            setattr(self.__class__.wta_players_module, player.klass_name, player)
         else:
             breakpoint()
         pass
 
 class Player(model.GraphModel):
     repo = repository.PlayerRepo
+    repo_graph = model.GraphModel.players_graph
     player_cache = PlayerCache
+
+    @classmethod
+    def clear_cache(cls):
+        cls.player_cache().clear()
 
     @classmethod
     def new(cls, name, tour_symbol: str, klass_name: str, alt_names: List = None):
@@ -65,11 +75,10 @@ class Player(model.GraphModel):
 
         plr = cls.cls_search(name=name, alt_name=name)
         if plr.is_right():
-            breakpoint()
             cls.build_player(plr.value)
         player = cls(name, tour_symbol, klass_name, alt_names)
         cls.player_cache().add_to_cache(player)
-        cls.repo(cls.players_graph()).upsert(player)
+        cls.repository().upsert(player)
         return player
 
     @classmethod
@@ -105,7 +114,7 @@ class Player(model.GraphModel):
 
     @classmethod
     def cls_search(cls, name=None, klass_name=None, alt_name=None) -> monad.EitherMonad[Tuple]:
-        plr = cls.repo(cls.players_graph()).get_by_name_or_klass_name(name=name, klass_name=klass_name, alt_name=alt_name)
+        plr = cls.repository().get_by_name_or_klass_name(name=name, klass_name=klass_name, alt_name=alt_name)
         if not plr:
             return monad.Left(plr)
         return monad.Right(plr)

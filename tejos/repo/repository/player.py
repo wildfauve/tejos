@@ -4,9 +4,11 @@ from itertools import groupby
 from rdflib import Graph, URIRef, Literal, RDF
 
 from tejos import rdf
+from tejos.util import logger
+from . import graphrepo
 
 
-class PlayerRepo:
+class PlayerRepo(graphrepo.GraphRepo):
     rdf_type = rdf.PLAYER
 
     def __init__(self, graph: Graph):
@@ -17,7 +19,7 @@ class PlayerRepo:
         return [self.to_player(player, props) for player, props in groupby(results, lambda x: x[0])]
 
     def to_player(self, player, props):
-        player_props = props if isinstance(props,list) else list(props)
+        player_props = props if isinstance(props, list) else list(props)
         return (player_props[0].sub,
                 player_props[0].name.toPython(),
                 player_props[0].tour_symbol.toPython(),
@@ -54,7 +56,7 @@ class PlayerRepo:
             filter_criteria += f" || ?alt_names = {Literal(alt_name).n3()}"
 
         filter = "" if not filter_criteria else f"filter({filter_criteria})"
-        print(filter)
+        logger.log(filter)
 
         return f"""
         select ?sub ?name ?tour_symbol ?klass_name ?alt_names

@@ -35,10 +35,12 @@ def new_event(tournament, year):
 @click.option("--name", "-n")
 @click.option("--best-of", "-b", type=int)
 @click.option("--draw-size", "-s", type=int)
-def new_draw(tournament, year, name, best_of, draw_size):
+@click.option("--draw-size", "-s", type=int)
+@click.option('--fantasy-pt-strat', type=(str, str, str))
+def new_draw(tournament, year, name, best_of, draw_size, fantasy_pt_strat):
     """
     """
-    command.new_draw(helpers.to_tournament(tournament), year, name, best_of, draw_size)
+    command.new_draw(helpers.to_tournament(tournament), year, name, best_of, draw_size, fantasy_pt_strat)
     pass
 
 @click.command()

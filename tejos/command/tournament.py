@@ -1,3 +1,4 @@
+from typing import Tuple
 import csv
 
 from tejos import model
@@ -25,12 +26,15 @@ def new_event(tournament, year):
 
 
 @commanda.command()
-def new_draw(tournament, year, draw_name, best_of, draw_size):
+def new_draw(tournament, year, draw_name, best_of, draw_size, fantasy_pt_strat: Tuple = None):
     event = tournament.for_year(year, load=True)
     if not event:
         return monad.Left(event)
 
-    draw = event.make_draw(name=draw_name, best_of=best_of, draw_size=draw_size)
+    draw = event.make_draw(name=draw_name,
+                           best_of=best_of,
+                           draw_size=draw_size,
+                           points_strategy_components=fantasy_pt_strat)
 
     if draw:
         draw.init_draw()
@@ -98,4 +102,3 @@ def _get_player(draw_name, player_klass_name):
     if draw_name == "MensSingles":
         return getattr(atp_players, player_klass_name, None)
     return getattr(wta_players, player_klass_name, None)
-
