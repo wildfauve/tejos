@@ -6,7 +6,7 @@ from rdflib import Graph, URIRef
 
 from rich.table import Table
 
-from tejos.model.draw import Draw
+# from tejos.model.draw import Draw
 from tejos.model.player import Player, MatchPlayerNumber
 from tejos.model.entry import Entry
 from tejos.model import feature
@@ -25,7 +25,7 @@ class Team:
         self.result_file_name = name.lower().replace(" ", "_")
         self.features = features if features else []
 
-    def draw(self, for_draw: Draw, match_id: str = None):
+    def draw(self, for_draw, match_id: str = None):
         # print(f"Team: {self.name} Draw: {for_draw.name}")
         fantasy = self._find_fantasy_draw(for_draw)
         if not fantasy:
@@ -40,7 +40,7 @@ class Team:
         for draw in self.fantasy_draws:
             self.show_draw(draw, table, for_round)
 
-    def show_draw(self, for_draw: Draw, table: Table, for_round: int = None):
+    def show_draw(self, for_draw, table: Table, for_round: int = None):
         for_draw.show(table, for_round)
 
     def points_per_round(self, up_to_rd: int = None):
@@ -59,7 +59,7 @@ class Team:
     def _find_fantasy_draw(self, for_draw):
         return fn.find(partial(self._draw_predicate, for_draw), self.fantasy_draws)
 
-    def _draw_predicate(self, for_draw: Draw, fantasy_draw: Draw):
+    def _draw_predicate(self, for_draw, fantasy_draw):
         return for_draw == fantasy_draw.draw
 
     def __hash__(self):
@@ -73,7 +73,7 @@ class Team:
 
 
 class FantasyDraw:
-    def __init__(self, draw: Draw, team: Team):
+    def __init__(self, draw, team: Team):
         self.draw = draw
         self.team = team
         self.match_selections = {}

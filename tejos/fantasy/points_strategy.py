@@ -52,7 +52,7 @@ class WinNumSetsLossMaxSets(PointsStrategyCalculator):
         ls = self._points_with_factor(self.pts_strategy.LOST_WITH_MAX_SETS.value[1], for_round)
         return f"w({w}) s({s}) lms({ls})"
 
-    def calc(self, selection: model.Selection, explain: bool = False) -> Union[int, Dict]:
+    def calc(self, selection, explain: bool = False) -> Union[int, Dict]:
         result = [strategy(selection, explain) for strategy in self.points_strategy_fns()]
         if not selection.has_made_selection():
             return 0
@@ -63,7 +63,7 @@ class WinNumSetsLossMaxSets(PointsStrategyCalculator):
     def points_strategy_fns(self) -> List[Callable]:
         return [self.selected_correct_winner, self.selected_correct_sets, self.lost_but_in_max_sets]
 
-    def selected_correct_winner(self, selection: model.Selection, explain: bool = False) -> int:
+    def selected_correct_winner(self, selection, explain: bool = False) -> int:
         if selection.match.match_winner == selection.selected_winner:
             return self._calc(self.pts_strategy.WINNER,
                               selection.round_id,
@@ -73,7 +73,7 @@ class WinNumSetsLossMaxSets(PointsStrategyCalculator):
                           explain,
                           self.pts_strategy.WINNER)
 
-    def selected_correct_sets(self, selection: model.Selection, explain: bool = False) -> int:
+    def selected_correct_sets(self, selection, explain: bool = False) -> int:
         if selection.match.match_winner != selection.selected_winner:
             return self._calc(self.pts_strategy.NO_POINTS,
                               selection.round_id,
@@ -88,7 +88,7 @@ class WinNumSetsLossMaxSets(PointsStrategyCalculator):
                           explain,
                           self.pts_strategy.NUMBER_OF_SETS)
 
-    def lost_but_in_max_sets(self, selection: model.Selection, explain: bool = False) -> int:
+    def lost_but_in_max_sets(self, selection, explain: bool = False) -> int:
         if ((selection.match.match_winner != selection.selected_winner) and
             selection.match.max_sets_played()):
                 # selection.match.number_of_sets_played() == selection.in_number_sets):

@@ -5,7 +5,7 @@ import polars as pl
 
 from tejos.model import draw
 from tejos import model
-from . import leaderboard, commanda
+from . import leaderboard, commanda, helpers
 from tejos.fantasy import teams, selections
 from tejos.majors import tournaments
 from tejos import fantasy, dataframe
@@ -13,12 +13,12 @@ from tejos.util import echo, monad
 from tejos.util.data_scrapping import atp_rankings, draw_parser
 
 
-def leaderboard_df(tournament_name, board_type, round_number=None) -> pl.DataFrame:
-    tournie = _find_tournament_by_name(tournament_name)
-    if not tournie:
-        return
+def leaderboard_df(tournament_name, year, round_number=None) -> pl.DataFrame:
+    tournie = helpers.tournie(tournament_name)
+    event = helpers.event(tournie=tournie, year=year)
+    event.load()
 
-    return leaderboard.current_leaderboard(tournie, _apply_fantasy(_start(tournie)), board_type, round_number)
+    return leaderboard.current_leaderboard(event, _apply_fantasy(event), round_number)
 
 
 def show_round(tournament_name, draw_name, round_number):
@@ -141,14 +141,13 @@ def _start(tournie):
     return tournie
 
 
-def _apply_fantasy(tournie):
-    mens_singles = draw.find_draw_by_cls(draw.MensSingles, tournie.draws)
-    womens_singles = draw.find_draw_by_cls(draw.WomensSingles, tournie.draws)
-
-    fantasy_module = _fantasy_module(tournie)
+def _apply_fantasy(event):
+    mens_singles = event.for_draw('MensSingles')
+    womens_singles = event.for_draw('WomensSingles')
+    fantasy_module = _fantasy_module(event)
 
     if not fantasy_module:
-        echo.echo(f"No fantasy selections for {tournie.name}")
+        echo.echo(f"No fantasy selections for {event.name}")
         return
 
     return selections.apply(fantasy_module, mens_singles, womens_singles)

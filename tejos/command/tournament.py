@@ -17,7 +17,7 @@ def new_tournament(tournament_name, perma_id) -> monad.EitherMonad[model.GrandSl
 
 @commanda.command()
 def new_event(tournament_name, year):
-    tournie = _tournie(tournament_name)
+    tournie = helpers.tournie(tournament_name)
     if not tournie:
         return monad.Left(tournie)
 
@@ -30,8 +30,8 @@ def new_event(tournament_name, year):
 
 @commanda.command()
 def new_draw(tournament_name, year, draw_name, best_of, draw_size):
-    tournie = _tournie(tournament_name)
-    event = model.TournamentEvent.get(tournament=tournie, year=year)
+    tournie = helpers.tournie(tournament_name)
+    event = helpers.event(tournament=tournie, year=year)
     if not event:
         return monad.Left(event)
 
@@ -44,8 +44,9 @@ def new_draw(tournament_name, year, draw_name, best_of, draw_size):
 
 @commanda.command()
 def add_entries(tournament_name, year, draw_name, in_file):
-    tournie = _tournie(tournament_name)
-    event = model.TournamentEvent.get(tournament=tournie, year=year)
+    tournie = helpers.tournie(tournament_name)
+    event = helpers.event(tournament=tournie, year=year)
+
     if not event:
         return monad.Left(event)
 
@@ -66,8 +67,9 @@ def add_entries(tournament_name, year, draw_name, in_file):
 
 @commanda.command()
 def first_round_draw(tournament_name, year, draw_name, in_file):
-    tournie = _tournie(tournament_name)
-    event = model.TournamentEvent.get(tournament=tournie, year=year)
+    tournie = helpers.tournie(tournament_name)
+    event = helpers.event(tournament=tournie, year=year)
+
     if not event:
         return monad.Left(event)
 
@@ -90,8 +92,9 @@ def first_round_draw(tournament_name, year, draw_name, in_file):
 
 @commanda.command()
 def results(tournament, year, round_number, scores_only):
-    tournie = _tournie(tournament)
-    event = model.TournamentEvent.get(tournament=tournie, year=year).load()
+    tournie = helpers.tournie(tournament)
+    event = helpers.event(tournament=tournie, year=year)
+    event.load()
     rd_results = model.results(event=event,
                                for_round=round_number,
                                scores_only=scores_only)
@@ -104,6 +107,3 @@ def _get_player(draw_name, player_klass_name):
         return getattr(atp_players, player_klass_name, None)
     return getattr(wta_players, player_klass_name, None)
 
-
-def _tournie(name):
-    return model.GrandSlam.get(name=name)

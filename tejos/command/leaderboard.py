@@ -13,14 +13,8 @@ from tejos.util import fn
 console = Console()
 
 
-class BoardType(Enum):
-    FANTASY = "fantasy"
-    F1 = "f1"
-
-
 def current_leaderboard(tournie,
                         fantasy_teams,
-                        board_type: BoardType = BoardType.FANTASY,
                         round_number=None,
                         accum: bool = True) -> pl.DataFrame:
     return _team_scores_df(tournie, fantasy_teams, accum=accum, up_to_rd=round_number)

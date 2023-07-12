@@ -1,4 +1,4 @@
-from .controller import (
+from .fantasy import (
     atomic_points_for_all_teams,
     leaderboard_df,
     show_round,
@@ -14,7 +14,6 @@ from .controller import (
 )
 
 from .leaderboard import (
-    BoardType,
     scores_plot
 )
 

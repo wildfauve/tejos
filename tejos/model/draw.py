@@ -82,8 +82,9 @@ class Draw(model.GraphModel):
         self.tournament = event
         self.entries = []
         self.errors = []
-        self.points_strategy = None
-        self.round_factor_strategy = points_strategy.strategy_2_1_point5_double()
+        self.points_strategy = points_strategy.strategy_2_1_point5_double()
+        self.fn_symbol = "mens_singles" if self.name == 'MensSingles' else "womens_singles"
+        self.round_factor_strategy = None
         self.subject = URIRef(f"{self.tournament.subject.toPython()}/{self.name}") if not sub else sub
 
     def __hash__(self):
