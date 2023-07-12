@@ -1,5 +1,24 @@
 from tejos import repo
 
+class GraphModel2:
+
+    @classmethod
+    def tournament_graph(cls):
+        return repo.tournament_graph()
+
+    def new(self, repository, graph):
+        self.repository = repository
+        self.graph = graph
+        self.repo_instance = None
+        return self
+
+    def __call__(self):
+        if self.repo_instance:
+            return self.repo_instance
+        self.repo_instance = self.repository(self.graph())
+        return self.repo_instance
+
+
 class GraphModel:
     cached_tournament_graph = None
     cached_players_graph = None
