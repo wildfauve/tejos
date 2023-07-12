@@ -54,6 +54,10 @@ class TournamentEvent(model.GraphModel):
         # This loads all players into the players module to make the entries config faster
         Player.loadall()
 
+    def load(self):
+        model.Draw.get_all_for_event(self)
+        return self
+
     def tournament_by_sub(self, sub):
         return model.GrandSlam.get_by_sub(sub)
 
@@ -71,6 +75,9 @@ class TournamentEvent(model.GraphModel):
             return self
         self.draws.append(draw)
         return self
+
+    def for_draw(self, name):
+        return self.find_draw_by_symbol(name)
 
     def find_draw_by_symbol(self, symbol):
         return fn.find(lambda dr: dr.name == symbol, self.draws)

@@ -1,8 +1,7 @@
 import csv
+
 from tejos import model
-
 from tejos.util import monad
-
 from tejos.players import atp_players, wta_players
 
 from . import helpers, commanda
@@ -74,7 +73,6 @@ def first_round_draw(tournament_name, year, draw_name, in_file):
 
     draw = model.Draw.get(event=event, name=draw_name)
 
-
     first_rd = []
     with open(in_file, newline='') as f:
         reader = csv.reader(f, delimiter=',')
@@ -88,6 +86,17 @@ def first_round_draw(tournament_name, year, draw_name, in_file):
     draw.first_round_draw(first_rd)
     breakpoint()
     return monad.Right(draw)
+
+
+@commanda.command()
+def results(tournament, year, round_number, scores_only):
+    tournie = _tournie(tournament)
+    event = model.TournamentEvent.get(tournament=tournie, year=year).load()
+    rd_results = model.results(event=event,
+                               for_round=round_number,
+                               scores_only=scores_only)
+    breakpoint()
+    return monad.Right(event)
 
 
 def _get_player(draw_name, player_klass_name):

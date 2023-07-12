@@ -6,6 +6,7 @@ from rdflib import Graph, URIRef, Literal, RDF, BNode
 
 from tejos import rdf
 from . import graphrepo
+from tejos.util import logger, fn
 
 
 class MatchRepo(graphrepo.GraphRepo):
@@ -18,7 +19,7 @@ class MatchRepo(graphrepo.GraphRepo):
 
 
     def add_players_to_match(self, match, entries: Tuple):
-        print(f"{match.subject}")
+        print(f"Add Players to Match with Subject: {match.subject}")
         e1, e2 = entries
         if e1:
             self.graph.add((match.subject, rdf.hasMatchUpPosition1, e1.subject))
@@ -68,9 +69,50 @@ class MatchRepo(graphrepo.GraphRepo):
         return g
 
     def get_all_for_round(self, round_sub):
-        matches = rdf.many(rdf.query(self.graph, self._sparql(round_sub)))
-        return [self.to_match(match) for match in matches]
+        print(f"Repo: Start: Match: Get for round: {round_sub}")
+        matches2 = self.query_for_matches2(round_sub, perf_ctx=round_sub)
+        return matches2
+        # breakpoint()
+        # matches = self.query_for_matches(round_sub)
+        # breakpoint()
+        # return [self.to_match(match) for match in matches]
 
+    @logger.with_perf_log(name="Match.query_for_matches")
+    def query_for_matches(self, round_sub):
+        return rdf.many(rdf.query(self.graph, self._sparql(round_sub)))
+
+
+    @logger.with_perf_log(name="Match.query_for_matches2")
+    def query_for_matches2(self, round_sub, perf_ctx):
+        return [self.build_match(match_sub) for _, _, match_sub in rdf.all_matching(self.graph, (round_sub, rdf.hasMatch, None))]
+
+    def build_match(self, match_sub):
+        match_triples = rdf.all_matching(self.graph, (match_sub, None, None))
+        match_id = rdf.triple_finder(rdf.hasMatchId, match_triples)
+        match_num = rdf.triple_finder(rdf.hasMatchNumber, match_triples)
+        match_rd_sub = rdf.triple_finder(rdf.isMatchInRound, match_triples)
+        pos1 = rdf.triple_finder(rdf.hasMatchUpPosition1, match_triples)
+        pos2 = rdf.triple_finder(rdf.hasMatchUpPosition2, match_triples)
+        winner = rdf.triple_finder(rdf.hasMatchWinner, match_triples)
+        scores1 = rdf.triple_finder(rdf.hasSetsScores1, match_triples, filter_fn=fn.select, builder=rdf.all_objects)
+        scores2 = rdf.triple_finder(rdf.hasSetsScores2, match_triples, filter_fn=fn.select, builder=rdf.all_objects)
+        # if scores1:
+        #     breakpoint()
+        return (
+            match_sub,
+            match_rd_sub,
+            match_id.toPython(),
+            match_num.toPython(),
+            pos1,
+            pos2,
+            winner,
+            scores1,
+            scores2
+        )
+
+        breakpoint()
+
+    # @logger.with_perf_log(name="Match.to_match")
     def to_match(self, match):
         # mt_props = [(p.match,
         #              p.match_id.toPython(),

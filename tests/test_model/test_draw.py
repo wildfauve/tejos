@@ -6,7 +6,7 @@ from tejos.players import atp_players
 def test_create_draw(configure_repo):
     wm2023 = create_event()
 
-    draw = wm2023.make_draw(name="MensSingles", best_of=5, draw_size=4)
+    draw = wm2023.make_draw(name="MensSingles", best_of=5, draw_size=4).init_draw()
 
     assert draw.name == "MensSingles"
     assert draw.best_of == 5
@@ -20,7 +20,7 @@ def test_create_draw(configure_repo):
 def test_get_draw(configure_repo):
     wm2023 = create_event()
 
-    wm2023.make_draw(name="MensSingles", best_of=5, draw_size=4)
+    wm2023.make_draw(name="MensSingles", best_of=5, draw_size=4).init_draw()
 
     draw = model.Draw.get(event=wm2023, name="MensSingles")
 
@@ -36,7 +36,7 @@ def test_get_draw(configure_repo):
 def test_add_entries_to_draw(configure_repo):
     wm2023 = create_event()
 
-    draw = wm2023.make_draw(name="MensSingles", best_of=5, draw_size=4)
+    draw = wm2023.make_draw(name="MensSingles", best_of=5, draw_size=4).init_draw()
 
     draw.add_entries(entries())
     assert len(draw.entries) == 8

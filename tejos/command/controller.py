@@ -4,6 +4,7 @@ import csv
 import polars as pl
 
 from tejos.model import draw
+from tejos import model
 from . import leaderboard, commanda
 from tejos.fantasy import teams, selections
 from tejos.majors import tournaments
@@ -108,6 +109,8 @@ def generate_graph(ttl_file):
 
 def player_scrap(file):
     atp_rankings.build_players_file(file)
+
+
 
 
 @commanda.command()

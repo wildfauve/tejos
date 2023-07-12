@@ -27,3 +27,12 @@ from .fantasy import (
 from .match import (
     MatchState
 )
+
+from .results import (
+    results
+)
+
+from .results_value import (
+    MatchBlock,
+    PlayerResult
+)

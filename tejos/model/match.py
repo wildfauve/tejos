@@ -32,17 +32,26 @@ class Match(model.GraphModel):
         return mt
 
     @classmethod
-    def get_all_for_round(cls, for_round, round_sub):
+    def get_or_update_all_for_round(cls, for_round, round_sub, update_match=True):
         matches = cls.repository().get_all_for_round(round_sub)
-        return [cls.to_match(for_round, match) for match in matches]
+        return [cls.to_match(for_round, match, update_match) for match in matches]
 
     @classmethod
-    def to_match(cls, for_round, match):
-        _, _, _, match_number, pos1_sub, pos2_sub, winner, scores1, scores2 = match
-        mt = for_round.for_match(match_number)
-        print(f"Creating Match: {mt}")
-        breakpoint()
-        mt.add_players(*entry.Entry.get_by_subs([pos1_sub, pos2_sub]))
+    def to_match(cls, for_round, match, update_match=True):
+        sub, _match_sub, _match_id, match_number, pos1_sub, pos2_sub, winner, scores1, scores2 = match
+        if not update_match:
+            mt = cls(round_id=for_round.round_id,
+                     match_number=match_number,
+                     draw=for_round.draw,
+                     for_round=for_round,
+                     sub=sub)
+            print(f"Returning Match: {mt}")
+        else:
+            mt = for_round.for_match(match_number)
+            print(f"Creating / Updating Match: {mt}")
+        entries = entry.Entry.get_by_subs([pos1_sub, pos2_sub])
+        if entries:
+            mt.add_players(*entries)
         if scores1:
             mt.load_score(position1_subject_sets=scores1)
         if scores2:
@@ -295,6 +304,8 @@ class Match(model.GraphModel):
         """))
 
         if advance:
+            if self.match_id == "5.1":
+                breakpoint()
             self.repository().add_match_winner(self)
             self.draw.advance_winner(self)
         return self.match_winner

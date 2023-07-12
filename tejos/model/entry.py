@@ -40,7 +40,7 @@ class Entry(model.GraphModel):
 
     @classmethod
     def get_by_subs(cls, subs: List[URIRef]):
-        return [cls.find_or_get(entry_sub) for entry_sub in subs]
+        return [cls.find_or_get(entry_sub) for entry_sub in fn.remove_none(subs)]
 
     @classmethod
     def find_or_get(cls, entry_sub):

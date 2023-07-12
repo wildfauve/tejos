@@ -62,9 +62,21 @@ def first_round_draw(tournament, year, draw, in_file):
     command.first_round_draw(tournament, year, draw, in_file)
     pass
 
+@click.command()
+@click.option("--tournament", "-t")
+@click.option("--year", "-y", type=int)
+@click.option("--round", "-r", type=int, default=1, help="The round number to scrap.  Defaults to 1.")
+@click.option('--scores-only/--full-draw', "-o/-f", default=False)
+def results(tournament, year, round, scores_only):
+    """
+    """
+    command.results(tournament, year, round, scores_only)
+    pass
+
 
 cli.add_command(new_tournament)
 cli.add_command(new_event)
 cli.add_command(new_draw)
 cli.add_command(add_entries)
 cli.add_command(first_round_draw)
+cli.add_command(results)

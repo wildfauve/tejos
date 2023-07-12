@@ -23,6 +23,12 @@ def build_draw(tournament: model.tournament_event.TournamentEvent,
         tournament))
 
 
+def results(event: model.tournament_event.TournamentEvent,
+            for_round=None,
+            scores_only=False):
+    _format_results(_parser_for_event(event).build_draw(for_round, scores_only), True, for_round, event),
+
+
 def _parser_for_event(_tournament):
     return wm_parser
 
@@ -44,6 +50,7 @@ def _format_brackets(draws, draws_file):
 
 
 def _format_results(draws, generate_results, for_round, tournament):
+    breakpoint()
     if not generate_results:
         return draws
     py = reduce(partial(_results_def, for_round, tournament), draws.items(), {})  # _results_mod_def())

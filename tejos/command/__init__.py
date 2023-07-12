@@ -23,5 +23,6 @@ from .tournament import (
     first_round_draw,
     new_draw,
     new_event,
-    new_tournament
+    new_tournament,
+    results
 )

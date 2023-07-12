@@ -34,20 +34,26 @@ class DrawRepo(graphrepo.GraphRepo):
                                                                 self._sparql(name=name,
                                                                              event_sub=event_subject))))
 
-    def to_draw(self, result) -> Tuple:
-        if not result:
+    def get_for_event(self, event_subject):
+        draws = rdf.many(rdf.query(self.graph, self._sparql( event_sub=event_subject)))
+        return [self.to_draw(draw) for draw in draws]
+
+    def to_draw(self, draw) -> Tuple:
+        if not draw:
             return None
-        return (result.name.toPython(),
-                result.best_of.toPython(),
-                result.draw_size.toPython(),
-                result.draw,
-                result.event_sub)
+        return (draw.name.toPython(),
+                draw.best_of.toPython(),
+                draw.draw_size.toPython(),
+                draw.draw,
+                draw.event_sub)
 
 
 
     def _sparql(self, event_sub=None, name=None):
         if not name and not event_sub:
             filter_criteria = None
+        if event_sub and not name:
+            filter_criteria = f"?event_sub = {event_sub.n3()}"
         else:
             filter_criteria = f"?event_sub = {event_sub.n3()} && ?name = {Literal(name).n3()}"
         filter = "" if not filter_criteria else f"filter({filter_criteria})"

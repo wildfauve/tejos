@@ -1,7 +1,7 @@
 import pytest
 from pathlib import Path
 
-from tejos import repo
+from tejos import repo, model
 
 TOURNAMENT_PATH = (Path(__file__).parent.parent / "fixtures" / "tournament_test.ttl")
 PLAYERS_PATH = (Path(__file__).parent.parent / "fixtures" / "players_test.ttl")

@@ -5,6 +5,7 @@ from rdflib import URIRef, Graph, RDF, Literal
 
 from . import round, match
 from tejos.model import tournament_event, player, entry, errors, model
+from tejos.fantasy import points_strategy
 from tejos.repo import repository
 
 from tejos.rdf import rdf_prefix
@@ -47,12 +48,21 @@ class Draw(model.GraphModel):
         return draw
 
     @classmethod
+    def get_all_for_event(cls, event):
+        return [cls.build_draw_and_add_to_event(draw, event) for draw in
+                cls.repository().get_for_event(event_subject=event.subject)]
+
+    @classmethod
     def get(cls, event, name: str):
         result = cls.repository().get(event_subject=event.subject, name=name)
         if not result:
             return None
+        return cls.build_draw_and_add_to_event(result, event)
+
+    @classmethod
+    def build_draw_and_add_to_event(cls, result, for_event):
         name, best_of, draw_size, sub, event_sub = result
-        event = tournament_event.TournamentEvent.get_by_sub(event_sub)
+        event = tournament_event.TournamentEvent.get_by_sub(event_sub) if not for_event else for_event
         draw = cls(name=name, best_of=best_of, sub=sub, event=event)
         draw.entries = entry.Entry.get_all_entries_for_draw(draw)
         event.has_draw(draw)
@@ -73,7 +83,7 @@ class Draw(model.GraphModel):
         self.entries = []
         self.errors = []
         self.points_strategy = None
-        self.round_factor_strategy = None
+        self.round_factor_strategy = points_strategy.strategy_2_1_point5_double()
         self.subject = URIRef(f"{self.tournament.subject.toPython()}/{self.name}") if not sub else sub
 
     def __hash__(self):
@@ -89,7 +99,7 @@ class Draw(model.GraphModel):
 
     def load_rounds(self):
         print(f"Load Draw: {self.name}")
-        self.rounds = round.Round.init_add_rds_for_for_draw(self)
+        self.rounds = round.Round.init_add_rds_for_draw(self)
         round.Round.add_match_state(self)
         return self
 
@@ -146,9 +156,7 @@ class Draw(model.GraphModel):
             echo.echo(f"Draw Finished: Winner {for_match.winner().player().name}")
             return self
         next_rd_match_number = self._next_rd_match_number(rd_id, mt_id)
-        # This is the next round
-        # rd_id is indexed from 1, so next rd in rounds list is the same number
-        return self.rounds[rd_id].add_winner_to_match(next_rd_match_number, for_match.winner())
+        return self.for_round(rd_id + 1).add_winner_to_match(next_rd_match_number, for_match.winner())
 
     def fantasy_points_schedule(self, rd_number):
         return self.points_strategy.calc_points_schedule(self.number_of_matches)

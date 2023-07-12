@@ -2217,6 +2217,15 @@ clo-te-ind-tou:Wimbledon a clo-te:Tournament ;
     clo-te:hasMatchNumber 3 ;
     clo-te:hasMatchUpPosition1 <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2023/MensSingles/Sinner> ;
     clo-te:hasMatchUpPosition2 <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2023/MensSingles/Safiullin> ;
+    clo-te:hasMatchWinner <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2023/MensSingles/Sinner> ;
+    clo-te:hasSetsScores1 <https://clojos.io/ontology/FantasyTennis/Score/1/6>,
+        <https://clojos.io/ontology/FantasyTennis/Score/2/3>,
+        <https://clojos.io/ontology/FantasyTennis/Score/3/6>,
+        <https://clojos.io/ontology/FantasyTennis/Score/4/6> ;
+    clo-te:hasSetsScores2 <https://clojos.io/ontology/FantasyTennis/Score/1/4>,
+        <https://clojos.io/ontology/FantasyTennis/Score/2/6>,
+        <https://clojos.io/ontology/FantasyTennis/Score/3/2>,
+        <https://clojos.io/ontology/FantasyTennis/Score/4/2> ;
     clo-te:isMatchInRound <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2023/MensSingles/Round/5> .
 
 <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2023/MensSingles/Round/5/Match/5.4> a clo-te:Match ;
@@ -2224,6 +2233,15 @@ clo-te-ind-tou:Wimbledon a clo-te:Tournament ;
     clo-te:hasMatchNumber 4 ;
     clo-te:hasMatchUpPosition1 <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2023/MensSingles/Rublev> ;
     clo-te:hasMatchUpPosition2 <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2023/MensSingles/Djokovic> ;
+    clo-te:hasMatchWinner <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2023/MensSingles/Djokovic> ;
+    clo-te:hasSetsScores1 <https://clojos.io/ontology/FantasyTennis/Score/1/6>,
+        <https://clojos.io/ontology/FantasyTennis/Score/2/1>,
+        <https://clojos.io/ontology/FantasyTennis/Score/3/4>,
+        <https://clojos.io/ontology/FantasyTennis/Score/4/3> ;
+    clo-te:hasSetsScores2 <https://clojos.io/ontology/FantasyTennis/Score/1/4>,
+        <https://clojos.io/ontology/FantasyTennis/Score/2/6>,
+        <https://clojos.io/ontology/FantasyTennis/Score/3/6>,
+        <https://clojos.io/ontology/FantasyTennis/Score/4/6> ;
     clo-te:isMatchInRound <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2023/MensSingles/Round/5> .
 
 <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2023/MensSingles/Round/6/Match/6.1> a clo-te:Match ;
@@ -2234,6 +2252,8 @@ clo-te-ind-tou:Wimbledon a clo-te:Tournament ;
 <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2023/MensSingles/Round/6/Match/6.2> a clo-te:Match ;
     clo-te:hasMatchId "6.2" ;
     clo-te:hasMatchNumber 2 ;
+    clo-te:hasMatchUpPosition1 <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2023/MensSingles/Sinner> ;
+    clo-te:hasMatchUpPosition2 <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2023/MensSingles/Djokovic> ;
     clo-te:isMatchInRound <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2023/MensSingles/Round/6> .
 
 <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2023/MensSingles/Round/7> a clo-te:DrawRound ;
@@ -4083,6 +4103,13 @@ clo-te-ind-tou:Wimbledon a clo-te:Tournament ;
     clo-te:hasMatchNumber 1 ;
     clo-te:hasMatchUpPosition1 <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2023/WomensSingles/Swiatek> ;
     clo-te:hasMatchUpPosition2 <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2023/WomensSingles/Svitolina> ;
+    clo-te:hasMatchWinner <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2023/WomensSingles/Svitolina> ;
+    clo-te:hasSetsScores1 <https://clojos.io/ontology/FantasyTennis/Score/1/5>,
+        <https://clojos.io/ontology/FantasyTennis/Score/2/7>,
+        <https://clojos.io/ontology/FantasyTennis/Score/3/2> ;
+    clo-te:hasSetsScores2 <https://clojos.io/ontology/FantasyTennis/Score/1/7>,
+        <https://clojos.io/ontology/FantasyTennis/Score/2/6>,
+        <https://clojos.io/ontology/FantasyTennis/Score/3/6> ;
     clo-te:isMatchInRound <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2023/WomensSingles/Round/5> .
 
 <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2023/WomensSingles/Round/5/Match/5.2> a clo-te:Match ;
@@ -4090,6 +4117,13 @@ clo-te-ind-tou:Wimbledon a clo-te:Tournament ;
     clo-te:hasMatchNumber 2 ;
     clo-te:hasMatchUpPosition1 <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2023/WomensSingles/Pegula> ;
     clo-te:hasMatchUpPosition2 <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2023/WomensSingles/Vondrousova> ;
+    clo-te:hasMatchWinner <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2023/WomensSingles/Vondrousova> ;
+    clo-te:hasSetsScores1 <https://clojos.io/ontology/FantasyTennis/Score/1/4>,
+        <https://clojos.io/ontology/FantasyTennis/Score/2/6>,
+        <https://clojos.io/ontology/FantasyTennis/Score/3/4> ;
+    clo-te:hasSetsScores2 <https://clojos.io/ontology/FantasyTennis/Score/1/6>,
+        <https://clojos.io/ontology/FantasyTennis/Score/2/2>,
+        <https://clojos.io/ontology/FantasyTennis/Score/3/6> ;
     clo-te:isMatchInRound <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2023/WomensSingles/Round/5> .
 
 <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2023/WomensSingles/Round/5/Match/5.3> a clo-te:Match ;
@@ -4109,6 +4143,8 @@ clo-te-ind-tou:Wimbledon a clo-te:Tournament ;
 <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2023/WomensSingles/Round/6/Match/6.1> a clo-te:Match ;
     clo-te:hasMatchId "6.1" ;
     clo-te:hasMatchNumber 1 ;
+    clo-te:hasMatchUpPosition1 <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2023/WomensSingles/Svitolina> ;
+    clo-te:hasMatchUpPosition2 <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2023/WomensSingles/Vondrousova> ;
     clo-te:isMatchInRound <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2023/WomensSingles/Round/6> .
 
 <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2023/WomensSingles/Round/6/Match/6.2> a clo-te:Match ;
@@ -5019,12 +5055,6 @@ clo-te-ind-tou:Wimbledon a clo-te:Tournament ;
     clo-te:isEnterForDraw <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2023/MensSingles> ;
     clo-te:isEntryForPlayer clo-te-ind-plr:Alcaraz .
 
-<https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2023/MensSingles/Djokovic> a clo-te:PlayerEntry ;
-    clo-te-plr:hasKlassName "Djokovic" ;
-    clo-te:hasSeed "2" ;
-    clo-te:isEnterForDraw <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2023/MensSingles> ;
-    clo-te:isEntryForPlayer clo-te-ind-plr:Djokovic .
-
 <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2023/MensSingles/Eubanks> a clo-te:PlayerEntry ;
     clo-te-plr:hasKlassName "Eubanks" ;
     clo-te:hasSeed "" ;
@@ -5054,12 +5084,6 @@ clo-te-ind-tou:Wimbledon a clo-te:Tournament ;
     clo-te:hasSeed "" ;
     clo-te:isEnterForDraw <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2023/MensSingles> ;
     clo-te:isEntryForPlayer clo-te-ind-plr:Safiullin .
-
-<https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2023/MensSingles/Sinner> a clo-te:PlayerEntry ;
-    clo-te-plr:hasKlassName "Sinner" ;
-    clo-te:hasSeed "8" ;
-    clo-te:isEnterForDraw <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2023/MensSingles> ;
-    clo-te:isEntryForPlayer clo-te-ind-plr:Sinner .
 
 <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2023/WomensSingles/Jabeur> a clo-te:PlayerEntry ;
     clo-te-plr:hasKlassName "Jabeur" ;
@@ -5091,17 +5115,29 @@ clo-te-ind-tou:Wimbledon a clo-te:Tournament ;
     clo-te:isEnterForDraw <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2023/WomensSingles> ;
     clo-te:isEntryForPlayer clo-te-ind-plr:Sabalenka .
 
-<https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2023/WomensSingles/Svitolina> a clo-te:PlayerEntry ;
-    clo-te-plr:hasKlassName "Svitolina" ;
-    clo-te:hasSeed "WC" ;
-    clo-te:isEnterForDraw <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2023/WomensSingles> ;
-    clo-te:isEntryForPlayer clo-te-ind-plr:Svitolina .
-
 <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2023/WomensSingles/Swiatek> a clo-te:PlayerEntry ;
     clo-te-plr:hasKlassName "Swiatek" ;
     clo-te:hasSeed "1" ;
     clo-te:isEnterForDraw <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2023/WomensSingles> ;
     clo-te:isEntryForPlayer clo-te-ind-plr:Swiatek .
+
+<https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2023/MensSingles/Djokovic> a clo-te:PlayerEntry ;
+    clo-te-plr:hasKlassName "Djokovic" ;
+    clo-te:hasSeed "2" ;
+    clo-te:isEnterForDraw <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2023/MensSingles> ;
+    clo-te:isEntryForPlayer clo-te-ind-plr:Djokovic .
+
+<https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2023/MensSingles/Sinner> a clo-te:PlayerEntry ;
+    clo-te-plr:hasKlassName "Sinner" ;
+    clo-te:hasSeed "8" ;
+    clo-te:isEnterForDraw <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2023/MensSingles> ;
+    clo-te:isEntryForPlayer clo-te-ind-plr:Sinner .
+
+<https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2023/WomensSingles/Svitolina> a clo-te:PlayerEntry ;
+    clo-te-plr:hasKlassName "Svitolina" ;
+    clo-te:hasSeed "WC" ;
+    clo-te:isEnterForDraw <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2023/WomensSingles> ;
+    clo-te:isEntryForPlayer clo-te-ind-plr:Svitolina .
 
 <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2023/WomensSingles/Vondrousova> a clo-te:PlayerEntry ;
     clo-te-plr:hasKlassName "Vondrousova" ;

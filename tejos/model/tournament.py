@@ -9,10 +9,11 @@ from tejos.util import fn
 class Tournament(model.GraphModel):
     repo = repository.TournamentRepo
     repo_graph = model.GraphModel.tournament_graph
-    repo_instance = None
 
     @classmethod
     def create(cls, name: str, subject_name: str, perma_id: str):
+        if cls.repo_instance:
+            cls.repo_instance = None
         tournie = cls(name, subject_name, perma_id)
         cls.repository().upsert(tournie)
         return tournie
@@ -43,7 +44,6 @@ class Tournament(model.GraphModel):
         self.subject_name = subject_name
         self.subject = rdf_prefix.clo_te_ind_tou[subject_name] if not sub else sub
         self.events = []
-        self.repo(self.__class__.tournament_graph()).upsert(self)
 
     def __hash__(self):
         return hash((self.subject,))

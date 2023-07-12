@@ -32,7 +32,7 @@ def _predicate_eq(term, triple: Tuple) -> bool:
     return triple[1] == term
 
 
-def object_collection(triple_collection: List[Tuple]):
+def all_objects(triple_collection: List[Tuple]):
     return [o for _, _, o in triple_collection]
 
 

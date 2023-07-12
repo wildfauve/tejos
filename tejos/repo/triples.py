@@ -2,7 +2,7 @@ from typing import Callable
 from rdflib import Graph
 from pathlib import Path
 
-from tejos import rdf
+from tejos import rdf, model
 from tejos.util import singleton
 
 DB_PLAYERS_LOCATION = (Path(__file__).parent.parent.parent / "data" / "db" / "players.ttl")
@@ -89,6 +89,7 @@ def reload():
 
 
 def drop():
+    model.GraphModel.clear_cache()
     RepoContext().db.drop()
 
 

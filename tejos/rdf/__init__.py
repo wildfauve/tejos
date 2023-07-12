@@ -18,6 +18,7 @@ from .rdf_prefix import (
 
 from .gn import (
     all_matching,
+    all_objects,
     gr,
     Grapher,
     query_match,

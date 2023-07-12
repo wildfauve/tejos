@@ -4,10 +4,10 @@ import re
 
 from tejos import model
 
-AustralianOpen = model.GrandSlam(name="Australian Open", subject_name="AustralianOpen", perma_id="ao")
-RolandGarros = model.GrandSlam(name="Roland Garros", subject_name="RolandGarros", perma_id="rg")
-Wimbledon = model.GrandSlam(name="Wimbledon", subject_name="Wimbledon", perma_id="wm")
-USOpen = model.GrandSlam(name="US Open", subject_name="UsOpen", perma_id="uo")
+# AustralianOpen = model.GrandSlam(name="Australian Open", subject_name="AustralianOpen", perma_id="ao")
+# RolandGarros = model.GrandSlam(name="Roland Garros", subject_name="RolandGarros", perma_id="rg")
+# Wimbledon = model.GrandSlam(name="Wimbledon", subject_name="Wimbledon", perma_id="wm")
+# USOpen = model.GrandSlam(name="US Open", subject_name="UsOpen", perma_id="uo")
 
 """
 Add every new tournament to this Dict.  This allows an individual tournament and its results to be loaded without having
