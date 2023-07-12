@@ -9,7 +9,7 @@ from tejos.fantasy import points_strategy
 from tejos.repo import repository
 
 from tejos.rdf import rdf_prefix
-from tejos.util import fn, error, echo
+from tejos.util import fn, error, echo, logger
 
 
 def find_draw(draw_name, draws):
@@ -108,7 +108,7 @@ class Draw(model.GraphModel):
         return self
 
     def load_rounds(self):
-        print(f"Load Draw: {self.name}")
+        logger.log(f"Load Draw: {self.name}")
         self.rounds = round.Round.init_add_rds_for_draw(self)
         round.Round.add_match_state(self)
         return self
@@ -149,7 +149,7 @@ class Draw(model.GraphModel):
             self.errors.append(er)
             echo.echo(er.message_fn(self.name))
             return self
-        print(f"Create First round for {self.name}")
+        logger.log(f"Create First round for {self.name}")
         [self._place_in_first_round(match_up) for match_up in match_ups]
         return self
 

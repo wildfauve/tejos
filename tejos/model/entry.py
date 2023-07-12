@@ -5,7 +5,7 @@ from rdflib import Graph, RDF, URIRef, Literal
 from tejos.rdf import rdf_prefix
 from tejos.model import player, model
 from tejos.repo import repository
-from tejos.util import fn, error
+from tejos.util import fn, error, logger
 
 
 class Entry(model.GraphModel):
@@ -34,7 +34,7 @@ class Entry(model.GraphModel):
                     seed=seed,
                     sub=sub)
         if entry not in cls.entry_cache:
-            print(f"Add to Cache: {klass_name}")
+            logger.log(f"Add to Cache: {klass_name}")
             cls.entry_cache.append(entry)
         return entry
 

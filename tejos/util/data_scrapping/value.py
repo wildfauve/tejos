@@ -5,7 +5,7 @@ import bs4
 
 from tejos.players import players
 from tejos import model
-from tejos.util import fn
+from tejos.util import fn, logger
 
 missing_file_name = '_temp/missing.py'
 
@@ -25,7 +25,7 @@ class Player:
         if not self.player_klass:
             with open('_temp/missing.py', 'a') as missing_file:
                 plyr_def = (f"{self.name} = Player('{self.name}', tour_symbol=TOUR, klass_name='{self.name}', alt_names=[])\n")
-                print(plyr_def)
+                logger.log(f"Cant find player: {plyr_def}")
                 missing_file.write(plyr_def)
 
     def player_entry_klass_name(self):

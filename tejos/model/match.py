@@ -6,7 +6,7 @@ from rdflib import URIRef
 
 from . import player, set, entry, draw, feature, model
 from tejos.presenter import console
-from tejos.util import fn, error, echo
+from tejos.util import fn, error, echo, logger
 from tejos import rdf
 from tejos.repo import repository
 
@@ -45,10 +45,8 @@ class Match(model.GraphModel):
                      draw=for_round.draw,
                      for_round=for_round,
                      sub=sub)
-            print(f"Returning Match: {mt}")
         else:
             mt = for_round.for_match(match_number)
-            print(f"Creating / Updating Match: {mt}")
         entries = entry.Entry.get_by_subs([pos1_sub, pos2_sub])
         if entries:
             mt.add_players(*entries)
@@ -215,7 +213,7 @@ class Match(model.GraphModel):
         self._init_scores(player1)
         self.player2 = player2
         self._init_scores(player2)
-        print(f"Add Players to {self.match_id}; 1: {player1.player()} 2: {player2.player()}")
+        logger.log(f"Add Players to {self.match_id}; 1: {player1.player()} 2: {player2.player()}")
         self.repository().add_players_to_match(self, (player1, player2))
         return self
 

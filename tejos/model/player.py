@@ -8,7 +8,7 @@ from tejos.players import atp_players, wta_players
 from tejos.rdf import rdf_prefix
 from tejos.util import tokeniser
 from tejos.repo import repository
-from tejos.util import monad, singleton
+from tejos.util import monad, singleton, logger
 
 from . import model
 
@@ -83,12 +83,12 @@ class Player(model.GraphModel):
     def load(cls, name: str = None, klass_name: str = None):
         cached_player = cls.cache_hit(name=name, klass_name=klass_name)
         if cached_player.is_right():
-            print(f"Player Cache Hit: {cached_player.value}")
+            logger.log(f"Player Cache Hit: {cached_player.value}")
             return cached_player.value
 
         plr = cls.cls_search(name=name, klass_name=klass_name, alt_name=name)
         if plr.is_left():
-            print(f"Player with Name {name} or klass_name {klass_name} not found")
+            logger.log(f"Player with Name {name} or klass_name {klass_name} not found")
             return None
         player = cls.build_player(plr.value)
         cls.player_cache().add_to_cache(player)

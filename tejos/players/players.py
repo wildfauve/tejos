@@ -1,7 +1,7 @@
 from functools import partial
 
 from tejos import model
-from tejos.util import fn
+from tejos.util import fn, logger
 
 from . import wta_players, atp_players
 
@@ -9,7 +9,7 @@ player_cache = {'atp_players': [], 'wta_players': []}
 
 
 def search_player_by_name(name, player_module):
-    print(f"finding...{name}")
+    logger.log(f"finding...{name}")
     result = list(fn.select(partial(_player_finder, name), _player_cache(player_module)))
     if len(result) == 1:
         return result[0]

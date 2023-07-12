@@ -5,6 +5,8 @@ from bs4 import BeautifulSoup
 import argparse
 import string
 
+from tejos.util import logger
+
 rankings = [('https://nytimes.stats.com/tennis/rankings.asp?tour=ATP&rank=3', 'ATP', '/tennis/players.asp?tour=ATP&id='),
             ('https://nytimes.stats.com/tennis/rankings.asp?tour=WTA&rank=3', 'WTA', '/tennis/players.asp?tour=WTA&id=')]
 
@@ -33,7 +35,7 @@ def _display_dups(players):
     dups = {f"Duplicate: {dup} occurances: {klass_names.count(dup)}" for dup in klass_names if
             klass_names.count(dup) > 1}
     for dup in dups:
-        print(dup)
+        logger.log(f"Duplicate: {dup}")
     return players
 
 
