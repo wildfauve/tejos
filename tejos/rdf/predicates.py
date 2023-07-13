@@ -9,6 +9,11 @@ hasTourDesignation = clo_te_plr.hasTourDesignation
 hasAlternateName = clo_te_plr.hasAltName
 hasKlassName = clo_te_plr.hasKlassName
 
+# Fantasy
+hasTeamMembers = clo_te_fan.hasTeamMembers
+hasFantasyDraw = clo_te_fan.hasFantasyDraw
+hasFeature = clo_te_fan.hasFeature
+
 # Tournaments
 isInYear = clo_te.isInYear
 hasSubjectName = clo_te.hasSubjectName

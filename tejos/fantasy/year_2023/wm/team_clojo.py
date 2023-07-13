@@ -1,5 +1,5 @@
 import sys
-from tejos.fantasy.teams import *
+from tejos import model
 from tejos.fantasy import helpers
 from tejos.players import atp_players as men, wta_players as women
 from tejos.players.wta_players import *
@@ -13,10 +13,14 @@ TEAM.draw(mens_singles, '3.16').matchup(1, men.Wawrinka, 2, men.Djokovic).select
 
 this = sys.modules[__name__]
 
-TEAM = TeamClojo
+TEAM = None
+
+def team():
+    this.TEAM = model.Team.get('Clojos')
 
 
 def team_clojo(mens_singles, womens_singles):
+    team()
     helpers.selection_fn_caller(this, [mens_singles, womens_singles])
     return TEAM
 

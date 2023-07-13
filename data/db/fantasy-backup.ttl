@@ -1,0 +1,40 @@
+@prefix clo-te-fan: <https://clojos.io/ontology/FantasyTennis/Fantasy/> .
+@prefix clo-te-ind-fan: <https://clojos.io/ontology/FantasyTennis/Ind/Fantasy/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+clo-te-ind-fan:BearNecessities a clo-te-fan:Team ;
+    skos:notation "Bear Necessities" ;
+    clo-te-fan:hasTeamMembers "Fraser, Tom, Frank, Spencer, Duck" .
+
+clo-te-ind-fan:Clojos a clo-te-fan:Team ;
+    skos:notation "Clojos" ;
+    clo-te-fan:hasFeature "PlayerNumberSelector" ;
+    clo-te-fan:hasTeamMembers "Claudie, Fyodoro" .
+
+clo-te-ind-fan:Fauve a clo-te-fan:Team ;
+    skos:notation "Fauve" ;
+    clo-te-fan:hasFeature "PlayerNumberSelector" ;
+    clo-te-fan:hasTeamMembers "Perky, Jacque, Albert" .
+
+clo-te-ind-fan:GelatoGiants a clo-te-fan:Team ;
+    skos:notation "Gelato Giants" ;
+    clo-te-fan:hasTeamMembers "Bronzie, Juki" .
+
+clo-te-ind-fan:HeroHangouts a clo-te-fan:Team ;
+    skos:notation "Hero Hangouts" ;
+    clo-te-fan:hasTeamMembers "Marmalade, Richmond, Greenwich" .
+
+clo-te-ind-fan:LightHouse a clo-te-fan:Team ;
+    skos:notation "LightHouse" ;
+    clo-te-fan:hasFeature "PlayerNumberSelector" ;
+    clo-te-fan:hasTeamMembers "Edouard, Piri, Jack, Tom, Islay, Pinky, Purpley, Florance, Fennel" .
+
+clo-te-ind-fan:MusicalBears a clo-te-fan:Team ;
+    skos:notation "Musical Bears" ;
+    clo-te-fan:hasFeature "PlayerNumberSelector" ;
+    clo-te-fan:hasTeamMembers "Rinksy, Beetie, Motzie" .
+
+clo-te-ind-fan:PolarPrecision a clo-te-fan:Team ;
+    skos:notation "Polar Precision" ;
+    clo-te-fan:hasTeamMembers "IceT, Pepsi, Rollie, Lemmie, Gertie" .
+

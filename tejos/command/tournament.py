@@ -83,7 +83,6 @@ def first_round_draw(tournament, year, draw_name, in_file):
             first_rd.append((int(match), pl1, pl2))
 
     draw.first_round_draw(first_rd)
-    breakpoint()
     return monad.Right(draw)
 
 
@@ -94,7 +93,6 @@ def results(tournament, year, round_number, scores_only):
     rd_results = model.results(event=event,
                                for_round=round_number,
                                scores_only=scores_only)
-    breakpoint()
     return monad.Right(event)
 
 

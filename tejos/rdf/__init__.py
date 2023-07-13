@@ -9,12 +9,7 @@ from .binding import (
     bind
 )
 
-from .rdf_prefix import (
-    clo_te,
-    clo_te_ind,
-    clo_te_ind_plr,
-    foaf
-)
+from .rdf_prefix import *
 
 from .gn import (
     all_matching,

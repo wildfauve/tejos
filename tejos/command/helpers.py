@@ -1,9 +1,9 @@
-from typing import Tuple
+from typing import Tuple, List
 
 from tejos import repo, model
 
-def save(val: Tuple = None) -> Tuple:
-    repo.save()
+def save(graph_names: List = None, val: Tuple = None) -> Tuple:
+    repo.save(graph_names)
     return val
 
 

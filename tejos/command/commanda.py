@@ -1,3 +1,4 @@
+from typing import List
 from . import helpers
 
 
@@ -22,13 +23,13 @@ def runner():
     return CommandRunner()
 
 
-def command():
+def command(graph_names: List = []):
     def inner(fn):
         def try_it(*args, **kwargs):
             result = fn(*args, **kwargs)
             opts = kwargs.get('opts', dict())
             if result and result.is_right() and not opts.get('in_runner', None):
-                helpers.save()
+                helpers.save(graph_names=graph_names)
             return result
 
         return try_it

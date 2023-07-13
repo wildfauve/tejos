@@ -6,6 +6,10 @@ class GraphModel2:
     def tournament_graph(cls):
         return repo.tournament_graph()
 
+    @classmethod
+    def fantasy_graph(cls):
+        return repo.fantasy_graph()
+
     def new(self, repository, graph):
         self.repository = repository
         self.graph = graph

@@ -4177,6 +4177,11 @@ clo-te-ind-tou:Wimbledon a clo-te:Tournament ;
     clo-te:hasMatchNumber 1 ;
     clo-te:hasMatchUpPosition1 <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2023/WomensSingles/Svitolina> ;
     clo-te:hasMatchUpPosition2 <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2023/WomensSingles/Vondrousova> ;
+    clo-te:hasMatchWinner <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2023/WomensSingles/Vondrousova> ;
+    clo-te:hasSetsScores1 <https://clojos.io/ontology/FantasyTennis/Score/1/3>,
+        <https://clojos.io/ontology/FantasyTennis/Score/2/3> ;
+    clo-te:hasSetsScores2 <https://clojos.io/ontology/FantasyTennis/Score/1/6>,
+        <https://clojos.io/ontology/FantasyTennis/Score/2/6> ;
     clo-te:isMatchInRound <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2023/WomensSingles/Round/6> .
 
 <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2023/WomensSingles/Round/6/Match/6.2> a clo-te:Match ;
@@ -4184,6 +4189,13 @@ clo-te-ind-tou:Wimbledon a clo-te:Tournament ;
     clo-te:hasMatchNumber 2 ;
     clo-te:hasMatchUpPosition1 <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2023/WomensSingles/Jabeur> ;
     clo-te:hasMatchUpPosition2 <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2023/WomensSingles/Sabalenka> ;
+    clo-te:hasMatchWinner <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2023/WomensSingles/Jabeur> ;
+    clo-te:hasSetsScores1 <https://clojos.io/ontology/FantasyTennis/Score/1/6>,
+        <https://clojos.io/ontology/FantasyTennis/Score/2/6>,
+        <https://clojos.io/ontology/FantasyTennis/Score/3/6> ;
+    clo-te:hasSetsScores2 <https://clojos.io/ontology/FantasyTennis/Score/1/7>,
+        <https://clojos.io/ontology/FantasyTennis/Score/2/4>,
+        <https://clojos.io/ontology/FantasyTennis/Score/3/3> ;
     clo-te:isMatchInRound <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2023/WomensSingles/Round/6> .
 
 <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2023/WomensSingles/Round/7> a clo-te:DrawRound ;
@@ -4196,6 +4208,8 @@ clo-te-ind-tou:Wimbledon a clo-te:Tournament ;
 <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2023/WomensSingles/Round/7/Match/7.1> a clo-te:Match ;
     clo-te:hasMatchId "7.1" ;
     clo-te:hasMatchNumber 1 ;
+    clo-te:hasMatchUpPosition1 <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2023/WomensSingles/Vondrousova> ;
+    clo-te:hasMatchUpPosition2 <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2023/WomensSingles/Jabeur> ;
     clo-te:isMatchInRound <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2023/WomensSingles/Round/7> .
 
 <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2023/WomensSingles/Sakkari> a clo-te:PlayerEntry ;
@@ -5155,12 +5169,6 @@ clo-te-ind-tou:Wimbledon a clo-te:Tournament ;
     clo-te:isEnterForDraw <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2023/MensSingles> ;
     clo-te:isEntryForPlayer clo-te-ind-plr:Sinner .
 
-<https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2023/WomensSingles/Jabeur> a clo-te:PlayerEntry ;
-    clo-te-plr:hasKlassName "Jabeur" ;
-    clo-te:hasSeed "6" ;
-    clo-te:isEnterForDraw <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2023/WomensSingles> ;
-    clo-te:isEntryForPlayer clo-te-ind-plr:Jabeur .
-
 <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2023/WomensSingles/Sabalenka> a clo-te:PlayerEntry ;
     clo-te-plr:hasKlassName "Sabalenka" ;
     clo-te:hasSeed "2" ;
@@ -5172,6 +5180,12 @@ clo-te-ind-tou:Wimbledon a clo-te:Tournament ;
     clo-te:hasSeed "WC" ;
     clo-te:isEnterForDraw <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2023/WomensSingles> ;
     clo-te:isEntryForPlayer clo-te-ind-plr:Svitolina .
+
+<https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2023/WomensSingles/Jabeur> a clo-te:PlayerEntry ;
+    clo-te-plr:hasKlassName "Jabeur" ;
+    clo-te:hasSeed "6" ;
+    clo-te:isEnterForDraw <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2023/WomensSingles> ;
+    clo-te:isEntryForPlayer clo-te-ind-plr:Jabeur .
 
 <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2023/WomensSingles/Vondrousova> a clo-te:PlayerEntry ;
     clo-te-plr:hasKlassName "Vondrousova" ;

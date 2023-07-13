@@ -15,7 +15,6 @@ def results(event: model.tournament_event.TournamentEvent,
 
 def _add_results(draws):
     results = [_match_result(draw, match_blocks) for draw, match_blocks in draws.items()]
-    breakpoint()
     return results
 
 

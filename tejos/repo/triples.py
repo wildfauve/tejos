@@ -1,4 +1,4 @@
-from typing import Callable
+from typing import Callable, List
 from rdflib import Graph
 from pathlib import Path
 
@@ -6,6 +6,7 @@ from tejos import rdf, model
 from tejos.util import singleton
 
 DB_PLAYERS_LOCATION = (Path(__file__).parent.parent.parent / "data" / "db" / "players.ttl")
+DB_FANTASY_LOCATION = (Path(__file__).parent.parent.parent / "data" / "db" / "fantasy.ttl")
 DB_LOCATION = (Path(__file__).parent.parent.parent / "data" / "db" / "tejos.ttl")
 
 
@@ -16,32 +17,44 @@ class Db:
                  ttl_writer: Callable):
         self.tournament_graph = None
         self.players_graph = None
+        self.fantasy_graph = None
         self.in_memory = None
         self.init_empty_graph_fn = empty_graph_fn
         self.ttl_writer = ttl_writer
 
     def drop(self):
-        self.ttl_writer(self.init_empty_graph_fn(), file=self.persist_location())
+        if RepoContext().triples_location.exists():
+            self.ttl_writer(self.init_empty_graph_fn(), file=RepoContext().triples_location)
+        if RepoContext().fantasy_triples_location.exists():
+            self.ttl_writer(self.init_empty_graph_fn(), file=RepoContext().fantasy_triples_location)
         return self
 
     def load(self):
         if RepoContext().triples_location.exists():
-            players_g = self.init_empty_graph_fn().parse(RepoContext().players_triples_location)
-            g = self.init_empty_graph_fn().parse(RepoContext().triples_location)
-        else:
+            self.tournament_graph = self.init_empty_graph_fn().parse(RepoContext().triples_location)
+        if RepoContext().players_triples_location.exists():
+            self.players_graph = self.init_empty_graph_fn().parse(RepoContext().players_triples_location)
+        if RepoContext().fantasy_triples_location.exists():
+            self.fantasy_graph = self.init_empty_graph_fn().parse(RepoContext().fantasy_triples_location)
+        if (not RepoContext().triples_location.exists() and
+                RepoContext().players_triples_location.exists() and
+                RepoContext().fantasy_triples_location.exists()):
             players_g = self.init_empty_graph_fn()
             g = self.init_empty_graph_fn()
             self.in_memory = True
-        self.tournament_graph = g
-        self.players_graph = players_g
+            breakpoint()
         return self
 
-    def save(self):
-        self.ttl_writer(self.tournament_graph, file=self.persist_location())
+    def save(self, graph_names: List = None):
+        save_args = self.persist_location_args(graph_names)
+        for g, loc in save_args:
+            self.ttl_writer(g, file=loc)
         return self
 
-    def persist_location(self):
-        return RepoContext().triples_location
+    def persist_location_args(self, locations=None):
+        if not locations:
+            return [(self.tournament_graph, RepoContext().triples_location)]
+        return [(getattr(self, f"{loc}_graph"), getattr(RepoContext(), f"{loc}_triples_location")) for loc in locations]
 
     def init_empty_graph(self) -> Graph:
         return self.init_empty_graph_fn()
@@ -50,14 +63,18 @@ class Db:
 class RepoContext(singleton.Singleton):
 
     def configure(self, triples_location: Path = DB_LOCATION,
-                  players_triples_location: Path = DB_PLAYERS_LOCATION) -> None:
+                  players_triples_location: Path = DB_PLAYERS_LOCATION,
+                  fantasy_triples_location: Path = DB_FANTASY_LOCATION) -> None:
         if not self.already_configured():
             self.triples_location = triples_location
             self.players_triples_location = players_triples_location
+            self.fantasy_triples_location = fantasy_triples_location
         pass
 
     def already_configured(self):
-        return hasattr(self, 'triples_location') and hasattr(self, 'players_triples_location')
+        return (hasattr(self, 'triples_location') and
+                hasattr(self, 'players_triples_location') and
+                hasattr(self, 'fantasy_triples_location'))
 
     def db_ctx(self, db: Db):
         self.db = db
@@ -80,8 +97,12 @@ def players_graph():
     return RepoContext().db.players_graph
 
 
-def save():
-    return RepoContext().db.save()
+def fantasy_graph():
+    return RepoContext().db.fantasy_graph
+
+
+def save(graph_names: List = None):
+    return RepoContext().db.save(graph_names)
 
 
 def reload():

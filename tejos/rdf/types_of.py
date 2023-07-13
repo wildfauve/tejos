@@ -1,5 +1,7 @@
 from .rdf_prefix import *
 
+TEAM = clo_te_fan.Team
+
 PLAYER = clo_te.Player
 
 TOURNAMENT = clo_te.Tournament

@@ -31,7 +31,7 @@ def leaderboard(tournament, year, round, to_discord):
 @click.option("--tournament", "-t", type=click.Choice(helpers.tournament_names()), )
 @click.option("--year", "-y", type=int)
 @click.option("--fantasy-team-name", "-f",
-              type=click.Choice(teams.symbolised_names()),
+              type=click.Choice(helpers.symbolised_names()),
               help="team name to explain points")
 @click.option("--round_number", "-r", type=int, default=None, help="Leaderboard for specific round")
 def show_draw(tournament, fantasy_team_name, round_number):
@@ -84,7 +84,7 @@ def result_template(tournament, round_number, draw, template_name):
               default='py',
               help="PY or CSV")
 @click.option("--trim-team", "-m",
-              type=click.Choice(teams.symbolised_names()),
+              type=click.Choice(helpers.symbolised_names()),
               help="Team to trim the score template by, when team has already made selection.",
               required=False)
 @click.option('--file', '-f', required=False)
@@ -117,7 +117,7 @@ def fantasy_score_template_inserter(tournament, year, round, fmt):
 @click.option("--tournament", "-t", type=click.Choice(helpers.tournament_names()), )
 @click.option("--year", "-y", type=int)
 @click.option("--fantasy-team-name", "-f",
-              type=click.Choice(teams.symbolised_names()),
+              type=click.Choice(helpers.symbolised_names()),
               help="team name to explain points")
 @click.option("--to-discord", "channel", required=False, flag_value="to-discord", default=False,
               help="Post the plot to Discord")
@@ -161,6 +161,16 @@ def plot(file, tournament, year, ranking_plot, channel, round):
     presenter.plot_to_channel(file, channel)
     pass
 
+@click.option("--name", "-n", type=str)
+@click.option("--members", "-m")
+@click.option("--features", "-f")
+@click.command()
+def create_team(name, members, features):
+    """
+    Generate a Ranking Graph
+    """
+    command.create_team(name=name, members=members.split(","), features=features.split(",") if features else [])
+
 
 cli.add_command(leaderboard)
 cli.add_command(show_round)
@@ -171,3 +181,4 @@ cli.add_command(plot)
 cli.add_command(fantasy_score_template)
 cli.add_command(fantasy_score_template_inserter)
 cli.add_command(points_atomic)
+cli.add_command(create_team)

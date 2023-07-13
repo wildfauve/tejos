@@ -12,9 +12,13 @@ clo_te_ind = Namespace(__clo_ind_ns)
 
 clo_te_plr = Namespace(f"{__clo_te_ns}Player/")
 
+clo_te_fan = Namespace(f"{__clo_te_ns}Fantasy/")
+
 clo_te_ind_plr = Namespace(f"{__clo_ind_ns}Player/")
 
 clo_te_ind_tou = Namespace(f"{__clo_ind_ns}Tournament/")
+
+clo_te_ind_fan = Namespace(f"{__clo_ind_ns}Fantasy/")
 
 foaf = Namespace("http://xmlns.com/foaf/0.1/")
 

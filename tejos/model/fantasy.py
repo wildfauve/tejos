@@ -1,3 +1,4 @@
+from __future__ import annotations
 from typing import List
 from enum import Enum
 from functools import partial
@@ -6,22 +7,47 @@ from rdflib import Graph, URIRef
 
 from rich.table import Table
 
-# from tejos.model.draw import Draw
 from tejos.model.player import Player, MatchPlayerNumber
 from tejos.model.entry import Entry
-from tejos.model import feature
-from tejos.rdf import rdf_prefix
+from tejos import model, rdf
+from tejos.repo import repository
 
-from tejos.util import fn, identity
+from tejos.util import fn, identity, singleton
 
 
 class Team:
-    def __init__(self, name, members, features=None):
+    repo = model.GraphModel2().new(repository.TeamRepo, model.GraphModel2.fantasy_graph)
+
+    @classmethod
+    def create(cls, name: str, members: str, features: List[model.FantasyFeature] = None):
+        team = cls(name, members, features)
+        cls.repo().upsert(team)
+        return team
+
+    @classmethod
+    def get(cls, name):
+        team = cls.repo().find_by_name(name)
+        if not team:
+            return None
+        name, members, features, sub = team
+        return cls(name=name, members=members, features=[model.FantasyFeature[feat] for feat in features])
+
+    @classmethod
+    def get_all(cls):
+        return [cls.to_team(team) for team in cls.repo().get_all()]
+
+    @classmethod
+    def to_team(cls, team):
+        name, members, features, sub = team
+        return cls(name=name, members=members, features=[model.FantasyFeature[feat] for feat in features])
+
+
+    def __init__(self, name, members, features=None, sub: URIRef = None):
         self.name = name
         self.symbolic_name = name.replace(" ", "")
         self.members = members
         self.fantasy_draws = []
-        self.subject = URIRef(f"https://fauve.io/fantasyTeam/{self.symbolic_name}")
+        self.subject = rdf.clo_te_ind_fan[self.symbolic_name] if not sub else sub
         self.result_file_name = name.lower().replace(" ", "_")
         self.features = features if features else []
 
@@ -121,7 +147,7 @@ class FantasyDraw:
             self._add_selection(selection, rd_id, mt_id)
         return selection
 
-    def features(self, feats: List[feature.FantasyFeature]):
+    def features(self, feats: List[model.FantasyFeature]):
         self.fantasy_features = feats
         return self
 
@@ -229,3 +255,18 @@ class Selection:
 
     def __repr__(self):
         return f"{self.__class__.__name__}(match_id='{self.match.match_id}', winner={self.selected_winner}, in_number_sets={self.in_number_sets})"
+
+
+class TeamDirectory(singleton.Singleton):
+
+    def add_teams(self, teams):
+        self.teams = teams
+
+    def symbolic_names(self):
+        return [team.symbolic_name for team in self.teams]
+
+
+def teams():
+    all_teams = model.Team.get_all()
+    TeamDirectory().add_teams(all_teams)
+    return TeamDirectory()

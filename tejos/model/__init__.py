@@ -21,7 +21,8 @@ from .tournament_event import (
 )
 
 from .fantasy import (
-    Selection
+    Selection,
+    Team
 )
 
 from .match import (
@@ -36,3 +37,5 @@ from .results_value import (
     MatchBlock,
     PlayerResult
 )
+
+from .feature import FantasyFeature

@@ -1,5 +1,6 @@
 from .triples import (
     drop,
+    fantasy_graph,
     init,
     initgraph,
     players_graph,

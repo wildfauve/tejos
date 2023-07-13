@@ -19,6 +19,13 @@ def leaderboard_df(tournament, year, round_number=None) -> pl.DataFrame:
     return leaderboard.current_leaderboard(event, _apply_fantasy(event), round_number)
 
 
+@commanda.command(graph_names=['fantasy'])
+def create_team(name, members, features):
+    team = model.Team.create(name=name,
+                             members=", ".join(members),
+                             features=[model.FantasyFeature[feat] for feat in features])
+    return monad.Right(team)
+
 def show_round(tournament, draw_name, round_number):
     event = tournament.for_year(year, load=True)
 
