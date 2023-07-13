@@ -28,7 +28,7 @@ def team_gelato_giants(mens_singles, womens_singles):
 
 # womens_singles_round_6:START
 def womens_singles_round_6(womens_singles):
-    TEAM.draw(womens_singles).match('6.1').winner(women.Vondrousova).in_sets(3)  # ( WC) Svitolina  OR  (   ) Marketa Vondrousova
+    TEAM.draw(womens_singles).match('6.1').winner(women.Svitolina).in_sets(3)  # ( WC) Svitolina  OR  (   ) Marketa Vondrousova
     TEAM.draw(womens_singles).match('6.2').winner(women.Jabeur).in_sets(3)  # (  6) Ons Jabeur  OR  (  2) Aryna Sabalenka
 # womens_singles_round_6:END
 
