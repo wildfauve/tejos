@@ -31,15 +31,15 @@ def team_fauve(mens_singles, womens_singles):
 
 # womens_singles_round_6:START
 def womens_singles_round_6(womens_singles):
-    TEAM.draw(womens_singles, '6.1').matchup(1, women.Svitolina, 2, women.Vondrousova).select()  # ( WC) Svitolina  OR  (   ) Marketa Vondrousova
-    TEAM.draw(womens_singles, '6.2').matchup(1, women.Jabeur, 2, women.Sabalenka).select()  # (  6) Ons Jabeur  OR  (  2) Aryna Sabalenka
+    TEAM.draw(womens_singles, '6.1').matchup(1, women.Svitolina, 2, women.Vondrousova).select(2, 3)  # ( WC) Svitolina  OR  (   ) Marketa Vondrousova
+    TEAM.draw(womens_singles, '6.2').matchup(1, women.Jabeur, 2, women.Sabalenka).select(1, 2)  # (  6) Ons Jabeur  OR  (  2) Aryna Sabalenka
 # womens_singles_round_6:END
 
 
 # mens_singles_round_6:START
 def mens_singles_round_6(mens_singles):
-    TEAM.draw(mens_singles, '6.1').matchup(1, men.Alcaraz, 2, men.Medvedev).select()  # (  1) Carlos Alcaraz  OR  (  3) Daniil Medvedev
-    TEAM.draw(mens_singles, '6.2').matchup(1, men.Sinner, 2, men.Djokovic).select()  # (  8) Jannik Sinner  OR  (  2) Novak Djokovic
+    TEAM.draw(mens_singles, '6.1').matchup(1, men.Alcaraz, 2, men.Medvedev).select(1, 4)  # (  1) Carlos Alcaraz  OR  (  3) Daniil Medvedev
+    TEAM.draw(mens_singles, '6.2').matchup(1, men.Sinner, 2, men.Djokovic).select(2, 5)  # (  8) Jannik Sinner  OR  (  2) Novak Djokovic
 # mens_singles_round_6:END
 
 
