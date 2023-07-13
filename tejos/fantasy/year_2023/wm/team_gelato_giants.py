@@ -28,15 +28,15 @@ def team_gelato_giants(mens_singles, womens_singles):
 
 # womens_singles_round_6:START
 def womens_singles_round_6(womens_singles):
-    TEAM.draw(womens_singles).match('6.1').winner(women).in_sets()  # ( WC) Svitolina  OR  (   ) Marketa Vondrousova
-    TEAM.draw(womens_singles).match('6.2').winner(women).in_sets()  # (  6) Ons Jabeur  OR  (  2) Aryna Sabalenka
+    TEAM.draw(womens_singles).match('6.1').winner(women.Vondrousova).in_sets(3)  # ( WC) Svitolina  OR  (   ) Marketa Vondrousova
+    TEAM.draw(womens_singles).match('6.2').winner(women.Jabeur).in_sets(3)  # (  6) Ons Jabeur  OR  (  2) Aryna Sabalenka
 # womens_singles_round_6:END
 
 
 # mens_singles_round_6:START
 def mens_singles_round_6(mens_singles):
-    TEAM.draw(mens_singles).match('6.1').winner(men).in_sets()  # (  1) Carlos Alcaraz  OR  (  3) Daniil Medvedev
-    TEAM.draw(mens_singles).match('6.2').winner(men).in_sets()  # (  8) Jannik Sinner  OR  (  2) Novak Djokovic
+    TEAM.draw(mens_singles).match('6.1').winner(men.Medvedev).in_sets(4)  # (  1) Carlos Alcaraz  OR  (  3) Daniil Medvedev
+    TEAM.draw(mens_singles).match('6.2').winner(men.Sinner).in_sets(4)  # (  8) Jannik Sinner  OR  (  2) Novak Djokovic
 # mens_singles_round_6:END
 
 
