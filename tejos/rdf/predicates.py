@@ -13,6 +13,10 @@ hasKlassName = clo_te_plr.hasKlassName
 hasTeamMembers = clo_te_fan.hasTeamMembers
 hasFantasyDraw = clo_te_fan.hasFantasyDraw
 hasFeature = clo_te_fan.hasFeature
+isSelectionForMatch = clo_te_fan.isSelectionForMatch
+hasSelectedWinner = clo_te_fan.hasSelectedWinner
+hasSelectedSets = clo_te_fan.hasSelectedSets
+
 
 # Tournaments
 isInYear = clo_te.isInYear

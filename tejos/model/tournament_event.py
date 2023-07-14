@@ -59,7 +59,8 @@ class TournamentEvent(model.GraphModel):
     def __init__(self, event_of, year, name: str = None, sub: URIRef = None):
         self.is_event_of = event_of if isinstance(event_of, model.GrandSlam) else self.tournament_by_sub(event_of)
         self.scheduled_in_year = year
-        self.subject = rdf_prefix.clo_te_ind_tou[self.is_event_of.subject_name] + f"/{self.scheduled_in_year}" if not sub else sub
+        self.relative_subject = f"{self.is_event_of.subject_name}/{self.scheduled_in_year}"
+        self.subject = rdf_prefix.clo_te_ind_tou[self.relative_subject] if not sub else sub
         self.name = f"{self.is_event_of.subject_name}{self.scheduled_in_year}" if not name else name
         self.label = f"{self.is_event_of.name} {self.scheduled_in_year}"
         self.draws = []

@@ -19,13 +19,17 @@ def single_result_or_none(result: SPARQLResult) -> Optional[ResultRow]:
 def many(result: SPARQLResult) -> List[ResultRow]:
     return list(result)
 
-def subject_finder_creator(g: Graph, sub_uri: URIRef, type_of: URIRef, creater_fn: Callable):
+def subject_finder_creator(g: Graph,
+                           sub_uri: URIRef,
+                           type_of: URIRef,
+                           creater_fn: Callable,
+                           update_fn: Callable = fn.identity):
     s, _, rdf_type = first_match(g, (sub_uri, RDF.type, type_of))
     match (s, rdf_type):
         case (None, None):
             return creater_fn(g, sub_uri)
         case _:
-            return sub_uri
+            return update_fn(sub_uri)
 
 
 def _predicate_eq(term, triple: Tuple) -> bool:

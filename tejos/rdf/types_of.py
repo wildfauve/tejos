@@ -19,3 +19,5 @@ MATCH = clo_te.Match
 SCORE = clo_te.Score
 
 FANTASY_POINTS_STRATEGY = clo_te.FantasyPointsStrategy
+
+SELECTION = clo_te_fan.MatchSelection

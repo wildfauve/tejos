@@ -52,7 +52,6 @@ class Team:
         self.features = features if features else []
 
     def draw(self, for_draw, match_id: str = None):
-        # print(f"Team: {self.name} Draw: {for_draw.name}")
         fantasy = self._find_fantasy_draw(for_draw)
         if not fantasy:
             fantasy = FantasyDraw(for_draw, self)
@@ -73,8 +72,8 @@ class Team:
         """
         There are only ever 2 draws (mens and womens).  Get the total points for each match in the round in both draws.
         """
-        d1, d2 = [fantasy_draw.points_per_round(up_to_rd) for fantasy_draw in self.fantasy_draws]
-        return [sum(t) for t in zip(d1, d2)]
+        pts = [fantasy_draw.points_per_round(up_to_rd) for fantasy_draw in self.fantasy_draws]
+        return [sum(t) for t in zip(*pts)]
 
     def total_points(self, for_round=None):
         return sum([fantasy_draw.total_points(for_round) for fantasy_draw in self.fantasy_draws])
@@ -143,7 +142,7 @@ class FantasyDraw:
         rd_id, mt_id = identity.split_match_id(match_id)
         selection = self._find_match_selection(rd_id, mt_id)
         if not selection:
-            selection = Selection(self.draw, rd_id, mt_id)
+            selection = Selection(self.draw, self, rd_id, mt_id)
             self._add_selection(selection, rd_id, mt_id)
         return selection
 
@@ -165,14 +164,26 @@ class FantasyDraw:
 
 
 class Selection:
-    def __init__(self, draw, round_id, match_id):
+    repo = model.GraphModel2().new(repository.SelectionRepo, model.GraphModel2.fantasy_graph)
+
+    @classmethod
+    def upsert(cls, self):
+        cls.repo().upsert(self)
+        return self
+
+
+
+    def __init__(self, draw, fantasy_draw, round_id, match_id, sub: URIRef = None):
         self.round_id = round_id
         self.match = self._find_match(draw, round_id, match_id)
         self.selected_winner = None
         self.selected_player_number = None
+        self.fantasy_draw = fantasy_draw
         self.in_number_sets = None
         self.points_strategy = draw.points_strategy
-        self.per_round_accum_strategy = draw.round_factor_strategy
+        self.relative_subject = draw.relative_subject + f"/{self.fantasy_draw.team.name}/{round_id}/{match_id}"
+        self.subject = rdf.clo_te_ind_fan[self.relative_subject] if not sub else sub
+        # self.per_round_accum_strategy = draw.round_factor_strategy
 
     def matchup(self, pos1, player1, pos2, player2):
         if not player1 or not player2:
@@ -217,7 +228,7 @@ class Selection:
     def _find_match(self, draw, round_id, match_id):
         return draw.for_round(round_id).for_match(match_id)
 
-    def winner(self, player_name=None):
+    def winner(self, player_name=None, in_sets: int = None):
         if not player_name:
             return self
         if (not isinstance(player_name, Player)) and (not isinstance(player_name, str)):
@@ -230,6 +241,9 @@ class Selection:
                 breakpoint()
         if not isinstance(self.selected_winner, Entry):
             breakpoint()
+        if in_sets:
+            self.in_number_sets = in_sets
+        self.__class__.upsert(self)
         return self
 
     def in_sets(self, number_of_sets=None):
