@@ -2,7 +2,6 @@ from typing import List, Union
 from functools import partial
 from rdflib import Graph, RDF, URIRef, Literal
 
-from tejos.rdf import rdf_prefix
 from tejos.model import player, model
 from tejos.repo import repository
 from tejos.util import fn, error, logger
@@ -83,6 +82,13 @@ def find_player_by_name(player_name, players):
     pl = fn.find(partial(_player_name_predicate, player_name), players)
     if not pl:
         raise error.ConfigException(f"Player with name {player_name} not found")
+    return pl
+
+
+def find_player_by_sub(player_sub, players):
+    pl = fn.find(lambda plr: plr.subject == player_sub, players)
+    if not pl:
+        raise error.ConfigException(f"Player with sub {player_sub} not found")
     return pl
 
 

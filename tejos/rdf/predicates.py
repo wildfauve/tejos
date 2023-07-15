@@ -16,6 +16,7 @@ hasFeature = clo_te_fan.hasFeature
 isSelectionForMatch = clo_te_fan.isSelectionForMatch
 hasSelectedWinner = clo_te_fan.hasSelectedWinner
 hasSelectedSets = clo_te_fan.hasSelectedSets
+isSelectionForTeam = clo_te_fan.isSelectionForTeam
 
 
 # Tournaments

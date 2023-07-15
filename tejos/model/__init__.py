@@ -20,12 +20,17 @@ from .tournament_event import (
     TournamentEvent
 )
 
+from .entry import (
+    Entry
+)
+
 from .fantasy import (
     Selection,
     Team
 )
 
 from .match import (
+    Match,
     MatchState
 )
 

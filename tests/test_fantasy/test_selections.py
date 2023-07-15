@@ -2,7 +2,7 @@ from tejos import model
 from tejos.players import atp_players
 
 
-def test_create_selection(configure_repo):
+def test_create_selection_using_python_api(configure_repo):
     team = create_team()
 
     wm2023 = make_event()
@@ -17,6 +17,38 @@ def test_create_selection(configure_repo):
 
     assert selection1_2.selected_winner.player() == atp_players.Rublev
     assert selection1_2.in_number_sets == 4
+
+
+def test_create_selection_using_python_dict(configure_repo):
+    team = create_team()
+    wm2023 = make_event()
+
+    selection = team.make_selection(selection_dict(wm2023))
+
+    assert selection.selected_winner.player() == atp_players.Alcaraz
+    assert selection.in_number_sets == 3
+
+
+def test_get_team_selections(configure_repo):
+    team = create_team()
+    wm2023 = make_event()
+    team.make_selection(selection_dict(wm2023))
+
+    same_team = model.Team.get("Team One")
+
+    assert same_team == team
+    assert not same_team.fantasy_draws
+    selections = same_team.load_all_selections(wm2023)
+    assert len(same_team.fantasy_draws) == 1
+
+
+    assert len(selections) == 1
+    selection = selections[0]
+    assert selection.selected_winner.player() == atp_players.Alcaraz
+    assert selection.in_number_sets == 3
+
+
+
 
 
 def test_update_selection(configure_repo):
@@ -36,6 +68,19 @@ def test_update_selection(configure_repo):
     assert selection.in_number_sets == 4
 
 
+# Helpers
+
+def selection_dict(event):
+    matchup = {1: 'Alcaraz', 2: 'Tsitsipas'}
+
+    return {'event': event,
+            'draw': "MensSingles",
+            'match': '1.1',
+            'matchup': matchup,
+            'winner': 'Alcaraz',
+            'in_sets': 3}
+
+
 def make_event():
     wm2023 = create_event()
 
@@ -47,7 +92,7 @@ def make_event():
 
 
 def create_team():
-    return model.Team.create("t1", "a, b, c")
+    return model.Team.create("Team One", "a, b, c")
 
 
 def entries():

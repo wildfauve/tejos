@@ -36,6 +36,7 @@ class Match(model.GraphModel):
         matches = cls.repository().get_all_for_round(round_sub)
         return [cls.to_match(for_round, match, update_match) for match in matches]
 
+
     @classmethod
     def to_match(cls, for_round, match, update_match=True):
         sub, _match_sub, _match_id, match_number, pos1_sub, pos2_sub, winner, scores1, scores2 = match
@@ -55,6 +56,12 @@ class Match(model.GraphModel):
         if scores2:
             mt.load_score(position2_subject_sets=scores2)
         return mt
+
+    @classmethod
+    def decompose_match_subject(cls, match_sub):
+        draw_name, _, for_round, _, match_id = match_sub.split("/")[-5:]
+        return (draw_name, int(for_round), int(match_id.split(".")[-1]))
+
 
     def __init__(self,
                  round_id,
@@ -185,6 +192,15 @@ class Match(model.GraphModel):
                 return err
             raise err
         return entry.find_player_by_name(player_name, [self.player1, self.player2])
+
+    def player_from_player_subject(self, player_sub, raise_error: bool = True):
+        if not self.has_draw():
+            err = error.ConfigException("No draw has been set for match")
+            if not raise_error:
+                return err
+            raise err
+        return entry.find_player_by_sub(player_sub, [self.player1, self.player2])
+
 
     def add_player(self, player_to_add: entry.Entry):
         if self.player1 and self.player2:

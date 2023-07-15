@@ -1,18 +1,17 @@
 from __future__ import annotations
-from typing import List
-from enum import Enum
+from typing import List, Dict, Union
+
 from functools import partial
+from itertools import groupby
 
 from rdflib import Graph, URIRef
 
 from rich.table import Table
 
-from tejos.model.player import Player, MatchPlayerNumber
-from tejos.model.entry import Entry
 from tejos import model, rdf
 from tejos.repo import repository
 
-from tejos.util import fn, identity, singleton
+from tejos.util import fn, error, identity, singleton
 
 
 class Team:
@@ -41,7 +40,6 @@ class Team:
         name, members, features, sub = team
         return cls(name=name, members=members, features=[model.FantasyFeature[feat] for feat in features])
 
-
     def __init__(self, name, members, features=None, sub: URIRef = None):
         self.name = name
         self.symbolic_name = name.replace(" ", "")
@@ -50,6 +48,25 @@ class Team:
         self.subject = rdf.clo_te_ind_fan[self.symbolic_name] if not sub else sub
         self.result_file_name = name.lower().replace(" ", "_")
         self.features = features if features else []
+
+    def load_all_selections(self, event):
+        selections = Selection.get_all_for_team(self, event)
+        [self.add_draw_selections(draw, sels) for draw, sels in groupby(selections, lambda sel: sel.draw)]
+        return selections
+
+    def add_draw_selections(self, for_draw: model.Draw, sels):
+        selections_for_draw = list(sels)
+        fan_draw = self.draw(for_draw)
+        fan_draw.add_selections(selections_for_draw)
+        return self
+
+    def make_selection(self, selection: Dict):
+        for_draw = model.Draw.get(selection['event'], selection['draw'])
+        if not for_draw:
+            breakpoint()
+        draw = self.draw(for_draw)
+        plr = model.Player.load(klass_name=selection['winner'])
+        return draw.match(selection['match']).winner(player_klass_or_name=plr, in_sets=selection['in_sets'])
 
     def draw(self, for_draw, match_id: str = None):
         fantasy = self._find_fantasy_draw(for_draw)
@@ -112,6 +129,10 @@ class FantasyDraw:
                 for mt_id, selection in matches.items():
                     selection.show(self.draw.name, table)
 
+    def add_selections(self, selections: List[Selection]):
+        self.match_selections = selections
+        return self
+
     def points_per_round(self, up_to_rd: int = None):
         return [self._sum_round_points(round_selections) for round_selections in
                 self._selected_filtered_by_rd(up_to_rd)]
@@ -142,7 +163,7 @@ class FantasyDraw:
         rd_id, mt_id = identity.split_match_id(match_id)
         selection = self._find_match_selection(rd_id, mt_id)
         if not selection:
-            selection = Selection(self.draw, self, rd_id, mt_id)
+            selection = Selection(draw=self.draw, fantasy_draw=self, round_id=rd_id, match_id=mt_id)
             self._add_selection(selection, rd_id, mt_id)
         return selection
 
@@ -171,18 +192,39 @@ class Selection:
         cls.repo().upsert(self)
         return self
 
+    @classmethod
+    def get_all_for_team(cls, team: Team, event: model.TournamentEvent):
+        return [cls.to_selection(team, event, sel) for sel in cls.repo().get_all_for_team(team.subject)]
 
+    @classmethod
+    def to_selection(cls, team, event, selection):
+        sel_sub, match_sub, winner_entry_sub, in_num_sets, pts_strat = selection
+        draw_name, for_round, match_id = model.Match.decompose_match_subject(match_sub)
+        sel = cls(draw=event.for_draw(draw_name),
+                  round_id=for_round,
+                  match_id=match_id,
+                  team=team,
+                  sub=sel_sub)
+        return sel.winner(winner_entry_sub, in_sets=in_num_sets)
 
-    def __init__(self, draw, fantasy_draw, round_id, match_id, sub: URIRef = None):
+    def __init__(self, draw, round_id, match_id, team: Team = None, fantasy_draw=None, sub: URIRef = None):
         self.round_id = round_id
         self.match = self._find_match(draw, round_id, match_id)
         self.selected_winner = None
         self.selected_player_number = None
-        self.fantasy_draw = fantasy_draw
+        self.draw = draw
+        if fantasy_draw and not sub:
+            self.fantasy_draw = fantasy_draw
+            self.relative_subject = draw.relative_subject + f"/{self.fantasy_draw.team.symbolic_name}/{round_id}/{match_id}"
+            self.subject = rdf.clo_te_ind_fan[self.relative_subject] if not sub else sub
+            self.team_subject = self.fantasy_draw.team.subject
+        elif not fantasy_draw and (sub and team):
+            self.team_subject = team.subject
+            self.subject = sub
+        else:
+            breakpoint()
         self.in_number_sets = None
         self.points_strategy = draw.points_strategy
-        self.relative_subject = draw.relative_subject + f"/{self.fantasy_draw.team.name}/{round_id}/{match_id}"
-        self.subject = rdf.clo_te_ind_fan[self.relative_subject] if not sub else sub
         # self.per_round_accum_strategy = draw.round_factor_strategy
 
     def matchup(self, pos1, player1, pos2, player2):
@@ -228,23 +270,30 @@ class Selection:
     def _find_match(self, draw, round_id, match_id):
         return draw.for_round(round_id).for_match(match_id)
 
-    def winner(self, player_name=None, in_sets: int = None):
-        if not player_name:
+    # def _find_match_by_match_sub(self, match_sub):
+    #     return draw.for_round(round_id).for_match(match_id)
+
+    def winner(self, player_klass_or_name=None, player_klass_name: str = None, in_sets: int = None):
+        if not player_klass_or_name:
             return self
-        if (not isinstance(player_name, Player)) and (not isinstance(player_name, str)):
+        if (not isinstance(player_klass_or_name, model.Player)) and (not isinstance(player_klass_or_name, str)):
             return self
-        if isinstance(player_name, Player):
-            self.selected_winner = self.match.find_player_by_player(player_name, raise_error=False)
-        else:
-            self.selected_winner = self.match.player_from_player_name(player_name, raise_error=False)
-            if not self.selected_winner:
-                breakpoint()
-        if not isinstance(self.selected_winner, Entry):
+        self.selected_winner = self.get_entry_by_player_or_name_or_sub(player_klass_or_name)
+        if not self.selected_winner or not isinstance(self.selected_winner, model.Entry):
             breakpoint()
         if in_sets:
             self.in_number_sets = in_sets
         self.__class__.upsert(self)
         return self
+
+    def get_entry_by_player_or_name_or_sub(self,
+                                           player: Union[str, model.Player, URIRef]) -> Union[model.Entry, error.ConfigException]:
+        if isinstance(player, URIRef):
+            return self.match.player_from_player_subject(player, raise_error=False)
+        if isinstance(player, model.Player):
+            return self.match.find_player_by_player(player, raise_error=False)
+        if isinstance(player, str):
+            return self.match.player_from_player_name(player, raise_error=False)
 
     def in_sets(self, number_of_sets=None):
         if not number_of_sets:
@@ -255,8 +304,8 @@ class Selection:
     def select(self, player_number=None, in_sets=None):
         if not player_number or not in_sets:
             return self
-        winner_number = MatchPlayerNumber(player_number)
-        if winner_number == MatchPlayerNumber.PLAYER1:
+        winner_number = model.MatchPlayerNumber(player_number)
+        if winner_number == model.MatchPlayerNumber.PLAYER1:
             self.winner(self.match.player1.player())
         else:
             self.winner(self.match.player2.player())
