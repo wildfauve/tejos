@@ -1,4 +1,7 @@
+from pathlib import Path
+
 from tejos import model
+
 from tejos.players import atp_players
 
 
@@ -29,6 +32,20 @@ def test_create_selection_using_python_dict(configure_repo):
     assert selection.in_number_sets == 3
 
 
+def test_create_selection_from_selection_file(configure_repo):
+    team = create_team()
+    wm2023 = make_event()
+
+    assert not team.fantasy_draws
+
+    team.apply_new_selections(wm2023, 1, Path("tests/fixtures/"))
+
+    selection = team.fantasy_draws[0].match("1.1")
+
+    assert selection.selected_winner.player() == atp_players.Alcaraz
+    assert selection.in_number_sets == 3
+
+
 def test_load_team_selections(configure_repo):
     team = create_team()
     wm2023 = make_event()
@@ -41,14 +58,13 @@ def test_load_team_selections(configure_repo):
     selections = same_team.load_all_selections(wm2023)
     assert len(same_team.fantasy_draws) == 1
 
-
     assert len(selections) == 1
     selection = selections[0]
     assert selection.selected_winner.player() == atp_players.Alcaraz
     assert selection.in_number_sets == 3
 
-
-
+    in_fantasy_draw_selection = same_team.fantasy_draws[0].match_selections[1][1]
+    assert in_fantasy_draw_selection == selection
 
 
 def test_update_selection(configure_repo):

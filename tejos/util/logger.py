@@ -24,6 +24,9 @@ def log(entry, log_type: LogType = LogType.INFO):
         print(entry)
 
 
+def debug(entry):
+    log(entry, LogType.DEBUG)
+
 def with_perf_log(perf_log_type: str = None, name: str = None):
     """
     Decorator which wraps the fn in a timer and writes a performance log

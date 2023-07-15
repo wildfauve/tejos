@@ -1,8 +1,9 @@
 from __future__ import annotations
 from typing import List, Dict, Union
-
 from functools import partial
 from itertools import groupby
+import json
+from pathlib import Path
 
 from rdflib import Graph, URIRef
 
@@ -11,7 +12,7 @@ from rich.table import Table
 from tejos import model, rdf
 from tejos.repo import repository
 
-from tejos.util import fn, error, identity, singleton
+from tejos.util import fn, error, identity, singleton, logger
 
 
 class Team:
@@ -49,6 +50,40 @@ class Team:
         self.result_file_name = name.lower().replace(" ", "_")
         self.features = features if features else []
 
+    def apply_new_selections(self, event: model.TournamentEvent, for_round: int, load_directory: str):
+        """
+            return {'event': event,
+            'draw': "MensSingles",
+            'match': '1.1',
+            'matchup': matchup,
+            'winner': 'Alcaraz',
+            'in_sets': 3}
+
+        :return:
+        """
+        load_file = Path(load_directory) / f"{self.symbolic_name.lower()}_selections.json"
+        if not load_file.exists():
+            logger.debug(f"{load_file} does not exist")
+            return self
+        with open(load_file, 'r') as selections_file:
+            selections = json.loads(selections_file.read())
+            for draw_name, rounds in selections.items():
+                for round_number, matchups in rounds.items():
+                    if int(round_number) == for_round:
+                        for mt, matchup in matchups.items():
+                            self.make_selection(self.make_match_up_dict(event, draw_name, round_number, mt, matchup))
+                    else:
+                        logger.debug(f"{self.name} selection not processed for round {round_number}")
+
+    def make_match_up_dict(self, event, draw_name, rd_num, mt_num, matchup):
+        return {
+            'event': event,
+            'draw': draw_name,
+            'match': f"{rd_num}.{mt_num}",
+            'winner': matchup['winner'],
+            'in_sets': matchup['in_sets']
+        }
+
     def load_all_selections(self, event):
         selections = Selection.get_all_for_team(self, event)
         [self.add_draw_selections(draw, sels) for draw, sels in groupby(selections, lambda sel: sel.draw)]
@@ -57,7 +92,7 @@ class Team:
     def add_draw_selections(self, for_draw: model.Draw, sels):
         selections_for_draw = list(sels)
         fan_draw = self.draw(for_draw)
-        fan_draw.add_selections(selections_for_draw)
+        fan_draw.load_selections(selections_for_draw)
         return self
 
     def make_selection(self, selection: Dict):
@@ -129,8 +164,8 @@ class FantasyDraw:
                 for mt_id, selection in matches.items():
                     selection.show(self.draw.name, table)
 
-    def add_selections(self, selections: List[Selection]):
-        self.match_selections = selections
+    def load_selections(self, selections: List[Selection]):
+        [self._add_selection(selection, selection.round_id, selection.match.number) for selection in selections]
         return self
 
     def points_per_round(self, up_to_rd: int = None):
@@ -287,7 +322,8 @@ class Selection:
         return self
 
     def get_entry_by_player_or_name_or_sub(self,
-                                           player: Union[str, model.Player, URIRef]) -> Union[model.Entry, error.ConfigException]:
+                                           player: Union[str, model.Player, URIRef]) -> Union[
+        model.Entry, error.ConfigException]:
         if isinstance(player, URIRef):
             return self.match.player_from_player_subject(player, raise_error=False)
         if isinstance(player, model.Player):
@@ -328,8 +364,16 @@ class TeamDirectory(singleton.Singleton):
     def symbolic_names(self):
         return [team.symbolic_name for team in self.teams]
 
+    def load_all_selections(self, event):
+        [team.load_all_selections(event) for team in self.teams]
+        return self
+
 
 def teams():
     all_teams = model.Team.get_all()
     TeamDirectory().add_teams(all_teams)
     return TeamDirectory()
+
+
+def load_all_selections(event):
+    return TeamDirectory().load_all_selections(event)

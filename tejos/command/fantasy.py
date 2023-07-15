@@ -26,6 +26,14 @@ def create_team(name, members, features):
                              features=[model.FantasyFeature[feat] for feat in features])
     return monad.Right(team)
 
+@commanda.command(graph_names=['fantasy'])
+def load_selections(tournament, year):
+    event = tournament.for_year(year, load=True)
+    for team in _apply_fantasy(event):
+        team.apply_new_selections(event, 7, _fantasy_file_location(event))
+
+    return monad.Right(event)
+
 def show_round(tournament, draw_name, round_number):
     event = tournament.for_year(year, load=True)
 
@@ -144,19 +152,30 @@ def _start(tournie):
 
 
 def _apply_fantasy(event):
-    mens_singles = event.for_draw('MensSingles')
-    womens_singles = event.for_draw('WomensSingles')
-    fantasy_module = _fantasy_module(event)
+    directory = model.fantasy.load_all_selections(event)
 
-    if not fantasy_module:
-        echo.echo(f"No fantasy selections for {event.name}")
-        return
+    return directory.teams
 
+
+    # mens_singles = event.for_draw('MensSingles')
+    # womens_singles = event.for_draw('WomensSingles')
+    # fantasy_module = _fantasy_module(event)
+    #
+    # breakpoint()
+    #
+    # if not fantasy_module:
+    #     echo.echo(f"No fantasy selections for {event.name}")
+    #     return
+    #
     return selections.apply(fantasy_module, mens_singles, womens_singles)
 
 
-def _fantasy_module(tournie):
-    return fantasy.fantasy_tournaments.get(tournie.name, None)
+def _fantasy_module(event):
+    return fantasy.fantasy_tournaments.get(event.name, None)
+
+
+def _fantasy_file_location(event):
+    return _fantasy_module(event).__file__.replace("__init__.py", "")
 
 
 def _tournament_module(tournie):

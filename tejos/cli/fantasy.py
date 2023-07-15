@@ -99,6 +99,13 @@ def fantasy_score_template(tournament, round, fmt, trim_team, file):
 @click.command()
 @click.option("--tournament", "-t", type=click.Choice(helpers.tournament_names()), )
 @click.option("--year", "-y", type=int)
+def load_selections(tournament, year):
+    command.load_selections(helpers.to_tournament(tournament), year)
+    pass
+
+@click.command()
+@click.option("--tournament", "-t", type=click.Choice(helpers.tournament_names()), )
+@click.option("--year", "-y", type=int)
 @click.option("--round", "-r", type=int, default=1, help="The round number to show.")
 @click.option("--fmt", "-f",
               type=click.Choice(['py', 'csv']),
@@ -182,3 +189,4 @@ cli.add_command(fantasy_score_template)
 cli.add_command(fantasy_score_template_inserter)
 cli.add_command(points_atomic)
 cli.add_command(create_team)
+cli.add_command(load_selections)
