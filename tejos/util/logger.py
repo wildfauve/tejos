@@ -9,15 +9,18 @@ import time
 class LogType(Enum):
     PERF_LOG = "perflog"
     DEBUG = "debug"
+    INFO = "info"
 
 
-LOGGING_ON = False
-PERF_LOGGING_ON = True
+logging_switch = {
+    LogType.PERF_LOG: True,
+    LogType.DEBUG: True,
+    LogType.INFO: False
+}
 
 
-def log(entry, log_type: LogType = None):
-    if (LOGGING_ON and (not log_type or log_type == LogType.DEBUG) or (
-            PERF_LOGGING_ON and log_type == LogType.PERF_LOG)):
+def log(entry, log_type: LogType = LogType.INFO):
+    if logging_switch[log_type]:
         print(entry)
 
 

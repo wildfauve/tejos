@@ -29,7 +29,7 @@ def test_create_selection_using_python_dict(configure_repo):
     assert selection.in_number_sets == 3
 
 
-def test_get_team_selections(configure_repo):
+def test_load_team_selections(configure_repo):
     team = create_team()
     wm2023 = make_event()
     team.make_selection(selection_dict(wm2023))
