@@ -4,7 +4,7 @@ import math
 from rdflib import URIRef, Graph, RDF, Literal
 
 from . import round, match
-from tejos.model import tournament_event, player, entry, errors, model
+from tejos.model import tournament_event, player, entry, errors, base
 from tejos.fantasy import points_strategy
 from tejos.repo import repository
 
@@ -36,9 +36,9 @@ def _draw_cls_predicate(draw_cls, draw):
     return isinstance(draw, draw_cls)
 
 
-class Draw(model.GraphModel):
+class Draw(base.GraphModel):
     repo = repository.DrawRepo
-    repo_graph = model.GraphModel.tournament_graph
+    repo_graph = base.GraphModel.tournament_graph
     repo_instance = None
 
     @classmethod

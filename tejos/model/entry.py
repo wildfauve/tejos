@@ -2,14 +2,14 @@ from typing import List, Union
 from functools import partial
 from rdflib import Graph, RDF, URIRef, Literal
 
-from tejos.model import player, model
+from tejos.model import player, base
 from tejos.repo import repository
 from tejos.util import fn, error, logger
 
 
-class Entry(model.GraphModel):
+class Entry(base.GraphModel):
     repo = repository.EntryRepo
-    repo_graph = model.GraphModel.tournament_graph
+    repo_graph = base.GraphModel.tournament_graph
     repo_instance = None
     entry_cache = []
 

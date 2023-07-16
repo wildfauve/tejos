@@ -22,13 +22,13 @@ def team_bear_necessities(mens_singles, womens_singles):
 
 # womens_singles_round_7:START
 def womens_singles_round_7(womens_singles):
-    TEAM.draw(womens_singles).match('7.1').winner(women).in_sets()  # (   ) Marketa Vondrousova  OR  (  6) Ons Jabeur
+    TEAM.draw(womens_singles).match('7.1').winner(women.Jabeur, in_sets=3)  # (   ) Marketa Vondrousova  OR  (  6) Ons Jabeur
 # womens_singles_round_7:END
 
 
 # mens_singles_round_7:START
 def mens_singles_round_7(mens_singles):
-    TEAM.draw(mens_singles).match('7.1').winner(men).in_sets()  # (  1) Carlos Alcaraz  OR  (  2) Novak Djokovic
+    TEAM.draw(mens_singles).match('7.1').winner(men.Alcaraz, in_sets=5)  # (  1) Carlos Alcaraz  OR  (  2) Novak Djokovic
 # mens_singles_round_7:END
 
 # womens_singles_round_6:START

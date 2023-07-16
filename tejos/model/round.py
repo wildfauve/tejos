@@ -7,16 +7,16 @@ from rich import box
 
 from rdflib import URIRef
 
-from tejos.model import match, entry, model
+from tejos.model import match, entry, base
 from tejos.repo import repository
 from tejos.util import fn, error
 
 console = Console()
 
 
-class Round(model.GraphModel):
+class Round(base.GraphModel):
     repo = repository.RoundRepo
-    repo_graph = model.GraphModel.tournament_graph
+    repo_graph = base.GraphModel.tournament_graph
     repo_instance = None
 
     @classmethod

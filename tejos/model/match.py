@@ -4,7 +4,7 @@ from enum import Enum
 
 from rdflib import URIRef
 
-from . import player, set, entry, draw, feature, model
+from . import player, set, entry, draw, feature, base
 from tejos.presenter import console
 from tejos.util import fn, error, echo, logger
 from tejos import rdf
@@ -20,9 +20,9 @@ def split_match_id(match_id):
     return [int(ident) for ident in match_id.split(".")]
 
 
-class Match(model.GraphModel):
+class Match(base.GraphModel):
     repo = repository.MatchRepo
-    repo_graph = model.GraphModel.tournament_graph
+    repo_graph = base.GraphModel.tournament_graph
     repo_instance = None
 
     @classmethod

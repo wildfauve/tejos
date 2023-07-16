@@ -161,13 +161,11 @@ def _apply_fantasy(event):
     # womens_singles = event.for_draw('WomensSingles')
     # fantasy_module = _fantasy_module(event)
     #
-    # breakpoint()
-    #
     # if not fantasy_module:
     #     echo.echo(f"No fantasy selections for {event.name}")
     #     return
     #
-    return selections.apply(fantasy_module, mens_singles, womens_singles)
+    # return selections.apply(fantasy_module, mens_singles, womens_singles)
 
 
 def _fantasy_module(event):

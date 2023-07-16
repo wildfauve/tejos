@@ -879,6 +879,13 @@
     clo-te-fan:isSelectionForTeam clo-te-ind-fan:BearNecessities ;
     clo-te:hasFantasyPointsStrategy <https://clojos.io/ontology/FantasyTennis/FantasyPointsStrategy/WinNumSetsLossMaxSets/Points21Half/DoublePerRound> .
 
+<https://clojos.io/ontology/FantasyTennis/Ind/Fantasy/Wimbledon/2023/MensSingles/BearNecessities/7/1> a clo-te-fan:MatchSelection ;
+    clo-te-fan:hasSelectedSets 5 ;
+    clo-te-fan:hasSelectedWinner <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2023/MensSingles/Alcaraz> ;
+    clo-te-fan:isSelectionForMatch <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2023/MensSingles/Round/7/Match/7.1> ;
+    clo-te-fan:isSelectionForTeam clo-te-ind-fan:BearNecessities ;
+    clo-te:hasFantasyPointsStrategy <https://clojos.io/ontology/FantasyTennis/FantasyPointsStrategy/WinNumSetsLossMaxSets/Points21Half/DoublePerRound> .
+
 <https://clojos.io/ontology/FantasyTennis/Ind/Fantasy/Wimbledon/2023/MensSingles/Clojos/1/1> a clo-te-fan:MatchSelection ;
     clo-te-fan:hasSelectedSets "None" ;
     clo-te-fan:hasSelectedWinner <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2023/MensSingles/Alcaraz> ;
@@ -1751,6 +1758,13 @@
     clo-te-fan:hasSelectedSets "None" ;
     clo-te-fan:hasSelectedWinner <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2023/MensSingles/Sinner> ;
     clo-te-fan:isSelectionForMatch <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2023/MensSingles/Round/6/Match/6.2> ;
+    clo-te-fan:isSelectionForTeam clo-te-ind-fan:Clojos ;
+    clo-te:hasFantasyPointsStrategy <https://clojos.io/ontology/FantasyTennis/FantasyPointsStrategy/WinNumSetsLossMaxSets/Points21Half/DoublePerRound> .
+
+<https://clojos.io/ontology/FantasyTennis/Ind/Fantasy/Wimbledon/2023/MensSingles/Clojos/7/1> a clo-te-fan:MatchSelection ;
+    clo-te-fan:hasSelectedSets 4 ;
+    clo-te-fan:hasSelectedWinner <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2023/MensSingles/Djokovic> ;
+    clo-te-fan:isSelectionForMatch <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2023/MensSingles/Round/7/Match/7.1> ;
     clo-te-fan:isSelectionForTeam clo-te-ind-fan:Clojos ;
     clo-te:hasFantasyPointsStrategy <https://clojos.io/ontology/FantasyTennis/FantasyPointsStrategy/WinNumSetsLossMaxSets/Points21Half/DoublePerRound> .
 
@@ -2629,6 +2643,13 @@
     clo-te-fan:isSelectionForTeam clo-te-ind-fan:Fauve ;
     clo-te:hasFantasyPointsStrategy <https://clojos.io/ontology/FantasyTennis/FantasyPointsStrategy/WinNumSetsLossMaxSets/Points21Half/DoublePerRound> .
 
+<https://clojos.io/ontology/FantasyTennis/Ind/Fantasy/Wimbledon/2023/MensSingles/Fauve/7/1> a clo-te-fan:MatchSelection ;
+    clo-te-fan:hasSelectedSets 5 ;
+    clo-te-fan:hasSelectedWinner <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2023/MensSingles/Alcaraz> ;
+    clo-te-fan:isSelectionForMatch <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2023/MensSingles/Round/7/Match/7.1> ;
+    clo-te-fan:isSelectionForTeam clo-te-ind-fan:Fauve ;
+    clo-te:hasFantasyPointsStrategy <https://clojos.io/ontology/FantasyTennis/FantasyPointsStrategy/WinNumSetsLossMaxSets/Points21Half/DoublePerRound> .
+
 <https://clojos.io/ontology/FantasyTennis/Ind/Fantasy/Wimbledon/2023/MensSingles/GelatoGiants/1/1> a clo-te-fan:MatchSelection ;
     clo-te-fan:hasSelectedSets "None" ;
     clo-te-fan:hasSelectedWinner <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2023/MensSingles/Alcaraz> ;
@@ -3501,6 +3522,13 @@
     clo-te-fan:hasSelectedSets "None" ;
     clo-te-fan:hasSelectedWinner <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2023/MensSingles/Sinner> ;
     clo-te-fan:isSelectionForMatch <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2023/MensSingles/Round/6/Match/6.2> ;
+    clo-te-fan:isSelectionForTeam clo-te-ind-fan:GelatoGiants ;
+    clo-te:hasFantasyPointsStrategy <https://clojos.io/ontology/FantasyTennis/FantasyPointsStrategy/WinNumSetsLossMaxSets/Points21Half/DoublePerRound> .
+
+<https://clojos.io/ontology/FantasyTennis/Ind/Fantasy/Wimbledon/2023/MensSingles/GelatoGiants/7/1> a clo-te-fan:MatchSelection ;
+    clo-te-fan:hasSelectedSets 4 ;
+    clo-te-fan:hasSelectedWinner <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2023/MensSingles/Alcaraz> ;
+    clo-te-fan:isSelectionForMatch <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2023/MensSingles/Round/7/Match/7.1> ;
     clo-te-fan:isSelectionForTeam clo-te-ind-fan:GelatoGiants ;
     clo-te:hasFantasyPointsStrategy <https://clojos.io/ontology/FantasyTennis/FantasyPointsStrategy/WinNumSetsLossMaxSets/Points21Half/DoublePerRound> .
 
@@ -4379,6 +4407,13 @@
     clo-te-fan:isSelectionForTeam clo-te-ind-fan:HeroHangouts ;
     clo-te:hasFantasyPointsStrategy <https://clojos.io/ontology/FantasyTennis/FantasyPointsStrategy/WinNumSetsLossMaxSets/Points21Half/DoublePerRound> .
 
+<https://clojos.io/ontology/FantasyTennis/Ind/Fantasy/Wimbledon/2023/MensSingles/HeroHangouts/7/1> a clo-te-fan:MatchSelection ;
+    clo-te-fan:hasSelectedSets 5 ;
+    clo-te-fan:hasSelectedWinner <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2023/MensSingles/Djokovic> ;
+    clo-te-fan:isSelectionForMatch <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2023/MensSingles/Round/7/Match/7.1> ;
+    clo-te-fan:isSelectionForTeam clo-te-ind-fan:HeroHangouts ;
+    clo-te:hasFantasyPointsStrategy <https://clojos.io/ontology/FantasyTennis/FantasyPointsStrategy/WinNumSetsLossMaxSets/Points21Half/DoublePerRound> .
+
 <https://clojos.io/ontology/FantasyTennis/Ind/Fantasy/Wimbledon/2023/MensSingles/LightHouse/1/1> a clo-te-fan:MatchSelection ;
     clo-te-fan:hasSelectedSets "None" ;
     clo-te-fan:hasSelectedWinner <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2023/MensSingles/Alcaraz> ;
@@ -5251,6 +5286,13 @@
     clo-te-fan:hasSelectedSets "None" ;
     clo-te-fan:hasSelectedWinner <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2023/MensSingles/Sinner> ;
     clo-te-fan:isSelectionForMatch <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2023/MensSingles/Round/6/Match/6.2> ;
+    clo-te-fan:isSelectionForTeam clo-te-ind-fan:LightHouse ;
+    clo-te:hasFantasyPointsStrategy <https://clojos.io/ontology/FantasyTennis/FantasyPointsStrategy/WinNumSetsLossMaxSets/Points21Half/DoublePerRound> .
+
+<https://clojos.io/ontology/FantasyTennis/Ind/Fantasy/Wimbledon/2023/MensSingles/LightHouse/7/1> a clo-te-fan:MatchSelection ;
+    clo-te-fan:hasSelectedSets 4 ;
+    clo-te-fan:hasSelectedWinner <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2023/MensSingles/Alcaraz> ;
+    clo-te-fan:isSelectionForMatch <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2023/MensSingles/Round/7/Match/7.1> ;
     clo-te-fan:isSelectionForTeam clo-te-ind-fan:LightHouse ;
     clo-te:hasFantasyPointsStrategy <https://clojos.io/ontology/FantasyTennis/FantasyPointsStrategy/WinNumSetsLossMaxSets/Points21Half/DoublePerRound> .
 
@@ -6129,6 +6171,13 @@
     clo-te-fan:isSelectionForTeam clo-te-ind-fan:MusicalBears ;
     clo-te:hasFantasyPointsStrategy <https://clojos.io/ontology/FantasyTennis/FantasyPointsStrategy/WinNumSetsLossMaxSets/Points21Half/DoublePerRound> .
 
+<https://clojos.io/ontology/FantasyTennis/Ind/Fantasy/Wimbledon/2023/MensSingles/MusicalBears/7/1> a clo-te-fan:MatchSelection ;
+    clo-te-fan:hasSelectedSets 5 ;
+    clo-te-fan:hasSelectedWinner <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2023/MensSingles/Djokovic> ;
+    clo-te-fan:isSelectionForMatch <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2023/MensSingles/Round/7/Match/7.1> ;
+    clo-te-fan:isSelectionForTeam clo-te-ind-fan:MusicalBears ;
+    clo-te:hasFantasyPointsStrategy <https://clojos.io/ontology/FantasyTennis/FantasyPointsStrategy/WinNumSetsLossMaxSets/Points21Half/DoublePerRound> .
+
 <https://clojos.io/ontology/FantasyTennis/Ind/Fantasy/Wimbledon/2023/MensSingles/PolarPrecision/1/1> a clo-te-fan:MatchSelection ;
     clo-te-fan:hasSelectedSets "None" ;
     clo-te-fan:hasSelectedWinner <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2023/MensSingles/Alcaraz> ;
@@ -7004,6 +7053,13 @@
     clo-te-fan:isSelectionForTeam clo-te-ind-fan:PolarPrecision ;
     clo-te:hasFantasyPointsStrategy <https://clojos.io/ontology/FantasyTennis/FantasyPointsStrategy/WinNumSetsLossMaxSets/Points21Half/DoublePerRound> .
 
+<https://clojos.io/ontology/FantasyTennis/Ind/Fantasy/Wimbledon/2023/MensSingles/PolarPrecision/7/1> a clo-te-fan:MatchSelection ;
+    clo-te-fan:hasSelectedSets 4 ;
+    clo-te-fan:hasSelectedWinner <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2023/MensSingles/Djokovic> ;
+    clo-te-fan:isSelectionForMatch <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2023/MensSingles/Round/7/Match/7.1> ;
+    clo-te-fan:isSelectionForTeam clo-te-ind-fan:PolarPrecision ;
+    clo-te:hasFantasyPointsStrategy <https://clojos.io/ontology/FantasyTennis/FantasyPointsStrategy/WinNumSetsLossMaxSets/Points21Half/DoublePerRound> .
+
 <https://clojos.io/ontology/FantasyTennis/Ind/Fantasy/Wimbledon/2023/WomensSingles/BearNecessities/1/1> a clo-te-fan:MatchSelection ;
     clo-te-fan:hasSelectedSets "None" ;
     clo-te-fan:hasSelectedWinner <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2023/WomensSingles/Swiatek> ;
@@ -7876,6 +7932,13 @@
     clo-te-fan:hasSelectedSets "None" ;
     clo-te-fan:hasSelectedWinner <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2023/WomensSingles/Sabalenka> ;
     clo-te-fan:isSelectionForMatch <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2023/WomensSingles/Round/6/Match/6.2> ;
+    clo-te-fan:isSelectionForTeam clo-te-ind-fan:BearNecessities ;
+    clo-te:hasFantasyPointsStrategy <https://clojos.io/ontology/FantasyTennis/FantasyPointsStrategy/WinNumSetsLossMaxSets/Points21Half/DoublePerRound> .
+
+<https://clojos.io/ontology/FantasyTennis/Ind/Fantasy/Wimbledon/2023/WomensSingles/BearNecessities/7/1> a clo-te-fan:MatchSelection ;
+    clo-te-fan:hasSelectedSets 3 ;
+    clo-te-fan:hasSelectedWinner <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2023/WomensSingles/Jabeur> ;
+    clo-te-fan:isSelectionForMatch <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2023/WomensSingles/Round/7/Match/7.1> ;
     clo-te-fan:isSelectionForTeam clo-te-ind-fan:BearNecessities ;
     clo-te:hasFantasyPointsStrategy <https://clojos.io/ontology/FantasyTennis/FantasyPointsStrategy/WinNumSetsLossMaxSets/Points21Half/DoublePerRound> .
 
@@ -10511,6 +10574,13 @@
     clo-te-fan:isSelectionForTeam clo-te-ind-fan:GelatoGiants ;
     clo-te:hasFantasyPointsStrategy <https://clojos.io/ontology/FantasyTennis/FantasyPointsStrategy/WinNumSetsLossMaxSets/Points21Half/DoublePerRound> .
 
+<https://clojos.io/ontology/FantasyTennis/Ind/Fantasy/Wimbledon/2023/WomensSingles/GelatoGiants/7/1> a clo-te-fan:MatchSelection ;
+    clo-te-fan:hasSelectedSets 3 ;
+    clo-te-fan:hasSelectedWinner <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2023/WomensSingles/Vondrousova> ;
+    clo-te-fan:isSelectionForMatch <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2023/WomensSingles/Round/7/Match/7.1> ;
+    clo-te-fan:isSelectionForTeam clo-te-ind-fan:GelatoGiants ;
+    clo-te:hasFantasyPointsStrategy <https://clojos.io/ontology/FantasyTennis/FantasyPointsStrategy/WinNumSetsLossMaxSets/Points21Half/DoublePerRound> .
+
 <https://clojos.io/ontology/FantasyTennis/Ind/Fantasy/Wimbledon/2023/WomensSingles/HeroHangouts/1/1> a clo-te-fan:MatchSelection ;
     clo-te-fan:hasSelectedSets "None" ;
     clo-te-fan:hasSelectedWinner <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2023/WomensSingles/Swiatek> ;
@@ -11383,6 +11453,13 @@
     clo-te-fan:hasSelectedSets "None" ;
     clo-te-fan:hasSelectedWinner <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2023/WomensSingles/Jabeur> ;
     clo-te-fan:isSelectionForMatch <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2023/WomensSingles/Round/6/Match/6.2> ;
+    clo-te-fan:isSelectionForTeam clo-te-ind-fan:HeroHangouts ;
+    clo-te:hasFantasyPointsStrategy <https://clojos.io/ontology/FantasyTennis/FantasyPointsStrategy/WinNumSetsLossMaxSets/Points21Half/DoublePerRound> .
+
+<https://clojos.io/ontology/FantasyTennis/Ind/Fantasy/Wimbledon/2023/WomensSingles/HeroHangouts/7/1> a clo-te-fan:MatchSelection ;
+    clo-te-fan:hasSelectedSets 3 ;
+    clo-te-fan:hasSelectedWinner <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2023/WomensSingles/Vondrousova> ;
+    clo-te-fan:isSelectionForMatch <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2023/WomensSingles/Round/7/Match/7.1> ;
     clo-te-fan:isSelectionForTeam clo-te-ind-fan:HeroHangouts ;
     clo-te:hasFantasyPointsStrategy <https://clojos.io/ontology/FantasyTennis/FantasyPointsStrategy/WinNumSetsLossMaxSets/Points21Half/DoublePerRound> .
 
@@ -14025,14 +14102,26 @@
     clo-te-fan:isSelectionForTeam clo-te-ind-fan:PolarPrecision ;
     clo-te:hasFantasyPointsStrategy <https://clojos.io/ontology/FantasyTennis/FantasyPointsStrategy/WinNumSetsLossMaxSets/Points21Half/DoublePerRound> .
 
-clo-te-ind-fan:BearNecessities a clo-te-fan:Team ;
-    skos:notation "Bear Necessities" ;
-    clo-te-fan:hasTeamMembers "Fraser, Tom, Frank, Spencer, Duck" .
+<https://clojos.io/ontology/FantasyTennis/Ind/Fantasy/Wimbledon/2023/WomensSingles/PolarPrecision/7/1> a clo-te-fan:MatchSelection ;
+    clo-te-fan:hasSelectedSets 3 ;
+    clo-te-fan:hasSelectedWinner <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2023/WomensSingles/Vondrousova> ;
+    clo-te-fan:isSelectionForMatch <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2023/WomensSingles/Round/7/Match/7.1> ;
+    clo-te-fan:isSelectionForTeam clo-te-ind-fan:PolarPrecision ;
+    clo-te:hasFantasyPointsStrategy <https://clojos.io/ontology/FantasyTennis/FantasyPointsStrategy/WinNumSetsLossMaxSets/Points21Half/DoublePerRound> .
 
 clo-te-ind-fan:Fauve a clo-te-fan:Team ;
     skos:notation "Fauve" ;
     clo-te-fan:hasFeature "PlayerNumberSelector" ;
     clo-te-fan:hasTeamMembers "Perky, Jacque, Albert" .
+
+clo-te-ind-fan:BearNecessities a clo-te-fan:Team ;
+    skos:notation "Bear Necessities" ;
+    clo-te-fan:hasTeamMembers "Fraser, Tom, Frank, Spencer, Duck" .
+
+clo-te-ind-fan:Clojos a clo-te-fan:Team ;
+    skos:notation "Clojos" ;
+    clo-te-fan:hasFeature "PlayerNumberSelector" ;
+    clo-te-fan:hasTeamMembers "Claudie, Fyodoro" .
 
 clo-te-ind-fan:GelatoGiants a clo-te-fan:Team ;
     skos:notation "Gelato Giants" ;
@@ -14041,15 +14130,6 @@ clo-te-ind-fan:GelatoGiants a clo-te-fan:Team ;
 clo-te-ind-fan:HeroHangouts a clo-te-fan:Team ;
     skos:notation "Hero Hangouts" ;
     clo-te-fan:hasTeamMembers "Marmalade, Richmond, Greenwich" .
-
-clo-te-ind-fan:PolarPrecision a clo-te-fan:Team ;
-    skos:notation "Polar Precision" ;
-    clo-te-fan:hasTeamMembers "IceT, Pepsi, Rollie, Lemmie, Gertie" .
-
-clo-te-ind-fan:Clojos a clo-te-fan:Team ;
-    skos:notation "Clojos" ;
-    clo-te-fan:hasFeature "PlayerNumberSelector" ;
-    clo-te-fan:hasTeamMembers "Claudie, Fyodoro" .
 
 clo-te-ind-fan:LightHouse a clo-te-fan:Team ;
     skos:notation "LightHouse" ;
@@ -14060,4 +14140,8 @@ clo-te-ind-fan:MusicalBears a clo-te-fan:Team ;
     skos:notation "Musical Bears" ;
     clo-te-fan:hasFeature "PlayerNumberSelector" ;
     clo-te-fan:hasTeamMembers "Rinksy, Beetie, Motzie" .
+
+clo-te-ind-fan:PolarPrecision a clo-te-fan:Team ;
+    skos:notation "Polar Precision" ;
+    clo-te-fan:hasTeamMembers "IceT, Pepsi, Rollie, Lemmie, Gertie" .
 

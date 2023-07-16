@@ -4,13 +4,14 @@ from enum import Enum
 
 from rdflib import URIRef
 
+from tejos import model
 from tejos.players import atp_players, wta_players
 from tejos.rdf import rdf_prefix
 from tejos.util import tokeniser
 from tejos.repo import repository
 from tejos.util import monad, singleton, logger
 
-from . import model
+from . import base
 
 
 class MatchPlayerNumber(Enum):

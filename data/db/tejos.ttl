@@ -4226,6 +4226,11 @@ clo-te-ind-tou:Wimbledon a clo-te:Tournament ;
     clo-te:hasMatchNumber 1 ;
     clo-te:hasMatchUpPosition1 <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2023/WomensSingles/Vondrousova> ;
     clo-te:hasMatchUpPosition2 <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2023/WomensSingles/Jabeur> ;
+    clo-te:hasMatchWinner <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2023/WomensSingles/Vondrousova> ;
+    clo-te:hasSetsScores1 <https://clojos.io/ontology/FantasyTennis/Score/1/6>,
+        <https://clojos.io/ontology/FantasyTennis/Score/2/6> ;
+    clo-te:hasSetsScores2 <https://clojos.io/ontology/FantasyTennis/Score/1/4>,
+        <https://clojos.io/ontology/FantasyTennis/Score/2/4> ;
     clo-te:isMatchInRound <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2023/WomensSingles/Round/7> .
 
 <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2023/WomensSingles/Sakkari> a clo-te:PlayerEntry ;
