@@ -6,13 +6,11 @@ from tejos.repo import repository
 from tejos.util import fn, singleton
 
 
-class Tournament(model.GraphModel):
+class Tournament():
     repo = model.GraphModel2().new(repository.TournamentRepo, model.GraphModel2.tournament_graph)
 
     @classmethod
     def create(cls, name: str, subject_name: str, perma_id: str):
-        if cls.repo_instance:
-            cls.repo_instance = None
         tournie = cls(name, subject_name, perma_id)
         cls.repo().upsert(tournie)
         return tournie

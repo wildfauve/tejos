@@ -56,8 +56,6 @@ def add_entries(tournament, year, draw_name, in_file):
             player = _get_player(draw_name, player_klass_name)
             if not player:
                 breakpoint()
-            # if "Wang" in player.klass_name:
-            #     breakpoint()
             entries.append((player, seed))
     draw.add_entries(entries)
     return monad.Right(draw)
