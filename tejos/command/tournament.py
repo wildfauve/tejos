@@ -41,6 +41,23 @@ def new_draw(tournament, year, draw_name, best_of, draw_size, fantasy_pt_strat: 
         return monad.Right(draw)
 
 
+def get_entries(tournament, year, entries_file):
+    event = tournament.for_year(year, load=True)
+    result = event.get_full_draw()
+
+    for draw, matches in result.items():
+        with open(f"data/{event.scheduled_in_year}/us/{draw}.csv", 'w', newline='') as csvfile:
+            writer = csv.writer(csvfile, delimiter=',',
+                                quotechar=',', quoting=csv.QUOTE_MINIMAL)
+            writer.writerow(['name', 'klass-name', 'seed'])
+            for match in matches:
+                for player in [match.player1, match.player2]:
+                    if not player.player_klass:
+                        writer.writerow([player.name, "missing", player.seed])
+                    else:
+                        writer.writerow([player.name, player.player_klass.klass_name, player.seed])
+
+
 @commanda.command()
 def add_entries(tournament, year, draw_name, in_file):
     event = tournament.for_year(year, load=True)

@@ -41,7 +41,6 @@ class PlayerCache(singleton.Singleton):
             return monad.Left(None)
         return monad.Right(possible_hit)
 
-
     def add_to_cache(self, player):
         self.set_player_on_player_module(player)
         if self.get_by_name_or_klass(klass_name=player.klass_name).is_right():
@@ -59,6 +58,7 @@ class PlayerCache(singleton.Singleton):
             breakpoint()
         pass
 
+
 class Player(model.GraphModel):
     repo = repository.PlayerRepo
     repo_graph = model.GraphModel.players_graph
@@ -67,6 +67,16 @@ class Player(model.GraphModel):
     @classmethod
     def clear_cache(cls):
         cls.player_cache().clear()
+
+    @classmethod
+    def create(cls, name, tour_symbol: str, klass_name: str = None):
+        cached_player = cls.cache_hit(name=name)
+        if cached_player.is_right():
+            breakpoint()
+        klass_name = cls.format_player_klass_name(name)
+        if cls.cls_search(klass_name=klass_name).is_right():
+            breakpoint()
+        return cls.new(name, tour_symbol, klass_name)
 
     @classmethod
     def new(cls, name, tour_symbol: str, klass_name: str, alt_names: List = None):
@@ -120,18 +130,19 @@ class Player(model.GraphModel):
             return monad.Left(plr)
         return monad.Right(plr)
 
+    @classmethod
+    def format_player_klass_name(cls, name):
+        nm = name.rstrip().lstrip()
+        if "." in nm:
+            return tokeniser.string_tokeniser(nm, tokeniser.dot_splitter, tokeniser.special_char_set)
+        return tokeniser.string_tokeniser(nm, tokeniser.sp_splitter, tokeniser.special_char_set)
+
     def __init__(self, name, tour_symbol: str, klass_name: str, alt_names: List = None, sub: URIRef = None):
         self.name = name
         self.subject = rdf_prefix.clo_te_ind_plr[klass_name] if not sub else sub
         self.tour_symbol = tour_symbol
         self.klass_name = klass_name
         self.alt_names = alt_names if alt_names else []
-
-    def _format_player_klass_name(self, name):
-        nm = name.rstrip().lstrip()
-        if "." in nm:
-            return tokeniser.string_tokeniser(nm, tokeniser.dot_splitter, tokeniser.special_char_set)
-        return tokeniser.string_tokeniser(nm, tokeniser.sp_splitter, tokeniser.special_char_set)
 
     def __hash__(self):
         return hash((self.name,))
@@ -144,7 +155,7 @@ class Player(model.GraphModel):
     def search_by_name(self, on_name):
         # if on_name == "Marc-Andrea Huesler" and "Huesler" in self.name:
         #     breakpoint()
-        if self._format_player_klass_name(on_name) == self.klass_name:
+        if self.__class__.format_player_klass_name(on_name) == self.klass_name:
             return self
         if self.name == on_name:
             return self

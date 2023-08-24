@@ -6,7 +6,7 @@ import bs4
 from tejos import model
 from tejos.util import fn
 
-missing_file_name = '_temp/missing.py'
+missing_file_name = '_temp/missing.csv'
 
 
 @dataclass
@@ -22,10 +22,16 @@ class PlayerResult:
         # self.player_klass = players.search_player_by_name(self.name, self.player_module)
         self.player_klass = model.Player.load(name=self.name)
         if not self.player_klass:
-            with open('_temp/missing.py', 'a') as missing_file:
-                plyr_def = (f"{self.name} = Player('{self.name}', tour_symbol=TOUR, klass_name='{self.name}', alt_names=[])\n")
+            with open(missing_file_name, 'a') as missing_file:
+                plyr_def = self.missing_player_csv_builder()
                 print(plyr_def)
                 missing_file.write(plyr_def)
+
+    def missing_player_csv_builder(self):
+        return f"{self.name},{self.player_module.TOUR}\n"
+
+    def missing_player_klass_builder(self):
+        return f"{self.name} = Player('{self.name}', tour_symbol=TOUR, klass_name='{self.name}', alt_names=[])\n"
 
     def player_entry_klass_name(self):
         return self.player_klass.klass_name

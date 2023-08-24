@@ -8,6 +8,7 @@ from tejos.rdf import rdf_prefix
 from tejos import model
 from tejos.repo import repository
 from tejos.model.player import Player
+from tejos import adapter
 
 
 class TournamentEvent(model.GraphModel):
@@ -73,6 +74,10 @@ class TournamentEvent(model.GraphModel):
 
     def tournament_by_sub(self, sub):
         return model.GrandSlam.get_by_sub(sub)
+
+
+    def get_full_draw(self):
+        return adapter.us_build_draw(event=self, for_rd=1, scores_only=False, full_draw=True)
 
     def make_draw(self, name: str, best_of: int, draw_size=int, points_strategy_components: tuple = None):
         draw = self.find_draw_by_symbol(name)

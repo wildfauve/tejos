@@ -22,8 +22,13 @@ from .leaderboard import (
 from .tournament import (
     add_entries,
     first_round_draw,
+    get_entries,
     new_draw,
     new_event,
     new_tournament,
     results
+)
+
+from .players import (
+    add_new_players
 )

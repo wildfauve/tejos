@@ -1,6 +1,6 @@
 # from tejos.model.player import Player
 #
-# TOUR = "WTA"
+TOUR = "WTA"
 #
 # NO_ENTRY = Player("Entry Not Decided", tour_symbol=TOUR, klass_name="NO_ENTRY")
 #

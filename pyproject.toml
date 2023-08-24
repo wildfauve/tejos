@@ -9,6 +9,7 @@ readme = "README.md"
 fantasy = "tejos.cli.fantasy:cli"
 util = "tejos.cli.util:cli"
 tourn = "tejos.cli.tournament:cli"
+player = "tejos.cli.players:cli"
 
 
 [tool.poetry.dependencies]
