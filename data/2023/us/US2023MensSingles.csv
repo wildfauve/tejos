@@ -1,9 +1,8 @@
-name,klass-name,seed
 Carlos Alcaraz,Alcaraz,1
 Dominik Koepfer,Koepfer,
 Lloyd Harris,Harris,
 Guido Pella,Pella,
-Botic van De Zandschulp,missing,
+Botic van De Zandschulp,Botic_van_De_Zandschulp,
 Jordan Thompson,Thompson,
 Daniel Elahi Galan,Galan,
 Daniel Evans,Evans,26
@@ -12,7 +11,7 @@ Arthur Fils,Fils,
 Jason Kubler,Kubler,
 Matteo Arnaldi,Arnaldi,
 Thanasi Kokkinakis,Kokkinakis,
- Qualifier,missing,Q
+Yu Hsiou Hsu,Hsu,Q
 Alexander Shevchenko,Shevchenko,
 Cameron Norrie,Norrie,16
 Alexander Zverev,Zverev,12
@@ -24,32 +23,32 @@ Corentin Moutet,Moutet,
 Alex Molcan,Molcan,
 Grigor Dimitrov,Dimitrov,19
 Tomas Martin Etcheverry,Etcheverry,30
- Qualifier,missing,Q
+Otto Virtanen,Otto_Virtanen,Q
 Stan Wawrinka,Wawrinka,
 Yoshihito Nishioka,Nishioka,
- Qualifier,missing,Q
+Nicolas Moreno De Alboran,Nicolas_Moreno_De_Alboran,Q
 Lorenzo Sonego,Sonego,
 Yannick Hanfmann,Hanfmann,
 Jannik Sinner,Sinner,6
 Daniil Medvedev,Medvedev,3
-Attila Balazs,missing,
+Attila Balazs,Attila_Balazs,
 Max Purcell,Purcell,
 Christopher O'Connell,OConnell,
-Kei Nishikori,missing,
- Qualifier,missing,Q
+Kei Nishikori,Kei_Nishikori,
+Felipe Meligeni Alves,Felipe_Meligeni_Alves,Q
 Sebastian Baez,Baez,
 Borna Coric,Coric,27
 Nicolas Jarry,Jarry,23
 Luca Van Assche,Van_Assche,
 Albert Ramos-Vinolas,Ramos_Vinolas,
-Alex Michelsen,missing,WC
+Alex Michelsen,Alex_Michelsen,WC
 Yibing Wu,Wu,
 Dusan Lajovic,Lajovic,
- Qualifier,missing,Q
-Alex de Minaur,missing,13
+Timofey Skatov,Skatov,Q
+Alex de Minaur,Alex_de_Minaur,13
 Karen Khachanov,Khachanov,11
 Michael Mmoh,Mmoh,WC
-Facundo Diaz Acosta,missing,
+Facundo Diaz Acosta,Facundo_Diaz_Acosta,
 John Isner,Isner,WC
 Radu Albot,Albot,
 Jack Draper,Draper,
@@ -59,12 +58,12 @@ Ugo Humbert,Humbert,29
 Matteo Berrettini,Berrettini,
 Diego Schwartzman,Schwartzman,
 Arthur Rinderknech,Rinderknech,
- Qualifier,missing,Q
+Taro Daniel,Daniel,Q
 Gael Monfils,Monfils,
 Emil Ruusuvuori,Ruusuvuori,
 Andrey Rublev,Rublev,8
 Casper Ruud,Ruud,5
- Qualifier,missing,Q
+Emilio Nava,Nava,Q
 J.J. Wolf,Wolf,
 Zhizhen Zhang,Zhang_Zhizhen,
 Rinky Hijikata,Hijikata,WC
@@ -77,10 +76,10 @@ Richard Gasquet,Gasquet,
 Fabian Marozsan,Marozsan,
 Sebastian Ofner,Ofner,
 Nuno Borges,Borges,
-Learner Tien,missing,WC
+Learner Tien,Tien,WC
 Frances Tiafoe,Tiafoe,10
 Tommy Paul,Paul,14
- Qualifier,missing,Q
+Stefano Travaglia,Stefano_Travaglia,Q
 Roman Safiullin,Safiullin,
 Marco Cecchinato,Cecchinato,
 Ilya Ivashka,Ivashka,
@@ -97,33 +96,33 @@ Roberto Carballes Baena,Carballes_Baena,
 Holger Rune,Rune,4
 Stefanos Tsitsipas,Tsitsipas,7
 Milos Raonic,Raonic,
- Qualifier,missing,Q
+Dominic Stricker,Stricker,Q
 Alexei Popyrin,Popyrin,
 Quentin Halys,Halys,
 Benjamin Bonzi,Bonzi,WC
-Soonwoo Kwon,missing,
+Soonwoo Kwon,Soonwoo_Kwon,
 Christopher Eubanks,Eubanks,28
 Lorenzo Musetti,Musetti,18
- Qualifier,missing,Q
- Qualifier,missing,Q
+Titouan Droguet,Titouan_Droguet,Q
+Jakub Mensik,Jakub_Mensik,Q
 Gregoire Barrere,Barrere,
 Miomir Kecmanovic,Kecmanovic,
 Juan Pablo Varillas,Varillas,
-Steve Johnson,missing,WC
+Steve Johnson,Steve_Johnson,WC
 Taylor Fritz,Fritz,9
 Felix Auger-Aliassime,Auger_Aliassime,15
 Mackenzie McDonald,Mcdonald,
 Hugo Dellien,Dellien,
- Qualifier,missing,Q
+Borna Gojo,Gojo,Q
 Jiri Vesely,Vesely,
- Qualifier,missing,Q
- Qualifier,missing,Q
+Enzo Couacaud,Couacaud,Q
+Zachary Svajda,Zachary_Svajda,Q
 Francisco Cerundolo,Cerundolo_Francisco,20
 Laslo Djere,Djere,32
 Brandon Nakashima,Nakashima,
- Qualifier,missing,Q
- Qualifier,missing,Q
+Sho Shimabukuro,Shimabukuro,Q
+Hugo Gaston,Gaston,Q
 Bernabe Zapata Miralles,Zapata_Miralles,
-Ethan Quinn,missing,WC
+Ethan Quinn,Ethan_Quinn,WC
 Alexandre Muller,Muller,
 Novak Djokovic,Djokovic,2

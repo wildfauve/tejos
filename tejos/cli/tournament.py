@@ -2,7 +2,7 @@ import click
 
 from tejos.initialiser import environment, db
 
-from tejos import command
+from tejos import command, presenter
 from . import helpers
 
 
@@ -61,23 +61,29 @@ def add_entries(tournament, year, draw, in_file):
 @click.command()
 @click.option("--tournament", "-t", type=click.Choice(helpers.tournament_names()))
 @click.option("--year", "-y", type=int)
-@click.option("--draw", "-d")
-@click.option("--in-file", "-f")
-def first_round_draw(tournament, year, draw, in_file):
+@click.option("--file", "-f", type=str, default=None, help="Entries class file")
+def get_entries(tournament, year, file):
     """
+    Parses the draws, extracting the 1st round matchups, and generates a CSV containing the player entries.
+    Does not applyn the entries to the event.  Use add-entries to do this.
     """
-    command.first_round_draw(helpers.to_tournament(tournament), year, draw, in_file)
+    tournie = helpers.to_tournament(tournament)
+    presenter.generate_entries_file(command.get_entries(tournament=tournie,
+                                                        year=year,
+                                                        entries_file=file),
+                                    tournie,
+                                    year)
     pass
 
 
 @click.command()
 @click.option("--tournament", "-t", type=click.Choice(helpers.tournament_names()))
 @click.option("--year", "-y", type=int)
-@click.option("--file", "-f", type=str, default=None, help="Entries class file")
-def get_entries(tournament, year, file):
+@click.option("--draw", "-d")
+def first_round_draw(tournament, year, draw):
     """
     """
-    command.get_entries(tournament=helpers.to_tournament(tournament), year=year, entries_file=file)
+    command.first_round_draw(helpers.to_tournament(tournament), year, draw)
     pass
 
 

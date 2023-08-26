@@ -14,10 +14,6 @@ def add_new_players(missing_player_file):
         reader = csv.reader(f, delimiter=',')
         for player_name, tour in reader:
             player = model.Player.create(player_name, tour)
-            breakpoint()
-            if not player:
-                breakpoint()
-            entries.append((player, seed))
-    draw.add_entries(entries)
-    return monad.Right(draw)
+    breakpoint()
+    return monad.Right(None)
 

@@ -44,18 +44,7 @@ def new_draw(tournament, year, draw_name, best_of, draw_size, fantasy_pt_strat: 
 def get_entries(tournament, year, entries_file):
     event = tournament.for_year(year, load=True)
     result = event.get_full_draw()
-
-    for draw, matches in result.items():
-        with open(f"data/{event.scheduled_in_year}/us/{draw}.csv", 'w', newline='') as csvfile:
-            writer = csv.writer(csvfile, delimiter=',',
-                                quotechar=',', quoting=csv.QUOTE_MINIMAL)
-            writer.writerow(['name', 'klass-name', 'seed'])
-            for match in matches:
-                for player in [match.player1, match.player2]:
-                    if not player.player_klass:
-                        writer.writerow([player.name, "missing", player.seed])
-                    else:
-                        writer.writerow([player.name, player.player_klass.klass_name, player.seed])
+    return monad.Right(result)
 
 
 @commanda.command()
@@ -69,7 +58,7 @@ def add_entries(tournament, year, draw_name, in_file):
     entries = []
     with open(in_file, newline='') as f:
         reader = csv.reader(f, delimiter=',')
-        for player_klass_name, seed in reader:
+        for _player_name, player_klass_name, seed in reader:
             player = _get_player(draw_name, player_klass_name)
             if not player:
                 breakpoint()
@@ -79,23 +68,26 @@ def add_entries(tournament, year, draw_name, in_file):
 
 
 @commanda.command()
-def first_round_draw(tournament, year, draw_name, in_file):
+def first_round_draw(tournament, year, draw_name):
     event = tournament.for_year(year, load=True)
 
     if not event:
         return monad.Left(event)
 
+    first_round_draws = event.get_full_draw()
+
     draw = model.Draw.get(event=event, name=draw_name)
 
+    rd1 = first_round_draws.get(f"{event.name}{draw_name}", None)
+    if not rd1:
+        breakpoint()
+
     first_rd = []
-    with open(in_file, newline='') as f:
-        reader = csv.reader(f, delimiter=',')
-        for match, pl1_klass_name, pl2_klass_name in reader:
-            pl1 = _get_player(draw_name, pl1_klass_name)
-            pl2 = _get_player(draw_name, pl2_klass_name)
-            if not pl1 or not pl2:
-                breakpoint()
-            first_rd.append((int(match), pl1, pl2))
+    for matchup in rd1:
+        matchup.match_number
+        if not matchup.player1.player_klass or not matchup.player2.player_klass:
+            breakpoint()
+        first_rd.append((int(matchup.match_number), matchup.player1.player_klass, matchup.player2.player_klass))
 
     draw.first_round_draw(first_rd)
     return monad.Right(draw)

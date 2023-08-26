@@ -19,3 +19,8 @@ from .code_creator_presenter import (
 from .parquet_presenter import (
     to_parquet
 )
+
+
+from .player_presenter import (
+    generate_entries_file
+)

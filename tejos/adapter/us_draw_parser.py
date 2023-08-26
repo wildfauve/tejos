@@ -11,10 +11,10 @@ from tejos.players import atp_players, wta_players
 from tejos.util import fn
 
 draw_map = {
-    'US2023WomensSingles': {'name': "womens_singles",
+    'UsOpen2023WomensSingles': {'name': "womens_singles",
                             'player_module': wta_players,
                             'draw_symbol': 'WomensSingles'},
-    'US2023MensSingles': {'name': "mens_singles",
+    'UsOpen2023MensSingles': {'name': "mens_singles",
                           'player_module': atp_players,
                           'draw_symbol': 'MensSingles'}}
 
@@ -26,8 +26,8 @@ round_code_map = {'1': 1,
                   'S': 6,
                   'F': 7}
 
-draws = [("https://2023.usopen.org/en_US/scores/feeds/2023/draws/WS.json", 'US2023WomensSingles'),
-         ('https://2023.usopen.org/en_US/scores/feeds/2023/draws/MS.json', 'US2023MensSingles')]
+draws = [("https://2023.usopen.org/en_US/scores/feeds/2023/draws/WS.json", 'UsOpen2023WomensSingles'),
+         ('https://2023.usopen.org/en_US/scores/feeds/2023/draws/MS.json', 'UsOpen2023MensSingles')]
 
 match_ids = {'mens_singles': [], 'womens_singles': []}
 
