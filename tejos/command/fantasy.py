@@ -1,4 +1,5 @@
 from functools import reduce
+import importlib
 import csv
 
 import polars as pl
@@ -33,6 +34,28 @@ def load_selections(tournament, year):
         team.apply_new_selections(event, 7, _fantasy_file_location(event))
 
     return monad.Right(event)
+
+
+@commanda.command(graph_names=['fantasy'])
+def invoke_selections(tournament, year):
+    """
+    Where selections are defined in a python function using the selections fantasy module.
+    :param tournament:
+    :param year:
+    :return:
+    """
+    event = tournament.for_year(year, load=True)
+    teams = _apply_fantasy(event)
+
+    fan_mod = _fantasy_module(event)
+
+    selections.apply(fan_mod, event.for_draw("MensSingles"), event.for_draw("WomensSingles"))
+
+    breakpoint()
+
+
+    return monad.Right(event)
+
 
 def show_round(tournament, draw_name, round_number):
     event = tournament.for_year(year, load=True)
@@ -176,8 +199,14 @@ def _fantasy_file_location(event):
     return _fantasy_module(event).__file__.replace("__init__.py", "")
 
 
-def _tournament_module(tournie):
-    return tournaments.tournament_module_name(tournie.name)
+# def _tournament_module(event):
+#     return _tournament_module_name(event)
+#
+#
+# def _tournament_module_name(event):
+#     breakpoint()
+#     tournament_module = importlib.import_module(f"tejos.majors.year_{event.scheduled_in_year}.{tournament_module_name}.tournament")
+#     return tournament_module
 
 
 def _find_tournament_by_name(for_name: str):

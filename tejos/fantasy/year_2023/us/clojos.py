@@ -89,10 +89,10 @@ def team_clojo(mens_singles, womens_singles):
 
 # womens_singles_round_1:START
 def womens_singles_round_1(womens_singles):
-    TEAM.draw(womens_singles, '1.1').matchup(1, women.Swiatek, 2, women.Peterson).select()  # (  1) Iga Swiatek  OR  (   ) Rebecca Peterson
-    TEAM.draw(womens_singles, '1.2').matchup(1, women.Clervie_Ngounoue, 2, women.Saville).select()  # ( WC) Clervie Ngounoue  OR  (   ) Daria Saville
-    TEAM.draw(womens_singles, '1.3').matchup(1, women.Davis, 2, women.Kovinic).select()  # (   ) Lauren Davis  OR  (   ) Danka Kovinic
-    TEAM.draw(womens_singles, '1.4').matchup(1, women.Juvan, 2, women.Cocciaretto).select()  # (  Q) Kaja Juvan  OR  ( 29) Elisabetta Cocciaretto
+    TEAM.draw(womens_singles, '1.1').matchup(1, women.Swiatek, 2, women.Peterson).select(1, 2)  # (  1) Iga Swiatek  OR  (   ) Rebecca Peterson
+    TEAM.draw(womens_singles, '1.2').matchup(1, women.Clervie_Ngounoue, 2, women.Saville).select(2, 2)  # ( WC) Clervie Ngounoue  OR  (   ) Daria Saville
+    TEAM.draw(womens_singles, '1.3').matchup(1, women.Davis, 2, women.Kovinic).select(2, 3)  # (   ) Lauren Davis  OR  (   ) Danka Kovinic
+    TEAM.draw(womens_singles, '1.4').matchup(1, women.Juvan, 2, women.Cocciaretto).select(2, 3)  # (  Q) Kaja Juvan  OR  ( 29) Elisabetta Cocciaretto
     TEAM.draw(womens_singles, '1.5').matchup(1, women.Ostapenko, 2, women.Paolini).select()  # ( 20) Jelena Ostapenko  OR  (   ) Jasmine Paolini
     TEAM.draw(womens_singles, '1.6').matchup(1, women.Alizé_Cornet, 2, women.Avanesyan).select()  # (   ) Alizé Cornet  OR  (   ) Elina Avanesyan
     TEAM.draw(womens_singles, '1.7').matchup(1, women.Grabher, 2, women.Wang_Xiyu).select()  # (   ) Julia Grabher  OR  (   ) Xiyu Wang

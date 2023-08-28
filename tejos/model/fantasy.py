@@ -335,6 +335,7 @@ class Selection:
         if not number_of_sets:
             return self
         self.in_number_sets = number_of_sets
+        self.__class__.repo().update_in_sets(self)
         return self
 
     def select(self, player_number=None, in_sets=None):

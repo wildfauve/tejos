@@ -16,7 +16,7 @@ clo-te-ind-fan:BearNecessities a clo-te-fan:Team ;
 clo-te-ind-fan:Clojos a clo-te-fan:Team ;
     skos:notation "Clojos" ;
     clo-te-fan:hasFeature "PlayerNumberSelector" ;
-    clo-te-fan:hasTeamMembers "Claudie, Fyodoro" .
+    clo-te-fan:hasTeamMembers "Claudie, Fyodoro, Sergio" .
 
 clo-te-ind-fan:GelatoGiants a clo-te-fan:Team ;
     skos:notation "Gelato Giants" ;

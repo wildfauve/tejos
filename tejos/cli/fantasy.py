@@ -23,7 +23,8 @@ def leaderboard(tournament, year, round, to_discord):
     """
     Starts the tournament,  applies the results, applies the fantasy selection and prints the leaderboard
     """
-    presenter.event_team_scores_table(command.leaderboard_df(helpers.to_tournament(tournament), year, round), to_discord)
+    presenter.event_team_scores_table(command.leaderboard_df(helpers.to_tournament(tournament), year, round),
+                                      to_discord)
     pass
 
 
@@ -101,6 +102,17 @@ def fantasy_score_template(tournament, round, fmt, trim_team, file):
 @click.option("--year", "-y", type=int)
 def load_selections(tournament, year):
     command.load_selections(helpers.to_tournament(tournament), year)
+    pass
+
+
+@click.command()
+@click.option("--tournament", "-t", type=click.Choice(helpers.tournament_names()), )
+@click.option("--year", "-y", type=int)
+def invoke_selections(tournament, year):
+    """
+    Load the selections defined in the fantasy module python files.
+    """
+    command.invoke_selections(helpers.to_tournament(tournament), year)
     pass
 
 @click.command()
@@ -190,3 +202,4 @@ cli.add_command(fantasy_score_template_inserter)
 cli.add_command(points_atomic)
 cli.add_command(create_team)
 cli.add_command(load_selections)
+cli.add_command(invoke_selections)

@@ -21,6 +21,35 @@ def test_create_selection_using_python_api(configure_repo):
     assert selection1_2.selected_winner.player() == atp_players.Rublev
     assert selection1_2.in_number_sets == 4
 
+def test_create_selection_from_calling_python_function(configure_repo):
+    team = create_team()
+
+    wm2023 = make_event()
+    mens_singles = wm2023.for_draw('MensSingles')
+    womens_singles = wm2023.for_draw('WomensSingles')
+
+    from tejos.fantasy import selections
+    from tests.fixtures import team_selections
+
+    selections.apply(team_selections, mens_singles, womens_singles)
+
+    sel = team.load_all_selections(wm2023)
+    assert len(sel) == 2
+
+    assert {s.selected_winner.player().klass_name for s in sel} == {"Alcaraz", "Rublev"}
+
+    # lets just make sure of idempotency
+    selections.apply(team_selections, mens_singles, womens_singles)
+
+    sel = team.load_all_selections(wm2023)
+    assert len(sel) == 2
+
+    assert {s.selected_winner.player().klass_name for s in sel} == {"Alcaraz", "Rublev"}
+
+
+
+
+
 
 def test_create_selection_using_python_dict(configure_repo):
     team = create_team()
@@ -57,6 +86,8 @@ def test_load_team_selections(configure_repo):
     assert not same_team.fantasy_draws
     selections = same_team.load_all_selections(wm2023)
     assert len(same_team.fantasy_draws) == 1
+
+    breakpoint()
 
     assert len(selections) == 1
     selection = selections[0]
@@ -104,6 +135,12 @@ def make_event():
      .add_entries(entries())
      .init_draw()
      .first_round_draw(first_round_draw()))
+
+    (wm2023.make_draw(name="WomensSingles", best_of=3, draw_size=4)
+     .add_entries(entries())
+     .init_draw()
+     .first_round_draw(first_round_draw()))
+
     return wm2023
 
 

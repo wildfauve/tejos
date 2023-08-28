@@ -6,6 +6,7 @@ from .fantasy import (
     fantasy_score_template,
     fantasy_score_template_inserter,
     generate_graph,
+    invoke_selections,
     leaderboard_df,
     load_selections,
     player_scrap,

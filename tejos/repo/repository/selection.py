@@ -72,3 +72,7 @@ class SelectionRepo(graphrepo.GraphRepo):
         logger.log(f"Updating selection: {sub}", log_type=logger.LogType.INFO)
         self.graph.set((sub, rdf.hasSelectedWinner, selection.selected_winner.subject))
         self.graph.set((sub, rdf.hasSelectedSets, Literal(selection.in_number_sets)))
+
+    def update_in_sets(self, selection):
+        logger.log(f"Updating selection in-sets: {selection.subject}", log_type=logger.LogType.INFO)
+        self.graph.set((selection.subject, rdf.hasSelectedSets, Literal(selection.in_number_sets)))
