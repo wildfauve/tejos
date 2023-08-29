@@ -1,4 +1,4 @@
-from typing import Tuple, Dict
+from typing import Tuple, Dict, Callable
 from functools import reduce, partial
 
 from tejos.players import atp_players as players
@@ -7,9 +7,10 @@ from tejos.adapter import wm_draw_parser
 
 
 def results(event: model.tournament_event.TournamentEvent,
+            draw_parser: Callable,
             for_round=None,
             scores_only=False):
-    return _add_results(wm_draw_parser.build_draw(event, for_round, scores_only)),
+    return _add_results(draw_parser.build_draw(event, for_round, scores_only)),
 
 
 

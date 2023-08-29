@@ -1,7 +1,7 @@
 from typing import Tuple
 import csv
 
-from tejos import model
+from tejos import model, adapter
 from tejos.util import monad
 from tejos.players import atp_players, wta_players
 
@@ -98,6 +98,7 @@ def results(tournament, year, round_number, scores_only):
     event = tournament.for_year(year, load=True)
 
     rd_results = model.results(event=event,
+                               draw_parser=adapter.us_draw_parser,
                                for_round=round_number,
                                scores_only=scores_only)
     return monad.Right(event)

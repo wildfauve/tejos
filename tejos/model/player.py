@@ -61,8 +61,6 @@ class PlayerCache(singleton.Singleton):
 
 class Player:
     repo = model.GraphModel2().new(repository.PlayerRepo, model.GraphModel2.players_graph)
-    # repo = repository.PlayerRepo
-    # repo_graph = model.GraphModel.players_graph
     player_cache = PlayerCache
 
     @classmethod
@@ -90,7 +88,7 @@ class Player:
             cls.build_player(plr.value)
         player = cls(name, tour_symbol, klass_name, alt_names)
         cls.player_cache().add_to_cache(player)
-        cls.repository().upsert(player)
+        cls.repos().upsert(player)
         return player
 
     @classmethod
@@ -126,7 +124,7 @@ class Player:
 
     @classmethod
     def cls_search(cls, name=None, klass_name=None, alt_name=None) -> monad.EitherMonad[Tuple]:
-        plr = cls.repository().get_by_name_or_klass_name(name=name, klass_name=klass_name, alt_name=alt_name)
+        plr = cls.repo().get_by_name_or_klass_name(name=name, klass_name=klass_name, alt_name=alt_name)
         if not plr:
             return monad.Left(plr)
         return monad.Right(plr)
