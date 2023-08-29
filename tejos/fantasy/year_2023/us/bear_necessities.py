@@ -184,7 +184,7 @@ def mens_singles_round_1(mens_singles):
     TEAM.draw(mens_singles).match('1.29').winner(men).in_sets()  # ( 29) Ugo Humbert  OR  (   ) Matteo Berrettini
     TEAM.draw(mens_singles).match('1.30').winner(men).in_sets()  # (   ) Diego Schwartzman  OR  (   ) Arthur Rinderknech
     TEAM.draw(mens_singles).match('1.31').winner(men).in_sets()  # (  Q) Taro Daniel  OR  (   ) Gael Monfils
-    TEAM.draw(mens_singles).match('1.32').winner(men).in_sets()  # (   ) Emil Ruusuvuori  OR  (  8) Andrey Rublev
+    TEAM.draw(mens_singles).match('1.32').winner(men).in_sets()  # (   ) Arthur Cazaux  OR  (  8) Andrey Rublev
     TEAM.draw(mens_singles).match('1.33').winner(men).in_sets()  # (  5) Casper Ruud  OR  (  Q) Emilio Nava
     TEAM.draw(mens_singles).match('1.34').winner(men).in_sets()  # (   ) J.J. Wolf  OR  (   ) Zhizhen Zhang
     TEAM.draw(mens_singles).match('1.35').winner(men).in_sets()  # ( WC) Rinky Hijikata  OR  (   ) Pavel Kotov

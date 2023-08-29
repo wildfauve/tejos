@@ -101,8 +101,8 @@ class MatchBlock:
         match = self.event.find_draw_by_symbol(self.draw_symbol).for_round(self.round).for_match(self.match_number)
         match.score(self.player1.player_klass, tuple(self.player1.scores))
         match.score(self.player2.player_klass, tuple(self.player2.scores))
-        if self.player1.match_state:
-            breakpoint()
+        # if self.player1.match_state:
+        #     breakpoint()
         pass
 
     def __hash__(self):

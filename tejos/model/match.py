@@ -46,8 +46,10 @@ class Match():
         else:
             mt = for_round.for_match(match_number)
         entries = entry.Entry.get_by_subs([pos1_sub, pos2_sub])
-        if entries:
+        if entries and len(entries) == 2:
             mt.add_players(*entries)
+        if entries and len(entries) == 1:
+            mt.add_player(player_to_add=entries[0])
         if scores1:
             mt.load_score(position1_subject_sets=scores1)
         if scores2:
@@ -85,7 +87,7 @@ class Match():
         components = [
             f"match_winner={self.match_winner}",
             f"player1={self.player1.player()}" if self.player1 else "player1=None",
-            f"player2={self.player2.player()}" if self.player2 else "player1=None",
+            f"player2={self.player2.player()}" if self.player2 else "player2=None",
             f"entry_retirement={self.entry_retirement.player()}" if self.entry_retirement else None,
             f"entry_withdrawal={self.entry_withdrawal.player()}" if self.entry_withdrawal else None]
         return f"{cls_name}(match_id='{self.match_id}', {', '.join(fn.remove_none(components))})"

@@ -20,9 +20,9 @@ class MatchRepo(graphrepo.GraphRepo):
         logger.log(f"Add Players to Match with Subject: {match.subject}")
         e1, e2 = entries
         if e1:
-            self.graph.add((match.subject, rdf.hasMatchUpPosition1, e1.subject))
+            self.graph.set((match.subject, rdf.hasMatchUpPosition1, e1.subject))
         if e2:
-            self.graph.add((match.subject, rdf.hasMatchUpPosition2, e2.subject))
+            self.graph.set((match.subject, rdf.hasMatchUpPosition2, e2.subject))
         pass
 
     def add_score(self, match, entry, set_games):

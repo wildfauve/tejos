@@ -2423,6 +2423,11 @@ clo-te-ind-plr:Zverev a clo-te:Player ;
     clo-te-plr:hasKlassName "Zverev" ;
     clo-te-plr:hasTourDesignation "ATP" .
 
+clo-te-ind-plr:Duckworth a clo-te:Player ;
+    foaf:name "James Duckworth" ;
+    clo-te-plr:hasKlassName "Duckworth" ;
+    clo-te-plr:hasTourDesignation "ATP" .
+
 clo-te-ind-plr:Zvonareva a clo-te:Player ;
     foaf:name "Vera Zvonareva" ;
     clo-te-plr:hasKlassName "Zvonareva" ;

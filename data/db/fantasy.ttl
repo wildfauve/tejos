@@ -92,7 +92,7 @@ clo-te-ind-fan:PolarPrecision a clo-te-fan:Team ;
 
 <https://clojos.io/ontology/FantasyTennis/Ind/Fantasy/UsOpen/2023/MensSingles/Clojos/1/19> a clo-te-fan:MatchSelection ;
     clo-te-fan:hasSelectedSets 4 ;
-    clo-te-fan:hasSelectedWinner <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/UsOpen/2023/MensSingles/Kei_Nishikori> ;
+    clo-te-fan:hasSelectedWinner <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/UsOpen/2023/MensSingles/Duckworth> ;
     clo-te-fan:isSelectionForMatch <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/UsOpen/2023/MensSingles/Round/1/Match/1.19> ;
     clo-te-fan:isSelectionForTeam clo-te-ind-fan:Clojos ;
     clo-te:hasFantasyPointsStrategy <https://clojos.io/ontology/FantasyTennis/FantasyPointsStrategy/WinNumSetsLossMaxSets/Points21Half/DoublePerRound> .
@@ -540,7 +540,7 @@ clo-te-ind-fan:PolarPrecision a clo-te-fan:Team ;
 
 <https://clojos.io/ontology/FantasyTennis/Ind/Fantasy/UsOpen/2023/MensSingles/Fauve/1/19> a clo-te-fan:MatchSelection ;
     clo-te-fan:hasSelectedSets 3 ;
-    clo-te-fan:hasSelectedWinner <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/UsOpen/2023/MensSingles/Kei_Nishikori> ;
+    clo-te-fan:hasSelectedWinner <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/UsOpen/2023/MensSingles/Duckworth> ;
     clo-te-fan:isSelectionForMatch <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/UsOpen/2023/MensSingles/Round/1/Match/1.19> ;
     clo-te-fan:isSelectionForTeam clo-te-ind-fan:Fauve ;
     clo-te:hasFantasyPointsStrategy <https://clojos.io/ontology/FantasyTennis/FantasyPointsStrategy/WinNumSetsLossMaxSets/Points21Half/DoublePerRound> .
@@ -981,7 +981,7 @@ clo-te-ind-fan:PolarPrecision a clo-te-fan:Team ;
 
 <https://clojos.io/ontology/FantasyTennis/Ind/Fantasy/UsOpen/2023/MensSingles/LightHouse/1/19> a clo-te-fan:MatchSelection ;
     clo-te-fan:hasSelectedSets 4 ;
-    clo-te-fan:hasSelectedWinner <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/UsOpen/2023/MensSingles/Kei_Nishikori> ;
+    clo-te-fan:hasSelectedWinner <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/UsOpen/2023/MensSingles/Duckworth> ;
     clo-te-fan:isSelectionForMatch <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/UsOpen/2023/MensSingles/Round/1/Match/1.19> ;
     clo-te-fan:isSelectionForTeam clo-te-ind-fan:LightHouse ;
     clo-te:hasFantasyPointsStrategy <https://clojos.io/ontology/FantasyTennis/FantasyPointsStrategy/WinNumSetsLossMaxSets/Points21Half/DoublePerRound> .
@@ -1422,7 +1422,7 @@ clo-te-ind-fan:PolarPrecision a clo-te-fan:Team ;
 
 <https://clojos.io/ontology/FantasyTennis/Ind/Fantasy/UsOpen/2023/MensSingles/MusicalBears/1/19> a clo-te-fan:MatchSelection ;
     clo-te-fan:hasSelectedSets 3 ;
-    clo-te-fan:hasSelectedWinner <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/UsOpen/2023/MensSingles/Kei_Nishikori> ;
+    clo-te-fan:hasSelectedWinner <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/UsOpen/2023/MensSingles/Duckworth> ;
     clo-te-fan:isSelectionForMatch <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/UsOpen/2023/MensSingles/Round/1/Match/1.19> ;
     clo-te-fan:isSelectionForTeam clo-te-ind-fan:MusicalBears ;
     clo-te:hasFantasyPointsStrategy <https://clojos.io/ontology/FantasyTennis/FantasyPointsStrategy/WinNumSetsLossMaxSets/Points21Half/DoublePerRound> .

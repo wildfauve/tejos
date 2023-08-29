@@ -176,7 +176,7 @@ def mens_singles_round_1(mens_singles):
     TEAM.draw(mens_singles, '1.16').matchup(1, men.Hanfmann, 2, men.Sinner).select(2, 3)  # (   ) Yannick Hanfmann  OR  (  6) Jannik Sinner
     TEAM.draw(mens_singles, '1.17').matchup(1, men.Medvedev, 2, men.Attila_Balazs).select(1, 3)  # (  3) Daniil Medvedev  OR  (   ) Attila Balazs
     TEAM.draw(mens_singles, '1.18').matchup(1, men.Purcell, 2, men.OConnell).select(2, 4)  # (   ) Max Purcell  OR  (   ) Christopher O'Connell
-    TEAM.draw(mens_singles, '1.19').matchup(1, men.Kei_Nishikori, 2, men.Felipe_Meligeni_Alves).select(1, 4)  # (   ) Kei Nishikori  OR  (  Q) Felipe Meligeni Alves
+    TEAM.draw(mens_singles, '1.19').matchup(1, men.Duckworth, 2, men.Felipe_Meligeni_Alves).select(1, 4)  # (   ) Kei Nishikori  OR  (  Q) Felipe Meligeni Alves
     TEAM.draw(mens_singles, '1.20').matchup(1, men.Baez, 2, men.Coric).select(2, 4)  # (   ) Sebastian Baez  OR  ( 27) Borna Coric
     TEAM.draw(mens_singles, '1.21').matchup(1, men.Jarry, 2, men.Van_Assche).select(1, 3)  # ( 23) Nicolas Jarry  OR  (   ) Luca Van Assche
     TEAM.draw(mens_singles, '1.22').matchup(1, men.Ramos_Vinolas, 2, men.Alex_Michelsen).select(1, 4)  # (   ) Albert Ramos-Vinolas  OR  ( WC) Alex Michelsen
@@ -189,7 +189,7 @@ def mens_singles_round_1(mens_singles):
     TEAM.draw(mens_singles, '1.29').matchup(1, men.Humbert, 2, men.Berrettini).select(1, 4)  # ( 29) Ugo Humbert  OR  (   ) Matteo Berrettini
     TEAM.draw(mens_singles, '1.30').matchup(1, men.Schwartzman, 2, men.Rinderknech).select(2, 5)  # (   ) Diego Schwartzman  OR  (   ) Arthur Rinderknech
     TEAM.draw(mens_singles, '1.31').matchup(1, men.Daniel, 2, men.Monfils).select(2, 4)  # (  Q) Taro Daniel  OR  (   ) Gael Monfils
-    TEAM.draw(mens_singles, '1.32').matchup(1, men.Ruusuvuori, 2, men.Rublev).select(2, 3)  # (   ) Emil Ruusuvuori  OR  (  8) Andrey Rublev
+    TEAM.draw(mens_singles, '1.32').matchup(1, men.Cazaux, 2, men.Rublev).select(2, 3)  # (   ) Arthur Cazaux  OR  (  8) Andrey Rublev
     TEAM.draw(mens_singles, '1.33').matchup(1, men.Ruud, 2, men.Nava).select(1, 3)  # (  5) Casper Ruud  OR  (  Q) Emilio Nava
     TEAM.draw(mens_singles, '1.34').matchup(1, men.Wolf, 2, men.Zhang_Zhizhen).select(1, 4)  # (   ) J.J. Wolf  OR  (   ) Zhizhen Zhang
     TEAM.draw(mens_singles, '1.35').matchup(1, men.Hijikata, 2, men.Kotov).select(2, 4)  # ( WC) Rinky Hijikata  OR  (   ) Pavel Kotov
