@@ -7,10 +7,8 @@ from tejos.repo import repository
 from tejos.util import fn, error, logger
 
 
-class Entry(base.GraphModel):
-    repo = repository.EntryRepo
-    repo_graph = base.GraphModel.tournament_graph
-    repo_instance = None
+class Entry:
+    repo = base.GraphModel2().new(repository.EntryRepo, base.GraphModel2.tournament_graph)
     entry_cache = []
 
     @classmethod
@@ -18,12 +16,12 @@ class Entry(base.GraphModel):
         en = cls(player=player, draw=draw, seed=seed)
         # if "Wang" in player.klass_name:
         #     breakpoint()
-        cls.repository().upsert(en)
+        cls.repo().upsert(en)
         return en
 
     @classmethod
     def get_all_entries_for_draw(cls, draw):
-        return [cls.builder(entry, draw) for entry in cls.repository().get_all_entries_for_draw(draw.subject)]
+        return [cls.builder(entry, draw) for entry in cls.repo().get_all_entries_for_draw(draw.subject)]
 
     @classmethod
     def builder(cls, entry, draw):

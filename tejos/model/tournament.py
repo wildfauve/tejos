@@ -6,7 +6,7 @@ from tejos.repo import repository
 from tejos.util import fn, singleton
 
 
-class Tournament():
+class Tournament:
     repo = model.GraphModel2().new(repository.TournamentRepo, model.GraphModel2.tournament_graph)
 
     @classmethod

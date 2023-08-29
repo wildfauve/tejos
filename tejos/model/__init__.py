@@ -1,4 +1,4 @@
-from .base import GraphModel, GraphModel2
+from .base import GraphModel2
 
 from .player import (
     MatchPlayerNumber,

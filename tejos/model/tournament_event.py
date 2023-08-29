@@ -11,9 +11,10 @@ from tejos.model.player import Player
 from tejos import adapter
 
 
-class TournamentEvent(model.GraphModel):
-    repo = repository.TournamentEventRepo
-    repo_graph = model.GraphModel.tournament_graph
+class TournamentEvent:
+    repo = model.GraphModel2().new(repository.TournamentEventRepo, model.GraphModel2.tournament_graph)
+    # repo = repository.TournamentEventRepo
+    # repo_graph = model.GraphModel.tournament_graph
     repo_instance = None
 
     @classmethod
@@ -38,7 +39,7 @@ class TournamentEvent(model.GraphModel):
 
     @classmethod
     def get_all_for_tournament(cls, tournament):
-        return [cls.build_event(tournament, event) for event in cls.repository().find_by_tournament(tournament.subject)]
+        return [cls.build_event(tournament, event) for event in cls.repo().find_by_tournament(tournament.subject)]
 
     @classmethod
     def build_event(cls, tournament, event):

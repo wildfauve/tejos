@@ -20,22 +20,19 @@ def split_match_id(match_id):
     return [int(ident) for ident in match_id.split(".")]
 
 
-class Match(base.GraphModel):
-    repo = repository.MatchRepo
-    repo_graph = base.GraphModel.tournament_graph
-    repo_instance = None
+class Match():
+    repo = base.GraphModel2().new(repository.MatchRepo, base.GraphModel2.tournament_graph)
 
     @classmethod
     def create(cls, round_id, match_number, draw, for_round):
         mt = cls(round_id, match_number, draw, for_round)
-        cls.repository().upsert(mt)
+        cls.repo().upsert(mt)
         return mt
 
     @classmethod
     def get_or_update_all_for_round(cls, for_round, round_sub, update_match=True):
-        matches = cls.repository().get_all_for_round(round_sub)
+        matches = cls.repo().get_all_for_round(round_sub)
         return [cls.to_match(for_round, match, update_match) for match in matches]
-
 
     @classmethod
     def to_match(cls, for_round, match, update_match=True):
@@ -61,7 +58,6 @@ class Match(base.GraphModel):
     def decompose_match_subject(cls, match_sub):
         draw_name, _, for_round, _, match_id = match_sub.split("/")[-5:]
         return (draw_name, int(for_round), int(match_id.split(".")[-1]))
-
 
     def __init__(self,
                  round_id,
@@ -201,7 +197,6 @@ class Match(base.GraphModel):
             raise err
         return entry.find_player_by_sub(player_sub, [self.player1, self.player2])
 
-
     def add_player(self, player_to_add: entry.Entry):
         if self.player1 and self.player2:
             raise error.PlayerAdvanceError(
@@ -215,7 +210,7 @@ class Match(base.GraphModel):
         else:
             self.player2 = player_to_add
             self._init_scores(player_to_add)
-        self.repository().add_players_to_match(self, (self.player1, self.player2))
+        self.repo().add_players_to_match(self, (self.player1, self.player2))
         return self
 
     def add_players(self, player1: entry.Entry, player2: entry.Entry):
@@ -230,7 +225,7 @@ class Match(base.GraphModel):
         self.player2 = player2
         self._init_scores(player2)
         logger.log(f"Add Players to {self.match_id}; 1: {player1.player()} 2: {player2.player()}")
-        self.repository().add_players_to_match(self, (player1, player2))
+        self.repo().add_players_to_match(self, (player1, player2))
         return self
 
     def score(self, for_player, set_games: Tuple[int]):
@@ -243,8 +238,8 @@ class Match(base.GraphModel):
         _pos, pl = pos_player
         self.update_sets(pl, set_games)
 
-        self.repository().add_score(self, pos_player,
-                                    [self.set_game_subjects(for_set, score) for for_set, score in enumerate(set_games)])
+        self.repo().add_score(self, pos_player,
+                              [self.set_game_subjects(for_set, score) for for_set, score in enumerate(set_games)])
         self.winner()
         return self
 
@@ -320,7 +315,7 @@ class Match(base.GraphModel):
         if advance:
             # if self.match_id == "5.1":
             #     breakpoint()
-            self.repository().add_match_winner(self)
+            self.repo().add_match_winner(self)
             self.draw.advance_winner(self)
         return self.match_winner
 

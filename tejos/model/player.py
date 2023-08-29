@@ -59,9 +59,10 @@ class PlayerCache(singleton.Singleton):
         pass
 
 
-class Player(model.GraphModel):
-    repo = repository.PlayerRepo
-    repo_graph = model.GraphModel.players_graph
+class Player:
+    repo = model.GraphModel2().new(repository.PlayerRepo, model.GraphModel2.players_graph)
+    # repo = repository.PlayerRepo
+    # repo_graph = model.GraphModel.players_graph
     player_cache = PlayerCache
 
     @classmethod
@@ -94,7 +95,7 @@ class Player(model.GraphModel):
 
     @classmethod
     def loadall(cls):
-        for plr in cls.repo(cls.players_graph()).get_all():
+        for plr in cls.repo().get_all():
             player = cls.build_player(plr)
             cls.player_cache().add_to_cache(player)
         pass

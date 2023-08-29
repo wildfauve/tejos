@@ -36,10 +36,8 @@ def _draw_cls_predicate(draw_cls, draw):
     return isinstance(draw, draw_cls)
 
 
-class Draw(base.GraphModel):
-    repo = repository.DrawRepo
-    repo_graph = base.GraphModel.tournament_graph
-    repo_instance = None
+class Draw:
+    repo = base.GraphModel2().new(repository.DrawRepo, base.GraphModel2.tournament_graph)
 
     @classmethod
     def create(cls, name: str, best_of: int, draw_size: int, event, points_strategy_components: tuple = None):
@@ -47,13 +45,13 @@ class Draw(base.GraphModel):
                    best_of=best_of,
                    event=event,
                    points_strategy_components=points_strategy_components).draw_size(number_of_matches=draw_size)
-        cls.repository().upsert(draw)
+        cls.repo().upsert(draw)
         return draw
 
     @classmethod
     def get_all_for_event(cls, event):
         return [cls.build_draw_and_add_to_event(draw, event) for draw in
-                cls.repository().get_for_event(event_subject=event.subject)]
+                cls.repo().get_for_event(event_subject=event.subject)]
 
     @classmethod
     def get(cls, event, name: str):
@@ -105,7 +103,7 @@ class Draw(base.GraphModel):
 
     def draw_size(self, number_of_matches):
         self.number_of_matches = number_of_matches
-        self.repo(self.__class__.tournament_graph()).update_draw_size(self)
+        self.repo().update_draw_size(self)
         return self
 
     def load_rounds(self):

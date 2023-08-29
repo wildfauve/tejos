@@ -20,14 +20,14 @@ def leaderboard_df(tournament, year, round_number=None) -> pl.DataFrame:
     return leaderboard.current_leaderboard(event, _apply_fantasy(event), round_number)
 
 
-@commanda.command(graph_names=['fantasy'])
+@commanda.command(graph_names=['fantasy_graph'])
 def create_team(name, members, features):
     team = model.Team.create(name=name,
                              members=", ".join(members),
                              features=[model.FantasyFeature[feat] for feat in features])
     return monad.Right(team)
 
-@commanda.command(graph_names=['fantasy'])
+@commanda.command(graph_names=['fantasy_graph'])
 def load_selections(tournament, year):
     event = tournament.for_year(year, load=True)
     for team in _apply_fantasy(event):
@@ -36,7 +36,7 @@ def load_selections(tournament, year):
     return monad.Right(event)
 
 
-@commanda.command(graph_names=['fantasy'])
+@commanda.command(graph_names=['fantasy_graph'])
 def invoke_selections(tournament, year):
     """
     Where selections are defined in a python function using the selections fantasy module.

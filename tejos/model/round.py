@@ -14,10 +14,8 @@ from tejos.util import fn, error
 console = Console()
 
 
-class Round(base.GraphModel):
-    repo = repository.RoundRepo
-    repo_graph = base.GraphModel.tournament_graph
-    repo_instance = None
+class Round():
+    repo = base.GraphModel2().new(repository.RoundRepo, base.GraphModel2.tournament_graph)
 
     @classmethod
     def create(cls, round_id,
@@ -26,12 +24,12 @@ class Round(base.GraphModel):
                draw):
         rd = cls(round_id, number_of_slots, best_of, draw)
         rd.build_match_slots()
-        cls.repository().upsert(rd)
+        cls.repo().upsert(rd)
         return rd
 
     @classmethod
     def init_add_rds_for_draw(cls, draw):
-        return [cls.init_matches(draw, rd) for rd in cls.repository().get_all_for_draw(draw.subject)]
+        return [cls.init_matches(draw, rd) for rd in cls.repo().get_all_for_draw(draw.subject)]
 
     @classmethod
     def add_match_state(cls, draw):
@@ -147,7 +145,7 @@ class Round(base.GraphModel):
                                 match_number=match_number,
                                 draw=self.draw,
                                 for_round=self)
-        self.repository().add_match(self.subject, mt.subject)
+        self.repo().add_match(self.subject, mt.subject)
         return mt
 
     def _match_number_predicate(self, number, match):
