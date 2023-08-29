@@ -333,7 +333,7 @@ def womens_singles_round_1(womens_singles):
         2)  # ( 25) Anhelina Kalinina  OR  (  W) Diane Parry
     TEAM.draw(womens_singles).match('1.14').winner(
         women.Riske_Amritraj).in_sets(2)  # (  Q) Mirra Andreeva  OR  (   ) Alison Riske-Amritraj
-    TEAM.draw(womens_singles).match('1.15').winner(women.Grabher).in_sets(
+    TEAM.draw(womens_singles).match('1.15').winner(women.Hruncakova).in_sets(
         3)  # (  Q) Arantxa Rus  OR  (   ) Julia Grabher
     TEAM.draw(womens_singles).match('1.16').winner(women.Gauff).in_sets(
         2)  # (   ) Rebeka Masarova  OR  (  6) Coco Gauff

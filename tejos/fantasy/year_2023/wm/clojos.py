@@ -279,7 +279,7 @@ def womens_singles_round_1(womens_singles):
     TEAM.draw(womens_singles).match('1.4').winner(women.Martic).in_sets(3)  # (   ) Fruhvirtova_Linda  OR  ( 30) Martic
     TEAM.draw(womens_singles).match('1.5').winner(women.Linette).in_sets(2)  # ( 23) Linette  OR  (   ) Teichmann
     TEAM.draw(womens_singles).match('1.6').winner(women.Zanevska).in_sets(3)  # (   ) Strycova  OR  (   ) Zanevska
-    TEAM.draw(womens_singles).match('1.7').winner(women.Grabher).in_sets(2)  # (   ) Collins  OR  (   ) Grabher
+    TEAM.draw(womens_singles).match('1.7').winner(women.Hruncakova).in_sets(2)  # (   ) Collins  OR  (   ) Grabher
     TEAM.draw(womens_singles).match('1.8').winner(women.Bencic).in_sets(2)  # ( WC) Swan  OR  ( 14) Bencic
     TEAM.draw(womens_singles).match('1.9').winner(women.Kasatkina).in_sets(2)  # ( 11) Kasatkina  OR  (   ) Dolehide
     TEAM.draw(womens_singles).match('1.10').winner(women.Mcnally).in_sets(2)  # ( WC) Burrage  OR  (   ) Mcnally

@@ -8,7 +8,7 @@ from tejos.players import atp_players, wta_players
 from . import helpers, commanda
 
 
-@commanda.command()
+@commanda.command(graph_names=['tejos_graph'])
 def new_tournament(tournament_name, perma_id) -> monad.EitherMonad[model.GrandSlam]:
     wm = model.GrandSlam.create(name=tournament_name, subject_name=tournament_name, perma_id=perma_id)
     if not wm:
@@ -16,7 +16,7 @@ def new_tournament(tournament_name, perma_id) -> monad.EitherMonad[model.GrandSl
     return monad.Right(wm)
 
 
-@commanda.command()
+@commanda.command(graph_names=['tejos_graph'])
 def new_event(tournament, year):
     ev = tournament.make_event(year)
 
@@ -25,7 +25,7 @@ def new_event(tournament, year):
     return monad.Right(ev)
 
 
-@commanda.command()
+@commanda.command(graph_names=['tejos_graph'])
 def new_draw(tournament, year, draw_name, best_of, draw_size, fantasy_pt_strat: Tuple = None):
     event = tournament.for_year(year, load=True)
     if not event:
@@ -47,7 +47,7 @@ def get_entries(tournament, year, entries_file):
     return monad.Right(result)
 
 
-@commanda.command()
+@commanda.command(graph_names=['tejos_graph'])
 def add_entries(tournament, year, draw_name, in_file):
     event = tournament.for_year(year, load=True)
 
@@ -67,7 +67,7 @@ def add_entries(tournament, year, draw_name, in_file):
     return monad.Right(draw)
 
 
-@commanda.command()
+@commanda.command(graph_names=['tejos_graph'])
 def first_round_draw(tournament, year, draw_name):
     event = tournament.for_year(year, load=True)
 
@@ -93,7 +93,7 @@ def first_round_draw(tournament, year, draw_name):
     return monad.Right(draw)
 
 
-@commanda.command()
+@commanda.command(graph_names=['tejos_graph'])
 def results(tournament, year, round_number, scores_only):
     event = tournament.for_year(year, load=True)
 

@@ -89,7 +89,7 @@ def womens_singles_round_1(womens_singles):
     TEAM.draw(womens_singles, '1.4').matchup(1, women.Juvan, 2, women.Cocciaretto).select(2, 2)  # (  Q) Kaja Juvan  OR  ( 29) Elisabetta Cocciaretto
     TEAM.draw(womens_singles, '1.5').matchup(1, women.Ostapenko, 2, women.Paolini).select(1, 3)  # ( 20) Jelena Ostapenko  OR  (   ) Jasmine Paolini
     TEAM.draw(womens_singles, '1.6').matchup(1, women.Alizé_Cornet, 2, women.Avanesyan).select(1, 3)  # (   ) Alizé Cornet  OR  (   ) Elina Avanesyan
-    TEAM.draw(womens_singles, '1.7').matchup(1, women.Grabher, 2, women.Wang_Xiyu).select(2, 3)  # (   ) Julia Grabher  OR  (   ) Xiyu Wang
+    TEAM.draw(womens_singles, '1.7').matchup(1, women.Hruncakova, 2, women.Wang_Xiyu).select(2, 3)  # (   ) Julia Grabher  OR  (   ) Xiyu Wang
     TEAM.draw(womens_singles, '1.8').matchup(1, women.Pera, 2, women.Kudermetova_Veronika).select(2, 2)  # (   ) Bernarda Pera  OR  ( 16) Veronika Kudermetova
     TEAM.draw(womens_singles, '1.9').matchup(1, women.Kvitova, 2, women.Bucsa).select(1, 2)  # ( 11) Petra Kvitova  OR  (   ) Cristina Bucsa
     TEAM.draw(womens_singles, '1.10').matchup(1, women.Tatiana_Prozorova, 2, women.Caroline_Wozniacki).select(2, 3)  # (  Q) Tatiana Prozorova  OR  ( WC) Caroline Wozniacki

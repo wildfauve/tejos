@@ -159,7 +159,7 @@ def womens_singles_round_2(womens_singles):
     TEAM.draw(womens_singles).match('2.5').winner(women.Bolsova).in_sets(3)  # (   ) Schmiedlova  OR  (  L) Bolsova
     TEAM.draw(womens_singles).match('2.6').winner(women.Keys).in_sets(3)  # (  Q) Day  OR  ( 20) Keys
     TEAM.draw(womens_singles).match('2.7').winner(women.Parry).in_sets(2)  # (  W) Parry  OR  (  Q) Andreeva_Mirra
-    TEAM.draw(womens_singles).match('2.8').winner(women.Grabher).in_sets(3)  # (   ) Grabher  OR  (  6) Gauff
+    TEAM.draw(womens_singles).match('2.8').winner(women.Hruncakova).in_sets(3)  # (   ) Grabher  OR  (  6) Gauff
     TEAM.draw(womens_singles).match('2.9').winner(women.Rybakina).in_sets(3)  # (  4) Rybakina  OR  (   ) Noskova
     TEAM.draw(womens_singles).match('2.10').winner(women.Sorribes_Tormo).in_sets(
         3)  # (   ) Sorribes_Tormo  OR  (   ) Martic
@@ -326,7 +326,7 @@ def womens_singles_round_1(womens_singles):
         2)  # ( 25) Anhelina Kalinina  OR  (  W) Diane Parry
     TEAM.draw(womens_singles).match('1.14').winner(women.Riske_Amritraj).in_sets(
         2)  # (  Q) Mirra Andreeva  OR  (   ) Alison Riske-Amritraj
-    TEAM.draw(womens_singles).match('1.15').winner(women.Grabher).in_sets(
+    TEAM.draw(womens_singles).match('1.15').winner(women.Hruncakova).in_sets(
         2)  # (  Q) Arantxa Rus  OR  (   ) Julia Grabher
     TEAM.draw(womens_singles).match('1.16').winner(women.Gauff).in_sets(
         2)  # (   ) Rebeka Masarova  OR  (  6) Coco Gauff
