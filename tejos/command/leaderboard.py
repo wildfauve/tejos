@@ -52,21 +52,6 @@ def _show_old(fantasy_teams, round_number=None):
     console.print(table)
 
 
-def show_f1_leaderboard(fantasy_teams, round_number=None):
-    results = total_f1_pts(fn.remove_none([f1_score_for_round(rd, fantasy_teams) for rd in range(1, total_rounds)]))
-
-    table = Table(title=f"F1 Style Leaderboard For Round {round_number if round_number else 'All'}", box=box.ROUNDED)
-
-    table.add_column("Score", justify="center", style="cyan", no_wrap=True)
-    table.add_column("Team", justify="left", style="magenta")
-
-    rankings = sorted_f1_teams(results)
-    ljust_len = int(len(str(max([r[1] for r in rankings]))))
-    for team, score in rankings:
-        table.add_row(f"{str(score).ljust(ljust_len)}", team.name)
-    console.print(table)
-
-
 def find_team_on_board(team, board):
     return fn.find(partial(_team_board_predicate, team), board)
 
@@ -96,8 +81,10 @@ def sorted_f1_teams(fantasy_teams):
 
 
 def _format_team_scores(tournie, accum: bool, scores):
-    rd_scores = reduce(partial(_scores_dict, tournie, accum), _transpose_scores(scores), {})
-    return {**{"teams": [team.name for team, _ in scores]}, **rd_scores}
+    # lets remove any teams without scores
+    only_teams_with_selections = fn.remove(lambda x: not x[1], scores)
+    rd_scores = reduce(partial(_scores_dict, tournie, accum), _transpose_scores(only_teams_with_selections), {})
+    return {**{"teams": [team.name for team, _ in only_teams_with_selections]}, **rd_scores}
 
 
 def _scores_dict(tournie, accum: bool, acc, score_column):

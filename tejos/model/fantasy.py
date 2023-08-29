@@ -169,8 +169,7 @@ class FantasyDraw:
         return self
 
     def points_per_round(self, up_to_rd: int = None):
-        return [self._sum_round_points(round_selections) for round_selections in
-                self._selected_filtered_by_rd(up_to_rd)]
+        return [self._sum_round_points(rd_selections) for rd_selections in self._selected_filtered_by_rd(up_to_rd)]
 
     def _selected_filtered_by_rd(self, up_to_rd: int = None):
         if not up_to_rd:

@@ -2227,7 +2227,7 @@ clo-te-ind-fan:PolarPrecision a clo-te-fan:Team ;
 
 <https://clojos.io/ontology/FantasyTennis/Ind/Fantasy/UsOpen/2023/WomensSingles/Clojos/1/7> a clo-te-fan:MatchSelection ;
     clo-te-fan:hasSelectedSets 3 ;
-    clo-te-fan:hasSelectedWinner <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/UsOpen/2023/WomensSingles/Wang_Xiyu> ;
+    clo-te-fan:hasSelectedWinner <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/UsOpen/2023/WomensSingles/Hruncakova> ;
     clo-te-fan:isSelectionForMatch <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/UsOpen/2023/WomensSingles/Round/1/Match/1.7> ;
     clo-te-fan:isSelectionForTeam clo-te-ind-fan:Clojos ;
     clo-te:hasFantasyPointsStrategy <https://clojos.io/ontology/FantasyTennis/FantasyPointsStrategy/WinNumSetsLossMaxSets/Points21Half/DoublePerRound> .
@@ -3123,7 +3123,7 @@ clo-te-ind-fan:PolarPrecision a clo-te-fan:Team ;
 
 <https://clojos.io/ontology/FantasyTennis/Ind/Fantasy/UsOpen/2023/WomensSingles/LightHouse/1/7> a clo-te-fan:MatchSelection ;
     clo-te-fan:hasSelectedSets 3 ;
-    clo-te-fan:hasSelectedWinner <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/UsOpen/2023/WomensSingles/Wang_Xiyu> ;
+    clo-te-fan:hasSelectedWinner <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/UsOpen/2023/WomensSingles/Hruncakova> ;
     clo-te-fan:isSelectionForMatch <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/UsOpen/2023/WomensSingles/Round/1/Match/1.7> ;
     clo-te-fan:isSelectionForTeam clo-te-ind-fan:LightHouse ;
     clo-te:hasFantasyPointsStrategy <https://clojos.io/ontology/FantasyTennis/FantasyPointsStrategy/WinNumSetsLossMaxSets/Points21Half/DoublePerRound> .
