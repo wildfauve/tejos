@@ -70,7 +70,7 @@ def team_musical_bears(mens_singles, womens_singles):
 
 # mens_singles_round_3:END
 
-    # womens_singles_round_2:START
+# womens_singles_round_2:START
 def womens_singles_round_2(womens_singles):
     TEAM.draw(womens_singles, '2.1').matchup(1, women.Swiatek, 2, women.Saville).select(1,
                                                                                         2)  # (  1) Iga Swiatek  OR  (   ) Daria Saville
@@ -123,7 +123,8 @@ def womens_singles_round_2(womens_singles):
     TEAM.draw(womens_singles, '2.32').matchup(1, women.Burrage, 2, None).select()  # (   ) Jodie Burrage  OR  TBD
 # womens_singles_round_2:END
 
-    # mens_singles_round_2:START
+
+# mens_singles_round_2:START
 def mens_singles_round_2(mens_singles):
     TEAM.draw(mens_singles, '2.1').matchup(1, men.Harris, 2, None).select()  # (   ) Lloyd Harris  OR  TBD
     TEAM.draw(mens_singles, '2.2').matchup(1, men.Evans, 2, None).select()  # ( 26) Daniel Evans  OR  TBD

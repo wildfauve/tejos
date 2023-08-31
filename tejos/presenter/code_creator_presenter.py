@@ -57,6 +57,7 @@ def fantasy_score_template_inserter(fantasy_module_team_fn_calls_tuple: Tuple):
 def _template_inserter(start_end_fn: Callable, templated_file: List, inserted_lines: List):
     t_start, t_end = start_end_fn(templated_file)
     if t_start.is_left() or t_end.is_left():
+        breakpoint()
         echo.echo(f"Template not found")
         return False, templated_file
     templated_file[t_start.value + 1:t_end.value] = inserted_lines
