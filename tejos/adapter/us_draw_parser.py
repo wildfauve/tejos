@@ -33,6 +33,7 @@ match_ids = {'mens_singles': [], 'womens_singles': []}
 
 COMPLETED = "Completed"
 RETIRED = "Retired"
+WALKOVER = "Walkover"
 
 
 def build_draw(event, for_rd, scores_only, full_draw=False):
@@ -131,9 +132,9 @@ def _scores(content, team_number):
 def _determine_match_state_exceptions(team, winner, status):
     if status == COMPLETED or not winner:
         return None
-    if status == RETIRED and team != int(winner):
+    if (status == RETIRED or status == WALKOVER) and team != int(winner):
         return model.MatchState.RET
-    if status == RETIRED and team == int(winner):
+    if (status == RETIRED or status == WALKOVER) and team == int(winner):
         return None
     breakpoint()
     return None
