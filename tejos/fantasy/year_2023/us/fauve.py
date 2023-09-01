@@ -95,26 +95,26 @@ def womens_singles_round_2(womens_singles):
     TEAM.draw(womens_singles).match('2.22').winner(women.Keys).in_sets(2)  # ( LL) Yanina Wickmayer  OR  ( 17) Madison Keys
     TEAM.draw(womens_singles).match('2.23').winner(women.Svitolina).in_sets(2)  # ( 26) Svitolina  OR  (   ) Anastasia Pavlyuchenkova
     TEAM.draw(womens_singles).match('2.24').winner(women.Pegula).in_sets(2)  # (  3) Jessica Pegula  OR  (   ) Patricia Maria Tig
-    TEAM.draw(womens_singles, '2.25').matchup(1, women.Noskova, 2, None).select()  # (   ) Linda Noskova  OR  TBD
+    TEAM.draw(womens_singles, '2.25').matchup(1, women.Noskova, 2, women.Jabeur).select(2, 2)  # (   ) Linda Noskova  OR  (  5) Ons Jabeur
     TEAM.draw(womens_singles).match('2.26').winner(women.Martic).in_sets(3)  # (   ) Petra Martic  OR  ( 31) Marie Bouzkova
     TEAM.draw(womens_singles).match('2.27').winner(women.Zheng).in_sets(2)  # ( 23) Qinwen Zheng  OR  (   ) Kaia Kanepi
     TEAM.draw(womens_singles).match('2.28').winner(women.Bronzetti).in_sets(2)  # (  Q) Eva Lys  OR  (   ) Lucia Bronzetti
-    TEAM.draw(womens_singles, '2.29').matchup(1, women.Kasatkina, 2, women.Kenin).select()  # ( 13) Daria Kasatkina  OR  (   ) Sofia Kenin
+    TEAM.draw(womens_singles, '2.29').matchup(1, women.Kasatkina, 2, women.Kenin).select(1, 3)  # ( 13) Daria Kasatkina  OR  (   ) Sofia Kenin
     TEAM.draw(womens_singles).match('2.30').winner(women.Minnen).in_sets(3)  # (  Q) Greet Minnen  OR  (  Q) Sachia Vickery
     TEAM.draw(womens_singles).match('2.31').winner(women.Pliskova).in_sets(3)  # ( 25) Karolina Pliskova  OR  (   ) Clara Burel
-    TEAM.draw(womens_singles, '2.32').matchup(1, women.Burrage, 2, women.Sabalenka).select()  # (   ) Jodie Burrage  OR  (  2) Aryna Sabalenka
+    TEAM.draw(womens_singles, '2.32').matchup(1, women.Burrage, 2, women.Sabalenka).select(2, 2)  # (   ) Jodie Burrage  OR  (  2) Aryna Sabalenka
 # womens_singles_round_2:END
 
 
 # mens_singles_round_2:START
 def mens_singles_round_2(mens_singles):
-    TEAM.draw(mens_singles, '2.1').matchup(1, men.Harris, 2, None).select()  # (   ) Lloyd Harris  OR  TBD
-    TEAM.draw(mens_singles, '2.2').matchup(1, men.Evans, 2, None).select()  # ( 26) Daniel Evans  OR  TBD
-    TEAM.draw(mens_singles, '2.3').matchup(1, men.Fils, 2, None).select()  # (   ) Arthur Fils  OR  TBD
+    TEAM.draw(mens_singles, '2.1').matchup(1, men.Harris, 2, men.Alcaraz).select(2, 3)  # (   ) Lloyd Harris  OR  (  1) Carlos Alcaraz
+    TEAM.draw(mens_singles, '2.2').matchup(1, men.Evans, 2, men.Botic_van_De_Zandschulp).select(1, 4)  # ( 26) Daniel Evans  OR  (   ) Botic van De Zandschulp
+    TEAM.draw(mens_singles, '2.3').matchup(1, men.Fils, 2, men.Arnaldi).select(2, 4)  # (   ) Arthur Fils  OR  (   ) Matteo Arnaldi
     TEAM.draw(mens_singles).match('2.4').winner(men.Norrie).in_sets(4)  # ( 16) Cameron Norrie  OR  (  Q) Yu Hsiou Hsu
     TEAM.draw(mens_singles).match('2.5').winner(men.Zverev).in_sets(4)  # ( 12) Alexander Zverev  OR  (   ) Daniel Altmaier
     TEAM.draw(mens_singles).match('2.6').winner(men.Dimitrov).in_sets(4)  # (   ) Andy Murray  OR  ( 19) Grigor Dimitrov
-    TEAM.draw(mens_singles, '2.7').matchup(1, men.Wawrinka, 2, men.Etcheverry).select()  # (   ) Stan Wawrinka  OR  ( 30) Tomas Martin Etcheverry
+    TEAM.draw(mens_singles, '2.7').matchup(1, men.Wawrinka, 2, men.Etcheverry).select(1, 4)  # (   ) Stan Wawrinka  OR  ( 30) Tomas Martin Etcheverry
     TEAM.draw(mens_singles).match('2.8').winner(men.Sinner).in_sets(3)  # (   ) Lorenzo Sonego  OR  (  6) Jannik Sinner
     TEAM.draw(mens_singles).match('2.9').winner(men.Medvedev).in_sets(3)  # (  3) Daniil Medvedev  OR  (   ) Christopher O'Connell
     TEAM.draw(mens_singles).match('2.10').winner(men.Baez).in_sets(5)  # (  Q) Felipe Meligeni Alves  OR  (   ) Sebastian Baez
@@ -280,6 +280,7 @@ def mens_singles_round_1(mens_singles):
     TEAM.draw(mens_singles).match('1.63').winner(men.Zapata_Miralles).in_sets(4)  # (   ) Bernabe Zapata Miralles  OR  ( WC) Ethan Quinn
     TEAM.draw(mens_singles).match('1.64').winner(men.Djokovic).in_sets(3)  # (   ) Alexandre Muller  OR  (  2) Novak Djokovic
 # mens_singles_round_1:END
+
 
 
 
