@@ -101,9 +101,17 @@ class MatchBlock:
         match = self.event.find_draw_by_symbol(self.draw_symbol).for_round(self.round).for_match(self.match_number)
         match.score(self.player1.player_klass, tuple(self.player1.scores))
         match.score(self.player2.player_klass, tuple(self.player2.scores))
-        # if self.player1.match_state:
-        #     breakpoint()
+        if self.player1.match_state:
+            self.add_state_to_match(match, self.player1)
+        if self.player2.match_state:
+            self.add_state_to_match(match, self.player2)
         pass
+
+    def add_state_to_match(self, match, player):
+        if player.match_state == model.MatchState.RET:
+            match.retirement(player.player_klass)
+        else:
+            match.withdrawal(player.player_klass)
 
     def __hash__(self):
         return hash((self.href,))

@@ -231,6 +231,8 @@ class Match():
         return self
 
     def score(self, for_player, set_games: Tuple[int]):
+        if not self.player1 or not self.player2:
+            breakpoint()
         if for_player == self.player1.player():
             pos_player = (1, self.player1)
         elif for_player == self.player2.player():
@@ -271,14 +273,14 @@ class Match():
     def retirement(self, retired_player):
         pl = draw.find_entry_for_player(retired_player, [self.player1, self.player2])
         self.entry_retirement = pl
-        self.repo(self.__class__.tournament_graph()).add_retirement(self)
+        self.repo().add_retirement(self)
         self.winner()
         return self
 
     def withdrawal(self, wd_player):
         pl = draw.find_entry_for_player(wd_player, [self.player1, self.player2])
         self.entry_withdrawal = pl
-        self.repo(self.__class__.tournament_graph()).add_withdrawal(self)
+        self.repo().add_withdrawal(self)
         self.winner()
         return self
 
