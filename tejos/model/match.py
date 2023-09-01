@@ -14,6 +14,7 @@ from tejos.repo import repository
 class MatchState(Enum):
     RET = 'retired'
     WITHDRAWN = 'withdrawn'
+    WALKOVER = 'walkover'
 
 
 def split_match_id(match_id):
@@ -81,6 +82,7 @@ class Match():
         self.match_winner = None
         self.entry_retirement = None
         self.entry_withdrawal = None
+        self.entry_walkover = None
 
     def __repr__(self):
         cls_name = self.__class__.__name__
@@ -89,7 +91,8 @@ class Match():
             f"player1={self.player1.player()}" if self.player1 else "player1=None",
             f"player2={self.player2.player()}" if self.player2 else "player2=None",
             f"entry_retirement={self.entry_retirement.player()}" if self.entry_retirement else None,
-            f"entry_withdrawal={self.entry_withdrawal.player()}" if self.entry_withdrawal else None]
+            f"entry_withdrawal={self.entry_withdrawal.player()}" if self.entry_withdrawal else None,
+            f"entry_walkover={self.entry_walkover.player()}" if self.entry_walkover else None]
         return f"{cls_name}(match_id='{self.match_id}', {', '.join(fn.remove_none(components))})"
 
     def show(self, table):
@@ -121,7 +124,8 @@ class Match():
         chevon = "<" if for_player == self.match_winner else ""
         ret = "(RET)" if self.entry_retirement == for_player else ""
         wd = "(WD)" if self.entry_withdrawal == for_player else ""
-        return f"{' '.join([str(s) for s in self.scores[for_player]])} {ret}{wd}  {chevon}"
+        wo = "(WO)" if self.entry_walkover == for_player else ""
+        return f"{' '.join([str(s) for s in self.scores[for_player]])} {ret}{wd}{wo}  {chevon}"
 
     def result_template(self, event_name, round_number):
         match_part = f"{event_name}.for_round({round_number}).for_match({self.number})"
@@ -201,6 +205,8 @@ class Match():
 
     def add_player(self, player_to_add: entry.Entry):
         if self.player1 and self.player2:
+            if player_to_add in [self.player1, self.player2]:
+                return self
             raise error.PlayerAdvanceError(
                 f"Can't advance player, match {self.match_id} full with {self.player1.player().name} and {self.player2.player().name}")
 
@@ -284,16 +290,22 @@ class Match():
         self.winner()
         return self
 
+    def walkover(self, wo_player):
+        pl = draw.find_entry_for_player(wo_player, [self.player1, self.player2])
+        self.entry_walkover = pl
+        self.repo().add_walkover(self)
+        self.winner()
+
     def number_of_sets_played(self):
         return len(fn.remove_none([s.winner for s in self.sets]))
 
     def max_sets_played(self):
-        return self.best_of == self.number_of_sets_played() or self.entry_retirement or self.entry_withdrawal
+        return self.best_of == self.number_of_sets_played() or self.entry_retirement or self.entry_withdrawal or self.entry_walkover
 
     def is_finished(self) -> bool:
         if not self.scores:
             return False
-        if self.entry_retirement or self.entry_withdrawal:
+        if self.entry_retirement or self.entry_withdrawal or self.entry_walkover:
             return True
         set_winners = fn.remove_none([s.determine_winner() for s in self.sets])
         if not set_winners:
@@ -344,6 +356,8 @@ class Match():
             return self.player2 if self.entry_retirement == self.player1 else self.player1
         if self.entry_withdrawal:
             return self.player2 if self.entry_withdrawal == self.player1 else self.player1
+        if self.entry_walkover:
+            return self.player2 if self.entry_walkover == self.player1 else self.player1
 
         winners_by_sets = fn.remove_none([s.winner for s in self.sets])
         if winners_by_sets.count(self.player1) > winners_by_sets.count(self.player2):

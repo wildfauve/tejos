@@ -65,8 +65,12 @@ class PlayerResult:
         return self if self.match_state == model.MatchState.RET else None
 
     def has_withdrawn(self):
-        return self if self.match_state == model.MatchState.WITHDRAWN else None;
+        return self if self.match_state == model.MatchState.WITHDRAWN else None
 
+    def has_been_walkedover(self):
+        # if self.match_state == model.MatchState.WALKOVER:
+        #     breakpoint()
+        return self if self.match_state == model.MatchState.WALKOVER else None
 
 
 @dataclass
@@ -99,19 +103,26 @@ class MatchBlock:
         # .retirement(atp_players.OneOfThePlayers)),
 
         match = self.event.find_draw_by_symbol(self.draw_symbol).for_round(self.round).for_match(self.match_number)
-        match.score(self.player1.player_klass, tuple(self.player1.scores))
-        match.score(self.player2.player_klass, tuple(self.player2.scores))
+        if not self.no_score_walkover():
+            match.score(self.player1.player_klass, tuple(self.player1.scores))
+            match.score(self.player2.player_klass, tuple(self.player2.scores))
         if self.player1.match_state:
             self.add_state_to_match(match, self.player1)
         if self.player2.match_state:
             self.add_state_to_match(match, self.player2)
         pass
 
+    def no_score_walkover(self):
+        return self.player1.match_state == model.MatchState.WALKOVER or self.player2.match_state == model.MatchState.WALKOVER
+
     def add_state_to_match(self, match, player):
         if player.match_state == model.MatchState.RET:
-            match.retirement(player.player_klass)
-        else:
-            match.withdrawal(player.player_klass)
+            return match.retirement(player.player_klass)
+        if player.match_state == model.MatchState.WITHDRAWN:
+            return match.withdrawal(player.player_klass)
+        if player.match_state == model.MatchState.WALKOVER:
+            return match.walkover(player.player_klass)
+        breakpoint()
 
     def __hash__(self):
         return hash((self.href,))
@@ -154,12 +165,12 @@ class MatchBlock:
             return ""
         return f"\n{sp}.withdrawal({wd[0].player_definition()})"
 
-
     def has_result(self):
-        return (self.player1.scores and self.player2.scores) or self._match_has_exception([self.player1, self.player2])
+        return (self.player1.scores and self.player2.scores) or self._match_has_non_complete_state(
+            [self.player1, self.player2])
 
-    def _match_has_exception(self, players: List):
+    def _match_has_non_complete_state(self, players: List):
         return any([self._player_has_match_exception(pl) for pl in players])
 
     def _player_has_match_exception(self, pl):
-        return pl.has_retired() or pl.has_withdrawn()
+        return pl.has_retired() or pl.has_withdrawn() or pl.has_been_walkedover()

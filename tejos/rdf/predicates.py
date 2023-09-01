@@ -46,4 +46,5 @@ hasSetsScores2 = clo_te.hasSetsScores2
 forSet = clo_te.forSet
 hasMatchWinner = clo_te.hasMatchWinner
 retiredFromMatch = clo_te.retiredFromMatch
+walkoverFromMatch = clo_te.walkoverFromMatch
 withdrawnFromMatch = clo_te.withdrawnFromMatch

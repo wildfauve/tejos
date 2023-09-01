@@ -54,6 +54,11 @@ class MatchRepo(graphrepo.GraphRepo):
         self.graph.add((match.subject, rdf.retiredFromMatch, match.entry_retirement.subject))
         pass
 
+    def add_walkover(self, match):
+        self.graph.add((match.subject, rdf.walkoverFromMatch, match.entry_walkover.subject))
+        pass
+
+
     def add_withdrawal(self, match):
         self.graph.add((match.subject, rdf.withdrawnFromMatch, match.entry_withdrawal.subject))
         pass
