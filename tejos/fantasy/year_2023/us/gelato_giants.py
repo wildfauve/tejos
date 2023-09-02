@@ -39,38 +39,46 @@ def team_gelato_giants(mens_singles, womens_singles):
 
 
 # womens_singles_round_5:START
-
+def womens_singles_round_5(womens_singles):
+    TEAM.draw(womens_singles, '5.1').matchup(1, None, 2, None).select()  # TBD  OR  TBD
+    TEAM.draw(womens_singles, '5.2').matchup(1, None, 2, None).select()  # TBD  OR  TBD
+    TEAM.draw(womens_singles, '5.3').matchup(1, None, 2, None).select()  # TBD  OR  TBD
+    TEAM.draw(womens_singles, '5.4').matchup(1, None, 2, None).select()  # TBD  OR  TBD
 # womens_singles_round_5:END
 
 
 # mens_singles_round_5:START
-
+def mens_singles_round_5(mens_singles):
+    TEAM.draw(mens_singles, '5.1').matchup(1, None, 2, None).select()  # TBD  OR  TBD
+    TEAM.draw(mens_singles, '5.2').matchup(1, None, 2, None).select()  # TBD  OR  TBD
+    TEAM.draw(mens_singles, '5.3').matchup(1, None, 2, None).select()  # TBD  OR  TBD
+    TEAM.draw(mens_singles, '5.4').matchup(1, None, 2, None).select()  # TBD  OR  TBD
 # mens_singles_round_5:END
 
 
 # womens_singles_round_4:START
 def womens_singles_round_4(womens_singles):
     TEAM.draw(womens_singles, '4.1').matchup(1, women.Swiatek, 2, women.Ostapenko).select()  # (  1) Iga Swiatek  OR  ( 20) Jelena Ostapenko
-    TEAM.draw(womens_singles, '4.2').matchup(1, women.Caroline_Wozniacki, 2, None).select()  # ( WC) Caroline Wozniacki  OR  TBD
-    TEAM.draw(womens_singles, '4.3').matchup(1, None, 2, None).select()  # TBD  OR  TBD
+    TEAM.draw(womens_singles, '4.2').matchup(1, women.Caroline_Wozniacki, 2, women.Gauff).select()  # ( WC) Caroline Wozniacki  OR  (  6) Coco Gauff
+    TEAM.draw(womens_singles, '4.3').matchup(1, women.Cirstea, 2, women.Bencic).select()  # ( 30) Sorana Cirstea  OR  ( 15) Belinda Bencic
     TEAM.draw(womens_singles, '4.4').matchup(1, women.Muchova, 2, women.Wang_Xinyu).select()  # ( 10) Karolina Muchova  OR  (   ) Xinyu Wang
     TEAM.draw(womens_singles, '4.5').matchup(1, None, 2, None).select()  # TBD  OR  TBD
-    TEAM.draw(womens_singles, '4.6').matchup(1, None, 2, None).select()  # TBD  OR  TBD
-    TEAM.draw(womens_singles, '4.7').matchup(1, None, 2, None).select()  # TBD  OR  TBD
-    TEAM.draw(womens_singles, '4.8').matchup(1, None, 2, None).select()  # TBD  OR  TBD
+    TEAM.draw(womens_singles, '4.6').matchup(1, women.Keys, 2, women.Pegula).select()  # ( 17) Madison Keys  OR  (  3) Jessica Pegula
+    TEAM.draw(womens_singles, '4.7').matchup(1, women.Zheng, 2, None).select()  # ( 23) Qinwen Zheng  OR  TBD
+    TEAM.draw(womens_singles, '4.8').matchup(1, women.Kasatkina, 2, women.Sabalenka).select()  # ( 13) Daria Kasatkina  OR  (  2) Aryna Sabalenka
 # womens_singles_round_4:END
 
 
 # mens_singles_round_4:START
 def mens_singles_round_4(mens_singles):
-    TEAM.draw(mens_singles, '4.1').matchup(1, None, 2, None).select()  # TBD  OR  TBD
-    TEAM.draw(mens_singles, '4.2').matchup(1, None, 2, None).select()  # TBD  OR  TBD
+    TEAM.draw(mens_singles, '4.1').matchup(1, men.Alcaraz, 2, men.Arnaldi).select()  # (  1) Carlos Alcaraz  OR  (   ) Matteo Arnaldi
+    TEAM.draw(mens_singles, '4.2').matchup(1, men.Sinner, 2, None).select()  # (  6) Jannik Sinner  OR  TBD
     TEAM.draw(mens_singles, '4.3').matchup(1, None, 2, None).select()  # TBD  OR  TBD
-    TEAM.draw(mens_singles, '4.4').matchup(1, None, 2, None).select()  # TBD  OR  TBD
-    TEAM.draw(mens_singles, '4.5').matchup(1, None, 2, None).select()  # TBD  OR  TBD
+    TEAM.draw(mens_singles, '4.4').matchup(1, men.Draper, 2, men.Rublev).select()  # (   ) Jack Draper  OR  (  8) Andrey Rublev
+    TEAM.draw(mens_singles, '4.5').matchup(1, men.Hijikata, 2, men.Tiafoe).select()  # ( WC) Rinky Hijikata  OR  ( 10) Frances Tiafoe
     TEAM.draw(mens_singles, '4.6').matchup(1, men.Paul, 2, men.Shelton).select()  # ( 14) Tommy Paul  OR  (   ) Ben Shelton
-    TEAM.draw(mens_singles, '4.7').matchup(1, None, 2, None).select()  # TBD  OR  TBD
-    TEAM.draw(mens_singles, '4.8').matchup(1, None, 2, None).select()  # TBD  OR  TBD
+    TEAM.draw(mens_singles, '4.7').matchup(1, men.Stricker, 2, men.Fritz).select()  # (  Q) D.Stricker  OR  (  9) Taylor Fritz
+    TEAM.draw(mens_singles, '4.8').matchup(1, men.Gojo, 2, men.Djokovic).select()  # (  Q) Borna Gojo  OR  (  2) Novak Djokovic
 # mens_singles_round_4:END
 
 
@@ -334,6 +342,9 @@ def mens_singles_round_1(mens_singles):
     TEAM.draw(mens_singles, '1.63').matchup(1, men.Zapata_Miralles, 2, men.Ethan_Quinn).select()  # (   ) Bernabe Zapata Miralles  OR  ( WC) Ethan Quinn
     TEAM.draw(mens_singles, '1.64').matchup(1, men.Muller, 2, men.Djokovic).select()  # (   ) Alexandre Muller  OR  (  2) Novak Djokovic
 # mens_singles_round_1:END
+
+
+
 
 
 
