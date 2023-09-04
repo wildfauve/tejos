@@ -51,8 +51,6 @@ def invoke_selections(tournament, year):
 
     selections.apply(fan_mod, event.for_draw("MensSingles"), event.for_draw("WomensSingles"))
 
-    breakpoint()
-
 
     return monad.Right(event)
 
