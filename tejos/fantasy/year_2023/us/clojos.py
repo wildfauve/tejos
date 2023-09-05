@@ -51,19 +51,19 @@ def mens_singles_round_6(mens_singles):
 
 # womens_singles_round_5:START
 def womens_singles_round_5(womens_singles):
-    TEAM.draw(womens_singles, '5.1').matchup(1, women.Ostapenko, 2, women.Gauff).select(2, 3)  # ( 20) Jelena Ostapenko  OR  (  6) Coco Gauff
-    TEAM.draw(womens_singles, '5.2').matchup(1, women.Cirstea, 2, women.Muchova).select(2, 3)  # ( 30) Sorana Cirstea  OR  ( 10) Karolina Muchova
-    TEAM.draw(womens_singles, '5.3').matchup(1, women.Vondrousova, 2, women.Keys).select(1, 3)  # (  9) Marketa Vondrousova  OR  ( 17) Madison Keys
-    TEAM.draw(womens_singles, '5.4').matchup(1, None, 2, None).select()  # TBD  OR  TBD
+    TEAM.draw(womens_singles).match('5.1').winner(women.Gauff).in_sets(3)  # ( 20) Jelena Ostapenko  OR  (  6) Coco Gauff
+    TEAM.draw(womens_singles).match('5.2').winner(women.Muchova).in_sets(3)  # ( 30) Sorana Cirstea  OR  ( 10) Karolina Muchova
+    TEAM.draw(womens_singles).match('5.3').winner(women.Vondrousova).in_sets(3)  # (  9) Marketa Vondrousova  OR  ( 17) Madison Keys
+    TEAM.draw(womens_singles, '5.4').matchup(1, women.Zheng, 2, women.Sabalenka).select(2, 2)  # ( 23) Qinwen Zheng  OR  (  2) Aryna Sabalenka
 # womens_singles_round_5:END
 
 
 # mens_singles_round_5:START
 def mens_singles_round_5(mens_singles):
-    TEAM.draw(mens_singles, '5.1').matchup(1, men.Alcaraz, 2, None).select()  # (  1) Carlos Alcaraz  OR  TBD
-    TEAM.draw(mens_singles, '5.2').matchup(1, men.Rublev, 2, None).select()  # (  8) Andrey Rublev  OR  TBD
-    TEAM.draw(mens_singles, '5.3').matchup(1, men.Shelton, 2, men.Tiafoe).select(2, 4)  # (   ) Ben Shelton  OR  ( 10) Frances Tiafoe
-    TEAM.draw(mens_singles, '5.4').matchup(1, men.Fritz, 2, men.Djokovic).select(2, 5)  # (  9) Taylor Fritz  OR  (  2) Novak Djokovic
+    TEAM.draw(mens_singles, '5.1').matchup(1, men.Alcaraz, 2, men.Zverev).select(1, 4)  # (  1) Carlos Alcaraz  OR  ( 12) Alexander Zverev
+    TEAM.draw(mens_singles, '5.2').matchup(1, men.Rublev, 2, men.Medvedev).select(1, 4)  # (  8) Andrey Rublev  OR  (  3) Daniil Medvedev
+    TEAM.draw(mens_singles).match('5.3').winner(men.Tiafoe).in_sets(4)  # (   ) Ben Shelton  OR  ( 10) Frances Tiafoe
+    TEAM.draw(mens_singles).match('5.4').winner(men.Djokovic).in_sets(5)  # (  9) Taylor Fritz  OR  (  2) Novak Djokovic
 # mens_singles_round_5:END
 
 
@@ -346,6 +346,8 @@ def mens_singles_round_1(mens_singles):
     TEAM.draw(mens_singles).match('1.63').winner(men.Zapata_Miralles).in_sets(4)  # (   ) Bernabe Zapata Miralles  OR  ( WC) Ethan Quinn
     TEAM.draw(mens_singles).match('1.64').winner(men.Djokovic).in_sets(3)  # (   ) Alexandre Muller  OR  (  2) Novak Djokovic
 # mens_singles_round_1:END
+
+
 
 
 
