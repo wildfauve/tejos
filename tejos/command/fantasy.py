@@ -27,6 +27,7 @@ def create_team(name, members, features):
                              features=[model.FantasyFeature[feat] for feat in features])
     return monad.Right(team)
 
+
 @commanda.command(graph_names=['fantasy_graph'])
 def load_selections(tournament, year):
     event = tournament.for_year(year, load=True)
@@ -50,7 +51,6 @@ def invoke_selections(tournament, year):
     fan_mod = _fantasy_module(event)
 
     selections.apply(fan_mod, event.for_draw("MensSingles"), event.for_draw("WomensSingles"))
-
 
     return monad.Right(event)
 
@@ -120,11 +120,11 @@ def fantasy_score_template_inserter(tournament, year, round_number):
     return fantasy_module, results
 
 
-def atomic_points_for_all_teams(tournament_name):
-    tournie = _find_tournament_by_name(tournament_name)
-    if not tournie:
-        return
-    return dataframe.explain_df_builder(tournie, teams.points_details_all_teams(_apply_fantasy(_start(tournie))))
+def atomic_points_for_all_teams(tournament, year):
+    event = tournament.for_year(year, load=True)
+    fantasy_module = _fantasy_module(event)
+
+    return dataframe.explain_df_builder(event, teams.points_details_all_teams(_apply_fantasy(event)))
 
 
 def explain_team_points(tournament_name, team_name):
@@ -140,8 +140,6 @@ def generate_graph(ttl_file):
 
 def player_scrap(file):
     atp_rankings.build_players_file(file)
-
-
 
 
 @commanda.command()
@@ -176,7 +174,6 @@ def _apply_fantasy(event):
     directory = model.fantasy.load_all_selections(event)
 
     return directory.teams
-
 
     # mens_singles = event.for_draw('MensSingles')
     # womens_singles = event.for_draw('WomensSingles')

@@ -152,11 +152,11 @@ def explain_team_score(tournament, fantasy_team_name, channel):
 @click.option("--tournament", "-t", type=click.Choice(helpers.tournament_names()), )
 @click.option("--year", "-y", type=int)
 @click.option("--file", "-f", type=str, default=None, help="Parquet File Location")
-def points_atomic(file, tournament):
+def points_atomic(file, tournament, year):
     """
     Shows the round of an event
     """
-    presenter.to_parquet(file, command.atomic_points_for_all_teams(helpers.to_tournament(tournament)))
+    presenter.to_parquet(file, command.atomic_points_for_all_teams(helpers.to_tournament(tournament), year))
     pass
 
 
