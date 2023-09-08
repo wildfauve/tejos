@@ -22,26 +22,28 @@ def team_musical_bears(mens_singles, womens_singles):
 
 
 # womens_singles_round_7:START
-
+def womens_singles_round_7(womens_singles):
+    TEAM.draw(womens_singles, '7.1').matchup(1, women.Gauff, 2, women.Sabalenka).select()  # (  6) Coco Gauff  OR  (  2) Aryna Sabalenka
 # womens_singles_round_7:END
 
 
 # mens_singles_round_7:START
-
+def mens_singles_round_7(mens_singles):
+    TEAM.draw(mens_singles, '7.1').matchup(1, men.Djokovic, 2, None).select()  # (  2) Novak Djokovic  OR  TBD
 # mens_singles_round_7:END
 
 
 # womens_singles_round_6:START
 def womens_singles_round_6(womens_singles):
-    TEAM.draw(womens_singles, '6.1').matchup(1, women.Gauff, 2, women.Muchova).select(2, 3)  # (  6) Coco Gauff  OR  ( 10) Karolina Muchova
-    TEAM.draw(womens_singles, '6.2').matchup(1, women.Keys, 2, women.Sabalenka).select(2, 2)  # ( 17) Madison Keys  OR  (  2) Aryna Sabalenka
+    TEAM.draw(womens_singles).match('6.1').winner(women.Muchova).in_sets(3)  # (  6) Coco Gauff  OR  ( 10) Karolina Muchova
+    TEAM.draw(womens_singles).match('6.2').winner(women.Sabalenka).in_sets(2)  # ( 17) Madison Keys  OR  (  2) Aryna Sabalenka
 # womens_singles_round_6:END
 
 
 # mens_singles_round_6:START
 def mens_singles_round_6(mens_singles):
-    TEAM.draw(mens_singles, '6.1').matchup(1, men.Medvedev, 2, None).select()  # (  3) Daniil Medvedev  OR  TBD
-    TEAM.draw(mens_singles, '6.2').matchup(1, men.Djokovic, 2, men.Shelton).select(1, 4)  # (  2) Novak Djokovic  OR  (   ) Ben Shelton
+    TEAM.draw(mens_singles).match('6.1').winner(men.Alcaraz).in_sets(4)  # (  3) Daniil Medvedev  OR  (  1) Carlos Alcaraz
+    TEAM.draw(mens_singles).match('6.2').winner(men.Djokovic).in_sets(4)  # (  2) Novak Djokovic  OR  (   ) Ben Shelton
 # mens_singles_round_6:END
 
 
@@ -343,6 +345,9 @@ def mens_singles_round_1(mens_singles):
     TEAM.draw(mens_singles).match('1.63').winner(men.Zapata_Miralles).in_sets(4)  # (   ) Bernabe Zapata Miralles  OR  ( WC) Ethan Quinn
     TEAM.draw(mens_singles).match('1.64').winner(men.Djokovic).in_sets(3)  # (   ) Alexandre Muller  OR  (  2) Novak Djokovic
 # mens_singles_round_1:END
+
+
+
 
 
 
