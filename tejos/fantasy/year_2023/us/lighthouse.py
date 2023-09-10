@@ -23,13 +23,13 @@ def team_lighthouse(mens_singles, womens_singles):
 
 # womens_singles_round_7:START
 def womens_singles_round_7(womens_singles):
-    TEAM.draw(womens_singles, '7.1').matchup(1, women.Gauff, 2, women.Sabalenka).select()  # (  6) Coco Gauff  OR  (  2) Aryna Sabalenka
+    TEAM.draw(womens_singles).match('7.1').winner(women.Gauff).in_sets(3)  # (  6) Coco Gauff  OR  (  2) Aryna Sabalenka
 # womens_singles_round_7:END
 
 
 # mens_singles_round_7:START
 def mens_singles_round_7(mens_singles):
-    TEAM.draw(mens_singles, '7.1').matchup(1, men.Djokovic, 2, None).select()  # (  2) Novak Djokovic  OR  TBD
+    TEAM.draw(mens_singles, '7.1').matchup(1, men.Djokovic, 2, men.Medvedev).select()  # (  2) Novak Djokovic  OR  (  3) Daniil Medvedev
 # mens_singles_round_7:END
 
 
@@ -346,6 +346,7 @@ def mens_singles_round_1(mens_singles):
     TEAM.draw(mens_singles).match('1.63').winner(men.Zapata_Miralles).in_sets(4)  # (   ) Bernabe Zapata Miralles  OR  ( WC) Ethan Quinn
     TEAM.draw(mens_singles).match('1.64').winner(men.Djokovic).in_sets(3)  # (   ) Alexandre Muller  OR  (  2) Novak Djokovic
 # mens_singles_round_1:END
+
 
 
 

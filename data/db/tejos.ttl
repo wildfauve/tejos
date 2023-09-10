@@ -2193,6 +2193,15 @@ clo-te-ind-tou:UsOpen a clo-te:Tournament ;
     clo-te:hasMatchNumber 1 ;
     clo-te:hasMatchUpPosition1 <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/UsOpen/2023/MensSingles/Medvedev> ;
     clo-te:hasMatchUpPosition2 <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/UsOpen/2023/MensSingles/Alcaraz> ;
+    clo-te:hasMatchWinner <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/UsOpen/2023/MensSingles/Medvedev> ;
+    clo-te:hasSetsScores1 <https://clojos.io/ontology/FantasyTennis/Score/1/7>,
+        <https://clojos.io/ontology/FantasyTennis/Score/2/6>,
+        <https://clojos.io/ontology/FantasyTennis/Score/3/3>,
+        <https://clojos.io/ontology/FantasyTennis/Score/4/6> ;
+    clo-te:hasSetsScores2 <https://clojos.io/ontology/FantasyTennis/Score/1/6>,
+        <https://clojos.io/ontology/FantasyTennis/Score/2/1>,
+        <https://clojos.io/ontology/FantasyTennis/Score/3/6>,
+        <https://clojos.io/ontology/FantasyTennis/Score/4/3> ;
     clo-te:isMatchInRound <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/UsOpen/2023/MensSingles/Round/6> .
 
 <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/UsOpen/2023/MensSingles/Round/6/Match/6.2> a clo-te:Match ;
@@ -2220,6 +2229,7 @@ clo-te-ind-tou:UsOpen a clo-te:Tournament ;
     clo-te:hasMatchId "7.1" ;
     clo-te:hasMatchNumber 1 ;
     clo-te:hasMatchUpPosition1 <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/UsOpen/2023/MensSingles/Djokovic> ;
+    clo-te:hasMatchUpPosition2 <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/UsOpen/2023/MensSingles/Medvedev> ;
     clo-te:isMatchInRound <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/UsOpen/2023/MensSingles/Round/7> .
 
 <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/UsOpen/2023/MensSingles/Rune> a clo-te:PlayerEntry ;
@@ -4195,6 +4205,13 @@ clo-te-ind-tou:UsOpen a clo-te:Tournament ;
     clo-te:hasMatchNumber 1 ;
     clo-te:hasMatchUpPosition1 <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/UsOpen/2023/WomensSingles/Gauff> ;
     clo-te:hasMatchUpPosition2 <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/UsOpen/2023/WomensSingles/Sabalenka> ;
+    clo-te:hasMatchWinner <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/UsOpen/2023/WomensSingles/Gauff> ;
+    clo-te:hasSetsScores1 <https://clojos.io/ontology/FantasyTennis/Score/1/2>,
+        <https://clojos.io/ontology/FantasyTennis/Score/2/6>,
+        <https://clojos.io/ontology/FantasyTennis/Score/3/6> ;
+    clo-te:hasSetsScores2 <https://clojos.io/ontology/FantasyTennis/Score/1/6>,
+        <https://clojos.io/ontology/FantasyTennis/Score/2/3>,
+        <https://clojos.io/ontology/FantasyTennis/Score/3/2> ;
     clo-te:isMatchInRound <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/UsOpen/2023/WomensSingles/Round/7> .
 
 <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/UsOpen/2023/WomensSingles/Rus> a clo-te:PlayerEntry ;
@@ -5112,12 +5129,6 @@ clo-te-ind-tou:UsOpen a clo-te:Tournament ;
     clo-te:isEnterForDraw <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/UsOpen/2023/MensSingles> ;
     clo-te:isEntryForPlayer clo-te-ind-plr:Alcaraz .
 
-<https://clojos.io/ontology/FantasyTennis/Ind/Tournament/UsOpen/2023/MensSingles/Medvedev> a clo-te:PlayerEntry ;
-    clo-te-plr:hasKlassName "Medvedev" ;
-    clo-te:hasSeed "3" ;
-    clo-te:isEnterForDraw <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/UsOpen/2023/MensSingles> ;
-    clo-te:isEntryForPlayer clo-te-ind-plr:Medvedev .
-
 <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/UsOpen/2023/MensSingles/Shelton> a clo-te:PlayerEntry ;
     clo-te-plr:hasKlassName "Shelton" ;
     clo-te:hasSeed "" ;
@@ -5142,17 +5153,23 @@ clo-te-ind-tou:UsOpen a clo-te:Tournament ;
     clo-te:isEnterForDraw <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/UsOpen/2023/MensSingles> ;
     clo-te:isEntryForPlayer clo-te-ind-plr:Djokovic .
 
-<https://clojos.io/ontology/FantasyTennis/Ind/Tournament/UsOpen/2023/WomensSingles/Gauff> a clo-te:PlayerEntry ;
-    clo-te-plr:hasKlassName "Gauff" ;
-    clo-te:hasSeed "6" ;
-    clo-te:isEnterForDraw <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/UsOpen/2023/WomensSingles> ;
-    clo-te:isEntryForPlayer clo-te-ind-plr:Gauff .
+<https://clojos.io/ontology/FantasyTennis/Ind/Tournament/UsOpen/2023/MensSingles/Medvedev> a clo-te:PlayerEntry ;
+    clo-te-plr:hasKlassName "Medvedev" ;
+    clo-te:hasSeed "3" ;
+    clo-te:isEnterForDraw <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/UsOpen/2023/MensSingles> ;
+    clo-te:isEntryForPlayer clo-te-ind-plr:Medvedev .
 
 <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/UsOpen/2023/WomensSingles/Sabalenka> a clo-te:PlayerEntry ;
     clo-te-plr:hasKlassName "Sabalenka" ;
     clo-te:hasSeed "2" ;
     clo-te:isEnterForDraw <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/UsOpen/2023/WomensSingles> ;
     clo-te:isEntryForPlayer clo-te-ind-plr:Sabalenka .
+
+<https://clojos.io/ontology/FantasyTennis/Ind/Tournament/UsOpen/2023/WomensSingles/Gauff> a clo-te:PlayerEntry ;
+    clo-te-plr:hasKlassName "Gauff" ;
+    clo-te:hasSeed "6" ;
+    clo-te:isEnterForDraw <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/UsOpen/2023/WomensSingles> ;
+    clo-te:isEntryForPlayer clo-te-ind-plr:Gauff .
 
 <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/UsOpen/2023/MensSingles/Round/3> a clo-te:DrawRound ;
     skos:notation "Round of 32" ;

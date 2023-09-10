@@ -4420,6 +4420,13 @@ clo-te-ind-fan:PolarPrecision a clo-te-fan:Team ;
     clo-te-fan:isSelectionForTeam clo-te-ind-fan:Clojos ;
     clo-te:hasFantasyPointsStrategy <https://clojos.io/ontology/FantasyTennis/FantasyPointsStrategy/WinNumSetsLossMaxSets/Points21Half/DoublePerRound> .
 
+<https://clojos.io/ontology/FantasyTennis/Ind/Fantasy/UsOpen/2023/WomensSingles/Clojos/7/1> a clo-te-fan:MatchSelection ;
+    clo-te-fan:hasSelectedSets 2 ;
+    clo-te-fan:hasSelectedWinner <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/UsOpen/2023/WomensSingles/Gauff> ;
+    clo-te-fan:isSelectionForMatch <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/UsOpen/2023/WomensSingles/Round/7/Match/7.1> ;
+    clo-te-fan:isSelectionForTeam clo-te-ind-fan:Clojos ;
+    clo-te:hasFantasyPointsStrategy <https://clojos.io/ontology/FantasyTennis/FantasyPointsStrategy/WinNumSetsLossMaxSets/Points21Half/DoublePerRound> .
+
 <https://clojos.io/ontology/FantasyTennis/Ind/Fantasy/UsOpen/2023/WomensSingles/Fauve/1/1> a clo-te-fan:MatchSelection ;
     clo-te-fan:hasSelectedSets 2 ;
     clo-te-fan:hasSelectedWinner <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/UsOpen/2023/WomensSingles/Swiatek> ;
@@ -5292,6 +5299,13 @@ clo-te-ind-fan:PolarPrecision a clo-te-fan:Team ;
     clo-te-fan:hasSelectedSets 2 ;
     clo-te-fan:hasSelectedWinner <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/UsOpen/2023/WomensSingles/Gauff> ;
     clo-te-fan:isSelectionForMatch <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/UsOpen/2023/WomensSingles/Round/6/Match/6.1> ;
+    clo-te-fan:isSelectionForTeam clo-te-ind-fan:Fauve ;
+    clo-te:hasFantasyPointsStrategy <https://clojos.io/ontology/FantasyTennis/FantasyPointsStrategy/WinNumSetsLossMaxSets/Points21Half/DoublePerRound> .
+
+<https://clojos.io/ontology/FantasyTennis/Ind/Fantasy/UsOpen/2023/WomensSingles/Fauve/7/1> a clo-te-fan:MatchSelection ;
+    clo-te-fan:hasSelectedSets 3 ;
+    clo-te-fan:hasSelectedWinner <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/UsOpen/2023/WomensSingles/Sabalenka> ;
+    clo-te-fan:isSelectionForMatch <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/UsOpen/2023/WomensSingles/Round/7/Match/7.1> ;
     clo-te-fan:isSelectionForTeam clo-te-ind-fan:Fauve ;
     clo-te:hasFantasyPointsStrategy <https://clojos.io/ontology/FantasyTennis/FantasyPointsStrategy/WinNumSetsLossMaxSets/Points21Half/DoublePerRound> .
 
@@ -6177,6 +6191,13 @@ clo-te-ind-fan:PolarPrecision a clo-te-fan:Team ;
     clo-te-fan:isSelectionForTeam clo-te-ind-fan:LightHouse ;
     clo-te:hasFantasyPointsStrategy <https://clojos.io/ontology/FantasyTennis/FantasyPointsStrategy/WinNumSetsLossMaxSets/Points21Half/DoublePerRound> .
 
+<https://clojos.io/ontology/FantasyTennis/Ind/Fantasy/UsOpen/2023/WomensSingles/LightHouse/7/1> a clo-te-fan:MatchSelection ;
+    clo-te-fan:hasSelectedSets 3 ;
+    clo-te-fan:hasSelectedWinner <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/UsOpen/2023/WomensSingles/Gauff> ;
+    clo-te-fan:isSelectionForMatch <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/UsOpen/2023/WomensSingles/Round/7/Match/7.1> ;
+    clo-te-fan:isSelectionForTeam clo-te-ind-fan:LightHouse ;
+    clo-te:hasFantasyPointsStrategy <https://clojos.io/ontology/FantasyTennis/FantasyPointsStrategy/WinNumSetsLossMaxSets/Points21Half/DoublePerRound> .
+
 <https://clojos.io/ontology/FantasyTennis/Ind/Fantasy/UsOpen/2023/WomensSingles/MusicalBears/1/1> a clo-te-fan:MatchSelection ;
     clo-te-fan:hasSelectedSets 2 ;
     clo-te-fan:hasSelectedWinner <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/UsOpen/2023/WomensSingles/Swiatek> ;
@@ -7056,6 +7077,13 @@ clo-te-ind-fan:PolarPrecision a clo-te-fan:Team ;
     clo-te-fan:hasSelectedSets 2 ;
     clo-te-fan:hasSelectedWinner <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/UsOpen/2023/WomensSingles/Sabalenka> ;
     clo-te-fan:isSelectionForMatch <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/UsOpen/2023/WomensSingles/Round/6/Match/6.2> ;
+    clo-te-fan:isSelectionForTeam clo-te-ind-fan:MusicalBears ;
+    clo-te:hasFantasyPointsStrategy <https://clojos.io/ontology/FantasyTennis/FantasyPointsStrategy/WinNumSetsLossMaxSets/Points21Half/DoublePerRound> .
+
+<https://clojos.io/ontology/FantasyTennis/Ind/Fantasy/UsOpen/2023/WomensSingles/MusicalBears/7/1> a clo-te-fan:MatchSelection ;
+    clo-te-fan:hasSelectedSets 2 ;
+    clo-te-fan:hasSelectedWinner <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/UsOpen/2023/WomensSingles/Sabalenka> ;
+    clo-te-fan:isSelectionForMatch <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/UsOpen/2023/WomensSingles/Round/7/Match/7.1> ;
     clo-te-fan:isSelectionForTeam clo-te-ind-fan:MusicalBears ;
     clo-te:hasFantasyPointsStrategy <https://clojos.io/ontology/FantasyTennis/FantasyPointsStrategy/WinNumSetsLossMaxSets/Points21Half/DoublePerRound> .
 
