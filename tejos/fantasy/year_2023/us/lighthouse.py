@@ -29,7 +29,7 @@ def womens_singles_round_7(womens_singles):
 
 # mens_singles_round_7:START
 def mens_singles_round_7(mens_singles):
-    TEAM.draw(mens_singles, '7.1').matchup(1, men.Djokovic, 2, men.Medvedev).select()  # (  2) Novak Djokovic  OR  (  3) Daniil Medvedev
+    TEAM.draw(mens_singles, '7.1').matchup(1, men.Djokovic, 2, men.Medvedev).select(2, 5)  # (  2) Novak Djokovic  OR  (  3) Daniil Medvedev
 # mens_singles_round_7:END
 
 
