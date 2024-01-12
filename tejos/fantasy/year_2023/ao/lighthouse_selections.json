@@ -1,0 +1,26 @@
+{
+  "WomensSingles": {
+    "7": {
+      "1": {
+        "matchup": {
+          "1": "Vondrousova",
+          "2": "Jabeur"
+        },
+        "winner": "Jabeur",
+        "in_sets": 2
+      }
+    }
+  },
+  "MensSingles": {
+    "7": {
+      "1": {
+        "matchup": {
+          "1": "Alcaraz",
+          "2": "Djokovic"
+        },
+        "winner": "Alcaraz",
+        "in_sets": 4
+      }
+    }
+  }
+}
