@@ -138,7 +138,7 @@ def womens_singles_round_1(womens_singles):
     TEAM.draw(womens_singles, '1.46').matchup(1, women.Parks, 2, women.Daria_Snigur).select(1,2)  # (   ) Alycia Parks  OR  (  Q) Daria Snigur
     TEAM.draw(womens_singles, '1.47').matchup(1, women.Dolehide, 2, women.Jeanjean).select(1,2)  # (   ) Caroline Dolehide  OR  (  Q) Leolia Jeanjean
     TEAM.draw(womens_singles, '1.48').matchup(1, women.Schmiedlova, 2, women.Gauff).select(2,2)  # (   ) Anna Karolina Schmiedlova  OR  (  4) Coco Gauff
-    TEAM.draw(womens_singles, '1.49').matchup(1, women.Jabeur, 2, women.Yuliia_Starodubtseva).select(6,2)  # (  6) Ons Jabeur  OR  (  Q) Yuliia Starodubtseva
+    TEAM.draw(womens_singles, '1.49').matchup(1, women.Jabeur, 2, women.Yuliia_Starodubtseva).select(1,2)  # (  6) Ons Jabeur  OR  (  Q) Yuliia Starodubtseva
     TEAM.draw(womens_singles, '1.50').matchup(1, women.Andreeva_Mirra, 2, women.Pera).select(1,3)  # (   ) Mirra Andreeva  OR  (   ) Bernarda Pera
     TEAM.draw(womens_singles, '1.51').matchup(1, women.Rakhimova, 2, women.Emina_Bektas).select(1,3)  # (   ) Kamilla Rakhimova  OR  (   ) Emina Bektas
     TEAM.draw(womens_singles, '1.52').matchup(1, women.Parry, 2, women.Wang_Xinyu).select(2,3)  # (   ) Diane Parry  OR  ( 30) Xinyu Wang
