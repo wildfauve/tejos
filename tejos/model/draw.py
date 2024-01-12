@@ -55,7 +55,7 @@ class Draw:
 
     @classmethod
     def get(cls, event, name: str):
-        result = cls.repository().get(event_subject=event.subject, name=name)
+        result = cls.repo().get(event_subject=event.subject, name=name)
         if not result:
             return None
         return cls.build_draw_and_add_to_event(result, event)
