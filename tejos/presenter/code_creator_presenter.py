@@ -2,7 +2,7 @@ from typing import Dict, Callable, List, Tuple
 from functools import partial
 import csv
 
-from tejos.util import echo, monad
+from tejos.util import echo, monad, console
 
 sp = f"{'':>4}"
 
@@ -42,6 +42,7 @@ def fantasy_score_template_inserter(fantasy_module_team_fn_calls_tuple: Tuple):
     for team, fn_calls in team_fn_calls.items():
         team_file = fantasy_module.__file__.replace("__init__.py", f"{team.result_file_name}.py")
         try_file = try_open_file_for_read(team_file)
+        console.cons.print(f"Processing {team.name} with file {team_file}")
         if try_file.is_left():
             breakpoint()
         selections = try_file.value.read().split("\n")
