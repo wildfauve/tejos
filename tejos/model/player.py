@@ -88,7 +88,7 @@ class Player:
             cls.build_player(plr.value)
         player = cls(name, tour_symbol, klass_name, alt_names)
         cls.player_cache().add_to_cache(player)
-        cls.repos().upsert(player)
+        cls.repo().upsert(player)
         return player
 
     @classmethod

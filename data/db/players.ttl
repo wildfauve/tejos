@@ -3,6 +3,11 @@
 @prefix clo-te-plr: <https://clojos.io/ontology/FantasyTennis/Player/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 
+clo-te-ind-plr:Adam_Walton a clo-te:Player ;
+    foaf:name "Adam Walton" ;
+    clo-te-plr:hasKlassName "Adam_Walton" ;
+    clo-te-plr:hasTourDesignation "ATP" .
+
 clo-te-ind-plr:Ajla_Tomljanovic a clo-te:Player ;
     foaf:name "Ajla Tomljanovic" ;
     clo-te-plr:hasKlassName "Ajla_Tomljanovic" ;
@@ -23,6 +28,11 @@ clo-te-ind-plr:Alcaraz a clo-te:Player ;
     clo-te-plr:hasKlassName "Alcaraz" ;
     clo-te-plr:hasTourDesignation "ATP" .
 
+clo-te-ind-plr:Aleksandra_Krunic a clo-te:Player ;
+    foaf:name "Aleksandra Krunic" ;
+    clo-te-plr:hasKlassName "Aleksandra_Krunic" ;
+    clo-te-plr:hasTourDesignation "WTA" .
+
 clo-te-ind-plr:Alex_Michelsen a clo-te:Player ;
     foaf:name "Alex Michelsen" ;
     clo-te-plr:hasKlassName "Alex_Michelsen" ;
@@ -36,6 +46,11 @@ clo-te-ind-plr:Alex_de_Minaur a clo-te:Player ;
 clo-te-ind-plr:Alexandrova a clo-te:Player ;
     foaf:name "Ekaterina Alexandrova" ;
     clo-te-plr:hasKlassName "Alexandrova" ;
+    clo-te-plr:hasTourDesignation "WTA" .
+
+clo-te-ind-plr:Alina_Korneeva a clo-te:Player ;
+    foaf:name "Alina Korneeva" ;
+    clo-te-plr:hasKlassName "Alina_Korneeva" ;
     clo-te-plr:hasTourDesignation "WTA" .
 
 clo-te-ind-plr:Alizé_Cornet a clo-te:Player ;
@@ -53,6 +68,11 @@ clo-te-ind-plr:Alves a clo-te:Player ;
     clo-te-plr:hasKlassName "Alves" ;
     clo-te-plr:hasTourDesignation "ATP" .
 
+clo-te-ind-plr:Anastasia_Zakharova a clo-te:Player ;
+    foaf:name "Anastasia Zakharova" ;
+    clo-te-plr:hasKlassName "Anastasia_Zakharova" ;
+    clo-te-plr:hasTourDesignation "WTA" .
+
 clo-te-ind-plr:Andreescu a clo-te:Player ;
     foaf:name "Bianca Andreescu" ;
     clo-te-plr:hasKlassName "Andreescu" ;
@@ -68,6 +88,11 @@ clo-te-ind-plr:Andreeva_Mirra a clo-te:Player ;
     foaf:name "Mirra Andreeva" ;
     clo-te-plr:hasAltName "M.Andreeva" ;
     clo-te-plr:hasKlassName "Andreeva_Mirra" ;
+    clo-te-plr:hasTourDesignation "WTA" .
+
+clo-te-ind-plr:Angelique_Kerber a clo-te:Player ;
+    foaf:name "Angelique Kerber" ;
+    clo-te-plr:hasKlassName "Angelique_Kerber" ;
     clo-te-plr:hasTourDesignation "WTA" .
 
 clo-te-ind-plr:Anisimova a clo-te:Player ;
@@ -258,6 +283,11 @@ clo-te-ind-plr:Borges a clo-te:Player ;
 clo-te-ind-plr:Botic_van_De_Zandschulp a clo-te:Player ;
     foaf:name "Botic van De Zandschulp" ;
     clo-te-plr:hasKlassName "Botic_van_De_Zandschulp" ;
+    clo-te-plr:hasTourDesignation "ATP" .
+
+clo-te-ind-plr:Botic_van_de_Zandschulp a clo-te:Player ;
+    foaf:name "Botic van de Zandschulp" ;
+    clo-te-plr:hasKlassName "Botic_van_de_Zandschulp" ;
     clo-te-plr:hasTourDesignation "ATP" .
 
 clo-te-ind-plr:Boulter a clo-te:Player ;
@@ -461,6 +491,11 @@ clo-te-ind-plr:Dabrowski a clo-te:Player ;
     clo-te-plr:hasKlassName "Dabrowski" ;
     clo-te-plr:hasTourDesignation "WTA" .
 
+clo-te-ind-plr:Dane_Sweeny a clo-te:Player ;
+    foaf:name "Dane Sweeny" ;
+    clo-te-plr:hasKlassName "Dane_Sweeny" ;
+    clo-te-plr:hasTourDesignation "ATP" .
+
 clo-te-ind-plr:Daniel a clo-te:Player ;
     foaf:name "Taro Daniel" ;
     clo-te-plr:hasKlassName "Daniel" ;
@@ -474,6 +509,11 @@ clo-te-ind-plr:Danilina a clo-te:Player ;
 clo-te-ind-plr:Danilovic a clo-te:Player ;
     foaf:name "Olga Danilovic" ;
     clo-te-plr:hasKlassName "Danilovic" ;
+    clo-te-plr:hasTourDesignation "WTA" .
+
+clo-te-ind-plr:Daria_Snigur a clo-te:Player ;
+    foaf:name "Daria Snigur" ;
+    clo-te-plr:hasKlassName "Daria_Snigur" ;
     clo-te-plr:hasTourDesignation "WTA" .
 
 clo-te-ind-plr:Dart a clo-te:Player ;
@@ -516,6 +556,11 @@ clo-te-ind-plr:Dimitrov a clo-te:Player ;
     clo-te-plr:hasKlassName "Dimitrov" ;
     clo-te-plr:hasTourDesignation "ATP" .
 
+clo-te-ind-plr:Dino_Prizmic a clo-te:Player ;
+    foaf:name "Dino Prizmic" ;
+    clo-te-plr:hasKlassName "Dino_Prizmic" ;
+    clo-te-plr:hasTourDesignation "ATP" .
+
 clo-te-ind-plr:Djere a clo-te:Player ;
     foaf:name "Laslo Djere" ;
     clo-te-plr:hasKlassName "Djere" ;
@@ -546,6 +591,11 @@ clo-te-ind-plr:Draper a clo-te:Player ;
     clo-te-plr:hasKlassName "Draper" ;
     clo-te-plr:hasTourDesignation "ATP" .
 
+clo-te-ind-plr:Duckworth a clo-te:Player ;
+    foaf:name "James Duckworth" ;
+    clo-te-plr:hasKlassName "Duckworth" ;
+    clo-te-plr:hasTourDesignation "ATP" .
+
 clo-te-ind-plr:Eala a clo-te:Player ;
     foaf:name "Alexandra Eala" ;
     clo-te-plr:hasKlassName "Eala" ;
@@ -566,9 +616,19 @@ clo-te-ind-plr:Eikeri a clo-te:Player ;
     clo-te-plr:hasKlassName "Eikeri" ;
     clo-te-plr:hasTourDesignation "WTA" .
 
+clo-te-ind-plr:Ella_Seidel a clo-te:Player ;
+    foaf:name "Ella Seidel" ;
+    clo-te-plr:hasKlassName "Ella_Seidel" ;
+    clo-te-plr:hasTourDesignation "WTA" .
+
 clo-te-ind-plr:Elsa_Jacquemot a clo-te:Player ;
     foaf:name "Elsa Jacquemot" ;
     clo-te-plr:hasKlassName "Elsa_Jacquemot" ;
+    clo-te-plr:hasTourDesignation "WTA" .
+
+clo-te-ind-plr:Emina_Bektas a clo-te:Player ;
+    foaf:name "Emina Bektas" ;
+    clo-te-plr:hasKlassName "Emina_Bektas" ;
     clo-te-plr:hasTourDesignation "WTA" .
 
 clo-te-ind-plr:Erler a clo-te:Player ;
@@ -640,6 +700,11 @@ clo-te-ind-plr:Fiona_Ferro a clo-te:Player ;
     foaf:name "Fiona Ferro" ;
     clo-te-plr:hasKlassName "Fiona_Ferro" ;
     clo-te-plr:hasTourDesignation "WTA" .
+
+clo-te-ind-plr:Flavio_Cobolli a clo-te:Player ;
+    foaf:name "Flavio Cobolli" ;
+    clo-te-plr:hasKlassName "Flavio_Cobolli" ;
+    clo-te-plr:hasTourDesignation "ATP" .
 
 clo-te-ind-plr:Fognini a clo-te:Player ;
     foaf:name "Fabio Fognini" ;
@@ -930,6 +995,11 @@ clo-te-ind-plr:Jakub_Mensik a clo-te:Player ;
     clo-te-plr:hasKlassName "Jakub_Mensik" ;
     clo-te-plr:hasTourDesignation "ATP" .
 
+clo-te-ind-plr:James_McCabe a clo-te:Player ;
+    foaf:name "James McCabe" ;
+    clo-te-plr:hasKlassName "James_McCabe" ;
+    clo-te-plr:hasTourDesignation "ATP" .
+
 clo-te-ind-plr:Jang a clo-te:Player ;
     foaf:name "Su Jeong Jang" ;
     clo-te-plr:hasKlassName "Jang" ;
@@ -943,6 +1013,11 @@ clo-te-ind-plr:Janicijevic a clo-te:Player ;
 clo-te-ind-plr:Jarry a clo-te:Player ;
     foaf:name "Nicolas Jarry" ;
     clo-te-plr:hasKlassName "Jarry" ;
+    clo-te-plr:hasTourDesignation "ATP" .
+
+clo-te-ind-plr:Jasika a clo-te:Player ;
+    foaf:name "Omar Jasika" ;
+    clo-te-plr:hasKlassName "Jasika" ;
     clo-te-plr:hasTourDesignation "ATP" .
 
 clo-te-ind-plr:Jeanjean a clo-te:Player ;
@@ -1217,6 +1292,16 @@ clo-te-ind-plr:Lokoli a clo-te:Player ;
     clo-te-plr:hasKlassName "Lokoli" ;
     clo-te-plr:hasTourDesignation "ATP" .
 
+clo-te-ind-plr:Lukas_Klein a clo-te:Player ;
+    foaf:name "Lukas Klein" ;
+    clo-te-plr:hasKlassName "Lukas_Klein" ;
+    clo-te-plr:hasTourDesignation "ATP" .
+
+clo-te-ind-plr:Lulu_Sun a clo-te:Player ;
+    foaf:name "Lulu Sun" ;
+    clo-te-plr:hasKlassName "Lulu_Sun" ;
+    clo-te-plr:hasTourDesignation "WTA" .
+
 clo-te-ind-plr:Lys a clo-te:Player ;
     foaf:name "Eva Lys" ;
     clo-te-plr:hasKlassName "Lys" ;
@@ -1231,6 +1316,11 @@ clo-te-ind-plr:Mahut a clo-te:Player ;
     foaf:name "Nicolas Mahut" ;
     clo-te-plr:hasKlassName "Mahut" ;
     clo-te-plr:hasTourDesignation "ATP" .
+
+clo-te-ind-plr:Mai_Hontama a clo-te:Player ;
+    foaf:name "Mai Hontama" ;
+    clo-te-plr:hasKlassName "Mai_Hontama" ;
+    clo-te-plr:hasTourDesignation "WTA" .
 
 clo-te-ind-plr:Mandlik a clo-te:Player ;
     foaf:name "Elizabeth Mandlik" ;
@@ -1247,10 +1337,25 @@ clo-te-ind-plr:Mannarino a clo-te:Player ;
     clo-te-plr:hasKlassName "Mannarino" ;
     clo-te-plr:hasTourDesignation "ATP" .
 
+clo-te-ind-plr:Marc_Polmans a clo-te:Player ;
+    foaf:name "Marc Polmans" ;
+    clo-te-plr:hasKlassName "Marc_Polmans" ;
+    clo-te-plr:hasTourDesignation "ATP" .
+
 clo-te-ind-plr:Maria a clo-te:Player ;
     foaf:name "Tatjana Maria" ;
     clo-te-plr:hasKlassName "Maria" ;
     clo-te-plr:hasTourDesignation "WTA" .
+
+clo-te-ind-plr:Maria_Timofeeva a clo-te:Player ;
+    foaf:name "Maria Timofeeva" ;
+    clo-te-plr:hasKlassName "Maria_Timofeeva" ;
+    clo-te-plr:hasTourDesignation "WTA" .
+
+clo-te-ind-plr:Marin_Cilic a clo-te:Player ;
+    foaf:name "Marin Cilic" ;
+    clo-te-plr:hasKlassName "Marin_Cilic" ;
+    clo-te-plr:hasTourDesignation "ATP" .
 
 clo-te-ind-plr:Marino a clo-te:Player ;
     foaf:name "Rebecca Marino" ;
@@ -1292,6 +1397,11 @@ clo-te-ind-plr:Masarova a clo-te:Player ;
     clo-te-plr:hasKlassName "Masarova" ;
     clo-te-plr:hasTourDesignation "WTA" .
 
+clo-te-ind-plr:Mate_Valkusz a clo-te:Player ;
+    foaf:name "Mate Valkusz" ;
+    clo-te-plr:hasKlassName "Mate_Valkusz" ;
+    clo-te-plr:hasTourDesignation "ATP" .
+
 clo-te-ind-plr:Mattek_Sands a clo-te:Player ;
     foaf:name "Bethanie Mattek-Sands" ;
     clo-te-plr:hasKlassName "Mattek_Sands" ;
@@ -1301,6 +1411,11 @@ clo-te-ind-plr:Mayot a clo-te:Player ;
     foaf:name "Harold Mayot" ;
     clo-te-plr:hasKlassName "Mayot" ;
     clo-te-plr:hasTourDesignation "ATP" .
+
+clo-te-ind-plr:McCartney_Kessler a clo-te:Player ;
+    foaf:name "McCartney Kessler" ;
+    clo-te-plr:hasKlassName "McCartney_Kessler" ;
+    clo-te-plr:hasTourDesignation "WTA" .
 
 clo-te-ind-plr:Mcdonald a clo-te:Player ;
     foaf:name "Mackenzie McDonald" ;
@@ -1484,6 +1599,11 @@ clo-te-ind-plr:Nakashima a clo-te:Player ;
     clo-te-plr:hasKlassName "Nakashima" ;
     clo-te-plr:hasTourDesignation "ATP" .
 
+clo-te-ind-plr:Naomi_Osaka a clo-te:Player ;
+    foaf:name "Naomi Osaka" ;
+    clo-te-plr:hasKlassName "Naomi_Osaka" ;
+    clo-te-plr:hasTourDesignation "WTA" .
+
 clo-te-ind-plr:Nardi a clo-te:Player ;
     foaf:name "Luca Nardi" ;
     clo-te-plr:hasKlassName "Nardi" ;
@@ -1548,6 +1668,11 @@ clo-te-ind-plr:OConnell a clo-te:Player ;
     foaf:name "Christopher O'Connell" ;
     clo-te-plr:hasKlassName "OConnell" ;
     clo-te-plr:hasTourDesignation "ATP" .
+
+clo-te-ind-plr:Oceane_Dodin a clo-te:Player ;
+    foaf:name "Oceane Dodin" ;
+    clo-te-plr:hasKlassName "Oceane_Dodin" ;
+    clo-te-plr:hasTourDesignation "WTA" .
 
 clo-te-ind-plr:Ofner a clo-te:Player ;
     foaf:name "Sebastian Ofner" ;
@@ -1753,6 +1878,11 @@ clo-te-ind-plr:Raonic a clo-te:Player ;
     foaf:name "Milos Raonic" ;
     clo-te-plr:hasKlassName "Raonic" ;
     clo-te-plr:hasTourDesignation "ATP" .
+
+clo-te-ind-plr:Renata_Zarazua a clo-te:Player ;
+    foaf:name "Renata Zarazua" ;
+    clo-te-plr:hasKlassName "Renata_Zarazua" ;
+    clo-te-plr:hasTourDesignation "WTA" .
 
 clo-te-ind-plr:Ribera a clo-te:Player ;
     foaf:name "Marina  Bassols Ribera" ;
@@ -2056,6 +2186,11 @@ clo-te-ind-plr:Strycova a clo-te:Player ;
     clo-te-plr:hasKlassName "Strycova" ;
     clo-te-plr:hasTourDesignation "WTA" .
 
+clo-te-ind-plr:Sumit_Nagal a clo-te:Player ;
+    foaf:name "Sumit Nagal" ;
+    clo-te-plr:hasKlassName "Sumit_Nagal" ;
+    clo-te-plr:hasTourDesignation "ATP" .
+
 clo-te-ind-plr:Sutjiadi a clo-te:Player ;
     foaf:name "Aldila Sutjiadi" ;
     clo-te-plr:hasKlassName "Sutjiadi" ;
@@ -2097,10 +2232,25 @@ clo-te-ind-plr:Tauson a clo-te:Player ;
     clo-te-plr:hasKlassName "Tauson" ;
     clo-te-plr:hasTourDesignation "WTA" .
 
+clo-te-ind-plr:Taylah_Preston a clo-te:Player ;
+    foaf:name "Taylah Preston" ;
+    clo-te-plr:hasKlassName "Taylah_Preston" ;
+    clo-te-plr:hasTourDesignation "WTA" .
+
 clo-te-ind-plr:Teichmann a clo-te:Player ;
     foaf:name "Jil Teichmann" ;
     clo-te-plr:hasKlassName "Teichmann" ;
     clo-te-plr:hasTourDesignation "WTA" .
+
+clo-te-ind-plr:Terence_Atmane a clo-te:Player ;
+    foaf:name "Terence Atmane" ;
+    clo-te-plr:hasKlassName "Terence_Atmane" ;
+    clo-te-plr:hasTourDesignation "ATP" .
+
+clo-te-ind-plr:Thiago_Seyboth_Wild a clo-te:Player ;
+    foaf:name "Thiago Seyboth Wild" ;
+    clo-te-plr:hasKlassName "Thiago_Seyboth_Wild" ;
+    clo-te-plr:hasTourDesignation "ATP" .
 
 clo-te-ind-plr:Thiem a clo-te:Player ;
     foaf:name "Dominic Thiem" ;
@@ -2233,6 +2383,11 @@ clo-te-ind-plr:Vesely a clo-te:Player ;
     clo-te-plr:hasKlassName "Vesely" ;
     clo-te-plr:hasTourDesignation "ATP" .
 
+clo-te-ind-plr:Vit_Kopriva a clo-te:Player ;
+    foaf:name "Vit Kopriva" ;
+    clo-te-plr:hasKlassName "Vit_Kopriva" ;
+    clo-te-plr:hasTourDesignation "ATP" .
+
 clo-te-ind-plr:Volynets a clo-te:Player ;
     foaf:name "Katie Volynets" ;
     clo-te-plr:hasKlassName "Volynets" ;
@@ -2341,6 +2496,11 @@ clo-te-ind-plr:Yuan a clo-te:Player ;
     clo-te-plr:hasKlassName "Yuan" ;
     clo-te-plr:hasTourDesignation "WTA" .
 
+clo-te-ind-plr:Yuliia_Starodubtseva a clo-te:Player ;
+    foaf:name "Yuliia Starodubtseva" ;
+    clo-te-plr:hasKlassName "Yuliia_Starodubtseva" ;
+    clo-te-plr:hasTourDesignation "WTA" .
+
 clo-te-ind-plr:Yuriko_Lily_Miyazaki a clo-te:Player ;
     foaf:name "Yuriko Lily Miyazaki" ;
     clo-te-plr:hasKlassName "Yuriko_Lily_Miyazaki" ;
@@ -2423,13 +2583,13 @@ clo-te-ind-plr:Zverev a clo-te:Player ;
     clo-te-plr:hasKlassName "Zverev" ;
     clo-te-plr:hasTourDesignation "ATP" .
 
-clo-te-ind-plr:Duckworth a clo-te:Player ;
-    foaf:name "James Duckworth" ;
-    clo-te-plr:hasKlassName "Duckworth" ;
-    clo-te-plr:hasTourDesignation "ATP" .
-
 clo-te-ind-plr:Zvonareva a clo-te:Player ;
     foaf:name "Vera Zvonareva" ;
     clo-te-plr:hasKlassName "Zvonareva" ;
     clo-te-plr:hasTourDesignation "WTA" .
+
+clo-te-ind-plr:de_Jong a clo-te:Player ;
+    foaf:name "Jesper de Jong" ;
+    clo-te-plr:hasKlassName "de_Jong" ;
+    clo-te-plr:hasTourDesignation "ATP" .
 

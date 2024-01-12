@@ -1,0 +1,5 @@
+### Mens Singles
+GET https://prod-scores-api.ausopen.com/event/245421/draws
+
+###
+GET https://prod-scores-api.ausopen.com/event/245428/draws

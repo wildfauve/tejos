@@ -21,7 +21,7 @@ class TournamentEvent:
     def create(cls, year: int, tournament_name: str = None, tournament=None):
         event_of = tournament if isinstance(tournament, model.GrandSlam) else model.GrandSlam.get(name=tournament_name)
         event = cls(event_of=event_of, year=year)
-        cls.repository().upsert(event)
+        cls.repo().upsert(event)
         return event
 
     @classmethod
@@ -78,7 +78,11 @@ class TournamentEvent:
 
 
     def get_full_draw(self):
-        return adapter.us_build_draw(event=self, for_rd=1, scores_only=False, full_draw=True)
+        """
+        FIXME for the right tournament
+        :return:
+        """
+        return adapter.ao_build_draw(event=self, for_rd=1, scores_only=False, full_draw=True)
 
     def make_draw(self, name: str, best_of: int, draw_size=int, points_strategy_components: tuple = None):
         draw = self.find_draw_by_symbol(name)

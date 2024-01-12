@@ -1,4 +1,6 @@
 from __future__ import annotations
+
+from pathlib import Path
 from typing import Dict
 import csv
 
@@ -10,7 +12,12 @@ def generate_entries_file(draws: monad.EitherMonad[Dict], tournament: model.Gran
     if not draws.is_right():
         return None
     for draw, matches in draws.value.items():
-        with open(f"data/{year}/{tournament.perma_id}/{draw}.csv", 'w', newline='') as csvfile:
+
+        path = Path(f"data/{year}/{tournament.perma_id}")
+        if not path.exists():
+            path.mkdir(parents=True, exist_ok=True)
+
+        with open((path / f"{draw}.csv"), 'w', newline='') as csvfile:
             writer = csv.writer(csvfile, delimiter=',',
                                 quotechar=',', quoting=csv.QUOTE_MINIMAL)
             writer.writerow(['name', 'klass-name', 'seed'])
