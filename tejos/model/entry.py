@@ -69,6 +69,10 @@ class Entry:
             return None
         return (self.is_entry_for_player.subject == other.is_entry_for_player.subject)
 
+    def __repr__(self):
+        return f"{self.__class__.__name__}(is_entry_for_player={self.is_entry_for_player})"
+
+
 
 def find_player_from_entry(for_player: Union[Entry, player.Player], players: List[Entry]):
     predicate = _player_entry_predicate if isinstance(for_player, Entry) else _player_predicate

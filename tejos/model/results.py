@@ -3,7 +3,7 @@ from functools import reduce, partial
 
 from tejos.players import atp_players as players
 from tejos import model
-from tejos.adapter import wm_draw_parser
+from tejos.adapter import ao_draw_parser
 
 
 def results(event: model.tournament_event.TournamentEvent,

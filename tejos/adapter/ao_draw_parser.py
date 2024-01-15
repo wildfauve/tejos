@@ -55,11 +55,11 @@ round_code_map = {'1': 1,
                   'S': 6,
                   'F': 7}
 
-draws = [("tests/fixtures/ao2024/mens_singles_draw.json", 'AustralianOpen2024MensSingles'),
-         ("tests/fixtures/ao2024/womens_singles_draw.json", 'AustralianOpen2024WomensSingles')]
+# draws = [("tests/fixtures/ao2024/mens_singles_draw.json", 'AustralianOpen2024MensSingles'),
+#          ("tests/fixtures/ao2024/womens_singles_draw.json", 'AustralianOpen2024WomensSingles')]
 
-# draws = [("https://prod-scores-api.ausopen.com/event/245421/draws", 'AustralianOpen2024MensSingles'),
-#          ("https://prod-scores-api.ausopen.com/event/245428/draws", 'AustralianOpen2024WomensSingles')]
+draws = [("https://prod-scores-api.ausopen.com/event/245421/draws", 'AustralianOpen2024MensSingles'),
+         ("https://prod-scores-api.ausopen.com/event/245428/draws", 'AustralianOpen2024WomensSingles')]
 
 
 match_ids = {'mens_singles': [], 'womens_singles': []}
@@ -112,6 +112,9 @@ PLAYERS = {}
 
 def build_draw(event, for_rd, scores_only, full_draw=False):
     return _assign_match_numbers(_brackets(_get_json(draws, for_rd), event, for_rd, scores_only, full_draw))
+    # p1 = [x.player1.match_state for x in xx['AustralianOpen2024MensSingles']]
+    # p2 = [x.player2.match_state for x in xx['AustralianOpen2024MensSingles']]
+    # breakpoint()
 
 
 def _get_json(urls, for_rd) -> List[Tuple]:
@@ -159,7 +162,7 @@ def _singles_brackets(event, for_rd, scores_only, full_draw, acc, draw_tuple):
 
 def _match(draw_mapping, event, for_rd, scores_only, full_draw, match):
     match_id = match.get('match_id')
-    match_status = match.get('status')
+    match_status = _determine_match_status(match.get('match_status'))
     rd = Round.find_rd(match.get('round_id'), ROUNDS)
     # rd = round_code_map.get(match.get('roundCode'))
     if for_rd and rd.rd_number != for_rd:
@@ -173,6 +176,9 @@ def _match(draw_mapping, event, for_rd, scores_only, full_draw, match):
     pl1 = PLAYERS[team1.get('team_id')]
     pl2 = PLAYERS[team2.get('team_id')]
 
+    # if team1['score']:
+    #     breakpoint()
+
     match_bloc = model.MatchBlock(href=match_id,
                                   json=match,
                                   round=rd.rd_number,
@@ -182,24 +188,38 @@ def _match(draw_mapping, event, for_rd, scores_only, full_draw, match):
                                   player1=_player(draw_mapping,
                                                   pl1,
                                                   team=1,
-                                                  # scores=match.get('scores'),
                                                   scores=team1.get('score'),
-                                                  winner=match.get('winner', None),
+                                                  winner=team1.get('status', None),
                                                   status=match_status),
                                   player2=_player(draw_mapping,
                                                   pl2,
                                                   team=2,
-                                                  # scores=match.get('scores'),
-                                                  scores=team2.get('scores'),
-                                                  winner=match.get('winner', None),
+                                                  scores=team2.get('score'),
+                                                  winner=team2.get('status', None),
                                                   status=match_status),
                                   match_id_fn=_match_id_fn,
                                   match_number=match.get('order'))
+    # if match_status:
+    #     breakpoint()
     if scores_only and match_bloc.has_result() and _match_in_finished_state(match_status):
         return match_bloc
     if full_draw:
         return match_bloc
     return None
+
+def _determine_match_status(status: dict | None):
+    if not status:
+        return None
+    match status.get('code', None):
+        case "SC":
+            return None
+        case 'C':
+            return COMPLETED
+        case 'R':
+            return RETIRED
+        case _:
+            breakpoint()
+
 
 
 def _match_in_finished_state(match_status):
@@ -207,6 +227,8 @@ def _match_in_finished_state(match_status):
 
 
 def _player(draw_mapping, player: Player, team, scores, winner, status):
+    # if status == RETIRED:
+    #     breakpoint()
     return model.PlayerResult(name=player.full_name,
                               seed=player.seed_or_entry_status(),
                               match_state=_determine_match_state_exceptions(team, winner, status),
@@ -217,19 +239,22 @@ def _player(draw_mapping, player: Player, team, scores, winner, status):
 def _scores(scrs, team_number):
     if not scrs:
         return None
-    breakpoint()
-    sets = scrs.get('sets', None)
-    if not sets:
-        return None
-    return [set_team_scores[team_number - 1].get('score', None) for set_team_scores in sets]
+    return [int(s.get('game')) for s in scrs]
+    # breakpoint()
+    # sets = scrs.get('sets', None)
+    # if not sets:
+    #     return None
+    # return [set_team_scores[team_number - 1].get('score', None) for set_team_scores in sets]
 
 
 def _determine_match_state_exceptions(team, winner, status):
+    # if status == RETIRED:
+    #     breakpoint()
+    if (status == RETIRED or status == WALKOVER) and not winner:
+        return model.MatchState(status.lower())
     if status == COMPLETED or not winner:
         return None
-    if (status == RETIRED or status == WALKOVER) and team != int(winner):
-        return model.MatchState(status.lower())
-    if (status == RETIRED or status == WALKOVER) and team == int(winner):
+    if (status == RETIRED or status == WALKOVER) and winner:
         return None
     breakpoint()
     return None
