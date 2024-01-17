@@ -340,6 +340,8 @@ class Selection:
     def select(self, player_number=None, in_sets=None):
         if not player_number or not in_sets:
             return self
+        if player_number not in [1,2]:
+            breakpoint()
         winner_number = model.MatchPlayerNumber(player_number)
         if winner_number == model.MatchPlayerNumber.PLAYER1:
             self.winner(self.match.player1.player())
