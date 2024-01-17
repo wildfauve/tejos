@@ -211,12 +211,14 @@ def _determine_match_status(status: dict | None):
     if not status:
         return None
     match status.get('code', None):
-        case "SC":
+        case "SC":  # match is scheduled
             return None
         case 'C':
             return COMPLETED
         case 'R':
             return RETIRED
+        case 'I':  # match is live
+            return None
         case _:
             breakpoint()
 

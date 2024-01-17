@@ -102,7 +102,6 @@ def results(tournament, year, round_number, scores_only):
                                draw_parser=adapter.ao_draw_parser,
                                for_round=round_number,
                                scores_only=scores_only)
-    breakpoint()
     return monad.Right(event)
 
 
