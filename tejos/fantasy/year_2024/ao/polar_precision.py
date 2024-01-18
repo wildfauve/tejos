@@ -65,14 +65,14 @@ def team_polar_precision(mens_singles, womens_singles):
 
 # womens_singles_round_3:START
 def womens_singles_round_3(womens_singles):
-    TEAM.draw(womens_singles, '3.1').matchup(1, None, 2, None).select()  # TBD  OR  TBD
-    TEAM.draw(womens_singles, '3.2').matchup(1, None, 2, None).select()  # TBD  OR  TBD
-    TEAM.draw(womens_singles, '3.3').matchup(1, None, 2, None).select()  # TBD  OR  TBD
-    TEAM.draw(womens_singles, '3.4').matchup(1, None, 2, None).select()  # TBD  OR  TBD
-    TEAM.draw(womens_singles, '3.5').matchup(1, None, 2, None).select()  # TBD  OR  TBD
-    TEAM.draw(womens_singles, '3.6').matchup(1, None, 2, None).select()  # TBD  OR  TBD
-    TEAM.draw(womens_singles, '3.7').matchup(1, None, 2, None).select()  # TBD  OR  TBD
-    TEAM.draw(womens_singles, '3.8').matchup(1, None, 2, None).select()  # TBD  OR  TBD
+    TEAM.draw(womens_singles, '3.1').matchup(1, women.Swiatek, 2, women.Noskova).select()  # (  1) Iga Swiatek  OR  (   ) Linda Noskova
+    TEAM.draw(womens_singles, '3.2').matchup(1, women.Svitolina, 2, women.Golubic).select()  # ( 19) Svitolina  OR  (   ) Viktorija Golubic
+    TEAM.draw(womens_singles, '3.3').matchup(1, women.Azarenka, 2, women.Ostapenko).select()  # ( 18) Victoria Azarenka  OR  ( 11) Jelena Ostapenko
+    TEAM.draw(womens_singles, '3.4').matchup(1, women.Yastremska, 2, women.Navarro).select()  # (  Q) Dayana Yastremska  OR  ( 27) Emma Navarro
+    TEAM.draw(womens_singles, '3.5').matchup(1, women.Blinkova, 2, women.Paolini).select()  # (   ) Anna Blinkova  OR  ( 26) Jasmine Paolini
+    TEAM.draw(womens_singles, '3.6').matchup(1, women.Kalinskaya, 2, women.Stephens).select()  # (   ) Anna Kalinskaya  OR  (   ) Sloane Stephens
+    TEAM.draw(womens_singles, '3.7').matchup(1, women.Zheng, 2, women.Yafan_Wang).select()  # ( 12) Qinwen Zheng  OR  (   ) Yafan Wang
+    TEAM.draw(womens_singles, '3.8').matchup(1, women.Oceane_Dodin, 2, women.Burel).select()  # (   ) Oceane Dodin  OR  (   ) Clara Burel
     TEAM.draw(womens_singles, '3.9').matchup(1, women.Avanesyan, 2, women.Kostyuk).select()  # (   ) Elina Avanesyan  OR  (   ) Marta Kostyuk
     TEAM.draw(womens_singles, '3.10').matchup(1, women.Haddad_Maia, 2, women.Maria_Timofeeva).select()  # ( 10) Beatriz Haddad Maia  OR  (  Q) Maria Timofeeva
     TEAM.draw(womens_singles, '3.11').matchup(1, women.Frech, 2, women.Anastasia_Zakharova).select()  # (   ) Magdalena Frech  OR  (  Q) Anastasia Zakharova
@@ -94,14 +94,14 @@ def mens_singles_round_3(mens_singles):
     TEAM.draw(mens_singles, '3.6').matchup(1, men.Khachanov, 2, men.Machac).select()  # ( 15) Karen Khachanov  OR  (   ) Tomas Machac
     TEAM.draw(mens_singles, '3.7').matchup(1, men.Flavio_Cobolli, 2, men.Alex_de_Minaur).select()  # (  Q) Flavio Cobolli  OR  ( 10) Alex de Minaur
     TEAM.draw(mens_singles, '3.8').matchup(1, men.Rublev, 2, men.Korda).select()  # (  5) Andrey Rublev  OR  ( 29) Sebastian Korda
-    TEAM.draw(mens_singles, '3.9').matchup(1, None, 2, None).select()  # TBD  OR  TBD
-    TEAM.draw(mens_singles, '3.10').matchup(1, None, 2, None).select()  # TBD  OR  TBD
-    TEAM.draw(mens_singles, '3.11').matchup(1, None, 2, None).select()  # TBD  OR  TBD
-    TEAM.draw(mens_singles, '3.12').matchup(1, None, 2, None).select()  # TBD  OR  TBD
-    TEAM.draw(mens_singles, '3.13').matchup(1, None, 2, None).select()  # TBD  OR  TBD
-    TEAM.draw(mens_singles, '3.14').matchup(1, None, 2, None).select()  # TBD  OR  TBD
-    TEAM.draw(mens_singles, '3.15').matchup(1, None, 2, None).select()  # TBD  OR  TBD
-    TEAM.draw(mens_singles, '3.16').matchup(1, None, 2, None).select()  # TBD  OR  TBD
+    TEAM.draw(mens_singles, '3.9').matchup(1, men.Cazaux, 2, men.Griekspoor).select()  # ( WC) Arthur Cazaux  OR  ( 28) Tallon Griekspoor
+    TEAM.draw(mens_singles, '3.10').matchup(1, men.Humbert, 2, men.Hurkacz).select()  # ( 21) Ugo Humbert  OR  (  9) Hubert Hurkacz
+    TEAM.draw(mens_singles, '3.11').matchup(1, men.Borges, 2, men.Dimitrov).select()  # (   ) Nuno Borges  OR  ( 13) Grigor Dimitrov
+    TEAM.draw(mens_singles, '3.12').matchup(1, men.Medvedev, 2, men.Auger_Aliassime).select()  # (  3) Daniil Medvedev  OR  ( 27) Felix Auger-Aliassime
+    TEAM.draw(mens_singles, '3.13').matchup(1, men.Zverev, 2, men.Alex_Michelsen).select()  # (  6) Alexander Zverev  OR  (   ) Alex Michelsen
+    TEAM.draw(mens_singles, '3.14').matchup(1, men.Ruud, 2, men.Norrie).select()  # ( 11) Casper Ruud  OR  ( 19) Cameron Norrie
+    TEAM.draw(mens_singles, '3.15').matchup(1, men.Kecmanovic, 2, men.Paul).select()  # (   ) Miomir Kecmanovic  OR  ( 14) Tommy Paul
+    TEAM.draw(mens_singles, '3.16').matchup(1, men.Shang, 2, men.Alcaraz).select()  # ( WC) Juncheng Shang  OR  (  2) Carlos Alcaraz
 # mens_singles_round_3:END
 
 
@@ -315,6 +315,7 @@ def mens_singles_round_1(mens_singles):
     TEAM.draw(mens_singles, '1.63').matchup(1, men.Evans, 2, men.Sonego).select(2,4)  # (   ) Daniel Evans  OR  (   ) Lorenzo Sonego
     TEAM.draw(mens_singles, '1.64').matchup(1, men.Gasquet, 2, men.Alcaraz).select(2,3)  # (   ) Richard Gasquet  OR  (  2) Carlos Alcaraz
 # mens_singles_round_1:END
+
 
 
 

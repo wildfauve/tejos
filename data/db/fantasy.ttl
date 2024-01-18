@@ -2076,6 +2076,55 @@
     clo-te-fan:isSelectionForTeam clo-te-ind-fan:Fauve ;
     clo-te:hasFantasyPointsStrategy <https://clojos.io/ontology/FantasyTennis/FantasyPointsStrategy/WinNumSetsLossMaxSets/Points21Half/DoublePerRound> .
 
+<https://clojos.io/ontology/FantasyTennis/Ind/Fantasy/AustralianOpen/2024/MensSingles/Fauve/3/10> a clo-te-fan:MatchSelection ;
+    clo-te-fan:hasSelectedSets 4 ;
+    clo-te-fan:hasSelectedWinner <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/MensSingles/Hurkacz> ;
+    clo-te-fan:isSelectionForMatch <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/MensSingles/Round/3/Match/3.10> ;
+    clo-te-fan:isSelectionForTeam clo-te-ind-fan:Fauve ;
+    clo-te:hasFantasyPointsStrategy <https://clojos.io/ontology/FantasyTennis/FantasyPointsStrategy/WinNumSetsLossMaxSets/Points21Half/DoublePerRound> .
+
+<https://clojos.io/ontology/FantasyTennis/Ind/Fantasy/AustralianOpen/2024/MensSingles/Fauve/3/11> a clo-te-fan:MatchSelection ;
+    clo-te-fan:hasSelectedSets 4 ;
+    clo-te-fan:hasSelectedWinner <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/MensSingles/Dimitrov> ;
+    clo-te-fan:isSelectionForMatch <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/MensSingles/Round/3/Match/3.11> ;
+    clo-te-fan:isSelectionForTeam clo-te-ind-fan:Fauve ;
+    clo-te:hasFantasyPointsStrategy <https://clojos.io/ontology/FantasyTennis/FantasyPointsStrategy/WinNumSetsLossMaxSets/Points21Half/DoublePerRound> .
+
+<https://clojos.io/ontology/FantasyTennis/Ind/Fantasy/AustralianOpen/2024/MensSingles/Fauve/3/12> a clo-te-fan:MatchSelection ;
+    clo-te-fan:hasSelectedSets 4 ;
+    clo-te-fan:hasSelectedWinner <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/MensSingles/Medvedev> ;
+    clo-te-fan:isSelectionForMatch <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/MensSingles/Round/3/Match/3.12> ;
+    clo-te-fan:isSelectionForTeam clo-te-ind-fan:Fauve ;
+    clo-te:hasFantasyPointsStrategy <https://clojos.io/ontology/FantasyTennis/FantasyPointsStrategy/WinNumSetsLossMaxSets/Points21Half/DoublePerRound> .
+
+<https://clojos.io/ontology/FantasyTennis/Ind/Fantasy/AustralianOpen/2024/MensSingles/Fauve/3/13> a clo-te-fan:MatchSelection ;
+    clo-te-fan:hasSelectedSets 4 ;
+    clo-te-fan:hasSelectedWinner <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/MensSingles/Zverev> ;
+    clo-te-fan:isSelectionForMatch <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/MensSingles/Round/3/Match/3.13> ;
+    clo-te-fan:isSelectionForTeam clo-te-ind-fan:Fauve ;
+    clo-te:hasFantasyPointsStrategy <https://clojos.io/ontology/FantasyTennis/FantasyPointsStrategy/WinNumSetsLossMaxSets/Points21Half/DoublePerRound> .
+
+<https://clojos.io/ontology/FantasyTennis/Ind/Fantasy/AustralianOpen/2024/MensSingles/Fauve/3/14> a clo-te-fan:MatchSelection ;
+    clo-te-fan:hasSelectedSets 5 ;
+    clo-te-fan:hasSelectedWinner <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/MensSingles/Ruud> ;
+    clo-te-fan:isSelectionForMatch <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/MensSingles/Round/3/Match/3.14> ;
+    clo-te-fan:isSelectionForTeam clo-te-ind-fan:Fauve ;
+    clo-te:hasFantasyPointsStrategy <https://clojos.io/ontology/FantasyTennis/FantasyPointsStrategy/WinNumSetsLossMaxSets/Points21Half/DoublePerRound> .
+
+<https://clojos.io/ontology/FantasyTennis/Ind/Fantasy/AustralianOpen/2024/MensSingles/Fauve/3/15> a clo-te-fan:MatchSelection ;
+    clo-te-fan:hasSelectedSets 5 ;
+    clo-te-fan:hasSelectedWinner <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/MensSingles/Paul> ;
+    clo-te-fan:isSelectionForMatch <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/MensSingles/Round/3/Match/3.15> ;
+    clo-te-fan:isSelectionForTeam clo-te-ind-fan:Fauve ;
+    clo-te:hasFantasyPointsStrategy <https://clojos.io/ontology/FantasyTennis/FantasyPointsStrategy/WinNumSetsLossMaxSets/Points21Half/DoublePerRound> .
+
+<https://clojos.io/ontology/FantasyTennis/Ind/Fantasy/AustralianOpen/2024/MensSingles/Fauve/3/16> a clo-te-fan:MatchSelection ;
+    clo-te-fan:hasSelectedSets 4 ;
+    clo-te-fan:hasSelectedWinner <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/MensSingles/Alcaraz> ;
+    clo-te-fan:isSelectionForMatch <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/MensSingles/Round/3/Match/3.16> ;
+    clo-te-fan:isSelectionForTeam clo-te-ind-fan:Fauve ;
+    clo-te:hasFantasyPointsStrategy <https://clojos.io/ontology/FantasyTennis/FantasyPointsStrategy/WinNumSetsLossMaxSets/Points21Half/DoublePerRound> .
+
 <https://clojos.io/ontology/FantasyTennis/Ind/Fantasy/AustralianOpen/2024/MensSingles/Fauve/3/2> a clo-te-fan:MatchSelection ;
     clo-te-fan:hasSelectedSets 4 ;
     clo-te-fan:hasSelectedWinner <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/MensSingles/Mannarino> ;
@@ -2115,6 +2164,13 @@
     clo-te-fan:hasSelectedSets 4 ;
     clo-te-fan:hasSelectedWinner <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/MensSingles/Rublev> ;
     clo-te-fan:isSelectionForMatch <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/MensSingles/Round/3/Match/3.8> ;
+    clo-te-fan:isSelectionForTeam clo-te-ind-fan:Fauve ;
+    clo-te:hasFantasyPointsStrategy <https://clojos.io/ontology/FantasyTennis/FantasyPointsStrategy/WinNumSetsLossMaxSets/Points21Half/DoublePerRound> .
+
+<https://clojos.io/ontology/FantasyTennis/Ind/Fantasy/AustralianOpen/2024/MensSingles/Fauve/3/9> a clo-te-fan:MatchSelection ;
+    clo-te-fan:hasSelectedSets 4 ;
+    clo-te-fan:hasSelectedWinner <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/MensSingles/Griekspoor> ;
+    clo-te-fan:isSelectionForMatch <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/MensSingles/Round/3/Match/3.9> ;
     clo-te-fan:isSelectionForTeam clo-te-ind-fan:Fauve ;
     clo-te:hasFantasyPointsStrategy <https://clojos.io/ontology/FantasyTennis/FantasyPointsStrategy/WinNumSetsLossMaxSets/Points21Half/DoublePerRound> .
 
@@ -4127,6 +4183,55 @@
     clo-te-fan:isSelectionForTeam clo-te-ind-fan:LightHouse ;
     clo-te:hasFantasyPointsStrategy <https://clojos.io/ontology/FantasyTennis/FantasyPointsStrategy/WinNumSetsLossMaxSets/Points21Half/DoublePerRound> .
 
+<https://clojos.io/ontology/FantasyTennis/Ind/Fantasy/AustralianOpen/2024/MensSingles/LightHouse/3/10> a clo-te-fan:MatchSelection ;
+    clo-te-fan:hasSelectedSets 3 ;
+    clo-te-fan:hasSelectedWinner <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/MensSingles/Hurkacz> ;
+    clo-te-fan:isSelectionForMatch <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/MensSingles/Round/3/Match/3.10> ;
+    clo-te-fan:isSelectionForTeam clo-te-ind-fan:LightHouse ;
+    clo-te:hasFantasyPointsStrategy <https://clojos.io/ontology/FantasyTennis/FantasyPointsStrategy/WinNumSetsLossMaxSets/Points21Half/DoublePerRound> .
+
+<https://clojos.io/ontology/FantasyTennis/Ind/Fantasy/AustralianOpen/2024/MensSingles/LightHouse/3/11> a clo-te-fan:MatchSelection ;
+    clo-te-fan:hasSelectedSets 4 ;
+    clo-te-fan:hasSelectedWinner <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/MensSingles/Dimitrov> ;
+    clo-te-fan:isSelectionForMatch <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/MensSingles/Round/3/Match/3.11> ;
+    clo-te-fan:isSelectionForTeam clo-te-ind-fan:LightHouse ;
+    clo-te:hasFantasyPointsStrategy <https://clojos.io/ontology/FantasyTennis/FantasyPointsStrategy/WinNumSetsLossMaxSets/Points21Half/DoublePerRound> .
+
+<https://clojos.io/ontology/FantasyTennis/Ind/Fantasy/AustralianOpen/2024/MensSingles/LightHouse/3/12> a clo-te-fan:MatchSelection ;
+    clo-te-fan:hasSelectedSets 5 ;
+    clo-te-fan:hasSelectedWinner <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/MensSingles/Medvedev> ;
+    clo-te-fan:isSelectionForMatch <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/MensSingles/Round/3/Match/3.12> ;
+    clo-te-fan:isSelectionForTeam clo-te-ind-fan:LightHouse ;
+    clo-te:hasFantasyPointsStrategy <https://clojos.io/ontology/FantasyTennis/FantasyPointsStrategy/WinNumSetsLossMaxSets/Points21Half/DoublePerRound> .
+
+<https://clojos.io/ontology/FantasyTennis/Ind/Fantasy/AustralianOpen/2024/MensSingles/LightHouse/3/13> a clo-te-fan:MatchSelection ;
+    clo-te-fan:hasSelectedSets 4 ;
+    clo-te-fan:hasSelectedWinner <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/MensSingles/Zverev> ;
+    clo-te-fan:isSelectionForMatch <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/MensSingles/Round/3/Match/3.13> ;
+    clo-te-fan:isSelectionForTeam clo-te-ind-fan:LightHouse ;
+    clo-te:hasFantasyPointsStrategy <https://clojos.io/ontology/FantasyTennis/FantasyPointsStrategy/WinNumSetsLossMaxSets/Points21Half/DoublePerRound> .
+
+<https://clojos.io/ontology/FantasyTennis/Ind/Fantasy/AustralianOpen/2024/MensSingles/LightHouse/3/14> a clo-te-fan:MatchSelection ;
+    clo-te-fan:hasSelectedSets 5 ;
+    clo-te-fan:hasSelectedWinner <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/MensSingles/Ruud> ;
+    clo-te-fan:isSelectionForMatch <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/MensSingles/Round/3/Match/3.14> ;
+    clo-te-fan:isSelectionForTeam clo-te-ind-fan:LightHouse ;
+    clo-te:hasFantasyPointsStrategy <https://clojos.io/ontology/FantasyTennis/FantasyPointsStrategy/WinNumSetsLossMaxSets/Points21Half/DoublePerRound> .
+
+<https://clojos.io/ontology/FantasyTennis/Ind/Fantasy/AustralianOpen/2024/MensSingles/LightHouse/3/15> a clo-te-fan:MatchSelection ;
+    clo-te-fan:hasSelectedSets 4 ;
+    clo-te-fan:hasSelectedWinner <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/MensSingles/Paul> ;
+    clo-te-fan:isSelectionForMatch <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/MensSingles/Round/3/Match/3.15> ;
+    clo-te-fan:isSelectionForTeam clo-te-ind-fan:LightHouse ;
+    clo-te:hasFantasyPointsStrategy <https://clojos.io/ontology/FantasyTennis/FantasyPointsStrategy/WinNumSetsLossMaxSets/Points21Half/DoublePerRound> .
+
+<https://clojos.io/ontology/FantasyTennis/Ind/Fantasy/AustralianOpen/2024/MensSingles/LightHouse/3/16> a clo-te-fan:MatchSelection ;
+    clo-te-fan:hasSelectedSets 4 ;
+    clo-te-fan:hasSelectedWinner <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/MensSingles/Alcaraz> ;
+    clo-te-fan:isSelectionForMatch <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/MensSingles/Round/3/Match/3.16> ;
+    clo-te-fan:isSelectionForTeam clo-te-ind-fan:LightHouse ;
+    clo-te:hasFantasyPointsStrategy <https://clojos.io/ontology/FantasyTennis/FantasyPointsStrategy/WinNumSetsLossMaxSets/Points21Half/DoublePerRound> .
+
 <https://clojos.io/ontology/FantasyTennis/Ind/Fantasy/AustralianOpen/2024/MensSingles/LightHouse/3/2> a clo-te-fan:MatchSelection ;
     clo-te-fan:hasSelectedSets 5 ;
     clo-te-fan:hasSelectedWinner <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/MensSingles/Shelton> ;
@@ -4173,6 +4278,13 @@
     clo-te-fan:hasSelectedSets 4 ;
     clo-te-fan:hasSelectedWinner <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/MensSingles/Rublev> ;
     clo-te-fan:isSelectionForMatch <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/MensSingles/Round/3/Match/3.8> ;
+    clo-te-fan:isSelectionForTeam clo-te-ind-fan:LightHouse ;
+    clo-te:hasFantasyPointsStrategy <https://clojos.io/ontology/FantasyTennis/FantasyPointsStrategy/WinNumSetsLossMaxSets/Points21Half/DoublePerRound> .
+
+<https://clojos.io/ontology/FantasyTennis/Ind/Fantasy/AustralianOpen/2024/MensSingles/LightHouse/3/9> a clo-te-fan:MatchSelection ;
+    clo-te-fan:hasSelectedSets 3 ;
+    clo-te-fan:hasSelectedWinner <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/MensSingles/Griekspoor> ;
+    clo-te-fan:isSelectionForMatch <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/MensSingles/Round/3/Match/3.9> ;
     clo-te-fan:isSelectionForTeam clo-te-ind-fan:LightHouse ;
     clo-te:hasFantasyPointsStrategy <https://clojos.io/ontology/FantasyTennis/FantasyPointsStrategy/WinNumSetsLossMaxSets/Points21Half/DoublePerRound> .
 
@@ -4855,6 +4967,55 @@
     clo-te-fan:isSelectionForTeam clo-te-ind-fan:MusicalBears ;
     clo-te:hasFantasyPointsStrategy <https://clojos.io/ontology/FantasyTennis/FantasyPointsStrategy/WinNumSetsLossMaxSets/Points21Half/DoublePerRound> .
 
+<https://clojos.io/ontology/FantasyTennis/Ind/Fantasy/AustralianOpen/2024/MensSingles/MusicalBears/3/10> a clo-te-fan:MatchSelection ;
+    clo-te-fan:hasSelectedSets 4 ;
+    clo-te-fan:hasSelectedWinner <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/MensSingles/Hurkacz> ;
+    clo-te-fan:isSelectionForMatch <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/MensSingles/Round/3/Match/3.10> ;
+    clo-te-fan:isSelectionForTeam clo-te-ind-fan:MusicalBears ;
+    clo-te:hasFantasyPointsStrategy <https://clojos.io/ontology/FantasyTennis/FantasyPointsStrategy/WinNumSetsLossMaxSets/Points21Half/DoublePerRound> .
+
+<https://clojos.io/ontology/FantasyTennis/Ind/Fantasy/AustralianOpen/2024/MensSingles/MusicalBears/3/11> a clo-te-fan:MatchSelection ;
+    clo-te-fan:hasSelectedSets 4 ;
+    clo-te-fan:hasSelectedWinner <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/MensSingles/Dimitrov> ;
+    clo-te-fan:isSelectionForMatch <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/MensSingles/Round/3/Match/3.11> ;
+    clo-te-fan:isSelectionForTeam clo-te-ind-fan:MusicalBears ;
+    clo-te:hasFantasyPointsStrategy <https://clojos.io/ontology/FantasyTennis/FantasyPointsStrategy/WinNumSetsLossMaxSets/Points21Half/DoublePerRound> .
+
+<https://clojos.io/ontology/FantasyTennis/Ind/Fantasy/AustralianOpen/2024/MensSingles/MusicalBears/3/12> a clo-te-fan:MatchSelection ;
+    clo-te-fan:hasSelectedSets 4 ;
+    clo-te-fan:hasSelectedWinner <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/MensSingles/Medvedev> ;
+    clo-te-fan:isSelectionForMatch <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/MensSingles/Round/3/Match/3.12> ;
+    clo-te-fan:isSelectionForTeam clo-te-ind-fan:MusicalBears ;
+    clo-te:hasFantasyPointsStrategy <https://clojos.io/ontology/FantasyTennis/FantasyPointsStrategy/WinNumSetsLossMaxSets/Points21Half/DoublePerRound> .
+
+<https://clojos.io/ontology/FantasyTennis/Ind/Fantasy/AustralianOpen/2024/MensSingles/MusicalBears/3/13> a clo-te-fan:MatchSelection ;
+    clo-te-fan:hasSelectedSets 4 ;
+    clo-te-fan:hasSelectedWinner <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/MensSingles/Zverev> ;
+    clo-te-fan:isSelectionForMatch <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/MensSingles/Round/3/Match/3.13> ;
+    clo-te-fan:isSelectionForTeam clo-te-ind-fan:MusicalBears ;
+    clo-te:hasFantasyPointsStrategy <https://clojos.io/ontology/FantasyTennis/FantasyPointsStrategy/WinNumSetsLossMaxSets/Points21Half/DoublePerRound> .
+
+<https://clojos.io/ontology/FantasyTennis/Ind/Fantasy/AustralianOpen/2024/MensSingles/MusicalBears/3/14> a clo-te-fan:MatchSelection ;
+    clo-te-fan:hasSelectedSets 4 ;
+    clo-te-fan:hasSelectedWinner <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/MensSingles/Norrie> ;
+    clo-te-fan:isSelectionForMatch <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/MensSingles/Round/3/Match/3.14> ;
+    clo-te-fan:isSelectionForTeam clo-te-ind-fan:MusicalBears ;
+    clo-te:hasFantasyPointsStrategy <https://clojos.io/ontology/FantasyTennis/FantasyPointsStrategy/WinNumSetsLossMaxSets/Points21Half/DoublePerRound> .
+
+<https://clojos.io/ontology/FantasyTennis/Ind/Fantasy/AustralianOpen/2024/MensSingles/MusicalBears/3/15> a clo-te-fan:MatchSelection ;
+    clo-te-fan:hasSelectedSets 4 ;
+    clo-te-fan:hasSelectedWinner <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/MensSingles/Paul> ;
+    clo-te-fan:isSelectionForMatch <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/MensSingles/Round/3/Match/3.15> ;
+    clo-te-fan:isSelectionForTeam clo-te-ind-fan:MusicalBears ;
+    clo-te:hasFantasyPointsStrategy <https://clojos.io/ontology/FantasyTennis/FantasyPointsStrategy/WinNumSetsLossMaxSets/Points21Half/DoublePerRound> .
+
+<https://clojos.io/ontology/FantasyTennis/Ind/Fantasy/AustralianOpen/2024/MensSingles/MusicalBears/3/16> a clo-te-fan:MatchSelection ;
+    clo-te-fan:hasSelectedSets 4 ;
+    clo-te-fan:hasSelectedWinner <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/MensSingles/Alcaraz> ;
+    clo-te-fan:isSelectionForMatch <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/MensSingles/Round/3/Match/3.16> ;
+    clo-te-fan:isSelectionForTeam clo-te-ind-fan:MusicalBears ;
+    clo-te:hasFantasyPointsStrategy <https://clojos.io/ontology/FantasyTennis/FantasyPointsStrategy/WinNumSetsLossMaxSets/Points21Half/DoublePerRound> .
+
 <https://clojos.io/ontology/FantasyTennis/Ind/Fantasy/AustralianOpen/2024/MensSingles/MusicalBears/3/2> a clo-te-fan:MatchSelection ;
     clo-te-fan:hasSelectedSets 3 ;
     clo-te-fan:hasSelectedWinner <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/MensSingles/Shelton> ;
@@ -4901,6 +5062,13 @@
     clo-te-fan:hasSelectedSets 4 ;
     clo-te-fan:hasSelectedWinner <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/MensSingles/Rublev> ;
     clo-te-fan:isSelectionForMatch <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/MensSingles/Round/3/Match/3.8> ;
+    clo-te-fan:isSelectionForTeam clo-te-ind-fan:MusicalBears ;
+    clo-te:hasFantasyPointsStrategy <https://clojos.io/ontology/FantasyTennis/FantasyPointsStrategy/WinNumSetsLossMaxSets/Points21Half/DoublePerRound> .
+
+<https://clojos.io/ontology/FantasyTennis/Ind/Fantasy/AustralianOpen/2024/MensSingles/MusicalBears/3/9> a clo-te-fan:MatchSelection ;
+    clo-te-fan:hasSelectedSets 4 ;
+    clo-te-fan:hasSelectedWinner <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/MensSingles/Griekspoor> ;
+    clo-te-fan:isSelectionForMatch <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/MensSingles/Round/3/Match/3.9> ;
     clo-te-fan:isSelectionForTeam clo-te-ind-fan:MusicalBears ;
     clo-te:hasFantasyPointsStrategy <https://clojos.io/ontology/FantasyTennis/FantasyPointsStrategy/WinNumSetsLossMaxSets/Points21Half/DoublePerRound> .
 
@@ -7488,7 +7656,7 @@
     clo-te:hasFantasyPointsStrategy <https://clojos.io/ontology/FantasyTennis/FantasyPointsStrategy/WinNumSetsLossMaxSets/Points21Half/DoublePerRound> .
 
 <https://clojos.io/ontology/FantasyTennis/Ind/Fantasy/AustralianOpen/2024/WomensSingles/Fauve/2/2> a clo-te-fan:MatchSelection ;
-    clo-te-fan:hasSelectedSets 2 ;
+    clo-te-fan:hasSelectedSets 3 ;
     clo-te-fan:hasSelectedWinner <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/WomensSingles/Noskova> ;
     clo-te-fan:isSelectionForMatch <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/WomensSingles/Round/2/Match/2.2> ;
     clo-te-fan:isSelectionForTeam clo-te-ind-fan:Fauve ;
@@ -9553,7 +9721,7 @@
     clo-te:hasFantasyPointsStrategy <https://clojos.io/ontology/FantasyTennis/FantasyPointsStrategy/WinNumSetsLossMaxSets/Points21Half/DoublePerRound> .
 
 <https://clojos.io/ontology/FantasyTennis/Ind/Fantasy/AustralianOpen/2024/WomensSingles/LightHouse/2/2> a clo-te-fan:MatchSelection ;
-    clo-te-fan:hasSelectedSets 2 ;
+    clo-te-fan:hasSelectedSets 3 ;
     clo-te-fan:hasSelectedWinner <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/WomensSingles/Noskova> ;
     clo-te-fan:isSelectionForMatch <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/WomensSingles/Round/2/Match/2.2> ;
     clo-te-fan:isSelectionForTeam clo-te-ind-fan:LightHouse ;
@@ -9694,8 +9862,15 @@
 
 <https://clojos.io/ontology/FantasyTennis/Ind/Fantasy/AustralianOpen/2024/WomensSingles/LightHouse/2/9> a clo-te-fan:MatchSelection ;
     clo-te-fan:hasSelectedSets 3 ;
-    clo-te-fan:hasSelectedWinner <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/WomensSingles/Rybakina> ;
+    clo-te-fan:hasSelectedWinner <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/WomensSingles/Blinkova> ;
     clo-te-fan:isSelectionForMatch <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/WomensSingles/Round/2/Match/2.9> ;
+    clo-te-fan:isSelectionForTeam clo-te-ind-fan:LightHouse ;
+    clo-te:hasFantasyPointsStrategy <https://clojos.io/ontology/FantasyTennis/FantasyPointsStrategy/WinNumSetsLossMaxSets/Points21Half/DoublePerRound> .
+
+<https://clojos.io/ontology/FantasyTennis/Ind/Fantasy/AustralianOpen/2024/WomensSingles/LightHouse/3/1> a clo-te-fan:MatchSelection ;
+    clo-te-fan:hasSelectedSets 2 ;
+    clo-te-fan:hasSelectedWinner <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/WomensSingles/Swiatek> ;
+    clo-te-fan:isSelectionForMatch <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/WomensSingles/Round/3/Match/3.1> ;
     clo-te-fan:isSelectionForTeam clo-te-ind-fan:LightHouse ;
     clo-te:hasFantasyPointsStrategy <https://clojos.io/ontology/FantasyTennis/FantasyPointsStrategy/WinNumSetsLossMaxSets/Points21Half/DoublePerRound> .
 
@@ -9745,6 +9920,55 @@
     clo-te-fan:hasSelectedSets 3 ;
     clo-te-fan:hasSelectedWinner <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/WomensSingles/Sabalenka> ;
     clo-te-fan:isSelectionForMatch <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/WomensSingles/Round/3/Match/3.16> ;
+    clo-te-fan:isSelectionForTeam clo-te-ind-fan:LightHouse ;
+    clo-te:hasFantasyPointsStrategy <https://clojos.io/ontology/FantasyTennis/FantasyPointsStrategy/WinNumSetsLossMaxSets/Points21Half/DoublePerRound> .
+
+<https://clojos.io/ontology/FantasyTennis/Ind/Fantasy/AustralianOpen/2024/WomensSingles/LightHouse/3/2> a clo-te-fan:MatchSelection ;
+    clo-te-fan:hasSelectedSets 3 ;
+    clo-te-fan:hasSelectedWinner <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/WomensSingles/Svitolina> ;
+    clo-te-fan:isSelectionForMatch <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/WomensSingles/Round/3/Match/3.2> ;
+    clo-te-fan:isSelectionForTeam clo-te-ind-fan:LightHouse ;
+    clo-te:hasFantasyPointsStrategy <https://clojos.io/ontology/FantasyTennis/FantasyPointsStrategy/WinNumSetsLossMaxSets/Points21Half/DoublePerRound> .
+
+<https://clojos.io/ontology/FantasyTennis/Ind/Fantasy/AustralianOpen/2024/WomensSingles/LightHouse/3/3> a clo-te-fan:MatchSelection ;
+    clo-te-fan:hasSelectedSets 3 ;
+    clo-te-fan:hasSelectedWinner <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/WomensSingles/Ostapenko> ;
+    clo-te-fan:isSelectionForMatch <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/WomensSingles/Round/3/Match/3.3> ;
+    clo-te-fan:isSelectionForTeam clo-te-ind-fan:LightHouse ;
+    clo-te:hasFantasyPointsStrategy <https://clojos.io/ontology/FantasyTennis/FantasyPointsStrategy/WinNumSetsLossMaxSets/Points21Half/DoublePerRound> .
+
+<https://clojos.io/ontology/FantasyTennis/Ind/Fantasy/AustralianOpen/2024/WomensSingles/LightHouse/3/4> a clo-te-fan:MatchSelection ;
+    clo-te-fan:hasSelectedSets 3 ;
+    clo-te-fan:hasSelectedWinner <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/WomensSingles/Navarro> ;
+    clo-te-fan:isSelectionForMatch <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/WomensSingles/Round/3/Match/3.4> ;
+    clo-te-fan:isSelectionForTeam clo-te-ind-fan:LightHouse ;
+    clo-te:hasFantasyPointsStrategy <https://clojos.io/ontology/FantasyTennis/FantasyPointsStrategy/WinNumSetsLossMaxSets/Points21Half/DoublePerRound> .
+
+<https://clojos.io/ontology/FantasyTennis/Ind/Fantasy/AustralianOpen/2024/WomensSingles/LightHouse/3/5> a clo-te-fan:MatchSelection ;
+    clo-te-fan:hasSelectedSets 3 ;
+    clo-te-fan:hasSelectedWinner <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/WomensSingles/Paolini> ;
+    clo-te-fan:isSelectionForMatch <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/WomensSingles/Round/3/Match/3.5> ;
+    clo-te-fan:isSelectionForTeam clo-te-ind-fan:LightHouse ;
+    clo-te:hasFantasyPointsStrategy <https://clojos.io/ontology/FantasyTennis/FantasyPointsStrategy/WinNumSetsLossMaxSets/Points21Half/DoublePerRound> .
+
+<https://clojos.io/ontology/FantasyTennis/Ind/Fantasy/AustralianOpen/2024/WomensSingles/LightHouse/3/6> a clo-te-fan:MatchSelection ;
+    clo-te-fan:hasSelectedSets 3 ;
+    clo-te-fan:hasSelectedWinner <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/WomensSingles/Kalinskaya> ;
+    clo-te-fan:isSelectionForMatch <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/WomensSingles/Round/3/Match/3.6> ;
+    clo-te-fan:isSelectionForTeam clo-te-ind-fan:LightHouse ;
+    clo-te:hasFantasyPointsStrategy <https://clojos.io/ontology/FantasyTennis/FantasyPointsStrategy/WinNumSetsLossMaxSets/Points21Half/DoublePerRound> .
+
+<https://clojos.io/ontology/FantasyTennis/Ind/Fantasy/AustralianOpen/2024/WomensSingles/LightHouse/3/7> a clo-te-fan:MatchSelection ;
+    clo-te-fan:hasSelectedSets 3 ;
+    clo-te-fan:hasSelectedWinner <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/WomensSingles/Zheng> ;
+    clo-te-fan:isSelectionForMatch <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/WomensSingles/Round/3/Match/3.7> ;
+    clo-te-fan:isSelectionForTeam clo-te-ind-fan:LightHouse ;
+    clo-te:hasFantasyPointsStrategy <https://clojos.io/ontology/FantasyTennis/FantasyPointsStrategy/WinNumSetsLossMaxSets/Points21Half/DoublePerRound> .
+
+<https://clojos.io/ontology/FantasyTennis/Ind/Fantasy/AustralianOpen/2024/WomensSingles/LightHouse/3/8> a clo-te-fan:MatchSelection ;
+    clo-te-fan:hasSelectedSets 3 ;
+    clo-te-fan:hasSelectedWinner <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/WomensSingles/Oceane_Dodin> ;
+    clo-te-fan:isSelectionForMatch <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/WomensSingles/Round/3/Match/3.8> ;
     clo-te-fan:isSelectionForTeam clo-te-ind-fan:LightHouse ;
     clo-te:hasFantasyPointsStrategy <https://clojos.io/ontology/FantasyTennis/FantasyPointsStrategy/WinNumSetsLossMaxSets/Points21Half/DoublePerRound> .
 
@@ -10415,8 +10639,15 @@
 
 <https://clojos.io/ontology/FantasyTennis/Ind/Fantasy/AustralianOpen/2024/WomensSingles/MusicalBears/2/9> a clo-te-fan:MatchSelection ;
     clo-te-fan:hasSelectedSets 2 ;
-    clo-te-fan:hasSelectedWinner <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/WomensSingles/Rybakina> ;
+    clo-te-fan:hasSelectedWinner <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/WomensSingles/Blinkova> ;
     clo-te-fan:isSelectionForMatch <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/WomensSingles/Round/2/Match/2.9> ;
+    clo-te-fan:isSelectionForTeam clo-te-ind-fan:MusicalBears ;
+    clo-te:hasFantasyPointsStrategy <https://clojos.io/ontology/FantasyTennis/FantasyPointsStrategy/WinNumSetsLossMaxSets/Points21Half/DoublePerRound> .
+
+<https://clojos.io/ontology/FantasyTennis/Ind/Fantasy/AustralianOpen/2024/WomensSingles/MusicalBears/3/1> a clo-te-fan:MatchSelection ;
+    clo-te-fan:hasSelectedSets 2 ;
+    clo-te-fan:hasSelectedWinner <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/WomensSingles/Swiatek> ;
+    clo-te-fan:isSelectionForMatch <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/WomensSingles/Round/3/Match/3.1> ;
     clo-te-fan:isSelectionForTeam clo-te-ind-fan:MusicalBears ;
     clo-te:hasFantasyPointsStrategy <https://clojos.io/ontology/FantasyTennis/FantasyPointsStrategy/WinNumSetsLossMaxSets/Points21Half/DoublePerRound> .
 
@@ -10466,6 +10697,55 @@
     clo-te-fan:hasSelectedSets 2 ;
     clo-te-fan:hasSelectedWinner <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/WomensSingles/Sabalenka> ;
     clo-te-fan:isSelectionForMatch <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/WomensSingles/Round/3/Match/3.16> ;
+    clo-te-fan:isSelectionForTeam clo-te-ind-fan:MusicalBears ;
+    clo-te:hasFantasyPointsStrategy <https://clojos.io/ontology/FantasyTennis/FantasyPointsStrategy/WinNumSetsLossMaxSets/Points21Half/DoublePerRound> .
+
+<https://clojos.io/ontology/FantasyTennis/Ind/Fantasy/AustralianOpen/2024/WomensSingles/MusicalBears/3/2> a clo-te-fan:MatchSelection ;
+    clo-te-fan:hasSelectedSets 3 ;
+    clo-te-fan:hasSelectedWinner <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/WomensSingles/Svitolina> ;
+    clo-te-fan:isSelectionForMatch <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/WomensSingles/Round/3/Match/3.2> ;
+    clo-te-fan:isSelectionForTeam clo-te-ind-fan:MusicalBears ;
+    clo-te:hasFantasyPointsStrategy <https://clojos.io/ontology/FantasyTennis/FantasyPointsStrategy/WinNumSetsLossMaxSets/Points21Half/DoublePerRound> .
+
+<https://clojos.io/ontology/FantasyTennis/Ind/Fantasy/AustralianOpen/2024/WomensSingles/MusicalBears/3/3> a clo-te-fan:MatchSelection ;
+    clo-te-fan:hasSelectedSets 3 ;
+    clo-te-fan:hasSelectedWinner <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/WomensSingles/Ostapenko> ;
+    clo-te-fan:isSelectionForMatch <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/WomensSingles/Round/3/Match/3.3> ;
+    clo-te-fan:isSelectionForTeam clo-te-ind-fan:MusicalBears ;
+    clo-te:hasFantasyPointsStrategy <https://clojos.io/ontology/FantasyTennis/FantasyPointsStrategy/WinNumSetsLossMaxSets/Points21Half/DoublePerRound> .
+
+<https://clojos.io/ontology/FantasyTennis/Ind/Fantasy/AustralianOpen/2024/WomensSingles/MusicalBears/3/4> a clo-te-fan:MatchSelection ;
+    clo-te-fan:hasSelectedSets 3 ;
+    clo-te-fan:hasSelectedWinner <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/WomensSingles/Navarro> ;
+    clo-te-fan:isSelectionForMatch <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/WomensSingles/Round/3/Match/3.4> ;
+    clo-te-fan:isSelectionForTeam clo-te-ind-fan:MusicalBears ;
+    clo-te:hasFantasyPointsStrategy <https://clojos.io/ontology/FantasyTennis/FantasyPointsStrategy/WinNumSetsLossMaxSets/Points21Half/DoublePerRound> .
+
+<https://clojos.io/ontology/FantasyTennis/Ind/Fantasy/AustralianOpen/2024/WomensSingles/MusicalBears/3/5> a clo-te-fan:MatchSelection ;
+    clo-te-fan:hasSelectedSets 3 ;
+    clo-te-fan:hasSelectedWinner <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/WomensSingles/Blinkova> ;
+    clo-te-fan:isSelectionForMatch <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/WomensSingles/Round/3/Match/3.5> ;
+    clo-te-fan:isSelectionForTeam clo-te-ind-fan:MusicalBears ;
+    clo-te:hasFantasyPointsStrategy <https://clojos.io/ontology/FantasyTennis/FantasyPointsStrategy/WinNumSetsLossMaxSets/Points21Half/DoublePerRound> .
+
+<https://clojos.io/ontology/FantasyTennis/Ind/Fantasy/AustralianOpen/2024/WomensSingles/MusicalBears/3/6> a clo-te-fan:MatchSelection ;
+    clo-te-fan:hasSelectedSets 2 ;
+    clo-te-fan:hasSelectedWinner <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/WomensSingles/Stephens> ;
+    clo-te-fan:isSelectionForMatch <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/WomensSingles/Round/3/Match/3.6> ;
+    clo-te-fan:isSelectionForTeam clo-te-ind-fan:MusicalBears ;
+    clo-te:hasFantasyPointsStrategy <https://clojos.io/ontology/FantasyTennis/FantasyPointsStrategy/WinNumSetsLossMaxSets/Points21Half/DoublePerRound> .
+
+<https://clojos.io/ontology/FantasyTennis/Ind/Fantasy/AustralianOpen/2024/WomensSingles/MusicalBears/3/7> a clo-te-fan:MatchSelection ;
+    clo-te-fan:hasSelectedSets 2 ;
+    clo-te-fan:hasSelectedWinner <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/WomensSingles/Zheng> ;
+    clo-te-fan:isSelectionForMatch <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/WomensSingles/Round/3/Match/3.7> ;
+    clo-te-fan:isSelectionForTeam clo-te-ind-fan:MusicalBears ;
+    clo-te:hasFantasyPointsStrategy <https://clojos.io/ontology/FantasyTennis/FantasyPointsStrategy/WinNumSetsLossMaxSets/Points21Half/DoublePerRound> .
+
+<https://clojos.io/ontology/FantasyTennis/Ind/Fantasy/AustralianOpen/2024/WomensSingles/MusicalBears/3/8> a clo-te-fan:MatchSelection ;
+    clo-te-fan:hasSelectedSets 3 ;
+    clo-te-fan:hasSelectedWinner <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/WomensSingles/Burel> ;
+    clo-te-fan:isSelectionForMatch <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/WomensSingles/Round/3/Match/3.8> ;
     clo-te-fan:isSelectionForTeam clo-te-ind-fan:MusicalBears ;
     clo-te:hasFantasyPointsStrategy <https://clojos.io/ontology/FantasyTennis/FantasyPointsStrategy/WinNumSetsLossMaxSets/Points21Half/DoublePerRound> .
 
@@ -11168,6 +11448,11 @@ clo-te-ind-fan:PolarPrecision a clo-te-fan:Team ;
     clo-te-fan:hasFeature "PlayerNumberSelector" ;
     clo-te-fan:hasTeamMembers "IceT, Pepsi, Rollie, Lemmie, Gertie" .
 
+clo-te-ind-fan:Clojos a clo-te-fan:Team ;
+    skos:notation "Clojos" ;
+    clo-te-fan:hasFeature "PlayerNumberSelector" ;
+    clo-te-fan:hasTeamMembers "Claudie, Fyodoro, Sergio" .
+
 clo-te-ind-fan:Fauve a clo-te-fan:Team ;
     skos:notation "Fauve" ;
     clo-te-fan:hasFeature "PlayerNumberSelector" ;
@@ -11177,11 +11462,6 @@ clo-te-ind-fan:LightHouse a clo-te-fan:Team ;
     skos:notation "LightHouse" ;
     clo-te-fan:hasFeature "PlayerNumberSelector" ;
     clo-te-fan:hasTeamMembers "Edouard, Piri, Jack, Tom, Islay, Pinky, Purpley, Florance, Fennel" .
-
-clo-te-ind-fan:Clojos a clo-te-fan:Team ;
-    skos:notation "Clojos" ;
-    clo-te-fan:hasFeature "PlayerNumberSelector" ;
-    clo-te-fan:hasTeamMembers "Claudie, Fyodoro, Sergio" .
 
 clo-te-ind-fan:MusicalBears a clo-te-fan:Team ;
     skos:notation "Musical Bears" ;
