@@ -58,14 +58,28 @@ def team_clojo(mens_singles, womens_singles):
 
 
 # womens_singles_round_4:START
-
-
-
+def womens_singles_round_4(womens_singles):
+    TEAM.draw(womens_singles, '4.1').matchup(1, None, 2, None).select()  # TBD  OR  TBD
+    TEAM.draw(womens_singles, '4.2').matchup(1, None, 2, None).select()  # TBD  OR  TBD
+    TEAM.draw(womens_singles, '4.3').matchup(1, None, 2, None).select()  # TBD  OR  TBD
+    TEAM.draw(womens_singles, '4.4').matchup(1, None, 2, None).select()  # TBD  OR  TBD
+    TEAM.draw(womens_singles, '4.5').matchup(1, women.Kostyuk, 2, women.Maria_Timofeeva).select(2,3)  # (   ) Marta Kostyuk  OR  (  Q) Maria Timofeeva
+    TEAM.draw(womens_singles, '4.6').matchup(1, women.Frech, 2, women.Gauff).select(2,3)  # (   ) Magdalena Frech  OR  (  4) Coco Gauff
+    TEAM.draw(womens_singles, '4.7').matchup(1, women.Andreeva_Mirra, 2, women.Krejcikova).select(1,2)  # (   ) Mirra Andreeva  OR  (  9) Barbora Krejcikova
+    TEAM.draw(womens_singles, '4.8').matchup(1, women.Sabalenka, 2, women.Anisimova).select(1,2)  # (  2) Aryna Sabalenka  OR  (   ) Amanda Anisimova
 # womens_singles_round_4:END
 
 
 # mens_singles_round_4:START
-
+def mens_singles_round_4(mens_singles):
+    TEAM.draw(mens_singles, '4.1').matchup(1, men.Djokovic, 2, men.Mannarino).select(1,4)  # (  1) Novak Djokovic  OR  ( 20) Adrian Mannarino
+    TEAM.draw(mens_singles, '4.2').matchup(1, men.Fritz, 2, men.Tsitsipas).select(1,4)  # ( 12) Taylor Fritz  OR  (  7) Stefanos Tsitsipas
+    TEAM.draw(mens_singles, '4.3').matchup(1, men.Sinner, 2, men.Khachanov).select(1,4)  # (  4) Jannik Sinner  OR  ( 15) Karen Khachanov
+    TEAM.draw(mens_singles, '4.4').matchup(1, men.Rublev, 2, men.Alex_de_Minaur).select(1,4)  # (  5) Andrey Rublev  OR  ( 10) Alex de Minaur
+    TEAM.draw(mens_singles, '4.5').matchup(1, None, 2, None).select()  # TBD  OR  TBD
+    TEAM.draw(mens_singles, '4.6').matchup(1, None, 2, None).select()  # TBD  OR  TBD
+    TEAM.draw(mens_singles, '4.7').matchup(1, None, 2, None).select()  # TBD  OR  TBD
+    TEAM.draw(mens_singles, '4.8').matchup(1, None, 2, None).select()  # TBD  OR  TBD
 # mens_singles_round_4:END
 
 
@@ -321,6 +335,7 @@ def mens_singles_round_1(mens_singles):
     TEAM.draw(mens_singles, '1.63').matchup(1, men.Evans, 2, men.Sonego).select(2,4)  # (   ) Daniel Evans  OR  (   ) Lorenzo Sonego
     TEAM.draw(mens_singles, '1.64').matchup(1, men.Gasquet, 2, men.Alcaraz).select(2,3)  # (   ) Richard Gasquet  OR  (  2) Carlos Alcaraz
 # mens_singles_round_1:END
+
 
 
 
