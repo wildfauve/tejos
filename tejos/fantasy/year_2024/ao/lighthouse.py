@@ -43,8 +43,8 @@ def team_lighthouse(mens_singles, womens_singles):
 
 # womens_singles_round_5:START
 def womens_singles_round_5(womens_singles):
-    TEAM.draw(womens_singles, '5.1').matchup(1, None, 2, None).select()  # TBD  OR  TBD
-    TEAM.draw(womens_singles, '5.2').matchup(1, None, 2, None).select()  # TBD  OR  TBD
+    TEAM.draw(womens_singles, '5.1').matchup(1, women.Noskova, 2, women.Yastremska).select()  # (   ) Linda Noskova  OR  (  Q) Dayana Yastremska
+    TEAM.draw(womens_singles, '5.2').matchup(1, women.Zheng, 2, women.Kalinskaya).select()  # ( 12) Qinwen Zheng  OR  (   ) Anna Kalinskaya
     TEAM.draw(womens_singles, '5.3').matchup(1, women.Kostyuk, 2, women.Gauff).select()  # (   ) Marta Kostyuk  OR  (  4) Coco Gauff
     TEAM.draw(womens_singles, '5.4').matchup(1, women.Krejcikova, 2, women.Sabalenka).select()  # (  9) Barbora Krejcikova  OR  (  2) Aryna Sabalenka
 # womens_singles_round_5:END
@@ -54,16 +54,16 @@ def womens_singles_round_5(womens_singles):
 def mens_singles_round_5(mens_singles):
     TEAM.draw(mens_singles, '5.1').matchup(1, men.Djokovic, 2, men.Fritz).select()  # (  1) Novak Djokovic  OR  ( 12) Taylor Fritz
     TEAM.draw(mens_singles, '5.2').matchup(1, men.Sinner, 2, men.Rublev).select()  # (  4) Jannik Sinner  OR  (  5) Andrey Rublev
-    TEAM.draw(mens_singles, '5.3').matchup(1, None, 2, None).select()  # TBD  OR  TBD
-    TEAM.draw(mens_singles, '5.4').matchup(1, None, 2, None).select()  # TBD  OR  TBD
+    TEAM.draw(mens_singles, '5.3').matchup(1, men.Medvedev, 2, men.Hurkacz).select()  # (  3) Daniil Medvedev  OR  (  9) Hubert Hurkacz
+    TEAM.draw(mens_singles, '5.4').matchup(1, men.Zverev, 2, men.Alcaraz).select()  # (  6) Alexander Zverev  OR  (  2) Carlos Alcaraz
 # mens_singles_round_5:END
 
 
 # womens_singles_round_4:START
 def womens_singles_round_4(womens_singles):
-    TEAM.draw(womens_singles, '4.1').matchup(1, women.Svitolina, 2, women.Noskova).select(1,3)  # ( 19) Svitolina  OR  (   ) Linda Noskova
-    TEAM.draw(womens_singles, '4.2').matchup(1, women.Yastremska, 2, women.Azarenka).select(2,3)  # (  Q) Dayana Yastremska  OR  ( 18) Victoria Azarenka
-    TEAM.draw(womens_singles, '4.3').matchup(1, women.Paolini, 2, women.Kalinskaya).select(1,3)  # ( 26) Jasmine Paolini  OR  (   ) Anna Kalinskaya
+    TEAM.draw(womens_singles, '4.1').matchup(1, women.Svitolina, 2, women.Noskova).select(2,3)  # ( 19) Svitolina  OR  (   ) Linda Noskova
+    TEAM.draw(womens_singles, '4.2').matchup(1, women.Yastremska, 2, women.Azarenka).select(1,3)  # (  Q) Dayana Yastremska  OR  ( 18) Victoria Azarenka
+    TEAM.draw(womens_singles, '4.3').matchup(1, women.Paolini, 2, women.Kalinskaya).select(2,3)  # ( 26) Jasmine Paolini  OR  (   ) Anna Kalinskaya
     TEAM.draw(womens_singles, '4.4').matchup(1, women.Zheng, 2, women.Oceane_Dodin).select(1,3)  # ( 12) Qinwen Zheng  OR  (   ) Oceane Dodin
     TEAM.draw(womens_singles).match('4.5').winner(women.Kostyuk).in_sets(3)  # (   ) Marta Kostyuk  OR  (  Q) Maria Timofeeva
     TEAM.draw(womens_singles).match('4.6').winner(women.Frech).in_sets(3)  # (   ) Magdalena Frech  OR  (  4) Coco Gauff
@@ -79,9 +79,9 @@ def mens_singles_round_4(mens_singles):
     TEAM.draw(mens_singles).match('4.3').winner(men.Sinner).in_sets(5)  # (  4) Jannik Sinner  OR  ( 15) Karen Khachanov
     TEAM.draw(mens_singles).match('4.4').winner(men.Alex_de_Minaur).in_sets(5)  # (  5) Andrey Rublev  OR  ( 10) Alex de Minaur
     TEAM.draw(mens_singles, '4.5').matchup(1, men.Cazaux, 2, men.Hurkacz).select(2,4)  # ( WC) Arthur Cazaux  OR  (  9) Hubert Hurkacz
-    TEAM.draw(mens_singles, '4.6').matchup(1, men.Medvedev, 2, men.Borges).select(1,4)  # (  3) Daniil Medvedev  OR  (   ) Nuno Borges
+    TEAM.draw(mens_singles, '4.6').matchup(1, men.Medvedev, 2, men.Borges).select(1,5)  # (  3) Daniil Medvedev  OR  (   ) Nuno Borges
     TEAM.draw(mens_singles, '4.7').matchup(1, men.Norrie, 2, men.Zverev).select(2,4)  # ( 19) Cameron Norrie  OR  (  6) Alexander Zverev
-    TEAM.draw(mens_singles, '4.8').matchup(1, men.Kecmanovic, 2, men.Alcaraz).select(2,4)  # (   ) Miomir Kecmanovic  OR  (  2) Carlos Alcaraz
+    TEAM.draw(mens_singles, '4.8').matchup(1, men.Kecmanovic, 2, men.Alcaraz).select(2,3)  # (   ) Miomir Kecmanovic  OR  (  2) Carlos Alcaraz
 # mens_singles_round_4:END
 
 
@@ -339,6 +339,7 @@ def mens_singles_round_1(mens_singles):
     TEAM.draw(mens_singles, '1.64').matchup(1, men.Gasquet, 2, men.Alcaraz).select(2,3)  # (   ) Richard Gasquet  OR  (  2) Carlos Alcaraz
 
 # mens_singles_round_1:END
+
 
 
 

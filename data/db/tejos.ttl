@@ -2137,6 +2137,13 @@ clo-te-ind-tou:AustralianOpen a clo-te:Tournament ;
     clo-te:hasMatchNumber 5 ;
     clo-te:hasMatchUpPosition1 <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/MensSingles/Cazaux> ;
     clo-te:hasMatchUpPosition2 <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/MensSingles/Hurkacz> ;
+    clo-te:hasMatchWinner <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/MensSingles/Hurkacz> ;
+    clo-te:hasSetsScores1 <https://clojos.io/ontology/FantasyTennis/Score/1/6>,
+        <https://clojos.io/ontology/FantasyTennis/Score/2/6>,
+        <https://clojos.io/ontology/FantasyTennis/Score/3/4> ;
+    clo-te:hasSetsScores2 <https://clojos.io/ontology/FantasyTennis/Score/1/7>,
+        <https://clojos.io/ontology/FantasyTennis/Score/2/7>,
+        <https://clojos.io/ontology/FantasyTennis/Score/3/6> ;
     clo-te:isMatchInRound <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/MensSingles/Round/4> .
 
 <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/MensSingles/Round/4/Match/4.6> a clo-te:Match ;
@@ -2144,6 +2151,15 @@ clo-te-ind-tou:AustralianOpen a clo-te:Tournament ;
     clo-te:hasMatchNumber 6 ;
     clo-te:hasMatchUpPosition1 <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/MensSingles/Medvedev> ;
     clo-te:hasMatchUpPosition2 <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/MensSingles/Borges> ;
+    clo-te:hasMatchWinner <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/MensSingles/Medvedev> ;
+    clo-te:hasSetsScores1 <https://clojos.io/ontology/FantasyTennis/Score/1/6>,
+        <https://clojos.io/ontology/FantasyTennis/Score/2/7>,
+        <https://clojos.io/ontology/FantasyTennis/Score/3/5>,
+        <https://clojos.io/ontology/FantasyTennis/Score/4/6> ;
+    clo-te:hasSetsScores2 <https://clojos.io/ontology/FantasyTennis/Score/1/3>,
+        <https://clojos.io/ontology/FantasyTennis/Score/2/6>,
+        <https://clojos.io/ontology/FantasyTennis/Score/3/7>,
+        <https://clojos.io/ontology/FantasyTennis/Score/4/1> ;
     clo-te:isMatchInRound <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/MensSingles/Round/4> .
 
 <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/MensSingles/Round/4/Match/4.7> a clo-te:Match ;
@@ -2151,6 +2167,17 @@ clo-te-ind-tou:AustralianOpen a clo-te:Tournament ;
     clo-te:hasMatchNumber 7 ;
     clo-te:hasMatchUpPosition1 <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/MensSingles/Norrie> ;
     clo-te:hasMatchUpPosition2 <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/MensSingles/Zverev> ;
+    clo-te:hasMatchWinner <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/MensSingles/Zverev> ;
+    clo-te:hasSetsScores1 <https://clojos.io/ontology/FantasyTennis/Score/1/5>,
+        <https://clojos.io/ontology/FantasyTennis/Score/2/6>,
+        <https://clojos.io/ontology/FantasyTennis/Score/3/3>,
+        <https://clojos.io/ontology/FantasyTennis/Score/4/6>,
+        <https://clojos.io/ontology/FantasyTennis/Score/5/6> ;
+    clo-te:hasSetsScores2 <https://clojos.io/ontology/FantasyTennis/Score/1/7>,
+        <https://clojos.io/ontology/FantasyTennis/Score/2/3>,
+        <https://clojos.io/ontology/FantasyTennis/Score/3/6>,
+        <https://clojos.io/ontology/FantasyTennis/Score/4/4>,
+        <https://clojos.io/ontology/FantasyTennis/Score/5/7> ;
     clo-te:isMatchInRound <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/MensSingles/Round/4> .
 
 <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/MensSingles/Round/4/Match/4.8> a clo-te:Match ;
@@ -2158,6 +2185,13 @@ clo-te-ind-tou:AustralianOpen a clo-te:Tournament ;
     clo-te:hasMatchNumber 8 ;
     clo-te:hasMatchUpPosition1 <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/MensSingles/Kecmanovic> ;
     clo-te:hasMatchUpPosition2 <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/MensSingles/Alcaraz> ;
+    clo-te:hasMatchWinner <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/MensSingles/Alcaraz> ;
+    clo-te:hasSetsScores1 <https://clojos.io/ontology/FantasyTennis/Score/1/4>,
+        <https://clojos.io/ontology/FantasyTennis/Score/2/4>,
+        <https://clojos.io/ontology/FantasyTennis/Score/3/0> ;
+    clo-te:hasSetsScores2 <https://clojos.io/ontology/FantasyTennis/Score/1/6>,
+        <https://clojos.io/ontology/FantasyTennis/Score/2/6>,
+        <https://clojos.io/ontology/FantasyTennis/Score/3/6> ;
     clo-te:isMatchInRound <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/MensSingles/Round/4> .
 
 <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/MensSingles/Round/5/Match/5.1> a clo-te:Match ;
@@ -2177,11 +2211,15 @@ clo-te-ind-tou:AustralianOpen a clo-te:Tournament ;
 <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/MensSingles/Round/5/Match/5.3> a clo-te:Match ;
     clo-te:hasMatchId "5.3" ;
     clo-te:hasMatchNumber 3 ;
+    clo-te:hasMatchUpPosition1 <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/MensSingles/Medvedev> ;
+    clo-te:hasMatchUpPosition2 <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/MensSingles/Hurkacz> ;
     clo-te:isMatchInRound <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/MensSingles/Round/5> .
 
 <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/MensSingles/Round/5/Match/5.4> a clo-te:Match ;
     clo-te:hasMatchId "5.4" ;
     clo-te:hasMatchNumber 4 ;
+    clo-te:hasMatchUpPosition1 <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/MensSingles/Zverev> ;
+    clo-te:hasMatchUpPosition2 <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/MensSingles/Alcaraz> ;
     clo-te:isMatchInRound <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/MensSingles/Round/5> .
 
 <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/MensSingles/Round/6/Match/6.1> a clo-te:Match ;
@@ -3989,13 +4027,22 @@ clo-te-ind-tou:AustralianOpen a clo-te:Tournament ;
     clo-te:hasMatchNumber 1 ;
     clo-te:hasMatchUpPosition1 <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/WomensSingles/Svitolina> ;
     clo-te:hasMatchUpPosition2 <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/WomensSingles/Noskova> ;
-    clo-te:isMatchInRound <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/WomensSingles/Round/4> .
+    clo-te:hasMatchWinner <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/WomensSingles/Noskova> ;
+    clo-te:hasSetsScores1 <https://clojos.io/ontology/FantasyTennis/Score/1/0> ;
+    clo-te:hasSetsScores2 <https://clojos.io/ontology/FantasyTennis/Score/1/3> ;
+    clo-te:isMatchInRound <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/WomensSingles/Round/4> ;
+    clo-te:retiredFromMatch <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/WomensSingles/Svitolina> .
 
 <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/WomensSingles/Round/4/Match/4.2> a clo-te:Match ;
     clo-te:hasMatchId "4.2" ;
     clo-te:hasMatchNumber 2 ;
     clo-te:hasMatchUpPosition1 <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/WomensSingles/Yastremska> ;
     clo-te:hasMatchUpPosition2 <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/WomensSingles/Azarenka> ;
+    clo-te:hasMatchWinner <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/WomensSingles/Yastremska> ;
+    clo-te:hasSetsScores1 <https://clojos.io/ontology/FantasyTennis/Score/1/7>,
+        <https://clojos.io/ontology/FantasyTennis/Score/2/6> ;
+    clo-te:hasSetsScores2 <https://clojos.io/ontology/FantasyTennis/Score/1/6>,
+        <https://clojos.io/ontology/FantasyTennis/Score/2/4> ;
     clo-te:isMatchInRound <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/WomensSingles/Round/4> .
 
 <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/WomensSingles/Round/4/Match/4.3> a clo-te:Match ;
@@ -4003,6 +4050,11 @@ clo-te-ind-tou:AustralianOpen a clo-te:Tournament ;
     clo-te:hasMatchNumber 3 ;
     clo-te:hasMatchUpPosition1 <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/WomensSingles/Paolini> ;
     clo-te:hasMatchUpPosition2 <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/WomensSingles/Kalinskaya> ;
+    clo-te:hasMatchWinner <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/WomensSingles/Kalinskaya> ;
+    clo-te:hasSetsScores1 <https://clojos.io/ontology/FantasyTennis/Score/1/4>,
+        <https://clojos.io/ontology/FantasyTennis/Score/2/2> ;
+    clo-te:hasSetsScores2 <https://clojos.io/ontology/FantasyTennis/Score/1/6>,
+        <https://clojos.io/ontology/FantasyTennis/Score/2/6> ;
     clo-te:isMatchInRound <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/WomensSingles/Round/4> .
 
 <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/WomensSingles/Round/4/Match/4.4> a clo-te:Match ;
@@ -4010,6 +4062,11 @@ clo-te-ind-tou:AustralianOpen a clo-te:Tournament ;
     clo-te:hasMatchNumber 4 ;
     clo-te:hasMatchUpPosition1 <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/WomensSingles/Zheng> ;
     clo-te:hasMatchUpPosition2 <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/WomensSingles/Oceane_Dodin> ;
+    clo-te:hasMatchWinner <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/WomensSingles/Zheng> ;
+    clo-te:hasSetsScores1 <https://clojos.io/ontology/FantasyTennis/Score/1/6>,
+        <https://clojos.io/ontology/FantasyTennis/Score/2/6> ;
+    clo-te:hasSetsScores2 <https://clojos.io/ontology/FantasyTennis/Score/1/0>,
+        <https://clojos.io/ontology/FantasyTennis/Score/2/3> ;
     clo-te:isMatchInRound <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/WomensSingles/Round/4> .
 
 <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/WomensSingles/Round/4/Match/4.5> a clo-te:Match ;
@@ -4065,11 +4122,15 @@ clo-te-ind-tou:AustralianOpen a clo-te:Tournament ;
 <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/WomensSingles/Round/5/Match/5.1> a clo-te:Match ;
     clo-te:hasMatchId "5.1" ;
     clo-te:hasMatchNumber 1 ;
+    clo-te:hasMatchUpPosition1 <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/WomensSingles/Noskova> ;
+    clo-te:hasMatchUpPosition2 <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/WomensSingles/Yastremska> ;
     clo-te:isMatchInRound <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/WomensSingles/Round/5> .
 
 <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/WomensSingles/Round/5/Match/5.2> a clo-te:Match ;
     clo-te:hasMatchId "5.2" ;
     clo-te:hasMatchNumber 2 ;
+    clo-te:hasMatchUpPosition1 <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/WomensSingles/Zheng> ;
+    clo-te:hasMatchUpPosition2 <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/WomensSingles/Kalinskaya> ;
     clo-te:isMatchInRound <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/WomensSingles/Round/5> .
 
 <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/WomensSingles/Round/5/Match/5.3> a clo-te:Match ;
@@ -4869,12 +4930,6 @@ clo-te-ind-tou:AustralianOpen a clo-te:Tournament ;
     clo-te:isEnterForDraw <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/MensSingles> ;
     clo-te:isEntryForPlayer clo-te-ind-plr:Shang .
 
-<https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/MensSingles/Alcaraz> a clo-te:PlayerEntry ;
-    clo-te-plr:hasKlassName "Alcaraz" ;
-    clo-te:hasSeed "2" ;
-    clo-te:isEnterForDraw <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/MensSingles> ;
-    clo-te:isEntryForPlayer clo-te-ind-plr:Alcaraz .
-
 <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/MensSingles/Alex_de_Minaur> a clo-te:PlayerEntry ;
     clo-te-plr:hasKlassName "Alex_de_Minaur" ;
     clo-te:hasSeed "10" ;
@@ -4892,12 +4947,6 @@ clo-te-ind-tou:AustralianOpen a clo-te:Tournament ;
     clo-te:hasSeed "WC" ;
     clo-te:isEnterForDraw <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/MensSingles> ;
     clo-te:isEntryForPlayer clo-te-ind-plr:Cazaux .
-
-<https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/MensSingles/Hurkacz> a clo-te:PlayerEntry ;
-    clo-te-plr:hasKlassName "Hurkacz" ;
-    clo-te:hasSeed "9" ;
-    clo-te:isEnterForDraw <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/MensSingles> ;
-    clo-te:isEntryForPlayer clo-te-ind-plr:Hurkacz .
 
 <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/MensSingles/Kecmanovic> a clo-te:PlayerEntry ;
     clo-te-plr:hasKlassName "Kecmanovic" ;
@@ -4917,12 +4966,6 @@ clo-te-ind-tou:AustralianOpen a clo-te:Tournament ;
     clo-te:isEnterForDraw <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/MensSingles> ;
     clo-te:isEntryForPlayer clo-te-ind-plr:Mannarino .
 
-<https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/MensSingles/Medvedev> a clo-te:PlayerEntry ;
-    clo-te-plr:hasKlassName "Medvedev" ;
-    clo-te:hasSeed "3" ;
-    clo-te:isEnterForDraw <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/MensSingles> ;
-    clo-te:isEntryForPlayer clo-te-ind-plr:Medvedev .
-
 <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/MensSingles/Norrie> a clo-te:PlayerEntry ;
     clo-te-plr:hasKlassName "Norrie" ;
     clo-te:hasSeed "19" ;
@@ -4934,12 +4977,6 @@ clo-te-ind-tou:AustralianOpen a clo-te:Tournament ;
     clo-te:hasSeed "7" ;
     clo-te:isEnterForDraw <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/MensSingles> ;
     clo-te:isEntryForPlayer clo-te-ind-plr:Tsitsipas .
-
-<https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/MensSingles/Zverev> a clo-te:PlayerEntry ;
-    clo-te-plr:hasKlassName "Zverev" ;
-    clo-te:hasSeed "6" ;
-    clo-te:isEnterForDraw <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/MensSingles> ;
-    clo-te:isEntryForPlayer clo-te-ind-plr:Zverev .
 
 <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/WomensSingles/Andreeva_Mirra> a clo-te:PlayerEntry ;
     clo-te-plr:hasKlassName "Andreeva_Mirra" ;
@@ -4965,23 +5002,11 @@ clo-te-ind-tou:AustralianOpen a clo-te:Tournament ;
     clo-te:isEnterForDraw <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/WomensSingles> ;
     clo-te:isEntryForPlayer clo-te-ind-plr:Frech .
 
-<https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/WomensSingles/Kalinskaya> a clo-te:PlayerEntry ;
-    clo-te-plr:hasKlassName "Kalinskaya" ;
-    clo-te:hasSeed "" ;
-    clo-te:isEnterForDraw <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/WomensSingles> ;
-    clo-te:isEntryForPlayer clo-te-ind-plr:Kalinskaya .
-
 <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/WomensSingles/Maria_Timofeeva> a clo-te:PlayerEntry ;
     clo-te-plr:hasKlassName "Maria_Timofeeva" ;
     clo-te:hasSeed "Q" ;
     clo-te:isEnterForDraw <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/WomensSingles> ;
     clo-te:isEntryForPlayer clo-te-ind-plr:Maria_Timofeeva .
-
-<https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/WomensSingles/Noskova> a clo-te:PlayerEntry ;
-    clo-te-plr:hasKlassName "Noskova" ;
-    clo-te:hasSeed "" ;
-    clo-te:isEnterForDraw <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/WomensSingles> ;
-    clo-te:isEntryForPlayer clo-te-ind-plr:Noskova .
 
 <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/WomensSingles/Oceane_Dodin> a clo-te:PlayerEntry ;
     clo-te-plr:hasKlassName "Oceane_Dodin" ;
@@ -4994,24 +5019,6 @@ clo-te-ind-tou:AustralianOpen a clo-te:Tournament ;
     clo-te:hasSeed "26" ;
     clo-te:isEnterForDraw <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/WomensSingles> ;
     clo-te:isEntryForPlayer clo-te-ind-plr:Paolini .
-
-<https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/WomensSingles/Svitolina> a clo-te:PlayerEntry ;
-    clo-te-plr:hasKlassName "Svitolina" ;
-    clo-te:hasSeed "19" ;
-    clo-te:isEnterForDraw <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/WomensSingles> ;
-    clo-te:isEntryForPlayer clo-te-ind-plr:Svitolina .
-
-<https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/WomensSingles/Yastremska> a clo-te:PlayerEntry ;
-    clo-te-plr:hasKlassName "Yastremska" ;
-    clo-te:hasSeed "Q" ;
-    clo-te:isEnterForDraw <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/WomensSingles> ;
-    clo-te:isEntryForPlayer clo-te-ind-plr:Yastremska .
-
-<https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/WomensSingles/Zheng> a clo-te:PlayerEntry ;
-    clo-te-plr:hasKlassName "Zheng" ;
-    clo-te:hasSeed "12" ;
-    clo-te:isEnterForDraw <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/WomensSingles> ;
-    clo-te:isEntryForPlayer clo-te-ind-plr:Zheng .
 
 <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/MensSingles/Round/4> a clo-te:DrawRound ;
     skos:notation "Round of 16" ;
@@ -5041,6 +5048,18 @@ clo-te-ind-tou:AustralianOpen a clo-te:Tournament ;
     clo-te:isBestOfGames 3 ;
     clo-te:isRoundForDraw <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/WomensSingles> .
 
+<https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/WomensSingles/Svitolina> a clo-te:PlayerEntry ;
+    clo-te-plr:hasKlassName "Svitolina" ;
+    clo-te:hasSeed "19" ;
+    clo-te:isEnterForDraw <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/WomensSingles> ;
+    clo-te:isEntryForPlayer clo-te-ind-plr:Svitolina .
+
+<https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/MensSingles/Alcaraz> a clo-te:PlayerEntry ;
+    clo-te-plr:hasKlassName "Alcaraz" ;
+    clo-te:hasSeed "2" ;
+    clo-te:isEnterForDraw <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/MensSingles> ;
+    clo-te:isEntryForPlayer clo-te-ind-plr:Alcaraz .
+
 <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/MensSingles/Djokovic> a clo-te:PlayerEntry ;
     clo-te-plr:hasKlassName "Djokovic" ;
     clo-te:hasSeed "1" ;
@@ -5052,6 +5071,18 @@ clo-te-ind-tou:AustralianOpen a clo-te:Tournament ;
     clo-te:hasSeed "12" ;
     clo-te:isEnterForDraw <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/MensSingles> ;
     clo-te:isEntryForPlayer clo-te-ind-plr:Fritz .
+
+<https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/MensSingles/Hurkacz> a clo-te:PlayerEntry ;
+    clo-te-plr:hasKlassName "Hurkacz" ;
+    clo-te:hasSeed "9" ;
+    clo-te:isEnterForDraw <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/MensSingles> ;
+    clo-te:isEntryForPlayer clo-te-ind-plr:Hurkacz .
+
+<https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/MensSingles/Medvedev> a clo-te:PlayerEntry ;
+    clo-te-plr:hasKlassName "Medvedev" ;
+    clo-te:hasSeed "3" ;
+    clo-te:isEnterForDraw <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/MensSingles> ;
+    clo-te:isEntryForPlayer clo-te-ind-plr:Medvedev .
 
 <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/MensSingles/Rublev> a clo-te:PlayerEntry ;
     clo-te-plr:hasKlassName "Rublev" ;
@@ -5065,11 +5096,23 @@ clo-te-ind-tou:AustralianOpen a clo-te:Tournament ;
     clo-te:isEnterForDraw <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/MensSingles> ;
     clo-te:isEntryForPlayer clo-te-ind-plr:Sinner .
 
+<https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/MensSingles/Zverev> a clo-te:PlayerEntry ;
+    clo-te-plr:hasKlassName "Zverev" ;
+    clo-te:hasSeed "6" ;
+    clo-te:isEnterForDraw <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/MensSingles> ;
+    clo-te:isEntryForPlayer clo-te-ind-plr:Zverev .
+
 <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/WomensSingles/Gauff> a clo-te:PlayerEntry ;
     clo-te-plr:hasKlassName "Gauff" ;
     clo-te:hasSeed "4" ;
     clo-te:isEnterForDraw <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/WomensSingles> ;
     clo-te:isEntryForPlayer clo-te-ind-plr:Gauff .
+
+<https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/WomensSingles/Kalinskaya> a clo-te:PlayerEntry ;
+    clo-te-plr:hasKlassName "Kalinskaya" ;
+    clo-te:hasSeed "" ;
+    clo-te:isEnterForDraw <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/WomensSingles> ;
+    clo-te:isEntryForPlayer clo-te-ind-plr:Kalinskaya .
 
 <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/WomensSingles/Kostyuk> a clo-te:PlayerEntry ;
     clo-te-plr:hasKlassName "Kostyuk" ;
@@ -5083,11 +5126,29 @@ clo-te-ind-tou:AustralianOpen a clo-te:Tournament ;
     clo-te:isEnterForDraw <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/WomensSingles> ;
     clo-te:isEntryForPlayer clo-te-ind-plr:Krejcikova .
 
+<https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/WomensSingles/Noskova> a clo-te:PlayerEntry ;
+    clo-te-plr:hasKlassName "Noskova" ;
+    clo-te:hasSeed "" ;
+    clo-te:isEnterForDraw <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/WomensSingles> ;
+    clo-te:isEntryForPlayer clo-te-ind-plr:Noskova .
+
 <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/WomensSingles/Sabalenka> a clo-te:PlayerEntry ;
     clo-te-plr:hasKlassName "Sabalenka" ;
     clo-te:hasSeed "2" ;
     clo-te:isEnterForDraw <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/WomensSingles> ;
     clo-te:isEntryForPlayer clo-te-ind-plr:Sabalenka .
+
+<https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/WomensSingles/Yastremska> a clo-te:PlayerEntry ;
+    clo-te-plr:hasKlassName "Yastremska" ;
+    clo-te:hasSeed "Q" ;
+    clo-te:isEnterForDraw <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/WomensSingles> ;
+    clo-te:isEntryForPlayer clo-te-ind-plr:Yastremska .
+
+<https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/WomensSingles/Zheng> a clo-te:PlayerEntry ;
+    clo-te-plr:hasKlassName "Zheng" ;
+    clo-te:hasSeed "12" ;
+    clo-te:isEnterForDraw <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/WomensSingles> ;
+    clo-te:isEntryForPlayer clo-te-ind-plr:Zheng .
 
 <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/AustralianOpen/2024/MensSingles/Round/3> a clo-te:DrawRound ;
     skos:notation "Round of 32" ;
