@@ -9,7 +9,7 @@ import json
 
 from tejos import model
 from tejos.players import atp_players, wta_players
-from tejos.util import fn
+from tejos.util import fn, console
 
 draw_map = {
     'AustralianOpen2024WomensSingles': {'name': "womens_singles",
@@ -30,8 +30,8 @@ class Round:
                       '2nd Round': 2,
                       '3rd Round': 3,
                       '4th Round': 4,
-                      'QuarterFinals': 5,
-                      'SemiFinals': 6,
+                      'Quarterfinals': 5,
+                      'Semifinals': 6,
                       'Final': 7}
 
     @classmethod
@@ -164,7 +164,9 @@ def _match(draw_mapping, event, for_rd, scores_only, full_draw, match):
     match_id = match.get('match_id')
     match_status = _determine_match_status(match.get('match_status'))
     rd = Round.find_rd(match.get('round_id'), ROUNDS)
-    # rd = round_code_map.get(match.get('roundCode'))
+    if not rd.rd_number:
+        breakpoint()
+    console.print(f"{rd.rd_number}")
     if for_rd and rd.rd_number != for_rd:
         return None
     if match_id in match_ids[draw_mapping['name']]:

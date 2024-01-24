@@ -63,10 +63,10 @@ def _team_board_predicate(team, team_on_board):
 def teams_points_per_round(fantasy_teams, accum, up_to_rd):
     if not fantasy_teams:
         return []
-    return [(team, _accumulate(_fill(team.points_per_round(up_to_rd), up_to_rd), accum)) for team in fantasy_teams]
+    return [(team, _accumulate(_fill(team.points_per_round(up_to_rd), team, up_to_rd), accum)) for team in fantasy_teams]
 
 
-def _fill(scores, up_to_rd):
+def _fill(scores, team, up_to_rd):
     if not up_to_rd:
         return scores
     [scores.append(0) for _i in range(len(scores), up_to_rd)]
