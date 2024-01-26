@@ -22,26 +22,27 @@ def team_musical_bears(mens_singles, womens_singles):
 
 
 # womens_singles_round_7:START
-
+def womens_singles_round_7(womens_singles):
+    TEAM.draw(womens_singles, '7.1').matchup(1, women.Sabalenka, 2, women.Zheng).select()  # (  2) Aryna Sabalenka  OR  ( 12) Qinwen Zheng
 # womens_singles_round_7:END
 
 
 # mens_singles_round_7:START
-
-
+def mens_singles_round_7(mens_singles):
+    TEAM.draw(mens_singles, '7.1').matchup(1, men.Medvedev, 2, men.Sinner).select()  # (  3) Daniil Medvedev  OR  (  4) Jannik Sinner
 # mens_singles_round_7:END
 
 # womens_singles_round_6:START
 def womens_singles_round_6(womens_singles):
-    TEAM.draw(womens_singles, '6.1').matchup(1, women.Yastremska, 2, None).select()  # (  Q) Dayana Yastremska  OR  TBD
-    TEAM.draw(womens_singles, '6.2').matchup(1, women.Sabalenka, 2, women.Gauff).select()  # (  2) Aryna Sabalenka  OR  (  4) Coco Gauff
+    TEAM.draw(womens_singles, '6.1').matchup(1, women.Yastremska, 2, women.Zheng).select(2,2)  # (  Q) Dayana Yastremska  OR  ( 12) Qinwen Zheng
+    TEAM.draw(womens_singles, '6.2').matchup(1, women.Sabalenka, 2, women.Gauff).select(1,2)  # (  2) Aryna Sabalenka  OR  (  4) Coco Gauff
 # womens_singles_round_6:END
 
 
 # mens_singles_round_6:START
 def mens_singles_round_6(mens_singles):
-    TEAM.draw(mens_singles, '6.1').matchup(1, men.Sinner, 2, men.Djokovic).select()  # (  4) Jannik Sinner  OR  (  1) Novak Djokovic
-    TEAM.draw(mens_singles, '6.2').matchup(1, men.Medvedev, 2, None).select()  # (  3) Daniil Medvedev  OR  TBD
+    TEAM.draw(mens_singles, '6.1').matchup(1, men.Sinner, 2, men.Djokovic).select(2,4)  # (  4) Jannik Sinner  OR  (  1) Novak Djokovic
+    TEAM.draw(mens_singles, '6.2').matchup(1, men.Medvedev, 2, men.Zverev).select(1,5)  # (  3) Daniil Medvedev  OR  (  6) Alexander Zverev
 # mens_singles_round_6:END
 
 
@@ -59,7 +60,7 @@ def mens_singles_round_5(mens_singles):
     TEAM.draw(mens_singles, '5.1').matchup(1, men.Djokovic, 2, men.Fritz).select(1,4)  # (  1) Novak Djokovic  OR  ( 12) Taylor Fritz
     TEAM.draw(mens_singles, '5.2').matchup(1, men.Sinner, 2, men.Rublev).select(2,5)  # (  4) Jannik Sinner  OR  (  5) Andrey Rublev
     TEAM.draw(mens_singles, '5.3').matchup(1, men.Medvedev, 2, men.Hurkacz).select(2,4)  # (  3) Daniil Medvedev  OR  (  9) Hubert Hurkacz
-    TEAM.draw(mens_singles, '5.4').matchup(1, men.Zverev, 2, men.Alcaraz).select(2,3)  # (  6) Alexander Zverev  OR  (  2) Carlos Alcaraz
+    TEAM.draw(mens_singles, '5.4').matchup(1, men.Zverev, 2, men.Alcaraz).select(1,4)  # (  6) Alexander Zverev  OR  (  2) Carlos Alcaraz
 # mens_singles_round_5:END
 
 
@@ -343,6 +344,9 @@ def mens_singles_round_1(mens_singles):
     TEAM.draw(mens_singles, '1.64').matchup(1, men.Gasquet, 2, men.Alcaraz).select(2,3)  # (   ) Richard Gasquet  OR  (  2) Carlos Alcaraz
 
 # mens_singles_round_1:END
+
+
+
 
 
 
