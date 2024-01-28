@@ -23,13 +23,13 @@ def team_musical_bears(mens_singles, womens_singles):
 
 # womens_singles_round_7:START
 def womens_singles_round_7(womens_singles):
-    TEAM.draw(womens_singles, '7.1').matchup(1, women.Sabalenka, 2, women.Zheng).select()  # (  2) Aryna Sabalenka  OR  ( 12) Qinwen Zheng
+    TEAM.draw(womens_singles, '7.1').matchup(1, women.Sabalenka, 2, women.Zheng).select(2,3)  # (  2) Aryna Sabalenka  OR  ( 12) Qinwen Zheng
 # womens_singles_round_7:END
 
 
 # mens_singles_round_7:START
 def mens_singles_round_7(mens_singles):
-    TEAM.draw(mens_singles, '7.1').matchup(1, men.Medvedev, 2, men.Sinner).select()  # (  3) Daniil Medvedev  OR  (  4) Jannik Sinner
+    TEAM.draw(mens_singles, '7.1').matchup(1, men.Medvedev, 2, men.Sinner).select(1,4)  # (  3) Daniil Medvedev  OR  (  4) Jannik Sinner
 # mens_singles_round_7:END
 
 # womens_singles_round_6:START
