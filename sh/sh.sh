@@ -8,5 +8,5 @@ poetry run tourn new-draw --tournament Wimbledon --year 2023 --name MensSingles 
 poetry run tourn add-entries --tournament Wimbledon --year 2023 --draw WomensSingles --in-file data/2023/wm/womens_singles.csv
 poetry run tourn add-entries --tournament Wimbledon --year 2023 --draw MensSingles --in-file data/2023/wm/mens_singles.csv
 
-poetry run tourn first-round-draw --tournament Wimbledon --year 2023 --draw WomensSingles --in-file data/2023/wm/womens_singles_first_round.csv
-poetry run tourn first-round-draw --tournament Wimbledon --year 2023 --draw MensSingles --in-file data/2023/wm/mens_singles_first_round.csv
+poetry run tourn first-round-draw --tournament Wimbledon --year 2024 --draw WomensSingles
+poetry run tourn first-round-draw --tournament Wimbledon --year 2024 --draw MensSingles
