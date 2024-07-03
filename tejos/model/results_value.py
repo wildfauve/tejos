@@ -24,11 +24,29 @@ class PlayerResult:
         if not self.player_klass:
             with open(missing_file_name, 'a') as missing_file:
                 plyr_def = self.missing_player_csv_builder()
+                plyr_def_rdf = self.missing_player_rdf_builder()
                 print(plyr_def)
-                missing_file.write(plyr_def)
+                missing_file.write(plyr_def_rdf)
 
     def missing_player_csv_builder(self):
         return f"{self.name},{self.player_module.TOUR}\n"
+
+    def missing_player_rdf_builder(self):
+        """
+        clo-te-ind-plr:Todoni
+        a                             clo-te:Player ;
+        foaf:name                     "Anca Todoni" ;
+        clo-te-plr:hasKlassName       "Todoni" ;
+        clo-te-plr:hasTourDesignation "WTA" .
+        """
+        return f'''
+        clo-te-ind-plr:{self.name}
+        a                             clo-te:Player ;
+        foaf:name                     "{self.name}" ;
+        clo-te-plr:hasKlassName       "{self.name}" ;
+        clo-te-plr:hasTourDesignation "{self.player_module.TOUR}" .\n\n
+        '''
+
 
     def missing_player_klass_builder(self):
         return f"{self.name} = Player('{self.name}', tour_symbol=TOUR, klass_name='{self.name}', alt_names=[])\n"

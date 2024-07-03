@@ -73,7 +73,7 @@ class Db:
 
     def get_graph_attr(self, name):
         atr = getattr(self, self.graph_attr_name(name), None)
-        if not atr:
+        if atr is None:
             breakpoint()
         return atr
 

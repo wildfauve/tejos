@@ -1,3 +1,4 @@
+from dataclasses import dataclass
 from typing import Tuple, List
 from functools import reduce, partial
 import re
@@ -11,10 +12,10 @@ from tejos.players import atp_players, wta_players
 from tejos.util import fn
 
 draw_map = {
-    'WM2023WomensSingles': {'name': "womens_singles",
+    'WM2024WomensSingles': {'name': "womens_singles",
                             'player_module': wta_players,
                             'draw_symbol': 'WomensSingles'},
-    'WM2023MensSingles': {'name': "mens_singles",
+    'WM2024MensSingles': {'name': "mens_singles",
                           'player_module': atp_players,
                           'draw_symbol': 'MensSingles'}}
 
@@ -26,17 +27,86 @@ round_code_map = {'1': 1,
                   'S': 6,
                   'F': 7}
 
-draws = [("https://2023.wimbledon.com/en_GB/scores/feeds/2023/draws/LS.json", 'WM2023WomensSingles'),
-         ('https://2023.wimbledon.com/en_GB/scores/feeds/2023/draws/MS.json', 'WM2023MensSingles')]
+draws = [("https://www.wimbledon.com/en_GB/scores/feeds/2024/draws/LS.json", 'WM2024WomensSingles'),
+         ('https://www.wimbledon.com/en_GB/scores/feeds/2024/draws/MS.json', 'WM2024MensSingles')]
 
 match_ids = {'mens_singles': [], 'womens_singles': []}
 
 COMPLETED = "Completed"
 RETIRED = "Retired"
 
+@dataclass
+class Round:
+    uuid: str
+    name: str
+    rd_number: int
 
-def build_draw(event, for_rd, scores_only):
-    return _assign_match_numbers(_brackets(_get_json(draws, for_rd), event, for_rd, scores_only))
+    round_code_map = {'1st Round': 1,
+                      '2nd Round': 2,
+                      '3rd Round': 3,
+                      '4th Round': 4,
+                      'Quarterfinals': 5,
+                      'Semifinals': 6,
+                      'Final': 7}
+
+    @classmethod
+    def build(cls, rd):
+        return cls(uuid=rd.get('uuid'),
+                   name=rd.get('name'),
+                   rd_number=cls.round_code_map.get(rd.get('name')))
+
+    @classmethod
+    def find_rd(cls, uuid, rounds):
+        return fn.find(lambda rd: rd.uuid == uuid, rounds)
+
+
+ROUNDS: list[Round] = []
+
+
+@dataclass
+class Player:
+    uuid: str
+    team_id: str
+    team: dict
+    struct: dict
+    seed: int | None
+
+    @classmethod
+    def build(cls, data, teams):
+        uuid = data.get('uuid')
+        team = cls.find_team(uuid, teams)
+        if not team:
+            breakpoint()
+        return cls(uuid=uuid,
+                   team_id=team.get('uuid'),
+                   team=team,
+                   struct=data,
+                   seed=team.get('seed'))
+
+    @classmethod
+    def find_team(cls, uuid, teams):
+        return fn.find(partial(cls.team_player_predicate, uuid), teams)
+
+    @classmethod
+    def team_player_predicate(cls, uuid, team):
+        return uuid in team.get('players')
+
+    @property
+    def full_name(self):
+        return self.struct.get('full_name', None)
+
+    def seed_or_entry_status(self):
+        if self.seed:
+            return self.seed
+        es = self.team.get('entry_status')
+        return es if not isinstance(es, dict) else es.get('abbr')
+
+PLAYERS = {}
+
+
+
+def build_draw(event, for_rd, scores_only, full_draw=False):
+    return _assign_match_numbers(_brackets(_get_json(draws, for_rd), event, for_rd, scores_only, full_draw))
 
 
 def _get_json(urls, for_rd) -> List[Tuple]:
@@ -52,8 +122,8 @@ def _get_doc(url_or_file, for_rd):
     return json.loads(f.read())
 
 
-def _brackets(pages, event, for_rd, scores_only):
-    return reduce(partial(_singles_brackets, event, for_rd, scores_only), pages, {})
+def _brackets(pages, event, for_rd, scores_only, full_draw):
+    return reduce(partial(_singles_brackets, event, for_rd, scores_only, full_draw), pages, {})
 
 
 def _assign_match_numbers(draws):
@@ -64,14 +134,15 @@ def _assign_match_numbers(draws):
     return draws
 
 
-def _singles_brackets(event, for_rd, scores_only, acc, draw_tuple):
+def _singles_brackets(event, for_rd, scores_only, full_draw, acc, draw_tuple):
     draw, draw_name = draw_tuple
+    # matches = draw.get('matches')
     matches = fn.remove_none(
-        [_match(draw_map[draw_name], event, for_rd, scores_only, match) for match in draw.get('matches')])
+        [_match(draw_map[draw_name], event, for_rd, scores_only, full_draw, match) for match in draw.get('matches')])
     return {**acc, **{draw_name: matches}}
 
 
-def _match(draw_mapping, event, for_rd, scores_only, match):
+def _match(draw_mapping, event, for_rd, scores_only, full_draw, match):
     match_id = match.get('match_id')
     match_status = match.get('status')
     rd = round_code_map.get(match.get('roundCode'))
@@ -100,9 +171,11 @@ def _match(draw_mapping, event, for_rd, scores_only, match):
                                                   winner=match.get('winner'),
                                                   status=match_status),
                                   match_id_fn=_match_id_fn)
-
     if scores_only and match_bloc.has_result() and _match_in_finished_state(match_status):
         return match_bloc
+    if full_draw:
+        return match_bloc
+
     return None
 
 

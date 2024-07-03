@@ -23,7 +23,7 @@
 # """
 # TournamentLoaderConfig = {
 #     'AustralianOpen2023': (2023, "australian_open"),
-#     'RolandGarros2023': (2023, "roland_garros"),
+#     'RolandGarros2023': (2023, "wimbledon"),
 #     'Wimbledon2023': (2023, "wimbledon")
 # }
 #

@@ -65,7 +65,7 @@ def add_entries(tournament, year, draw, in_file):
 def get_entries(tournament, year, file):
     """
     Parses the draws, extracting the 1st round matchups, and generates a CSV containing the player entries.
-    Does not applyn the entries to the event.  Use add-entries to do this.
+    Does not apply the entries to the event.  Use add-entries to do this.
     """
     tournie = helpers.to_tournament(tournament)
     presenter.generate_entries_file(command.get_entries(tournament=tournie,
