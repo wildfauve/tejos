@@ -12,10 +12,10 @@ from tejos.players import atp_players, wta_players
 from tejos.util import fn
 
 draw_map = {
-    'WM2024WomensSingles': {'name': "womens_singles",
+    'Wimbledon2024WomensSingles': {'name': "womens_singles",
                             'player_module': wta_players,
                             'draw_symbol': 'WomensSingles'},
-    'WM2024MensSingles': {'name': "mens_singles",
+    'Wimbledon2024MensSingles': {'name': "mens_singles",
                           'player_module': atp_players,
                           'draw_symbol': 'MensSingles'}}
 
@@ -27,8 +27,8 @@ round_code_map = {'1': 1,
                   'S': 6,
                   'F': 7}
 
-draws = [("https://www.wimbledon.com/en_GB/scores/feeds/2024/draws/LS.json", 'WM2024WomensSingles'),
-         ('https://www.wimbledon.com/en_GB/scores/feeds/2024/draws/MS.json', 'WM2024MensSingles')]
+draws = [("https://www.wimbledon.com/en_GB/scores/feeds/2024/draws/LS.json", 'Wimbledon2024WomensSingles'),
+         ('https://www.wimbledon.com/en_GB/scores/feeds/2024/draws/MS.json', 'Wimbledon2024MensSingles')]
 
 match_ids = {'mens_singles': [], 'womens_singles': []}
 

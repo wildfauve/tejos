@@ -82,7 +82,8 @@ class TournamentEvent:
         FIXME for the right tournament
         :return:
         """
-        return adapter.wm_build_draw(event=self, for_rd=1, scores_only=False, full_draw=True)
+        result = adapter.wm_build_draw(event=self, for_rd=1, scores_only=False, full_draw=True)
+        return result
 
     def make_draw(self, name: str, best_of: int, draw_size=int, points_strategy_components: tuple = None):
         draw = self.find_draw_by_symbol(name)
