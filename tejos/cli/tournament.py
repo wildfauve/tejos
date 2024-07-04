@@ -90,12 +90,12 @@ def first_round_draw(tournament, year, draw):
 @click.command()
 @click.option("--tournament", "-t", type=click.Choice(helpers.tournament_names()))
 @click.option("--year", "-y", type=int)
-@click.option("--round", "-r", type=int, default=1, help="The round number to scrap.  Defaults to 1.")
+@click.option("--rd", "-r", type=int, default=1, help="The round number to scrap.  Defaults to 1.")
 @click.option('--scores-only/--full-draw', "-o/-f", default=False)
-def results(tournament, year, round, scores_only):
+def results(tournament, year, rd, scores_only):
     """
     """
-    command.results(helpers.to_tournament(tournament), year, round, scores_only)
+    command.results(helpers.to_tournament(tournament), year, rd, scores_only)
     pass
 
 
