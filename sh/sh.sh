@@ -11,5 +11,10 @@ poetry run tourn add-entries --tournament Wimbledon --year 2023 --draw MensSingl
 poetry run tourn first-round-draw --tournament Wimbledon --year 2024 --draw WomensSingles
 poetry run tourn first-round-draw --tournament Wimbledon --year 2024 --draw MensSingles
 
+poetry run fantasy fantasy-score-template-inserter --tournament Wimbledon --year 2024 --round 1
+
 poetry run tourn results --tournament Wimbledon --year 2024 --rd 1 --scores-only
+
+
+poetry run fantasy leaderboard --tournament Wimbledon --year 2024 --rd 1
 
