@@ -143,6 +143,7 @@ def mens_singles_round_2(mens_singles):
 # mens_singles_round_2:END
 
 
+
 # womens_singles_round_1:START
 def womens_singles_round_1(womens_singles):
     TEAM.draw(womens_singles, '1.1').matchup(1, women.Swiatek, 2, women.Kenin).select(1,2)  # (  1) Iga Swiatek  OR  (   ) Sofia Kenin

@@ -13,6 +13,8 @@ poetry run tourn first-round-draw --tournament Wimbledon --year 2024 --draw Mens
 
 poetry run fantasy fantasy-score-template-inserter --tournament Wimbledon --year 2024 --round 1
 
+poetry run fantasy invoke-selections --tournament Wimbledon --year 2024
+
 poetry run tourn results --tournament Wimbledon --year 2024 --rd 1 --scores-only
 
 
