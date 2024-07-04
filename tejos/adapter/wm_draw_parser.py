@@ -151,7 +151,6 @@ def _match(draw_mapping, event, for_rd, scores_only, full_draw, match):
     if match_id in match_ids[draw_mapping['name']]:
         return None
     match_ids[draw_mapping['name']].append(match_id)
-
     match_bloc = model.MatchBlock(href=match_id,
                                   json=match,
                                   round=rd,

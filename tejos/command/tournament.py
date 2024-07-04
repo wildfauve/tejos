@@ -99,7 +99,7 @@ def results(tournament, year, round_number, scores_only):
     event = tournament.for_year(year, load=True)
 
     rd_results = model.results(event=event,
-                               draw_parser=adapter.ao_draw_parser,
+                               draw_parser=adapter.wm_draw_parser,
                                for_round=round_number,
                                scores_only=scores_only)
     return monad.Right(event)

@@ -17,13 +17,13 @@ def cli():
 @click.command()
 @click.option("--tournament", "-t", type=click.Choice(helpers.tournament_names()), )
 @click.option("--year", "-y", type=int)
-@click.option("--round", "-r", type=int, default=None, help="Leaderboard for specific round")
+@click.option("--rd", "-r", type=int, default=None, help="Leaderboard for specific round")
 @click.option("--to-discord/--to-shell", "-d/-s", required=True, default=False, help="To discord or to the shell")
-def leaderboard(tournament, year, round, to_discord):
+def leaderboard(tournament, year, rd, to_discord):
     """
     Starts the tournament,  applies the results, applies the fantasy selection and prints the leaderboard
     """
-    presenter.event_team_scores_table(command.leaderboard_df(helpers.to_tournament(tournament), year, round),
+    presenter.event_team_scores_table(command.leaderboard_df(helpers.to_tournament(tournament), year, rd),
                                       to_discord)
     pass
 
