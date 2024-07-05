@@ -1,7 +1,7 @@
 from typing import Tuple
 import csv
 
-from tejos import model, adapter
+from tejos import model, adapter, config
 from tejos.util import monad
 from tejos.players import atp_players, wta_players
 
@@ -43,7 +43,10 @@ def new_draw(tournament, year, draw_name, best_of, draw_size, fantasy_pt_strat: 
 
 def get_entries(tournament, year, entries_file):
     event = tournament.for_year(year, load=True)
-    result = event.get_full_draw()
+    parser = _get_adapter(tournament)
+    if not parser:
+        return monad.Left("No Parser Adapter found")
+    result = event.get_full_draw(parser)
     return monad.Right(result)
 
 
@@ -98,8 +101,12 @@ def first_round_draw(tournament, year, draw_name):
 def results(tournament, year, round_number, scores_only):
     event = tournament.for_year(year, load=True)
 
+    parser = _get_adapter(tournament)
+    if not parser:
+        return monad.Left("No Parser Adapter found")
+
     rd_results = model.results(event=event,
-                               draw_parser=adapter.wm_draw_parser,
+                               draw_parser=parser,
                                for_round=round_number,
                                scores_only=scores_only)
     return monad.Right(event)
@@ -109,3 +116,7 @@ def _get_player(draw_name, player_klass_name):
     if draw_name == "MensSingles":
         return getattr(atp_players, player_klass_name, None)
     return getattr(wta_players, player_klass_name, None)
+
+
+def _get_adapter(tournament):
+    breakpoint()

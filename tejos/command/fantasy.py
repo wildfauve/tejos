@@ -5,7 +5,7 @@ import csv
 import polars as pl
 
 from tejos.model import draw
-from tejos import model
+from tejos import model, config
 from . import leaderboard, commanda, helpers
 from tejos.fantasy import teams, selections
 from tejos.majors import tournaments
@@ -187,7 +187,7 @@ def _apply_fantasy(event):
 
 
 def _fantasy_module(event):
-    return fantasy.fantasy_tournaments.get(event.name, None)
+    return config.fantasy_tournaments.get(event.name, None)
 
 
 def _fantasy_file_location(event):

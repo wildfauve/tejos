@@ -77,12 +77,12 @@ class TournamentEvent:
         return model.GrandSlam.get_by_sub(sub)
 
 
-    def get_full_draw(self):
+    def get_full_draw(self, parser):
         """
         FIXME for the right tournament
         :return:
         """
-        result = adapter.wm_build_draw(event=self, for_rd=1, scores_only=False, full_draw=True)
+        result = parser(event=self, for_rd=1, scores_only=False, full_draw=True)
         return result
 
     def make_draw(self, name: str, best_of: int, draw_size=int, points_strategy_components: tuple = None):
