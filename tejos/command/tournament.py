@@ -119,4 +119,4 @@ def _get_player(draw_name, player_klass_name):
 
 
 def _get_adapter(tournament):
-    breakpoint()
+    return config.tournament_adapters.get(tournament.name, None)

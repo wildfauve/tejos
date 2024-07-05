@@ -83,6 +83,7 @@ class Match():
         self.entry_retirement = None
         self.entry_withdrawal = None
         self.entry_walkover = None
+        self.allow_equal_games_in_set = False
 
     def __repr__(self):
         cls_name = self.__class__.__name__
@@ -236,7 +237,7 @@ class Match():
         self.repo().add_players_to_match(self, (player1, player2))
         return self
 
-    def score(self, for_player, set_games: Tuple[int]):
+    def score(self, for_player, set_games: Tuple[int], possible_state_fn: Callable = None):
         if not self.player1 or not self.player2:
             breakpoint()
         if for_player == self.player1.player():
@@ -246,6 +247,10 @@ class Match():
         else:
             breakpoint()
         _pos, pl = pos_player
+
+        if possible_state_fn == self.retirement:
+            self.allow_equal_games_in_set = True
+
         self.update_sets(pl, set_games)
 
         self.repo().add_score(self, pos_player,
@@ -265,8 +270,10 @@ class Match():
         if isinstance(set_games, int):
             breakpoint()
         self.scores[for_player] = set_games
-        [self.sets[set_number].result_for_player(for_player, set_games[set_number]) for set_number in
-         range(len(set_games))]
+        for set_number in range(len(set_games)):
+            self.sets[set_number].result_for_player(for_player, set_games[set_number], self.allow_equal_games_in_set)
+        # if "Fil" in for_player.player().name:
+        #     breakpoint()
         return self
 
     def set_game_subjects(self, for_set, score):
@@ -307,7 +314,7 @@ class Match():
             return False
         if self.entry_retirement or self.entry_withdrawal or self.entry_walkover:
             return True
-        set_winners = fn.remove_none([s.determine_winner() for s in self.sets])
+        set_winners = fn.remove_none([s.determine_winner(self.allow_equal_games_in_set) for s in self.sets])
         if not set_winners:
             return False
         return (max([set_winners.count(self.player1), set_winners.count(self.player2)])) >= math.ceil(self.best_of / 2)
@@ -320,6 +327,7 @@ class Match():
             return None
         if self.match_winner:
             return self.match_winner
+
         self.match_winner = self._determine_winner()
 
         console.print(console.panel().fit(f"""Match {self.match_id} Winner {self.match_winner.player().name}

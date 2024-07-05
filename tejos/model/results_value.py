@@ -121,9 +121,11 @@ class MatchBlock:
         # .retirement(atp_players.OneOfThePlayers)),
 
         match = self.event.find_draw_by_symbol(self.draw_symbol).for_round(self.round).for_match(self.match_number)
+        # if "Hur" in self.player1.name:
+        #     breakpoint()
         if not self.no_score_walkover():
-            match.score(self.player1.player_klass, tuple(self.player1.scores))
-            match.score(self.player2.player_klass, tuple(self.player2.scores))
+            match.score(self.player1.player_klass, tuple(self.player1.scores), self.state_fn(match, self.player1))
+            match.score(self.player2.player_klass, tuple(self.player2.scores), self.state_fn(match, self.player1))
         if self.player1.match_state:
             self.add_state_to_match(match, self.player1)
         if self.player2.match_state:
@@ -132,6 +134,18 @@ class MatchBlock:
 
     def no_score_walkover(self):
         return self.player1.match_state == model.MatchState.WALKOVER or self.player2.match_state == model.MatchState.WALKOVER
+
+    def state_fn(self, match, player):
+        match player.match_state:
+            case model.MatchState.RET:
+                return match.retirement
+            case model.MatchState.WITHDRAWN:
+                return match.withdrawal
+            case model.MatchState.WALKOVER:
+                return match.walkover
+            case _:
+                return None
+
 
     def add_state_to_match(self, match, player):
         if player.match_state == model.MatchState.RET:
