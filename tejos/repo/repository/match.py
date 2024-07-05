@@ -87,6 +87,9 @@ class MatchRepo(graphrepo.GraphRepo):
         match_rd_sub = rdf.triple_finder(rdf.isMatchInRound, match_triples)
         pos1 = rdf.triple_finder(rdf.hasMatchUpPosition1, match_triples)
         pos2 = rdf.triple_finder(rdf.hasMatchUpPosition2, match_triples)
+        retired_player = rdf.triple_finder(rdf.retiredFromMatch, match_triples)
+        withdrawn_player = rdf.triple_finder(rdf.withdrawnFromMatch, match_triples)
+        walkover_player = rdf.triple_finder(rdf.walkoverFromMatch, match_triples)
         winner = rdf.triple_finder(rdf.hasMatchWinner, match_triples)
         scores1 = rdf.triple_finder(rdf.hasSetsScores1, match_triples, filter_fn=fn.select, builder=rdf.all_objects)
         scores2 = rdf.triple_finder(rdf.hasSetsScores2, match_triples, filter_fn=fn.select, builder=rdf.all_objects)
@@ -99,7 +102,10 @@ class MatchRepo(graphrepo.GraphRepo):
             pos2,
             winner,
             scores1,
-            scores2
+            scores2,
+            retired_player,
+            withdrawn_player,
+            walkover_player
         )
 
     def scores_from_matches(self, triple):

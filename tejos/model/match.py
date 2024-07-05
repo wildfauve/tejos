@@ -37,7 +37,18 @@ class Match():
 
     @classmethod
     def to_match(cls, for_round, match, update_match=True):
-        sub, _match_sub, _match_id, match_number, pos1_sub, pos2_sub, winner, scores1, scores2 = match
+        (sub,
+         _match_sub,
+         _match_id,
+         match_number,
+         pos1_sub,
+         pos2_sub,
+         winner,
+         scores1,
+         scores2,
+         retired_player_sub,
+         withdrawn_player_sub,
+         walkover_player_sub) = match
         if not update_match:
             mt = cls(round_id=for_round.round_id,
                      match_number=match_number,
@@ -46,11 +57,21 @@ class Match():
                      sub=sub)
         else:
             mt = for_round.for_match(match_number)
+
+        # if match_number == 25 and for_round.round_id == 2:
+        #     breakpoint()
         entries = entry.Entry.get_by_subs([pos1_sub, pos2_sub])
         if entries and len(entries) == 2:
             mt.add_players(*entries)
         if entries and len(entries) == 1:
             mt.add_player(player_to_add=entries[0])
+
+        if retired_player_sub:
+            mt.entry_retirement = entry.Entry.find_or_get(retired_player_sub)
+            mt.allow_equal_games_in_set = True
+        mt.entry_withdrawal = entry.Entry.find_or_get(withdrawn_player_sub) if withdrawn_player_sub else None
+        mt.entry_walkover = entry.Entry.find_or_get(walkover_player_sub) if walkover_player_sub else None
+
         if scores1:
             mt.load_score(position1_subject_sets=scores1)
         if scores2:
@@ -67,7 +88,10 @@ class Match():
                  match_number,
                  draw,
                  for_round,
-                 sub: URIRef = None):
+                 sub: URIRef = None,
+                 entry_retirement=None,
+                 entry_withdrawal=None,
+                 entry_walkover=None):
         self.number = match_number
         self.match_id = f"{round_id}.{match_number}"
         self.draw = draw
@@ -83,7 +107,7 @@ class Match():
         self.entry_retirement = None
         self.entry_withdrawal = None
         self.entry_walkover = None
-        self.allow_equal_games_in_set = False
+        self.allow_equal_games_in_set = False if not self.entry_withdrawal else True
 
     def __repr__(self):
         cls_name = self.__class__.__name__
@@ -248,6 +272,7 @@ class Match():
             breakpoint()
         _pos, pl = pos_player
 
+
         if possible_state_fn == self.retirement:
             self.allow_equal_games_in_set = True
 
@@ -360,11 +385,11 @@ class Match():
         return self.player1
 
     def _determine_winner(self):
-        if self.entry_retirement:
+        if self.entry_retirement and self.player1 and self.player2:
             return self.player2 if self.entry_retirement == self.player1 else self.player1
-        if self.entry_withdrawal:
+        if self.entry_withdrawal and self.player1 and self.player2:
             return self.player2 if self.entry_withdrawal == self.player1 else self.player1
-        if self.entry_walkover:
+        if self.entry_walkover and self.player1 and self.player2:
             return self.player2 if self.entry_walkover == self.player1 else self.player1
 
         winners_by_sets = fn.remove_none([s.winner for s in self.sets])
