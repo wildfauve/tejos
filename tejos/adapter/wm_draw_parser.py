@@ -34,6 +34,7 @@ match_ids = {'mens_singles': [], 'womens_singles': []}
 
 COMPLETED = "Completed"
 RETIRED = "Retired"
+WALKOVER = "Walkover"
 
 @dataclass
 class Round:
@@ -179,7 +180,7 @@ def _match(draw_mapping, event, for_rd, scores_only, full_draw, match):
 
 
 def _match_in_finished_state(match_status):
-    return match_status in [COMPLETED, RETIRED]
+    return match_status in [COMPLETED, RETIRED, WALKOVER]
 
 
 def _player(draw_mapping, player_content, team, scores, winner, status):
@@ -202,9 +203,11 @@ def _scores(content, team_number):
 def _determine_match_state_exceptions(team, winner, status):
     if status == COMPLETED or not winner:
         return None
-    if status == RETIRED and team != int(winner):
-        return model.MatchState.RET
-    if status == RETIRED and team == int(winner):
+    if (status == RETIRED or status == WALKOVER) and not winner:
+        return model.MatchState(status.lower())
+    if status == COMPLETED or not winner:
+        return None
+    if (status == RETIRED or status == WALKOVER) and winner:
         return None
     breakpoint()
     return None
