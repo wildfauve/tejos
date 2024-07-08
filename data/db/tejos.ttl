@@ -2269,11 +2269,14 @@ clo-te-ind-tou:Wimbledon
     a                     clo-te:Match ;
     clo-te:hasMatchId     "3.14" ;
     clo-te:hasMatchNumber 14 ;
+    clo-te:hasMatchWinner <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2024/MensSingles/Alex_de_Minaur> ;
     clo-te:hasMatchUpPosition1
                           <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2024/MensSingles/Pouille> ;
     clo-te:hasMatchUpPosition2
                           <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2024/MensSingles/Alex_de_Minaur> ;
-    clo-te:isMatchInRound <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2024/MensSingles/Round/3> .
+    clo-te:isMatchInRound <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2024/MensSingles/Round/3> ;
+    clo-te:walkoverFromMatch
+                          <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2024/MensSingles/Pouille> .
 
 <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2024/MensSingles/Round/3/Match/3.15>
     a                          clo-te:Match ;
@@ -2528,6 +2531,7 @@ clo-te-ind-tou:Wimbledon
     clo-te:hasMatchId          "4.7" ;
     clo-te:hasMatchNumber      7 ;
     clo-te:hasMatchUpPosition1 <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2024/MensSingles/Fils> ;
+    clo-te:hasMatchUpPosition2 <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2024/MensSingles/Alex_de_Minaur> ;
     clo-te:isMatchInRound      <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2024/MensSingles/Round/4> .
 
 <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2024/MensSingles/Round/4/Match/4.8>
@@ -4610,20 +4614,21 @@ clo-te-ind-tou:Wimbledon
     clo-te:isMatchInRound <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2024/WomensSingles/Round/3> .
 
 <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2024/WomensSingles/Round/3/Match/3.4>
-    a                       clo-te:Match ;
-    clo-te:hasMatchId       "3.4" ;
-    clo-te:hasMatchNumber   4 ;
+    a                     clo-te:Match ;
+    clo-te:hasMatchId     "3.4" ;
+    clo-te:hasMatchNumber 4 ;
     clo-te:hasMatchUpPosition1
-                            <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2024/WomensSingles/Krejcikova> ;
+                          <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2024/WomensSingles/Krejcikova> ;
     clo-te:hasMatchUpPosition2
-                            <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2024/WomensSingles/Maneiro> ;
-    clo-te:hasMatchWinner   <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2024/WomensSingles/Krejcikova> ;
-    clo-te:hasSetsScores1   <https://clojos.io/ontology/FantasyTennis/Score/1/6>,
-                            <https://clojos.io/ontology/FantasyTennis/Score/2/4> ;
-    clo-te:hasSetsScores2   <https://clojos.io/ontology/FantasyTennis/Score/1/0>,
-                            <https://clojos.io/ontology/FantasyTennis/Score/2/3> ;
-    clo-te:isMatchInRound   <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2024/WomensSingles/Round/3> ;
-    clo-te:retiredFromMatch <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2024/WomensSingles/Maneiro> .
+                          <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2024/WomensSingles/Maneiro> ;
+    clo-te:hasMatchWinner <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2024/WomensSingles/Krejcikova> ;
+    clo-te:hasSetsScores1 <https://clojos.io/ontology/FantasyTennis/Score/1/6>,
+                          <https://clojos.io/ontology/FantasyTennis/Score/2/4> ;
+    clo-te:hasSetsScores2 <https://clojos.io/ontology/FantasyTennis/Score/1/0>,
+                          <https://clojos.io/ontology/FantasyTennis/Score/2/3> ;
+    clo-te:isMatchInRound <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2024/WomensSingles/Round/3> ;
+    clo-te:retiredFromMatch
+                          <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2024/WomensSingles/Maneiro> .
 
 <https://clojos.io/ontology/FantasyTennis/Ind/Tournament/Wimbledon/2024/WomensSingles/Round/3/Match/3.5>
     a                     clo-te:Match ;

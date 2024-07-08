@@ -53,7 +53,7 @@ def team_musical_bears(mens_singles, womens_singles):
 # womens_singles_round_4:START
 def womens_singles_round_4(womens_singles):
     TEAM.draw(womens_singles).match('4.1').winner(women.Ostapenko).in_sets(3)  # (   ) Yulia Putintseva  OR  ( 13) Jelena Ostapenko
-    TEAM.draw(womens_singles, '4.2').matchup(1, women.Collins, 2, women.Krejcikova).select(2,3)  # ( 11) Danielle Collins  OR  ( 31) Barbora Krejcikova
+    TEAM.draw(womens_singles).match('4.2').winner(women.Krejcikova).in_sets(3)  # ( 11) Danielle Collins  OR  ( 31) Barbora Krejcikova
     TEAM.draw(womens_singles).match('4.3').winner(women.Rybakina).in_sets(3)  # (  4) Elena Rybakina  OR  ( 17) Anna Kalinskaya
     TEAM.draw(womens_singles).match('4.4').winner(women.Svitolina).in_sets(3)  # ( 21) Svitolina  OR  (   ) Xinyu Wang
     TEAM.draw(womens_singles).match('4.5').winner(women.Lulu_Sun).in_sets(3)  # (  Q) Lulu Sun  OR  ( WC) Emma Raducanu
@@ -71,7 +71,7 @@ def mens_singles_round_4(mens_singles):
     TEAM.draw(mens_singles).match('4.4').winner(men.Paul).in_sets(4)  # ( 12) Tommy Paul  OR  (   ) Roberto Bautista Agut
     TEAM.draw(mens_singles).match('4.5').winner(men.Musetti).in_sets(4)  # ( 25) Lorenzo Musetti  OR  ( LL) Giovanni Mpetshi Perricard
     TEAM.draw(mens_singles).match('4.6').winner(men.Zverev).in_sets(3)  # ( 13) Taylor Fritz  OR  (  4) Alexander Zverev
-    TEAM.draw(mens_singles, '4.7').matchup(1, men.Fils, 2, None).select()  # (   ) Arthur Fils  OR  TBD
+    TEAM.draw(mens_singles, '4.7').matchup(1, men.Fils, 2, men.Alex_de_Minaur).select(2,4)  # (   ) Arthur Fils  OR  (  9) Alex de Minaur
     TEAM.draw(mens_singles).match('4.8').winner(men.Djokovic).in_sets(4)  # ( 15) Holger Rune  OR  (  2) Novak Djokovic
 # mens_singles_round_4:END
 
@@ -335,6 +335,8 @@ def mens_singles_round_1(mens_singles):
     TEAM.draw(mens_singles, '1.63').matchup(1, men.Fearnley, 2, men.Mono_Canas).select(2,5)  # ( WC) Jacob Fearnley  OR  (  Q) Alejandro Moro Canas
     TEAM.draw(mens_singles, '1.64').matchup(1, men.Vit_Kopriva, 2, men.Djokovic).select(2,3)  # (  Q) Vit Kopriva  OR  (  2) Novak Djokovic
 # mens_singles_round_1:END
+
+
 
 
 

@@ -70,7 +70,7 @@ def mens_singles_round_4(mens_singles):
     TEAM.draw(mens_singles, '4.4').matchup(1, men.Paul, 2, men.Bautista_Agut).select()  # ( 12) Tommy Paul  OR  (   ) Roberto Bautista Agut
     TEAM.draw(mens_singles, '4.5').matchup(1, men.Musetti, 2, men.Perricard).select()  # ( 25) Lorenzo Musetti  OR  ( LL) Giovanni Mpetshi Perricard
     TEAM.draw(mens_singles, '4.6').matchup(1, men.Fritz, 2, men.Zverev).select()  # ( 13) Taylor Fritz  OR  (  4) Alexander Zverev
-    TEAM.draw(mens_singles, '4.7').matchup(1, men.Fils, 2, None).select()  # (   ) Arthur Fils  OR  TBD
+    TEAM.draw(mens_singles, '4.7').matchup(1, men.Fils, 2, men.Alex_de_Minaur).select()  # (   ) Arthur Fils  OR  (  9) Alex de Minaur
     TEAM.draw(mens_singles, '4.8').matchup(1, men.Rune, 2, men.Djokovic).select()  # ( 15) Holger Rune  OR  (  2) Novak Djokovic
 # mens_singles_round_4:END
 
@@ -327,6 +327,8 @@ def mens_singles_round_1(mens_singles):
     TEAM.draw(mens_singles, '1.63').matchup(1, men.Fearnley, 2, men.Mono_Canas).select(2,5)  # ( WC) Jacob Fearnley  OR  (  Q) Alejandro Moro Canas
     TEAM.draw(mens_singles, '1.64').matchup(1, men.Vit_Kopriva, 2, men.Djokovic).select(2,3)  # (  Q) Vit Kopriva  OR  (  2) Novak Djokovic
 # mens_singles_round_1:END
+
+
 
 
 
