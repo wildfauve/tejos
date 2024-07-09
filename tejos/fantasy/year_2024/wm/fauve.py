@@ -39,13 +39,21 @@ def team_fauve(mens_singles, womens_singles):
 # mens_singles_round_6:END
 
 
-#womens_singles_round_5:START
+# womens_singles_round_5:START
+def womens_singles_round_5(womens_singles):
+    TEAM.draw(womens_singles, '5.1').matchup(1, women.Ostapenko, 2, women.Krejcikova).select(1,3)  # ( 13) Jelena Ostapenko  OR  ( 31) Barbora Krejcikova
+    TEAM.draw(womens_singles, '5.2').matchup(1, women.Svitolina, 2, women.Rybakina).select(2,3)  # ( 21) Svitolina  OR  (  4) Elena Rybakina
+    TEAM.draw(womens_singles, '5.3').matchup(1, women.Lulu_Sun, 2, women.Vekic).select(2,3)  # (  Q) Lulu Sun  OR  (   ) Donna Vekic
+    TEAM.draw(womens_singles, '5.4').matchup(1, women.Navarro, 2, women.Paolini).select(2,3)  # ( 19) Emma Navarro  OR  (  7) Jasmine Paolini
+# womens_singles_round_5:END
 
-#womens_singles_round_5:END
-
-#mens_singles_round_5:START
-
-#mens_singles_round_5:END
+# mens_singles_round_5:START
+def mens_singles_round_5(mens_singles):
+    TEAM.draw(mens_singles, '5.1').matchup(1, men.Sinner, 2, men.Medvedev).select(2,5)  # (  1) Jannik Sinner  OR  (  5) Daniil Medvedev
+    TEAM.draw(mens_singles, '5.2').matchup(1, men.Alcaraz, 2, men.Paul).select(1,4)  # (  3) Carlos Alcaraz  OR  ( 12) Tommy Paul
+    TEAM.draw(mens_singles, '5.3').matchup(1, men.Musetti, 2, men.Fritz).select(2,4)  # ( 25) Lorenzo Musetti  OR  ( 13) Taylor Fritz
+    TEAM.draw(mens_singles, '5.4').matchup(1, men.Alex_de_Minaur, 2, men.Djokovic).select(2,5)  # (  9) Alex de Minaur  OR  (  2) Novak Djokovic
+# mens_singles_round_5:END
 
 
 # womens_singles_round_4:START
@@ -328,6 +336,8 @@ def mens_singles_round_1(mens_singles):
     TEAM.draw(mens_singles, '1.63').matchup(1, men.Fearnley, 2, men.Mono_Canas).select(2,4)  # ( WC) Jacob Fearnley  OR  (  Q) Alejandro Moro Canas
     TEAM.draw(mens_singles, '1.64').matchup(1, men.Vit_Kopriva, 2, men.Djokovic).select(2,3)  # (  Q) Vit Kopriva  OR  (  2) Novak Djokovic
 # mens_singles_round_1:END
+
+
 
 
 

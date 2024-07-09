@@ -54,15 +54,15 @@ def womens_singles_round_5(womens_singles):
     TEAM.draw(womens_singles, '5.2').matchup(1, women.Zheng, 2, women.Kalinskaya).select(1,3) # ( 12) Qinwen Zheng OR ( ) Anna Kalinskaya
     TEAM.draw(womens_singles, '5.3').matchup(1, women.Kostyuk, 2, women.Gauff).select(2,3) # ( ) Marta Kostyuk OR ( 4) Coco Gauff
     TEAM.draw(womens_singles, '5.4').matchup(1, women.Krejcikova, 2, women.Sabalenka).select(2,2) # ( 9) Barbora Krejcikova OR ( 2) Aryna Sabalenka
-#womens_singles_round_5:END
+# womens_singles_round_5:END
 
-#mens_singles_round_5:START
+# mens_singles_round_5:START
 def mens_singles_round_5(mens_singles):
     TEAM.draw(mens_singles, '5.1').matchup(1, men.Djokovic, 2, men.Fritz).select(1,4) # ( 1) Novak Djokovic OR ( 12) Taylor Fritz
     TEAM.draw(mens_singles, '5.2').matchup(1, men.Sinner, 2, men.Rublev).select(1,3) # ( 4) Jannik Sinner OR ( 5) Andrey Rublev
     TEAM.draw(mens_singles, '5.3').matchup(1, men.Medvedev, 2, men.Hurkacz).select(1,5) # ( 3) Daniil Medvedev OR ( 9) Hubert Hurkacz
     TEAM.draw(mens_singles, '5.4').matchup(1, men.Zverev, 2, men.Alcaraz).select(2,4) # ( 6) Alexander Zverev OR ( 2) Carlos Alcaraz
-#mens_singles_round_5:END
+# mens_singles_round_5:END
 
 
 # womens_singles_round_4:START

@@ -43,13 +43,13 @@ def team_hero_hangouts(mens_singles, womens_singles):
 # mens_singles_round_6:END
 
 
-#womens_singles_round_5:START
+# womens_singles_round_5:START
 
-#womens_singles_round_5:END
+# womens_singles_round_5:END
 
-#mens_singles_round_5:START
+# mens_singles_round_5:START
 
-#mens_singles_round_5:END
+# mens_singles_round_5:END
 
 
 # womens_singles_round_4:START

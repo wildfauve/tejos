@@ -13,11 +13,11 @@ from tejos.util import fn
 
 draw_map = {
     'Wimbledon2024WomensSingles': {'name': "womens_singles",
-                            'player_module': wta_players,
-                            'draw_symbol': 'WomensSingles'},
+                                   'player_module': wta_players,
+                                   'draw_symbol': 'WomensSingles'},
     'Wimbledon2024MensSingles': {'name': "mens_singles",
-                          'player_module': atp_players,
-                          'draw_symbol': 'MensSingles'}}
+                                 'player_module': atp_players,
+                                 'draw_symbol': 'MensSingles'}}
 
 round_code_map = {'1': 1,
                   '2': 2,
@@ -35,6 +35,7 @@ match_ids = {'mens_singles': [], 'womens_singles': []}
 COMPLETED = "Completed"
 RETIRED = "Retired"
 WALKOVER = "Walkover"
+
 
 @dataclass
 class Round:
@@ -102,8 +103,8 @@ class Player:
         es = self.team.get('entry_status')
         return es if not isinstance(es, dict) else es.get('abbr')
 
-PLAYERS = {}
 
+PLAYERS = {}
 
 
 def build_draw(event, for_rd, scores_only, full_draw=False):
@@ -152,25 +153,29 @@ def _match(draw_mapping, event, for_rd, scores_only, full_draw, match):
     if match_id in match_ids[draw_mapping['name']]:
         return None
     match_ids[draw_mapping['name']].append(match_id)
+    player1 = _player(draw_mapping,
+                      match.get('team1'),
+                      team=1,
+                      scores=match.get('scores'),
+                      winner=match.get('winner'),
+                      status=match_status)
+    player2 = _player(draw_mapping,
+                      match.get('team2'),
+                      team=2,
+                      scores=match.get('scores'),
+                      winner=match.get('winner'),
+                      status=match_status)
     match_bloc = model.MatchBlock(href=match_id,
                                   json=match,
                                   round=rd,
                                   draw_attr_name=draw_mapping['name'],
                                   draw_symbol=draw_mapping['draw_symbol'],
                                   event=event,
-                                  player1=_player(draw_mapping,
-                                                  match.get('team1'),
-                                                  team=1,
-                                                  scores=match.get('scores'),
-                                                  winner=match.get('winner'),
-                                                  status=match_status),
-                                  player2=_player(draw_mapping,
-                                                  match.get('team2'),
-                                                  team=2,
-                                                  scores=match.get('scores'),
-                                                  winner=match.get('winner'),
-                                                  status=match_status),
+                                  player1=player1,
+                                  player2=player2,
                                   match_id_fn=_match_id_fn)
+    # if match_id == "1402":
+    #     breakpoint()
     if scores_only and match_bloc.has_result() and _match_in_finished_state(match_status):
         return match_bloc
     if full_draw:
@@ -186,6 +191,8 @@ def _match_in_finished_state(match_status):
 def _player(draw_mapping, player_content, team, scores, winner, status):
     seed = player_content.get('seed', None) if player_content.get('seed', None) else player_content.get('entryStatus',
                                                                                                         None)
+    # if player_content.get('lastNameA') == "Dimitrov":
+    #     breakpoint()
     return model.PlayerResult(name=f"{player_content.get('firstNameA')} {player_content.get('lastNameA')}",
                               seed=seed,
                               match_state=_determine_match_state_exceptions(team, winner, status),
@@ -201,17 +208,18 @@ def _scores(content, team_number):
 
 
 def _determine_match_state_exceptions(team, winner, status):
-    if status == COMPLETED or not winner:
-        return None
-    if (status == RETIRED or status == WALKOVER) and not winner:
+    if (status == RETIRED or status == WALKOVER) and not _is_winner(team, winner):
         return model.MatchState(status.lower())
-    if status == COMPLETED or not winner:
+    if status == COMPLETED or not _is_winner(team, winner):
         return None
-    if (status == RETIRED or status == WALKOVER) and winner:
+    if (status == RETIRED or status == WALKOVER) and _is_winner(team, winner):
         return None
     breakpoint()
     return None
 
+
+def _is_winner(team_id, winner_id):
+    return str(team_id) == str(winner_id)
 
 def _match_id_fn(match_id):
     return int(match_id[2:4])
